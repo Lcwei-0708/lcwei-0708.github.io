@@ -871,7 +871,7 @@ h6 {
 
 h1{
   font-size: 36px;
-  color: #262626;
+  color: #313131;
   text-transform: uppercase;
   font-weight: bolder;
   text-align: center;
@@ -900,9 +900,9 @@ th{
   text-align: left;
   font-weight: bold;
   font-size: 24px;
-  color: #484848;
+  color: #4b4b4b;
   text-transform: uppercase;
-  border-bottom: solid 3px rgb(52, 52, 52);
+  border-bottom: solid 3px rgb(74, 74, 74);
   word-wrap: break-word;
 }
 td{
@@ -912,9 +912,9 @@ td{
   vertical-align:middle;
   font-weight: 500;
   font-size: 20px;
-  color: #787878;
+  color: #575757;
   height: 70px;
-
+  border-bottom: solid 1px rgba(213, 213, 213, 0.565);
 }
 
 tbody tr:hover{
@@ -923,7 +923,8 @@ tbody tr:hover{
 }
 
 .col_1{
-  width: 10%;
+  width: 15%;
+  padding-left: 3%;
 }
 
 .col_2{
@@ -932,10 +933,12 @@ tbody tr:hover{
 
 .col_3{
   width: 10%;
+  text-align: center;
 }
 
 .col_4{
   width: 10%;
+  text-align: center;
 }
 
 section{
