@@ -27,6 +27,10 @@ a:hover {
   text-decoration: none;
 }
 
+p {
+  font-size: 20px;
+}
+
 h1,
 h2,
 h3,
@@ -429,6 +433,7 @@ section {
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   color: #45505b;
+  font-size: 18px;
 }
 
 .skills .progress .skill .val {
@@ -464,7 +469,7 @@ section {
 
 .resume .resume-item h4 {
   line-height: 18px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
@@ -473,7 +478,7 @@ section {
 }
 
 .resume .resume-item h5 {
-  font-size: 20px;
+  font-size: 24px;
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
@@ -524,7 +529,7 @@ section {
   cursor: pointer;
   display: inline-block;
   padding: 10px 15px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
