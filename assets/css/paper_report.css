@@ -15,6 +15,10 @@ body {
   background: #fcfcfc;
 }
 
+i {
+  cursor: pointer;
+}
+
 *::selection {
   background: #525252;
   color: #fff;
@@ -184,4 +188,3 @@ section{
 ::-webkit-scrollbar {
     width: 0px;
 }
-
