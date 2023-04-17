@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表單傳送範例</title>
+</head>
+<body>
+    <h1>表單傳送範例</h1>
+
+    <form>
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="age">年齡：</label>
+        <input type="text" id="age" name="age"><br><br>
+        
+        
+    </form>
+    <button type="button" onclick="submitForm()">提交</button>
+    
+    <div id="result"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function submitForm() {
+            var name = $('#name').val();
+            var age = $('#age').val();
+            
+            $.ajax({
+                url: './Test.py',
+                type: 'POST',
+                data: {
+                    'name': name,
+                    'age': age
+                },
+                success: function(response) {
+                    $('#result').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+        function test() {
+            console.log("提交成功");
+        }
+    </script>
+</body>
+</html>
