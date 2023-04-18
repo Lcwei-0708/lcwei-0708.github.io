@@ -188,3 +188,24 @@ section{
 ::-webkit-scrollbar {
     width: 0px;
 }
+
+.card {
+  width: 300px;
+  min-width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: none;
+  pointer-events: none;
+  display: none;
+  padding: 20px;
+  border-radius: .8rem;
+  background: #f7f7f793;
+  box-shadow: 3px 3px 10px #bebebe;
+  backdrop-filter: blur(10px);
+}
+
+.card-body {
+  position: relative;
+  z-index: 1; /* 將內容置於card前面 */
+}
