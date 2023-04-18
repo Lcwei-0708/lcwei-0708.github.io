@@ -5,7 +5,7 @@ window.onload = function paper_table() {
       "name": "自監督式學習模型在語音關鍵詞偵測上的應用及其轉移能力分析",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
-      "detail": "<div style='margin-left: 2%;'><p><b>學校名稱：</b>國立臺灣大學</p><p><b>學生姓名：</b>高偉聰</p><p><b>指導教授：</b>李弘毅</p><p><b>論文上傳日期：</b>中華民國111年06月</p></div>",
+      "detail": '<p class="school"><b>學校名稱：</b>國立臺灣大學</p><p class="department"><b>系所名稱：</b>電信工程學系</p><p class="s_name"><b>學生姓名：</b>高偉聰</p><p class="t_name"><b>指導教授：</b>李弘毅</p><text class="update_date"><b>論文上傳日期：</b>中華民國111年06月</text>',
       "PDF_link": "./data/paper/自監督式學習模型在語音關鍵詞偵測上的應用及其轉移能力分析/自監督式學習模型在語音關鍵詞偵測上的應用及其轉移能力分析.pdf",
       "PPT_link": "./data/paper/自監督式學習模型在語音關鍵詞偵測上的應用及其轉移能力分析/自監督式學習模型在語音關鍵詞偵測上的應用及其轉移能力分析.pptx"
     },
@@ -14,7 +14,7 @@ window.onload = function paper_table() {
       "name": "基於BERT的情緒分析應用於短句自動審查",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
-      "detail": "<div style='margin-left: 2%;'><p><b>學校名稱：</b>國立中興大學</p><p><b>學生姓名：</b>何宗諭</p><p><b>指導教授：</b>林維亮</p><p><b>論文上傳日期：</b>中華民國111年08月</p></div>",
+      "detail": '<p class="school"><b>學校名稱：</b>國立中興大學</p><p class="department"><b>系所名稱：</b>電機工程學系</p><p class="s_name"><b>學生姓名：</b>何宗諭</p><p class="t_name"><b>指導教授：</b>林維亮</p><text class="update_date"><b>論文上傳日期：</b>中華民國111年08月</text>',
       "PDF_link": "./data/paper/基於BERT的情緒分析應用於短句自動審查/基於BERT的情緒分析應用於短句自動審查.pdf",
       "PPT_link": "./data/paper/基於BERT的情緒分析應用於短句自動審查/基於BERT的情緒分析應用於短句自動審查.pptx"
     },
@@ -23,7 +23,7 @@ window.onload = function paper_table() {
       "name": "應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
-      "detail": "<div style='margin-left: 2%;'><p><b>學校名稱：</b>國立中興大學</p><p><b>學生姓名：</b>陳欽輝</p><p><b>指導教授：</b>蔡孟勳</p><p><b>論文上傳日期：</b>中華民國110年01月</p></div>",
+      "detail": '<p class="school"><b>學校名稱：</b>國立中興大學</p><p class="department"><b>系所名稱：</b>資訊管理學系</p><p class="s_name"><b>學生姓名：</b>陳欽輝</p><p class="t_name"><b>指導教授：</b>蔡孟勳</p><text class="update_date"><b>論文上傳日期：</b>中華民國110年01月</text>',
       "PDF_link": "./data/paper/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例.pdf",
       "PPT_link": "./data/paper/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例.pptx"
     }
@@ -78,29 +78,40 @@ window.onload = function paper_table() {
     });
   });
 
-  /*const tds = document.querySelectorAll("tr");
+  const tds = document.querySelectorAll("#table-body tr");
+  const card = document.querySelector('.card');
 
   tds.forEach((td) => {
+    // 綁定 mousemove 事件
+    td.addEventListener('mousemove', (e) => {
+      const mouseX = event.pageX;
+      const mouseY = event.pageY;
+
+      // 計算卡片的位置
+      const cardWidth = card.offsetWidth;
+      const cardHeight = card.offsetHeight;
+      const posX = mouseX + 10;
+      const posY = mouseY - cardHeight - 10;
+
+      // 設定卡片的樣式
+      card.style.top = posY + 'px';
+      card.style.left = posX + 'px';
+    });
+
     td.addEventListener('mouseover', (e) => {
-      var row = event.target.closest("tr"); // 取得被滑鼠移入的那一列
+      var row = e.target.closest("tr"); // 取得被滑鼠移入的那一列
+      var targetTd = e.target;
 
       if(row) {
-        var detailRow = row.nextElementSibling;
-
-        // 如果詳細資料列還沒被建立，就建立一個
-        if(detailRow == null || !detailRow.classList.contains("detail-row")) {
-          detailRow = tableBody.insertRow(row.rowIndex + 1);
-          detailRow.classList.add("detail-row");
-
-          var detailCell = detailRow.insertCell(0);
-          detailCell.setAttribute("colspan", "4"); // 設定跨列
+        if (targetTd.classList.contains("col_2")) {
+          card.innerHTML = data[td.rowIndex].detail;
+          // 顯示 card
+          card.style.display = 'block';
         }
-
-        // 將詳細資料寫入欄位
-        var date = row.querySelector(".col_1").textContent;
-        var name = row.querySelector(".col_2").textContent;
-        var detailCell = detailRow.querySelector("td");
-        detailCell.innerHTML = data[row.rowIndex].detail;
+        else  {
+          card.style.display = 'none';
+          return;
+        }       
       }
     });
 
@@ -108,60 +119,8 @@ window.onload = function paper_table() {
       var row = event.target.closest("tr"); // 取得被滑鼠移開的那一列
 
       if(row) {
-        var detailRow = row.nextElementSibling;
-
-        // 如果詳細資料列存在，就刪除它
-        if(detailRow && detailRow.classList.contains("detail-row")) {
-          detailRow.remove();
-        }
-      }
-    });
-  });*/
-
-
-  // 選取所有的 row
-  const rows = document.querySelectorAll("#table-body tr");
-
-  // 監聽每一行的點擊事件
-  rows.forEach(row => {
-    row.addEventListener("click", (e) => {
-      var targetTd = e.target;
-      // 判斷點擊的 td 是否有 class 為 pdf
-      if (targetTd.classList.contains("pdf")) {
-        return;
-      }
-      else if (targetTd.classList.contains("ppt")) {
-        return;
-      }
-      else {
-
-        if(row) {
-          var detailRow = row.nextElementSibling;
-  
-          // 如果詳細資料列還沒被建立，就建立一個
-          if(detailRow == null || !detailRow.classList.contains("detail-row")) {
-
-            // 選取所有的 detail-row
-            const rows = document.querySelectorAll(".detail-row");
-            rows.forEach(row => {          
-              row.remove();
-            });
-
-            detailRow = tableBody.insertRow(row.rowIndex + 1);
-            detailRow.classList.add("detail-row");
-  
-            var detailCell = detailRow.insertCell(0);
-            detailCell.setAttribute("colspan", "4"); // 設定跨列
-  
-            // 將詳細資料寫入欄位
-            var detailCell = detailRow.querySelector("td");
-            detailCell.innerHTML = data[row.rowIndex].detail;
-          }
-          // 如果詳細資料列存在，就刪除它
-          else if(detailRow && detailRow.classList.contains("detail-row")) {
-            detailRow.remove();
-          }
-        }      
+        // 隱藏 card
+        card.style.display = 'none';
       }
     });
   });
