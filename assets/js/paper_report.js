@@ -26,6 +26,15 @@ window.onload = function paper_table() {
       "detail": '<p class="school"><b>學校名稱：</b>國立中興大學</p><p class="department"><b>系所名稱：</b>資訊管理學系</p><p class="s_name"><b>學生姓名：</b>陳欽輝</p><p class="t_name"><b>指導教授：</b>蔡孟勳</p><text class="update_date"><b>論文上傳日期：</b>中華民國110年01月</text>',
       "PDF_link": "./data/paper/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例.pdf",
       "PPT_link": "./data/paper/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例/應用機器學習演算法改善模型優化方法的研究-以UCI慢性腎臟疾病資料集為例.pptx"
+    },
+    {
+      "date": "2023/05/02",
+      "name": "未知",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="school"><b>學校名稱：</b>未知</p><p class="department"><b>系所名稱：</b>未知</p><p class="s_name"><b>學生姓名：</b>未知</p><p class="t_name"><b>指導教授：</b>未知</p><text class="update_date"><b>論文上傳日期：</b>未知</text>',
+      "PDF_link": "./data/paper/未知/未知.pdf",
+      "PPT_link": "./data/paper/未知/未知.pptx"
     }
   ];
 
@@ -79,7 +88,7 @@ window.onload = function paper_table() {
   });
 
   const tds = document.querySelectorAll("#table-body tr");
-  const card = document.querySelector('.card');
+  const card = document.querySelector('.detail');
 
   tds.forEach((td) => {
     // 綁定 mousemove 事件
@@ -125,4 +134,21 @@ window.onload = function paper_table() {
     });
   });
 
+  const tb_header = document.querySelector('.tbl-header');
+  const tb_content = document.querySelector('.tbl-content');
+  
+  if (tb_content.offsetHeight < tb_content.scrollHeight) {
+    console.log('存在scroll bar');
+    // 有垂直scroll bar
+    tb_content.style.marginLeft = '10px';
+    tb_header.style.marginLeft = '10px';
+    tb_header.style.marginRight = '10px';    
+  } 
+  else {
+    console.log('不存在scroll bar');
+    // 沒有垂直scroll bar
+    tb_content.style.marginLeft = '0px';
+    tb_header.style.marginLeft = '0px';
+    tb_header.style.marginRight = '0px';
+  }
 }
