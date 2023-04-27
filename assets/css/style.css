@@ -895,5 +895,4 @@ section {
 .card:hover .character {
   opacity: 1;
   transform: translate3d(0%, -14%, 100px);
-    
 }
