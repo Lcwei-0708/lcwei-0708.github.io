@@ -197,6 +197,46 @@ section {
   }
 }
 
+@media (max-width: 1700px) {
+  section {
+    margin: 5% 10% 0 10%;
+  }
+
+  .table-wrapper {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  #footer {
+    font-size: 14px;
+  }
+
+  th{
+    font-size: 22px;
+  }
+  
+  td{
+    font-size: 20px;
+  }
+
+  .col_1{
+    width: 20%;
+  }
+
+  .col_3{
+    width: 15%;
+    text-align: center;
+  }
+
+  .col_4{
+    width: 15%;
+    text-align: center;
+  }
+}
+
 .detail {
   width: auto;
   min-width: 300px;
