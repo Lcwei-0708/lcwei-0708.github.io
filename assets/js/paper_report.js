@@ -35,6 +35,15 @@ window.onload = function paper_table() {
       "detail": '<p class="school"><b>學校名稱：</b>私立中原大學</p><p class="department"><b>系所名稱：</b>資訊管理學系</p><p class="s_name"><b>學生姓名：</b>黃柔螢</p><p class="t_name"><b>指導教授：</b>洪智力</p><text class="update_date"><b>論文上傳日期：</b>中華民國111年06月</text>',
       "PDF_link": "./data/paper/運用意見探勘技術於類別不平衡資料集/運用意見探勘技術於類別不平衡資料集.pdf",
       "PPT_link": "./data/paper/運用意見探勘技術於類別不平衡資料集/運用意見探勘技術於類別不平衡資料集.pptx"
+    },
+    {
+      "date": "2023/05/22",
+      "name": "深度神經網路於中文斷詞之研究",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="school"><b>學校名稱：</b>國立臺灣科技大學</p><p class="department"><b>系所名稱：</b>資訊工程學系</p><p class="s_name"><b>學生姓名：</b>吳澤鑫</p><p class="t_name"><b>指導教授：</b>陳冠宇</p><text class="update_date"><b>論文上傳日期：</b>中華民國112年01月</text>',
+      "PDF_link": "./data/paper/深度神經網路於中文斷詞之研究/深度神經網路於中文斷詞之研究.pdf",
+      "PPT_link": "./data/paper/深度神經網路於中文斷詞之研究/深度神經網路於中文斷詞之研究.pptx"
     }
   ];
 
