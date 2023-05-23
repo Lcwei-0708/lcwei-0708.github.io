@@ -37,7 +37,7 @@ window.onload = function paper_table() {
       "PPT_link": "./data/paper/運用意見探勘技術於類別不平衡資料集/運用意見探勘技術於類別不平衡資料集.pptx"
     },
     {
-      "date": "2023/05/22",
+      "date": "2023/05/23",
       "name": "深度神經網路於中文斷詞之研究",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
