@@ -44,6 +44,15 @@ window.onload = function paper_table() {
       "detail": '<p class="school"><b>學校名稱：</b>國立臺灣科技大學</p><p class="department"><b>系所名稱：</b>資訊工程學系</p><p class="s_name"><b>學生姓名：</b>吳澤鑫</p><p class="t_name"><b>指導教授：</b>陳冠宇</p><text class="update_date"><b>論文上傳日期：</b>中華民國112年01月</text>',
       "PDF_link": "./data/paper/深度神經網路於中文斷詞之研究/深度神經網路於中文斷詞之研究.pdf",
       "PPT_link": "./data/paper/深度神經網路於中文斷詞之研究/深度神經網路於中文斷詞之研究.pptx"
+    },
+    {
+      "date": "2023/06/06",
+      "name": "混合資料層面與演算法層面技術之集成分類方法",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="school"><b>學校名稱：</b>國立成功大學</p><p class="department"><b>系所名稱：</b>資訊管理學系</p><p class="s_name"><b>學生姓名：</b>蔡函璇</p><p class="t_name"><b>指導教授：</b>翁慈宗</p><text class="update_date"><b>論文上傳日期：</b>中華民國111年05月</text>',
+      "PDF_link": "./data/paper/混合資料層面與演算法層面技術之集成分類方法/混合資料層面與演算法層面技術之集成分類方法.pdf",
+      "PPT_link": "./data/paper/混合資料層面與演算法層面技術之集成分類方法/混合資料層面與演算法層面技術之集成分類方法.pptx"
     }
   ];
 
