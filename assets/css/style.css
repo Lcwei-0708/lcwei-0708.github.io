@@ -516,7 +516,7 @@ section {
 }
 
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .portfolio #portfolio-flters {
@@ -524,9 +524,10 @@ section {
   margin: 0 auto 25px auto;
   list-style: none;
   text-align: center;
-  background: #fcfcfc;
-  border-radius: 50px;
+  background: #ffffff;
+  border-radius: 1em;
   padding: 2px 15px;
+  box-shadow: 1px 3px 5px 1px rgba(134, 134, 134, 0.75);
 }
 
 .portfolio #portfolio-flters li {
@@ -539,7 +540,6 @@ section {
   text-transform: uppercase;
   vertical-align: middle;
   color: rgb(81, 81, 81);
-  margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -548,9 +548,8 @@ section {
 }
 
 .portfolio #portfolio-flters li.filter-active {
-  color: #3c4872;
-  font-size: 22px;
-  margin-bottom: 8px;
+  color: #364372;
+  font-size: 24px;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -562,20 +561,20 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: rgba(69, 80, 91, 0.8);
+  background: rgba(69, 80, 91, 0.8);  
+  border-radius: 0.5em;
+  box-shadow: 3px 5px 10px 0px rgba(110, 110, 110, 0.75);
 }
 
 .portfolio .portfolio-wrap::before {
-  content: "";
-  background: rgba(255, 255, 255, 0.7);
+  content: "";  
+  background: rgba(255, 255, 255, 0.708);
+  backdrop-filter: blur(3px);
   position: absolute;
-  left: 30px;
-  right: 30px;
-  top: 30px;
-  bottom: 30px;
-  transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.0s;
   z-index: 2;
   opacity: 0;
+  border-radius: 0.5em;
 }
 
 .portfolio .portfolio-wrap .portfolio-info {
@@ -587,7 +586,7 @@ section {
   bottom: 0;
   text-align: center;
   z-index: 3;
-  transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.0s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -602,10 +601,10 @@ section {
   position: absolute;
   top: 35px;
   left: 35px;
-  border-top: 3px solid #d7dce1;
-  border-left: 3px solid #d7dce1;
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
+  border-top: 3px solid #7c8c9c;
+  border-left: 3px solid #7c8c9c;
+  transition: all 0.8s ease 0s;
+  z-index: 10000;
 }
 
 .portfolio .portfolio-wrap .portfolio-info::after {
@@ -616,41 +615,25 @@ section {
   position: absolute;
   bottom: 35px;
   right: 35px;
-  border-bottom: 3px solid #d7dce1;
-  border-right: 3px solid #d7dce1;
-  transition: all 0.5s ease 0s;
-  z-index: 9994;
+  border-bottom: 3px solid #7c8c9c;
+  border-right: 3px solid #7c8c9c;
+  transition: all 0.8s ease 0s;
+  z-index: 10000;
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
-  color: #45505b;
-  font-weight: 600;
+  font-size: 22px;
+  color: #4e5e6d;
+  font-weight: 1000;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #45505b;
+  color: #4e5e6d;
   font-size: 14px;
   text-transform: uppercase;
+  font-weight: 600;
   padding: 0;
-  margin: 0;
-}
-
-.portfolio .portfolio-wrap .portfolio-links {
-  text-align: center;
-  z-index: 4;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a {
-  color: #45505b;
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #aeaeae;
+  margin: 10px 0 0 0;
 }
 
 .portfolio .portfolio-wrap:hover::before {
