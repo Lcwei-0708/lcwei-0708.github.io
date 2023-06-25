@@ -134,9 +134,10 @@ h6 {
 @media (max-width: 991px) {
   #header {
     width: 300px;
-    background: #fff;
-    border-right: 1px solid #e6e9ec;
+    background: #fcfcfc;
+    border-right: 1px solid #d5dade;
     left: -300px;
+    box-shadow: 0px 5px 5px 0px rgba(125, 125, 125, 0.75);
   }
 }
 
@@ -168,10 +169,10 @@ h6 {
   display: flex;
   align-items: center;
   color: #45505b;
-  padding: 10px 18px;
-  margin-bottom: 8px;
+  padding: 10px 30px;
+  margin: 0px 0px 8px 0px;
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 50px;
   background: #fcfcfc;
   height: 60px;
@@ -187,7 +188,7 @@ h6 {
 
 .nav-menu a span,
 .nav-menu a:focus span {
-  padding: 0 5px 0 10px;
+  padding: 0px 20px 0px 20px;
   color: #45505b;
 }
 
@@ -195,8 +196,9 @@ h6 {
 
   .nav-menu a,
   .nav-menu a:focus {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
+    padding: 0px 20px 0px 20px;
   }
 
   .nav-menu a span,
