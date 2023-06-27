@@ -344,6 +344,10 @@ h6 {
     font-size: 20px;
     line-height: 24px;
   }
+  
+  #portfolio {
+    height: auto;
+  }
 }
 
 section {
@@ -515,6 +519,10 @@ section {
   top: 0;
   background: #fff;
   border: 2px solid #505050;
+}
+
+.portfolio {
+  height: 850px;
 }
 
 .portfolio .portfolio-item {
