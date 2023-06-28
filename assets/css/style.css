@@ -530,36 +530,37 @@ section {
 }
 
 .portfolio #portfolio-flters {
-  padding: 0;
+  padding: 2px 15px;
   margin: 0 auto 25px auto;
   list-style: none;
   text-align: center;
-  background: #ffffff;
-  border-radius: 1em;
-  padding: 2px 15px;
-  box-shadow: 1px 3px 5px 1px rgba(134, 134, 134, 0.75);
+  background: #fcfcfc;
+  
 }
 
 .portfolio #portfolio-flters li {
   cursor: pointer;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 13px 20px;
+  margin: 0px 10px 25px 5px;
   font-size: 20px;
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
   vertical-align: middle;
   color: rgb(81, 81, 81);
-  transition: all 0.3s ease-in-out;
+  border-radius: 0.8em; 
 }
 
 .portfolio #portfolio-flters li:hover{
-  color: #8b8b8b;
+  color: #b7b7b7;
 }
 
 .portfolio #portfolio-flters li.filter-active {
-  color: #364372;
-  font-size: 24px;
+  color: #fcfcfc;
+  background-color: rgba(69, 80, 91, 0.846);
+  border-radius: 1em;
+  box-shadow: 2px 2px 5px 1px rgba(134, 134, 134, 0.75);
 }
 
 .portfolio #portfolio-flters li:last-child {
