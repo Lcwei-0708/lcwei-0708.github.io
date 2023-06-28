@@ -62,7 +62,7 @@ permalink: /404.html -->
   <body style="background-color: rgba(255, 255, 255, 0);">
 
     <main id="main" style="background-color: #fcfcfc; margin: auto; margin-left: 10%; margin-right: 10%;">
-      <div id="message">no data</div>
+      <div id="message"></div>
     </main>
     <!-- End #main -->
 
@@ -94,11 +94,22 @@ permalink: /404.html -->
 
       // 獲取資料庫中 "messages" 路徑下的資料
 
-      const messages = ref(database, "messages/name");
+      const messages = ref(database, "messages");
       onValue(messages, (snapshot) => {
         const data = snapshot.val();
-        // 在網頁上顯示資料
-        document.getElementById("message").textContent = data;
+
+        // 迭代所有的節點
+        for (let key in data) {
+          // 獲取節點中的資料
+          const name = data[key].name;
+          const content = data[key].content;
+
+          // 在網頁上顯示資料
+          document.getElementById("message").textContent += "Name：" + name + ", Content：" + content + "\n";
+
+          console.log(`Name: ${name}`);
+          console.log(`Content: ${content}`);
+        }
       });
 
       
