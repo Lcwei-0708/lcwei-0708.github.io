@@ -55,7 +55,7 @@ window.onload = function paper_table() {
       "PPT_link": "./data/paper/混合資料層面與演算法層面技術之集成分類方法/混合資料層面與演算法層面技術之集成分類方法.pptx"
     },
     {
-      "date": "2023/06/20",
+      "date": "2023/07/04",
       "name": "基於數據增強的情感辨識技術",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
