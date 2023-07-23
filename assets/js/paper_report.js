@@ -62,6 +62,15 @@ window.onload = function paper_table() {
       "detail": '<p class="school"><b>學校名稱：</b>國立高雄科技大學</p><p class="department"><b>系所名稱：</b>資訊管理學系</p><p class="s_name"><b>學生姓名：</b>黃智暘</p><p class="t_name"><b>指導教授：</b>黃文楨</p><text class="update_date"><b>論文上傳日期：</b>中華民國111年06月</text>',
       "PDF_link": "./data/paper/基於數據增強的情感辨識技術/基於數據增強的情感辨識技術.pdf",
       "PPT_link": "./data/paper/基於數據增強的情感辨識技術/基於數據增強的情感辨識技術.pptx"
+    },
+    {
+      "date": "2023/07/25",
+      "name": "An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>Biru Xu、Wenjia Wang、Rui Yang、Qi Han</p><p class="s_name"><text class="update_date"><b>論文上傳日期：</b>20 August 2021</text>',
+      "PDF_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pdf",
+      "PPT_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pptx"
     }
   ];
 
