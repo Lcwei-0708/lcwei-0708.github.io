@@ -68,7 +68,7 @@ window.onload = function paper_table() {
       "name": "An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
-      "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>Biru Xu、Wenjia Wang、Rui Yang、Qi Han</p><p class="s_name"><text class="update_date"><b>論文上傳日期：</b>20 August 2021</text>',
+      "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>Biru Xu、Wenjia Wang、Rui Yang、Qi Han</p><text class="update_date"><b>論文上傳日期：</b>20 August 2021</text>',
       "PDF_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pdf",
       "PPT_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pptx"
     }
