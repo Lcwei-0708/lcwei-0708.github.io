@@ -71,6 +71,15 @@ window.onload = function paper_table() {
       "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>Biru Xu、Wenjia Wang、Rui Yang、Qi Han</p><text class="update_date"><b>論文上傳日期：</b>20 August 2021</text>',
       "PDF_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pdf",
       "PPT_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pptx"
+    },
+    {
+      "date": "2023/08/08",
+      "name": "Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>Mengfei Wu、Ximing Li</p><text class="update_date"><b>論文上傳日期：</b>18 April 2022</text>',
+      "PDF_link": "./data/paper/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning.pdf",
+      "PPT_link": "./data/paper/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning.pptx"
     }
   ];
 
