@@ -73,7 +73,7 @@ window.onload = function paper_table() {
       "PPT_link": "./data/paper/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach/An Improved Unbalanced Data Classification Method Based on Hybrid Sampling Approach.pptx"
     },
     {
-      "date": "2023/08/08",
+      "date": "2023/08/15",
       "name": "Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
