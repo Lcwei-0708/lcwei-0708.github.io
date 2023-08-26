@@ -15,8 +15,8 @@
   overflow: hidden;
   border-radius: 10px;
   margin: 0 10px 40px 10px;
-  background: #fff;
-  box-shadow: var(--shadow-color);
+  background: var(--bg-color);
+  box-shadow: var(--shadow2-color);
   transition: all 0.3s ease-in-out;
 }
 
@@ -44,11 +44,11 @@
 }
 
 .notes .title a {
-  color: #111;
+  color: var(--font-color);
 }
 
 .notes .icon-box:hover .title a {
-  color: #49b5e7;
+  color: var(--sp-color);
 }
 
 .notes .description {

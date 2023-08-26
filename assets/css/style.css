@@ -35,8 +35,9 @@
   --hover-font-color: #6c6c6c;    /* Hover文字顏色-1 */
   --bar-color: #f8f8f8a6;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
-  --shadow2-color: 2px 2px 10px rgba(39, 39, 39, 0.379);    /* 陰影顏色-2 */
-  --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */
+  --shadow2-color: 2px 2px 8px rgba(35, 35, 35, 0.638);    /* 陰影顏色-2 */
+  --hero-bg: url(assets/img/hero_light.png);    /* 首頁圖片 */
+  --portfolio-1: url(assets/img/portfolio/抓取Google評論_light.png);    /* 作品圖片-1 */
 }
 
 body {
@@ -55,8 +56,9 @@ body {
   --hover-font-color: #6c6c6c;    /* Hover文字顏色-1 */
   --bar-color: #f8f8f8a6;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
-  --shadow2-color: 2px 2px 10px rgba(39, 39, 39, 0.379);    /* 陰影顏色-2 */
-  --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
+  --shadow2-color: 2px 2px 8px rgba(35, 35, 35, 0.638);    /* 陰影顏色-2 */
+  --hero-bg: url(assets/img/hero_light.png);    /* 首頁圖片 */
+  --portfolio-1: url(assets/img/portfolio/抓取Google評論_light.png);    /* 作品圖片-1 */
 }
 
 .dark-mode {
@@ -70,8 +72,9 @@ body {
   --hover-font-color: #afafaf;    /* Hover文字顏色-1 */
   --bar-color: #2a2a2aa6;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(145, 145, 145, 0.305);    /* 陰影顏色-1 */
-  --shadow2-color: 2px 3px 5px rgba(167, 167, 167, 0.379);    /* 陰影顏色-2 */
-  --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */
+  --shadow2-color: 2px 2px 8px rgba(92, 92, 92, 0.809);    /* 陰影顏色-2 */
+  --hero-bg: url(assets/img/hero_dark.png);    /* 首頁圖片 */
+  --portfolio-1: url(assets/img/portfolio/抓取Google評論_dark.png);    /* 作品圖片-1 */
 }
 
 /* 白天模式的樣式 */
@@ -87,8 +90,9 @@ body {
     --hover-font-color: #6c6c6c;    /* Hover文字顏色-1 */
     --bar-color: #f8f8f8a6;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
-    --shadow2-color: 2px 2px 10px rgba(39, 39, 39, 0.379);    /* 陰影顏色-2 */
-    --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
+    --shadow2-color: 2px 2px 8px rgba(35, 35, 35, 0.638);    /* 陰影顏色-2 */
+    --hero-bg: url(assets/img/hero_light.png);    /* 首頁圖片 */
+    --portfolio-1: url(assets/img/portfolio/抓取Google評論_light.png);    /* 作品圖片-1 */
   }
 }
 
@@ -105,8 +109,9 @@ body {
     --hover-font-color: #afafaf;    /* Hover文字顏色-1 */
     --bar-color: #2a2a2aa6;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(145, 145, 145, 0.305);    /* 陰影顏色-1 */
-    --shadow2-color: 2px 2px 10px rgba(186, 186, 186, 0.379);    /* 陰影顏色-2 */
-    --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */
+    --shadow2-color: 2px 2px 8px rgba(92, 92, 92, 0.809);    /* 陰影顏色-2 */
+    --hero-bg: url(assets/img/hero_dark.png);    /* 首頁圖片 */
+    --portfolio-1: url(assets/img/portfolio/抓取Google評論_dark.png);    /* 作品圖片-1 */
   }
 }
 
