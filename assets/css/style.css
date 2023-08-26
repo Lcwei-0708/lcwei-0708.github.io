@@ -185,7 +185,7 @@ h2{
 }
 
 #header .logo{
-  font-size: 30px;
+  font-size: 26px;
   margin: 0;
   padding: 0;
   line-height: 0.5;
@@ -364,6 +364,10 @@ h2{
 
   #header {
     backdrop-filter: none;
+  }
+
+  #header .logo{
+    font-size: 22px;
   }
 
   .navbar .dropdown button {
