@@ -80,6 +80,15 @@ window.onload = function paper_table() {
       "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>Mengfei Wu、Ximing Li</p><text class="update_date"><b>論文上傳日期：</b>18 April 2022</text>',
       "PDF_link": "./data/paper/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning.pdf",
       "PPT_link": "./data/paper/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning.pptx"
+    },
+    {
+      "date": "2023/08/29",
+      "name": "A Combination Method of Resampling and Random Forest for Imbalanced Data Classification",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>LIU Zheng、QIU Han、ZHU Junhu</p><text class="update_date"><b>論文上傳日期：</b>15 August 2022</text>',
+      "PDF_link": "./data/paper/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification.pdf",
+      "PPT_link": "./data/paper/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification.pptx"
     }
   ];
 
