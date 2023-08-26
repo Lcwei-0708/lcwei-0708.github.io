@@ -13,10 +13,6 @@ body {
   #hero {
     padding-left: 160px;
   }
-
-  body {  
-    background-image: none;
-  }
 }
 
 @media (max-width: 992px) {
@@ -37,6 +33,10 @@ body {
   
   #portfolio {
     height: auto;
+  }  
+
+  body {  
+    background-image: none;
   }
 }
 #hero {

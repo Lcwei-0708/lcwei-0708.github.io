@@ -36,8 +36,7 @@
   --bar-color: #f8f8f8a6;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
   --shadow2-color: 2px 2px 8px rgba(35, 35, 35, 0.638);    /* 陰影顏色-2 */
-  --hero-bg: url(assets/img/hero_light.png);    /* 首頁圖片 */
-  --portfolio-1: url(assets/img/portfolio/抓取Google評論_light.png);    /* 作品圖片-1 */
+  --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
 }
 
 body {
@@ -57,8 +56,7 @@ body {
   --bar-color: #f8f8f8a6;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
   --shadow2-color: 2px 2px 8px rgba(35, 35, 35, 0.638);    /* 陰影顏色-2 */
-  --hero-bg: url(assets/img/hero_light.png);    /* 首頁圖片 */
-  --portfolio-1: url(assets/img/portfolio/抓取Google評論_light.png);    /* 作品圖片-1 */
+  --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
 }
 
 .dark-mode {
@@ -73,8 +71,7 @@ body {
   --bar-color: #2a2a2aa6;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(145, 145, 145, 0.305);    /* 陰影顏色-1 */
   --shadow2-color: 2px 2px 8px rgba(92, 92, 92, 0.809);    /* 陰影顏色-2 */
-  --hero-bg: url(assets/img/hero_dark.png);    /* 首頁圖片 */
-  --portfolio-1: url(assets/img/portfolio/抓取Google評論_dark.png);    /* 作品圖片-1 */
+  --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */
 }
 
 /* 白天模式的樣式 */
@@ -91,8 +88,7 @@ body {
     --bar-color: #f8f8f8a6;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
     --shadow2-color: 2px 2px 8px rgba(35, 35, 35, 0.638);    /* 陰影顏色-2 */
-    --hero-bg: url(assets/img/hero_light.png);    /* 首頁圖片 */
-    --portfolio-1: url(assets/img/portfolio/抓取Google評論_light.png);    /* 作品圖片-1 */
+    --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
   }
 }
 
@@ -110,8 +106,7 @@ body {
     --bar-color: #2a2a2aa6;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(145, 145, 145, 0.305);    /* 陰影顏色-1 */
     --shadow2-color: 2px 2px 8px rgba(92, 92, 92, 0.809);    /* 陰影顏色-2 */
-    --hero-bg: url(assets/img/hero_dark.png);    /* 首頁圖片 */
-    --portfolio-1: url(assets/img/portfolio/抓取Google評論_dark.png);    /* 作品圖片-1 */
+    --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */
   }
 }
 
@@ -367,7 +362,7 @@ h2{
   }
 
   #header .logo{
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .navbar .dropdown button {
