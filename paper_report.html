@@ -24,17 +24,52 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Template Main CSS File -->  
+  <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/paper_report.css" rel="stylesheet">
+
 </head>
 
-<body style="background-color: rgba(255, 255, 255, 0);">
+<body class="light-mode">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
 
+      <h1 class="logo"><a href="index.html">Cheng-Wei's Blog</a></h1>
+      <!-- Uncomment below if you prefer to use text as a logo -->
+      <!-- <h1 class="logo"><a href="index.html">Butterfly</a></h1> -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="./index.html"><i class="bi bi-house"></i> Home</a></li>
+          <li><a class="nav-link scrollto" href="./about.html"><i class="bi bi-person"></i> About</a></li>
+          <li><a class="nav-link scrollto" href="./portfolio.html"><i class="bi bi-collection"></i> Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="./notes.html"><i class="bi bi-journal-text"></i> Notes</a></li>
+          <li><a class="nav-link scrollto" href="./paper_report.html"><i class="bi bi-file-earmark-text"></i> Paper</a></li>
+          <li class="dropdown">
+            <button>
+              <span><i class="bi bi-sun mode-icon"></i></span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <ul>
+              <li><button class="mode-switch" data-mode="light"><i class="bi bi-sun mode-icon"></i>Light</button></li>
+              <li><button class="mode-switch" data-mode="dark"><i class="bi bi-moon mode-icon"></i>Dark</button></li>
+              <li><button class="mode-switch" data-mode="auto"><i class="bi bi-circle-half"></i>Auto</button></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-sun mode-icon mobile-mode" data-mode="light"></i>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+  
   <main id="main">
     <section>
       <!--for demo wrap-->      
       <div class="table-wrapper">
-        <h1><b>論文報告</b></h1>
+        <h2> </h2>
+        <h2><b>論文報告</b></h2>
         <div class="tbl-header">
           <table cellpadding="0" cellspacing="0" class="responsive-table">
             <thead>
@@ -74,11 +109,12 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/paper_report.js"></script>
+  <script src="assets/js/mode-switcher.js"></script>
 
 </body>
 
 <!-- ======= Footer ======= -->
-<footer id="footer">
+<footer class="footer">
   <div class="container">
     <div class="copyright">
       &copy; Copyright <strong><span>Cheng-Wei Lin</span></strong>

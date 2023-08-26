@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.notes {
+  font-family: "PingFang TC", Consolas;
+}
+
+.notes .section-title {
+  margin-bottom: 5%;
+}
+
+.notes .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0 10px 40px 10px;
+  background: #fff;
+  box-shadow: var(--shadow-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.notes .icon-box:hover {
+  transform: translateY(-5px);
+}
+
+.notes .icon {
+  position: absolute;
+  left: -20px;
+  top: calc(50% - 30px);
+}
+
+.notes .icon i {
+  font-size: 64px;
+  line-height: 1;
+  transition: 0.5s;
+}
+
+.notes .title {
+  margin-left: 40px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.notes .title a {
+  color: #111;
+}
+
+.notes .icon-box:hover .title a {
+  color: #49b5e7;
+}
+
+.notes .description {
+  font-size: 14px;
+  margin-left: 40px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
