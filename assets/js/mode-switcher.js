@@ -151,4 +151,6 @@ modeIcon.addEventListener('click', () => {
     dropdown.querySelector('i.bi').classList.add('bi-sun');
     currentMode = 'light';
   }
+  // 儲存選擇的模式到 LocalStorage
+  localStorage.setItem('selectedMode', currentMode);
 });

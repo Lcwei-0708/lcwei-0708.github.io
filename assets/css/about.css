@@ -19,6 +19,12 @@
   margin: 7% 0;
 }
 
+@media (max-width: 991px) {
+  .col-lg-4 {
+    margin-top: 15%;
+  }
+}
+
 .about .content ul {
   list-style: none;
   padding: 0;
