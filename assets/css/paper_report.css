@@ -1,5 +1,6 @@
 #paper {
   background-color: var(--bg-color);
+  font-family: "PingFang TC", Consoles;
 }
 
 body {  
@@ -152,9 +153,9 @@ section {
     width: 100%;
   }
 
-  h1 {
+  h2 {
     margin-top: 15%;
-    font-size: 26px;
+    font-size: 20px;
   }
 
   #footer {
@@ -238,8 +239,9 @@ section {
   border-radius: .8rem;
   background: var(--bar-color);
   box-shadow: var(--shadow2-color);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
   color: var(--font2-color);
+  font-family: "PingFang TC", Consoles;
 }
 
 .card-body {

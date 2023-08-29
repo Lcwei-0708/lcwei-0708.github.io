@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Selenium</title>
+	<meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../assets/img/favicon.png" rel="icon">
+  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <link href="../../assets/css/post.css" rel="stylesheet">
+  <link href="../../assets/vendor/highlight/styles/github.min.css" rel="stylesheet" />
+  <link href="../../assets/vendor/highlight/styles/" rel="stylesheet" />
+  <script src="../../assets/vendor/highlight/highlight.min.js"></script>
+  <script>
+	hljs.initHighlightingOnLoad();
+  </script>
+</head>
+
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center justify-content-between">
+
+			<h1 class="logo"><a href="index.html">Cheng-Wei's Blog</a></h1>
+			<!-- Uncomment below if you prefer to use text as a logo -->
+			<!-- <h1 class="logo"><a href="index.html">Butterfly</a></h1> -->
+
+			<nav id="navbar" class="navbar">
+			<ul>
+				<li><a class="nav-link scrollto" href="../../index.html"><i class="bi bi-house"></i> Home</a></li>
+				<li><a class="nav-link scrollto" href="../../about.html"><i class="bi bi-person"></i> About</a></li>
+				<li><a class="nav-link scrollto" href="../../portfolio.html"><i class="bi bi-collection"></i> Portfolio</a></li>
+				<li><a class="nav-link scrollto" href="../../notes.html"><i class="bi bi-journal-text"></i> Notes</a></li>
+				<li><a class="nav-link scrollto" href="../../paper_report.html"><i class="bi bi-file-earmark-text"></i> Paper</a></li>
+				<li class="dropdown">
+				<button>
+					<span><i class="bi bi-sun mode-icon"></i></span>
+					<i class="bi bi-chevron-down"></i>
+				</button>
+				<ul>
+					<li><button class="mode-switch" data-mode="light"><i class="bi bi-sun mode-icon"></i>Light</button></li>
+					<li><button class="mode-switch" data-mode="dark"><i class="bi bi-moon mode-icon"></i>Dark</button></li>
+					<li><button class="mode-switch" data-mode="auto"><i class="bi bi-circle-half"></i>Auto</button></li>
+				</ul>
+				</li>
+			</ul>
+			<i class="bi bi-sun mode-icon mobile-mode" data-mode="light"></i>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+		</div>
+	</header><!-- End Header -->
+	
+	<article id="4bff1a56-a449-42a6-9dc7-9bde85aa23fc" class="page mono">
+		<div class="page-body">
+			<h2 id="c9d7aa31-ce0d-4a29-bfce-ed8ada916a5a" class="">安裝Selenium</h2>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>PyPI</strong>
+				</summary>
+				<div class="card">
+					<div class="top">
+						<div class="dots">
+							<div class="dot dot-1"></div>
+							<div class="dot dot-2"></div>
+							<div class="dot dot-3"></div>
+						  </div>
+						<button class="btn copy"><i class="bi bi-clipboard"></i></button>
+					</div>
+					<div class="bottom">
+						<pre class="code code-wrap"><code>pip install selenium</code></pre>         
+					</div>
+				</div>
+				
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Anaconda</strong>
+				</summary>
+				<div class="indented">
+					<pre id="180e7446-c1a1-4811-89f7-b3eae0220af9"
+						class="code code-wrap"><code>conda install -c conda-forge selenium</code></pre>
+				</div>
+			</details>
+			<p id="8474748b-83f4-4118-ae19-0401bc43c4d4" class="">
+			</p>
+			<h2 id="58e268f6-738a-4530-bd1b-e4a9439068d8" class="">Web Driver下載</h2>
+			<p id="420d3609-ea9a-4d72-9a64-9c10b1a82ef0" class="">因為Selenium是透過Web Driver進行爬蟲，所以必須先下載好Web
+				Driver，以下為不同瀏覽器所提供的Web Driver：</p>
+			<table id="2fe93bc5-2da0-4523-893f-1b82cfcfc190" class="simple-table">
+				<tbody>
+					<tr id="be0aad5f-3151-4a44-816d-d5646bd47fea">
+						<th id="vK?W" class="simple-table-header-color simple-table-header"><strong>Chrome</strong></th>
+						<td id="tYYW" class="" style="width:576px"><a
+								href="https://sites.google.com/chromium.org/driver/">https://sites.google.com/chromium.org/driver/</a>
+						</td>
+					</tr>
+					<tr id="a362be45-8ef3-4989-8506-e1eab93fa98a">
+						<th id="vK?W" class="simple-table-header-color simple-table-header"><strong>Edge</strong></th>
+						<td id="tYYW" class="" style="width:576px"><a
+								href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a>
+						</td>
+					</tr>
+					<tr id="437f5a87-10eb-44b9-a737-c487b7efd3d9">
+						<th id="vK?W" class="simple-table-header-color simple-table-header"><strong>Firefox</strong>
+						</th>
+						<td id="tYYW" class="" style="width:576px"><a
+								href="https://github.com/mozilla/geckodriver/releases">https://github.com/mozilla/geckodriver/releases</a>
+						</td>
+					</tr>
+					<tr id="a4a6c451-5013-41f3-8e80-c390441c14e5">
+						<th id="vK?W" class="simple-table-header-color simple-table-header"><strong>Safari</strong></th>
+						<td id="tYYW" class="" style="width:576px"><a
+								href="https://webkit.org/blog/6900/webdriver-support-in-safari-10/">https://webkit.org/blog/6900/webdriver-support-in-safari-10/</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p id="899e3135-8d4d-4320-b0a5-ad96534ed527" class="">
+			</p>
+			<h2 id="73a2b77e-f7c4-41bb-b80e-13ed973b498b" class="">設定Web Driver</h2>
+			<pre id="a9f8074e-185a-4d2d-b16d-d7d7536e9e0c"
+				class="code code-wrap"><code class="language-python line-numbers">from selenium import webdriver</code></pre>
+			<p id="d3f5c9a7-68b8-4c85-aed9-b28068ed8cde" class="">
+			</p>
+			<pre id="65ec2949-e9c8-4b12-bfa8-1c51fbdf8217"
+				class="code code-wrap"><code class="language-python line-numbers">options = webdriver.ChromeOptions()</code></pre>
+			<p id="48daeede-4e1e-47e0-b2ba-602449c25077" class="">
+			</p>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Header設定</summary>
+				<div class="indented">
+					<pre id="8ba2e213-f2dd-4141-a4da-ec2d6c95d7c2" class="code code-wrap"><code>headers = {
+    &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&#x27;,
+    &#x27;Accept-Language&#x27;: &#x27;en-US,en;q=0.9&#x27;,
+    &#x27;Referer&#x27;: &#x27;https://example.com&#x27;
+}
+
+option.add_argument(headers)</code></pre>
+					<p id="8e812a86-91da-4c59-8a26-6ef7d878f925" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">隱藏瀏覽器視窗</summary>
+				<div class="indented">
+					<pre id="51d0cbc1-3459-433a-956e-f1ef7c3507fc"
+						class="code code-wrap"><code>options.add_argument(&quot;--headless&quot;)</code></pre>
+					<p id="ed934a9c-4ab3-4435-aa6b-b3064f37573a" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">禁用GPU加速</summary>
+				<div class="indented">
+					<pre id="b7cb1836-5cc4-4f4e-9112-cb3fb5c3bec7"
+						class="code code-wrap"><code>options.add_argument(&quot;--disable-gpu&quot;)</code></pre>
+				</div>
+			</details>
+			<p id="c94cd645-f623-49c9-89fd-beabfb2c7222" class="">
+			</p>
+			<h2 id="aae0b8fd-71b0-4ea0-80d5-13932026d3d0" class="">開啟 Web Driver</h2>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">直接指定路徑開啟</summary>
+				<div class="indented">
+					<pre id="63ef46b0-b00a-491a-b35a-3dcee0a2401e"
+						class="code code-wrap"><code>driver = webdriver.Chrome(&quot;./chromedriver&quot;, options=options)</code></pre>
+					<p id="db1b2ce0-d0d2-40dd-b1d6-e56cec839ca8" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">使用 Driver Manager 自動下載
+				</summary>
+				<div class="indented">
+					<pre id="1e8087c6-c94f-4794-b6ea-8f58eb82cd6a"
+						class="code code-wrap"><code>from webdriver_manager.chrome import ChromeDriverManager</code></pre>
+					<p id="7463311a-eb98-4f40-8a38-64739dfd5557" class="">
+					</p>
+					<pre id="8ed7b55d-8129-4af5-8b1b-0d84d767e5df"
+						class="code code-wrap"><code>driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)</code></pre>
+				</div>
+			</details>
+			<p id="d50d4bd7-bb92-47ca-8206-68e60d186c27" class="">
+			</p>
+			<h2 id="374cf30d-2f82-4eca-9c46-5ebf220d8aa0" class="">Web Driver相關操作</h2>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">訪問網頁</summary>
+				<div class="indented">
+					<pre id="1cc5416a-7bb1-4e37-8564-099932862ce0"
+						class="code code-wrap"><code>driver.get(&quot;https://selenium-python.readthedocs.io&quot;)</code></pre>
+					<p id="75958697-0274-4ef5-9f02-87ead7e88516" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">設定網頁Cookies</summary>
+				<div class="indented">
+					<pre id="45da06b4-ff92-4f18-abcf-bedabf7bc6c1" class="code code-wrap"><code>cookies = {
+		&#x27;A&#x27;: &#x27;aaa&#x27;,
+    &#x27;B&#x27;: &#x27;bbb&#x27;,
+    &#x27;C&#x27;: &#x27;ccc&#x27;
+}
+
+driver.add_cookie(cookies)</code></pre>
+					<p id="8f1ffac7-c288-4dc6-8919-a1224dfb8cde" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">網頁回到上一頁</summary>
+				<div class="indented">
+					<pre id="12ce6807-0ef1-468e-967b-38ab496d37b1"
+						class="code code-wrap"><code>driver.forward()</code></pre>
+					<p id="c6f5c77a-f94b-4db3-ba98-42fef2d8beb3" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">網頁跳到下一頁</summary>
+				<div class="indented">
+					<pre id="18f168dc-a8d9-42c6-b238-c01e23a6f22b"
+						class="code code-wrap"><code>driver.back()</code></pre>
+					<p id="7838eed2-591f-4db6-a15c-610be30b3c97" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取瀏覽器所有的分頁</summary>
+				<div class="indented">
+					<pre id="b03bdf16-4103-4276-b513-e808dafd682a"
+						class="code code-wrap"><code>handles = driver.window_handles</code></pre>
+					<p id="1888dcfe-9a6f-412b-a0ca-01242591119c" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">切換分頁</summary>
+				<div class="indented">
+					<pre id="3dc5c14e-c18e-44fd-b177-b03c466194a9"
+						class="code code-wrap"><code>driver.switch_to.window(handles[0])</code></pre>
+					<p id="4199d63c-a2c1-4f83-9b3c-01a95f439d55" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取當前網頁網址</summary>
+				<div class="indented">
+					<pre id="df493c06-9f6c-4af6-a610-190b195a7f81"
+						class="code code-wrap"><code>current_url = driver.current_url</code></pre>
+					<p id="a88f82f8-4873-4f89-a575-525a653cdc97" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">關閉當前瀏覽器</summary>
+				<div class="indented">
+					<pre id="392a8d70-a554-47b1-80f4-e6039ddcc819"
+						class="code code-wrap"><code>driver.close()</code></pre>
+					<p id="37987d0e-58b2-416b-a637-90837244ca5f" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">關閉所有瀏覽器</summary>
+				<div class="indented">
+					<pre id="5709ccba-bd43-4e13-8186-db3176de2bf1"
+						class="code code-wrap"><code>driver.quit()</code></pre>
+					<p id="cfb0d5c0-17f7-48a7-8c03-0714b90fe3fc" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取當前網頁Title</summary>
+				<div class="indented">
+					<pre id="62a8363e-3222-49bd-be59-389d0ac84094"
+						class="code code-wrap"><code>title = driver.title</code></pre>
+					<p id="f3b6dfeb-7d3f-436d-af1f-f675915a57f3" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取當前網頁Cookies</summary>
+				<div class="indented">
+					<pre id="63ec9546-4c6b-4144-a301-0ce83a7dcf2c"
+						class="code code-wrap"><code>cookies = driver.get_cookies()</code></pre>
+				</div>
+			</details>
+			<p id="ec8ec892-551b-4381-9e01-4bb6a4e676f0" class="">
+			</p>
+			<h2 id="9736176b-dcca-4773-800e-9a4a726cd348" class="">抓取網頁元素</h2>
+			<figure id="27578862-50dc-484c-a00b-01d6c144bd39" class="image"><a
+					href="Selenium%204bff1a56a44942a69dc79bde85aa23fc/Untitled.png"><img style="width:2560px"
+						src="Selenium%204bff1a56a44942a69dc79bde85aa23fc/Untitled.png" /></a>
+				<figcaption><mark
+						class="highlight-red"><strong>步驟：</strong></mark><strong><code><mark class="highlight-red">對要抓取的內容按右鍵</mark></code></strong><strong><mark
+							class="highlight-red"> →
+						</mark></strong><strong><code><mark class="highlight-red">檢視網頁原始碼</mark></code></strong><strong><mark
+							class="highlight-red"> →
+						</mark></strong><strong><code><mark class="highlight-red">找到該段程式碼後按右鍵</mark></code></strong><strong><mark
+							class="highlight-red"> →
+						</mark></strong><strong><code><mark class="highlight-red">Copy</mark></code></strong><strong><mark
+							class="highlight-red"> →
+						</mark></strong><strong><code><mark class="highlight-red">選擇要複製的選項</mark></code></strong>
+				</figcaption>
+			</figure>
+			<p id="4b97e5bb-124c-46f4-8f7e-e3818f6a5322" class="">
+			</p>
+			<pre id="4bf7ef0d-db69-4cd3-8519-aa7d8b68b7bf"
+				class="code code-wrap"><code>from selenium.webdriver.common.by import By</code></pre>
+			<p id="aed8166b-1180-4aad-8dcc-bd039c0d6402" class="">
+			</p>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">find_element</summary>
+				<div class="indented">
+					<p id="aad47365-8f92-4459-a7e5-d0db5e91b416" class="">抓取單一元素，如果遇到多個相同元素則只會抓到最後一筆。</p>
+					<pre id="7c4726d0-5a58-4488-9f56-bf747307d435"
+						class="code code-wrap"><code>element = driver.find_element(By.XPATH, &#x27;//*[@id=&quot;selenium-with-python&quot;]/div[1]&#x27;)</code></pre>
+					<p id="90050945-2f5d-47a0-b9aa-82204458fe02" class="">
+					</p>
+					<pre id="75cfde0a-f5c9-49de-8933-6d28aa9cce3a"
+						class="code code-wrap"><code>element = driver.find_element(By.CSS_SELECTOR, &#x27;#selenium-with-python &gt; div.admonition.note&#x27;)</code></pre>
+					<p id="d58e00bf-e817-488a-ac12-de0317b855dc" class="">
+					</p>
+					<pre id="07d7a3f9-a5fe-494d-add8-6836599210f9"
+						class="code code-wrap"><code>element = driver.find_element(By.CLASS_NAME, &#x27;admonition&#x27;)</code></pre>
+					<p id="ea66a882-1a2b-4fcf-8fbe-860f9ab9ab63" class="">
+					</p>
+					<pre id="845052af-d5ea-4873-9bb4-868593afa92d"
+						class="code code-wrap"><code>content = driver.find_element(By.ID, &#x27;indices-and-tables&#x27;)</code></pre>
+					<p id="f1b60415-1753-4e0e-a471-22dddf73e32d" class="">
+					</p>
+					<pre id="a4e080a4-ad59-4f59-88cf-6ef0786cd3b0"
+						class="code code-wrap"><code>element = driver.find_element(By.NAME, &#x27;check_keywords&#x27;)</code></pre>
+					<p id="e5220156-7972-45b7-b6b3-c3b5e2ea7be9" class="">
+					</p>
+					<pre id="a676c670-eaaf-4b80-a834-457186d86656"
+						class="code code-wrap"><code>element = driver.find_element(By.TAG_NAME, &#x27;h2&#x27;)</code></pre>
+					<p id="6b816b98-8eb3-498b-be86-12702415a0dd" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">find_elements</summary>
+				<div class="indented">
+					<p id="56c07144-d411-45e5-87ef-2ae8e314f0bc" class="">
+						抓取多個元素，當有多個相同的元素時可以一次抓取，不管抓到一個或是多個，抓取到的資料型態都是list。</p>
+					<pre id="b4968db3-cdfe-4ed2-9ef6-88bc8bac4163"
+						class="code code-wrap"><code>elements = driver.find_elements(By.XPATH, &#x27;//*[@id=&quot;selenium-with-python&quot;]/div[1]&#x27;)</code></pre>
+					<p id="38405ca5-2f6f-458e-98a0-e0c48a8b1774" class="">
+					</p>
+					<pre id="287bbd3e-6797-418a-9d8c-92f7f164bb3c"
+						class="code code-wrap"><code>elements = driver.find_elements(By.CSS_SELECTOR, &#x27;#selenium-with-python &gt; div.admonition.note&#x27;)</code></pre>
+					<p id="bf806384-4941-4d9f-b681-2aba0949adb8" class="">
+					</p>
+					<pre id="d6513cfe-4af3-459c-90b2-a6079f6a7eb6"
+						class="code code-wrap"><code>elements = driver.find_elements(By.CLASS_NAME, &#x27;admonition&#x27;)</code></pre>
+					<p id="0b28381c-3092-4e30-abac-106c874539db" class="">
+					</p>
+					<pre id="efaa8c35-917c-4e12-a0ff-34641889783b"
+						class="code code-wrap"><code>elements = driver.find_elements(By.ID, &#x27;indices-and-tables&#x27;)</code></pre>
+					<p id="2b32aa7c-9a9a-4456-a4b1-253b6837b689" class="">
+					</p>
+					<pre id="ded03de7-ca48-41ff-b1b7-ae9b9e5ad0e1"
+						class="code code-wrap"><code>elements = driver.find_elements(By.NAME, &#x27;check_keywords&#x27;)</code></pre>
+					<p id="71a1de0f-e1a9-4673-a915-ee281a39ce9a" class="">
+					</p>
+					<pre id="0b904d42-f984-4f25-a925-08da5af24c65"
+						class="code code-wrap"><code>elements = driver.find_elements(By.TAG_NAME, &#x27;h2&#x27;)</code></pre>
+				</div>
+			</details>
+			<p id="604ef166-f5ff-44a1-bf65-e89a270e1d0f" class="">
+			</p>
+			<h2 id="f9e5b3fe-c652-4520-8061-a922905c382b" class=""><strong>Expected Conditions（EC）</strong></h2>
+			<p id="4bc1fda7-9996-4842-80f0-d5dfc07224e8" class="">
+				因為有些網頁是透過Ajax方式回傳資料，所以第一時間是抓取不到元素的，必須等待Ajax資料讀取完畢才能抓取元素，所以可以透過此方法來等待元素完全載入。</p>
+			<pre id="97f7d9e4-ec93-49ab-9687-7ae6261fe681"
+				class="code code-wrap"><code>from selenium.webdriver.support import expected_conditions as EC</code></pre>
+			<p id="32e4a3b4-4547-4e5f-b3f2-b097a8cbf039" class="">
+			</p>
+			<p id="db42ce30-4b17-425a-98c7-2ba472065476" class=""><strong>常用的等待條件：</strong></p>
+			<ul id="6f629512-7d73-4acc-905d-7f4d223b3173" class="bulleted-list">
+				<li style="list-style-type:disc"><code>title_is()</code>：等待網頁標題完全符合指定的<mark
+						class="highlight-teal"><code>title</code></mark>。</li>
+			</ul>
+			<ul id="2caacaec-87a5-4f08-8247-7b1376e795db" class="bulleted-list">
+				<li style="list-style-type:disc"><code>title_contains()</code>：等待網頁標題包含指定的<mark
+						class="highlight-teal"><code>substring</code></mark>。</li>
+			</ul>
+			<ul id="7a711e49-0e49-42e2-b4e7-6f3102c2d680" class="bulleted-list">
+				<li style="list-style-type:disc"><code>presence_of_element_located()</code>：等待元素定位器出現在網頁中。</li>
+			</ul>
+			<ul id="7ba1dbf4-0e62-413d-8431-432e8d8e1cb1" class="bulleted-list">
+				<li style="list-style-type:disc"><code>visibility_of_element_located()</code>：等待元素定位器在網頁中可見。</li>
+			</ul>
+			<ul id="696c79f5-59b7-4dc9-ba30-720d170e2ee7" class="bulleted-list">
+				<li style="list-style-type:disc"><code>visibility_of()</code>：等待元素在網頁中可見。</li>
+			</ul>
+			<ul id="0bad2a29-6206-4ff8-a6fe-1bb0e6aa1f61" class="bulleted-list">
+				<li style="list-style-type:disc"><code>presence_of_all_elements_located()</code>：等待所有符合定位器的元素出現在網頁中。
+				</li>
+			</ul>
+			<ul id="cb953293-56c8-47b3-ac0a-07b5f0ec4d92" class="bulleted-list">
+				<li style="list-style-type:disc"><code>text_to_be_present_in_element()</code>：等待指定元素中出現指定的文本。</li>
+			</ul>
+			<ul id="0b787c14-ccac-41f7-b7bc-1ecb89ab4945" class="bulleted-list">
+				<li style="list-style-type:disc"><code>text_to_be_present_in_element_value()</code>：等待指定元素的<mark
+						class="highlight-teal"><code>value</code></mark>屬性中出現指定的文本。</li>
+			</ul>
+			<ul id="106aabe4-d410-48af-b8e2-6993abf29da7" class="bulleted-list">
+				<li style="list-style-type:disc"><code>frame_to_be_available_and_switch_to_it()</code>：等待<mark
+						class="highlight-teal"><code>iframe</code></mark>元素可用並切換到該<mark
+						class="highlight-teal"><code>iframe</code></mark>。</li>
+			</ul>
+			<ul id="35e2cadb-2ac5-47da-8d99-3a50db8c0b90" class="bulleted-list">
+				<li style="list-style-type:disc"><code>invisibility_of_element_located()</code>：等待元素定位器在網頁中不可見。</li>
+			</ul>
+			<ul id="c935d623-581d-42e9-bf87-22c1798fdca4" class="bulleted-list">
+				<li style="list-style-type:disc"><code>element_to_be_clickable()</code>：等待元素可被點擊。</li>
+			</ul>
+			<ul id="618aac81-b92e-4ecf-b345-403b5f9ca0be" class="bulleted-list">
+				<li style="list-style-type:disc"><code>staleness_of()</code>：等待元素變得過時（不再出現在DOM中）。</li>
+			</ul>
+			<ul id="88e647b5-f5ab-4784-80ab-83cea997d883" class="bulleted-list">
+				<li style="list-style-type:disc"><code>element_to_be_selected()</code>：等待元素被選擇。</li>
+			</ul>
+			<ul id="7515bd29-51d4-400b-9b47-72ee20523072" class="bulleted-list">
+				<li style="list-style-type:disc"><code>element_located_to_be_selected()</code>：等待元素定位器被選擇。</li>
+			</ul>
+			<ul id="dbfb581b-55a2-421c-b6c7-eab03de8e8b4" class="bulleted-list">
+				<li style="list-style-type:disc"><code>element_selection_state_to_be()</code>：等待元素的選擇狀態符合指定的狀態。</li>
+			</ul>
+			<ul id="aebdce28-03b1-4cd8-bb79-dbcfb775ae5f" class="bulleted-list">
+				<li style="list-style-type:disc">
+					<code>element_located_selection_state_to_be()</code>：等待元素定位器的選擇狀態符合指定的狀態。</li>
+			</ul>
+			<ul id="3c6ed114-013e-4f11-8be6-8127808d3c57" class="bulleted-list">
+				<li style="list-style-type:disc"><code>alert_is_present()</code>：等待彈出窗口出現。</li>
+			</ul>
+			<p id="5520dd19-9e5b-416c-a7bb-36964d770b58" class="">
+			</p>
+			<h2 id="2ac914b0-0ab5-4b06-94c0-0a07b00401fd" class=""><strong>Explicit Waits與Implicit Waits</strong></h2>
+			<p id="cf006d08-6060-4749-975f-4a0ff9b80dcd" class="">不管是使用Explicit Waits還是Implicit
+				Waits，如果超過了指定的時間仍未找到元素，系統則會拋出<a
+					href="Selenium%204bff1a56a44942a69dc79bde85aa23fc.html">TimeoutException</a>異常。</p>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Explicit
+						Waits</strong></summary>
+				<div class="indented">
+					<p id="868fff89-664a-47d0-a00b-ade5cf91cdf3" class="">Explicit
+						Waits可以針對特定的元素或條件進行等待，可以更精確地控制等待的時間和條件，搭配<a
+							href="Selenium%204bff1a56a44942a69dc79bde85aa23fc.html">Expected
+							Conditions</a>來指定等待條件，當條件滿足時才繼續執行後續的操作。</p>
+					<pre id="c6eca0bc-1bfc-4d3e-8363-1dbe90c29c3d"
+						class="code code-wrap"><code>from selenium.webdriver.support.ui import WebDriverWait </code></pre>
+					<p id="a62d8ab3-7605-4f5e-9e0e-614601675ff8" class="">
+					</p>
+					<pre id="c99b1e73-5ee2-4d05-9635-e4014fc254d5" class="code code-wrap"><code>wait = WebDriverWait(driver, 10)
+element = wait.until(EC.presence_of_element_located((By.TAG_NAME, &quot;h1&quot;)))</code></pre>
+					<p id="97c216ba-4532-460f-a2c7-a601b7df13f4" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Im<strong>plicit
+						Waits</strong></summary>
+				<div class="indented">
+					<p id="87d7c429-a7e5-44f4-8b0b-349e709979fb" class="">Implicit
+						Waits是一種全局性的等待方式，對之後的所有元素定位操作都生效，一樣給予一定的等待時間，如果在指定的時間內找到了元素，則立即執行相應的操作</p>
+					<pre id="9ff9af8a-abae-4851-99f3-42ac04960ab2" class="code code-wrap"><code>driver.implicitly_wait(10)
+element = driver.find_element(By.TAG_NAME, &quot;h1&quot;)</code></pre>
+				</div>
+			</details>
+			<p id="c4c0ec86-91f1-4cf8-8825-164f1e2b1948" class="">
+			</p>
+			<h2 id="8e231d09-1f86-4590-be9e-c2c80a5d0db1" class="">Element的相關操作</h2>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取元素的文字</summary>
+				<div class="indented">
+					<pre id="af87c1d5-ed82-4bb4-b97e-ec260c980ad9"
+						class="code code-wrap"><code>element.text</code></pre>
+					<p id="7cf15d16-570b-4606-91bf-ea63efed41b6" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取元素屬性</summary>
+				<div class="indented">
+					<pre id="434fb1e7-6e8b-45d1-9f58-98649c474250"
+						class="code code-wrap"><code>element.get_attribute(&quot;attribute_name&quot;)</code></pre>
+					<p id="7e29a36c-1612-43af-87a1-68724a4a55bf" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取元素位置</summary>
+				<div class="indented">
+					<pre id="0affa01a-61e4-4b93-ab23-125763636a60"
+						class="code code-wrap"><code>element.location</code></pre>
+					<p id="ce324db6-ccc7-4c58-902c-1deac1eae338" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">獲取元素的大小</summary>
+				<div class="indented">
+					<pre id="e8632be4-f417-43a0-888e-5fc6a9a1737b"
+						class="code code-wrap"><code>element.size</code></pre>
+					<p id="94c005fe-9f4e-47da-9998-edc26ddf6ef5" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">點擊元素</summary>
+				<div class="indented">
+					<pre id="bffa4ca5-1e76-4f41-a2e6-aa204e979c6b"
+						class="code code-wrap"><code>element.click()</code></pre>
+					<p id="3a56deeb-8685-4a62-aaff-584601aef89c" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">填寫文字</summary>
+				<div class="indented">
+					<pre id="5b42c888-90c7-4e3d-90c0-3b46bd467c3d"
+						class="code code-wrap"><code>element.send_keys(&quot;text&quot;)</code></pre>
+					<p id="4afeb73c-00f0-46f5-afa4-cf112e9f035a" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">清空文字</summary>
+				<div class="indented">
+					<pre id="8734da5a-ed02-4ea3-9000-beb7c9f14cfd"
+						class="code code-wrap"><code>element.clear()</code></pre>
+					<p id="374d9f79-728d-49b5-9913-041184314892" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">提交表單元素</summary>
+				<div class="indented">
+					<pre id="7f2ecef6-9be3-4e2b-8c43-4fbf876960ff"
+						class="code code-wrap"><code>element.submit()</code></pre>
+					<p id="f6bdf2e4-86a7-45e1-beee-a8dcb204ef4c" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">模擬輸入鍵盤按鍵</summary>
+				<div class="indented">
+					<pre id="ffaba9d5-a3e0-4f8b-abf7-4c0decd86415"
+						class="code code-wrap"><code>from selenium.webdriver.common.keys import Keys</code></pre>
+					<p id="918513c2-0ef5-418e-89be-45d5fe4ad115" class="">
+					</p>
+					<pre id="bd2f770b-cb33-48cd-b0a5-cafedf7339d5"
+						class="code code-wrap"><code>element.send_keys(Keys.ENTER)</code></pre>
+					<p id="9af614c3-cbd0-4850-b6f4-05a13297e270" class="">
+					</p>
+					<pre id="899ae78d-4730-42e2-b3e5-849fac9ec009"
+						class="code code-wrap"><code>element.send_keys(Keys.CONTROL + &quot;a&quot;)</code></pre>
+					<p id="6636a1ad-96f9-4510-a243-1e5d45e5dc18" class="">
+					</p>
+					<p id="fc82999f-71ab-4091-9f8e-5bb71e5c986a" class=""><strong>Keys提供的常見鍵盤名稱：</strong></p>
+					<table id="5d83e161-c05e-4d78-bd0f-94d91644599f" class="simple-table">
+						<thead class="simple-table-header">
+							<tr id="12a0b894-030e-46f2-9cc8-23493e28fa7f">
+								<th id="y&lt;UE" class="simple-table-header-color simple-table-header"
+									style="width:334px"><strong>鍵盤名稱</strong></th>
+								<th id="T~Lg" class="simple-table-header-color simple-table-header" style="width:326px">
+									<strong>對應按鍵</strong></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="7305aef4-c3fb-4586-a274-aab0b7c5bc2f">
+								<td id="y&lt;UE" class="" style="width:334px">ARROW_DOWN</td>
+								<td id="T~Lg" class="" style="width:326px">向下箭頭鍵</td>
+							</tr>
+							<tr id="eb8d0b08-9555-4975-97f3-0b105cb81646">
+								<td id="y&lt;UE" class="" style="width:334px">ARROW_LEFT</td>
+								<td id="T~Lg" class="" style="width:326px">向左箭頭鍵</td>
+							</tr>
+							<tr id="5e6d0330-3efe-4395-9b10-6bd0d5b012de">
+								<td id="y&lt;UE" class="" style="width:334px">ARROW_RIGHT</td>
+								<td id="T~Lg" class="" style="width:326px">向右箭頭鍵</td>
+							</tr>
+							<tr id="e9a17530-062e-4a7d-8618-801676f1ff42">
+								<td id="y&lt;UE" class="" style="width:334px">ARROW_UP</td>
+								<td id="T~Lg" class="" style="width:326px">向上箭頭鍵</td>
+							</tr>
+							<tr id="d8eccc59-d934-4fa2-8546-ff6b72b688a7">
+								<td id="y&lt;UE" class="" style="width:334px">BACKSPACE</td>
+								<td id="T~Lg" class="" style="width:326px">退格鍵</td>
+							</tr>
+							<tr id="6846ce3d-5c20-404d-83fa-f42f342c3a08">
+								<td id="y&lt;UE" class="" style="width:334px">DELETE</td>
+								<td id="T~Lg" class="" style="width:326px">刪除鍵</td>
+							</tr>
+							<tr id="89371cbb-4980-4cee-88c8-4f5d7f979c55">
+								<td id="y&lt;UE" class="" style="width:334px">ENTER</td>
+								<td id="T~Lg" class="" style="width:326px">回車鍵</td>
+							</tr>
+							<tr id="fef9750c-60d9-4f4f-b2fa-e1b1c5fe6d89">
+								<td id="y&lt;UE" class="" style="width:334px">ESCAPE</td>
+								<td id="T~Lg" class="" style="width:326px">逃脫鍵</td>
+							</tr>
+							<tr id="f21f470d-83d4-4387-a91a-b16343532f45">
+								<td id="y&lt;UE" class="" style="width:334px">F1 - F12</td>
+								<td id="T~Lg" class="" style="width:326px">功能鍵F1到F12</td>
+							</tr>
+							<tr id="35d81351-dd38-4e78-a5d2-9f9a9ad9b967">
+								<td id="y&lt;UE" class="" style="width:334px">HOME</td>
+								<td id="T~Lg" class="" style="width:326px">Home鍵</td>
+							</tr>
+							<tr id="91b1bb25-3bad-40e0-952a-edf00e633e1f">
+								<td id="y&lt;UE" class="" style="width:334px">END</td>
+								<td id="T~Lg" class="" style="width:326px">End鍵</td>
+							</tr>
+							<tr id="083ed619-e5c5-4eed-a102-5d0f1b822b63">
+								<td id="y&lt;UE" class="" style="width:334px">INSERT</td>
+								<td id="T~Lg" class="" style="width:326px">插入鍵</td>
+							</tr>
+							<tr id="114e0691-7609-4405-b98a-80603eab6510">
+								<td id="y&lt;UE" class="" style="width:334px">PAGE_UP</td>
+								<td id="T~Lg" class="" style="width:326px">Page Up鍵</td>
+							</tr>
+							<tr id="d473a6b9-44df-4666-a2e9-380a6bd28e2f">
+								<td id="y&lt;UE" class="" style="width:334px">PAGE_DOWN</td>
+								<td id="T~Lg" class="" style="width:326px">Page Down鍵</td>
+							</tr>
+							<tr id="142ef40a-bdb2-4951-86dd-2f019409b2c0">
+								<td id="y&lt;UE" class="" style="width:334px">SHIFT</td>
+								<td id="T~Lg" class="" style="width:326px">Shift鍵</td>
+							</tr>
+							<tr id="8d14bf7e-fff4-40d4-a05b-0a013f960126">
+								<td id="y&lt;UE" class="" style="width:334px">CONTROL</td>
+								<td id="T~Lg" class="" style="width:326px">Control鍵</td>
+							</tr>
+							<tr id="f3df042a-c28e-4b13-b1f0-41040cd4071f">
+								<td id="y&lt;UE" class="" style="width:334px">ALT</td>
+								<td id="T~Lg" class="" style="width:326px">Alt鍵</td>
+							</tr>
+							<tr id="37dbd544-2616-491e-8910-ff49fe8742c6">
+								<td id="y&lt;UE" class="" style="width:334px">TAB</td>
+								<td id="T~Lg" class="" style="width:326px">Tab鍵</td>
+							</tr>
+							<tr id="4bb9e343-a1a4-49da-89bd-34be943378f8">
+								<td id="y&lt;UE" class="" style="width:334px">SPACE</td>
+								<td id="T~Lg" class="" style="width:326px">空格鍵</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</details>
+			<p id="0112f49c-d80e-4e04-a3a1-66dce2918a7d" class="">
+			</p>
+			<h2 id="689148f9-8ddf-48e5-b102-b4de00aaf028" class="">執行JavaScript操作</h2>
+			<p id="3d8dde2e-3e6a-412a-a658-ee198a88d684" class="">
+				在Selenium中提供了<code>execute_script()</code>Function來執行JavaScript的程式碼，讓使用者可以進行一些更進階的操作。</p>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">捲動視窗到最底部</summary>
+				<div class="indented">
+					<pre id="73d9cabd-c36e-4d93-aadc-dea97fa59d60"
+						class="code code-wrap"><code>driver.execute_script(&quot;window.scrollTo(0, document.body.scrollHeight);&quot;)</code></pre>
+					<p id="6b989ccc-1fd1-4c4f-a810-3e09373fa594" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">執行自定義Function</summary>
+				<div class="indented">
+					<pre id="0f032406-47b2-4178-80e7-e9f981abf799"
+						class="code code-wrap"><code>driver.execute_script(&quot;function myFunction() { console.log(&#x27;Hello, world!&#x27;); } myFunction();&quot;)</code></pre>
+					<p id="581bc39b-8dd2-4b97-843f-b12abb9b17d2" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">修改元素屬性</summary>
+				<div class="indented">
+					<pre id="6b87c6af-37ee-41c7-9afc-829da935a47e"
+						class="code code-wrap"><code>driver.execute_script(&quot;document.getElementById(&#x27;elementId&#x27;).setAttribute(&#x27;attributeName&#x27;, &#x27;attributeValue&#x27;);&quot;)</code></pre>
+				</div>
+			</details>
+			<p id="e48bfbc6-91b5-4df3-ab9c-7b8e00b51659" class="">
+			</p>
+			<h2 id="774b0067-76d0-46a5-a397-41baa87a3b12" class="">Web Driver相關API</h2>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Action Chains</summary>
+				<div class="indented">
+					<p id="c1b87a07-c4d7-422b-918f-d40c1a329477" class="">Action
+						Chains是Selenium提供的一種操作方式，用於執行一系列的鍵盤和滑鼠動作，例如鼠標移動、鍵盤按鍵、滾動等。</p>
+					<pre id="60ef600e-0537-4a63-af5f-4250de7f6a85"
+						class="code code-wrap"><code>from selenium.webdriver.common.action_chains import ActionChains</code></pre>
+					<p id="4d6d502c-4fef-4b2a-8d83-68fdca2ce242" class="">
+					</p>
+					<pre id="126bae0d-2be7-4002-b468-33600f11e667"
+						class="code code-wrap"><code>actions = ActionChains(driver)</code></pre>
+					<p id="3e4d26d0-2051-44ab-b681-d1af7e236aa2" class="">
+					</p>
+					<p id="5950460a-323f-455d-8849-6c4110ada9ab" class=""><strong>Action Chains的常見操作：</strong></p>
+					<ul id="16bdd983-183a-40c0-9cdb-5f808e107e99" class="bulleted-list">
+						<li style="list-style-type:disc"><code>click(on_element=None)</code>：點擊元素，若<mark
+								class="highlight-teal"><code>on_element</code></mark>為None，則點擊當前滑鼠位置。</li>
+					</ul>
+					<ul id="5a85b17c-38c5-45bc-93f6-a1245be31683" class="bulleted-list">
+						<li style="list-style-type:disc"><code>click_and_hold(on_element=None)</code>：按住元素的左鍵。</li>
+					</ul>
+					<ul id="966511d8-8c6b-454f-9298-8904562758ab" class="bulleted-list">
+						<li style="list-style-type:disc"><code>context_click(on_element=None)</code>：在元素上執行右鍵點擊。</li>
+					</ul>
+					<ul id="3ce3e21c-8685-4805-b056-2b05b379ba50" class="bulleted-list">
+						<li style="list-style-type:disc"><code>double_click(on_element=None)</code>：雙擊元素。</li>
+					</ul>
+					<ul id="6e3ce162-d984-4141-b40f-42fc6826db51" class="bulleted-list">
+						<li style="list-style-type:disc"><code>drag_and_drop(source, target)</code>：在<mark
+								class="highlight-teal"><code>source</code></mark>元素上按住左鍵，然後移動到<mark
+								class="highlight-teal"><code>target</code></mark>元素並釋放左鍵。</li>
+					</ul>
+					<ul id="a5c2d032-7ef1-4b39-9bbb-89875fa9638f" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>drag_and_drop_by_offset(source, xoffset, yoffset)</code>：在<mark
+								class="highlight-teal"><code>source</code></mark>元素上按住左鍵，然後按指定的偏移量移動，並釋放左鍵。</li>
+					</ul>
+					<ul id="fd578b1a-9294-4455-8919-0611fa918f09" class="bulleted-list">
+						<li style="list-style-type:disc"><code>key_down(value, element=None)</code>：發送按鍵按下事件，僅用於修飾鍵（如
+							Control、Alt 和 Shift）。</li>
+					</ul>
+					<ul id="91fed068-cbd4-4e45-a637-991462ca18a6" class="bulleted-list">
+						<li style="list-style-type:disc"><code>key_up(value, element=None)</code>：釋放修飾鍵。</li>
+					</ul>
+					<ul id="632ee9a7-4d1c-48a5-916f-e987170afee3" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>move_by_offset(xoffset, yoffset)</code>：移動滑鼠到相對於當前滑鼠位置的偏移量。</li>
+					</ul>
+					<ul id="354f8211-7b55-4b3a-a17a-eeed62d174c3" class="bulleted-list">
+						<li style="list-style-type:disc"><code>move_to_element(to_element)</code>：移動滑鼠到元素的中心位置。</li>
+					</ul>
+					<ul id="e0cb06a7-da0e-4b6d-8a83-e847fb216fc2" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>move_to_element_with_offset(to_element, xoffset, yoffset)</code>：移動滑鼠到指定元素的偏移位置。</li>
+					</ul>
+					<ul id="fcb48c04-e480-49c5-aef6-386f4af36998" class="bulleted-list">
+						<li style="list-style-type:disc"><code>pause(seconds)</code>：暫停指定秒數的所有動作。</li>
+					</ul>
+					<ul id="1bd9cbae-92bd-491c-a3ba-5785a0a454ba" class="bulleted-list">
+						<li style="list-style-type:disc"><code>perform()</code>：執行所有已存儲的動作。</li>
+					</ul>
+					<ul id="d8dc729c-142f-41e7-9bcb-03252e1fb3d6" class="bulleted-list">
+						<li style="list-style-type:disc"><code>release(on_element=None)</code>：在元素上釋放已按住的滑鼠按鍵。</li>
+					</ul>
+					<ul id="9702464a-a95e-4b13-8bb0-564559f29587" class="bulleted-list">
+						<li style="list-style-type:disc"><code>reset_actions()</code>：清除已經在本地和遠程端存儲的動作。</li>
+					</ul>
+					<ul id="00a7d2fb-271f-4c73-87b4-f830cfc84d60" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>scroll(x, y, delta_x, delta_y, duration=0, origin=&#x27;viewport&#x27;)</code>：將滾輪滾動訊息發送到瀏覽器進行處理。
+						</li>
+					</ul>
+					<ul id="a903fbc6-88db-4067-bede-baa7e507b6ba" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>scroll_by_amount(delta_x, delta_y)</code>：按指定的值進行滾動，以可視區域的左上角為原點。</li>
+					</ul>
+					<ul id="d2c0232f-5e74-48de-b6c9-ccc66547ac18" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>scroll_from_origin(scroll_origin, delta_x, delta_y)</code>：基於指定的原點進行滾動，原點可以是元素的中心或可視區域的左上角加上任何偏移量。
+						</li>
+					</ul>
+					<ul id="f181fbd1-0072-42bb-bf47-17987bbbd2c4" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>scroll_to_element(element)</code>：如果元素在可視區域之外，將元素的底部滾動到可視區域的底部。</li>
+					</ul>
+					<ul id="d2083782-6acd-4718-bcfa-c2aec3a0d7fd" class="bulleted-list">
+						<li style="list-style-type:disc"><code>send_keys(*keys_to_send)</code>：將鍵盤按鍵發送給當前聚焦的元素。</li>
+					</ul>
+					<ul id="c676236b-e246-48bb-b980-450dd3ecc9fa" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>send_keys_to_element(element, *keys_to_send)</code>：將鍵盤按鍵發送給指定元素。</li>
+					</ul>
+					<p id="e99cabf6-0dac-48a4-9af2-cc9ac4f9a315" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Alerts</strong>
+				</summary>
+				<div class="indented">
+					<p id="8cd22624-706a-4660-8a20-f07184b8c331" class="">Alterts可以與網頁跳出的警示對話框進行互動。</p>
+					<pre id="d815fe74-eab4-4e24-822e-b2850e6a382e"
+						class="code code-wrap"><code>from selenium.webdriver.common.alert import Alert</code></pre>
+					<p id="8fe4c69d-c165-43c0-941b-734913fcc9b2" class="">
+					</p>
+					<pre id="130f16b7-113e-411b-9edc-1bdc72515425"
+						class="code code-wrap"><code>alerts = Alert(driver)</code></pre>
+					<p id="ab592a41-c5ea-44d2-9b2f-49430de71654" class="">
+					</p>
+					<p id="0cb93e35-2b25-4a40-a1c5-f9580153fabb" class=""><strong>Alerts的常見操作：</strong></p>
+					<ul id="bf01c19c-9b02-401d-a4a5-743dbc312958" class="bulleted-list">
+						<li style="list-style-type:disc"><code>accept()</code>：接受可用的警示對話框。</li>
+					</ul>
+					<ul id="15eee3f1-0c7f-421b-b0b3-0357ca540b7f" class="bulleted-list">
+						<li style="list-style-type:disc"><code>dismiss()</code>：取消可用的警示對話框。</li>
+					</ul>
+					<ul id="77a61e1c-7d38-4332-884a-a0e488d5896c" class="bulleted-list">
+						<li style="list-style-type:disc"><code>send_keys(keysToSend)</code>：將文本送到警示對話框中。</li>
+					</ul>
+					<ul id="4b675062-fda8-4d74-bb7f-856be7a54e43" class="bulleted-list">
+						<li style="list-style-type:disc"><code>text()</code>：獲取警示對話框的文字內容。</li>
+					</ul>
+					<p id="e091911a-2c8c-4201-b3bb-4ef2db6fc5a2" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Proxy</strong>
+				</summary>
+				<div class="indented">
+					<p id="3c74f6e8-59f7-45ef-9a9f-adc90b73104b" class="">
+						Proxy包含了三個類別，分別是：Proxy、ProxyType和ProxyTypeFactory。</p>
+					<p id="1dcd2cee-3845-4a09-bcb6-28f95536239f" class="">
+					</p>
+					<p id="ac94ac4f-14a2-4997-a96c-43914427129b" class=""><strong>Proxy：</strong>包括了代理類型和必要的代理設定。</p>
+					<pre id="1fdc0c17-2a54-4e9a-8255-be7f4cbe6f4b"
+						class="code code-wrap"><code>from selenium.webdriver.common.proxy import Proxy</code></pre>
+					<p id="e427acc7-7f50-4152-9f87-d7c955921c2d" class="">
+					</p>
+					<pre id="74198092-b3c0-420f-9680-28e7332b45c7"
+						class="code code-wrap"><code>proxy = Proxy()</code></pre>
+					<p id="7da92a49-cab7-4217-affa-9ec0e607681b" class="">
+					</p>
+					<p id="894537aa-cde5-4e88-a34e-4baa8f768a4e" class=""><strong>Proxy的常見操作：</strong></p>
+					<ul id="07644619-e024-4e7a-ade3-82ca2ebe2c7b" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>add_to_capabilities(capabilities)</code>：將代理設定添加到指定的能力（capabilities）中。</li>
+					</ul>
+					<ul id="b377356b-5c33-49bb-9c4b-e3d830304d7d" class="bulleted-list">
+						<li style="list-style-type:disc"><code>auto_detect()</code>：返回自動偵測設定。</li>
+					</ul>
+					<ul id="8c5ba505-0174-4605-9930-6b04ba1a5f36" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ftp_proxy()</code>：返回FTP代理設定。</li>
+					</ul>
+					<ul id="61857abf-9ed1-4558-ad24-f511a5804094" class="bulleted-list">
+						<li style="list-style-type:disc"><code>http_proxy()</code>：返回HTTP代理設定。</li>
+					</ul>
+					<ul id="63c3d82f-7a6e-442f-8333-a5bc209c8d5e" class="bulleted-list">
+						<li style="list-style-type:disc"><code>no_proxy()</code>：返回無代理設定。</li>
+					</ul>
+					<ul id="9483555f-810b-4b82-9941-4ae13321cf1f" class="bulleted-list">
+						<li style="list-style-type:disc"><code>proxy_autoconfig_url()</code>：返回代理自動配置URL設定。</li>
+					</ul>
+					<ul id="f28728b0-5a2c-4426-87ca-b1bb5e1bef4d" class="bulleted-list">
+						<li style="list-style-type:disc"><code>proxy_type()</code>：返回代理類型，以<mark
+								class="highlight-teal"><code>ProxyType</code></mark>表示。</li>
+					</ul>
+					<ul id="a9999514-697e-4ed3-9ca0-edf599918ee6" class="bulleted-list">
+						<li style="list-style-type:disc"><code>socks_password()</code>：返回SOCKS代理的密碼設定。</li>
+					</ul>
+					<ul id="680a12db-58e7-4d6c-a1a7-2aa92caa00b0" class="bulleted-list">
+						<li style="list-style-type:disc"><code>socks_proxy()</code>：返回SOCKS代理設定。</li>
+					</ul>
+					<ul id="6551a39b-e9f5-4354-8b86-c1481e291ed1" class="bulleted-list">
+						<li style="list-style-type:disc"><code>socks_username()</code>：返回SOCKS代理的使用者名稱設定。</li>
+					</ul>
+					<ul id="ef64c615-428c-411b-854c-ee5f9fab64ec" class="bulleted-list">
+						<li style="list-style-type:disc"><code>socks_version()</code>：返回SOCKS代理的版本設定。</li>
+					</ul>
+					<ul id="1a4f6f27-23a9-456c-9eac-ad4d001e38a5" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ssl_proxy()</code>：返回HTTPS代理設定。</li>
+					</ul>
+					<p id="615dd9d9-82d6-465f-ab40-9f81d7a73df8" class="">
+					</p>
+					<p id="b12afae0-062c-42a2-8ff7-ef60edcd78fe" class="">
+						<strong>ProxyType：</strong>定義了可能的代理類型，並提供了相應的屬性。</p>
+					<pre id="3e216d70-de74-4a52-9bcc-a203b91c3699"
+						class="code code-wrap"><code>from selenium.webdriver.common.proxy import ProxyType</code></pre>
+					<p id="22dacc3c-febd-49a9-9bb4-6cef813bc41f" class="">
+					</p>
+					<p id="9f1ee94e-524f-4593-ac93-5eec25a37700" class=""><strong>ProxyType的常見操作：</strong></p>
+					<ul id="4aae0f8f-12ed-4d0a-ab73-d94bdcc544da" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.load(value)</code>：靜態方法，根據給定的值載入對應的<mark
+								class="highlight-teal"><code>ProxyType</code></mark>物件。</li>
+					</ul>
+					<ul id="fb18306f-9a07-4919-af93-402f397e7402" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.AUTODETECT</code>：自動偵測代理，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為4，<mark
+								class="highlight-teal"><code>string</code></mark>值為&#x27;AUTODETECT&#x27;。</li>
+					</ul>
+					<ul id="4441ef9b-1553-4b0d-a360-098077744a63" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.DIRECT</code>：直接連接，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為0，<mark
+								class="highlight-teal"><code>string</code></mark>值為&#x27;DIRECT&#x27;。</li>
+					</ul>
+					<ul id="e99fa036-7eec-446a-a4ab-f288fa8e4c56" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.MANUAL</code>：手動設定代理，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為1，<mark
+								class="highlight-teal"><code>string</code></mark>值為&#x27;MANUAL&#x27;。</li>
+					</ul>
+					<ul id="663a7d79-a429-4d99-8e1f-d1f448ad6ba0" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.PAC</code>：PAC（Proxy Auto-Config）代理，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為2，<mark
+								class="highlight-teal"><code>string</code></mark>值為&#x27;PAC&#x27;。</li>
+					</ul>
+					<ul id="561e551f-0155-4329-b081-22e754442d9c" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.RESERVED_1</code>：保留，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為3，<mark
+								class="highlight-teal"><code>string</code></mark>值為&#x27;RESERVED1&#x27;。</li>
+					</ul>
+					<ul id="ddd92567-bbad-4c26-a6ab-5789209cd9b6" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.SYSTEM</code>：系統代理，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為5，<mark
+								class="highlight-teal"><code>string</code></mark><mark class="highlight-teal">
+							</mark>值為&#x27;SYSTEM&#x27;。</li>
+					</ul>
+					<ul id="ccfa6e0b-669a-424d-9c8f-c96f01d4b15f" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyType.UNSPECIFIED</code>：未指定代理類型，擁有<mark
+								class="highlight-teal"><code>ff_value</code></mark>值為6，<mark
+								class="highlight-teal"><code>string</code></mark>值為&#x27;UNSPECIFIED&#x27;。</li>
+					</ul>
+					<p id="ed87095c-fb58-4d79-83df-cfee0dc821ab" class="">
+					</p>
+					<p id="7a59f350-596b-4997-a30e-1833d42abcad" class=""><strong>ProxyTypeFactory：</strong>用於創建<mark
+							class="highlight-teal"><code><strong>ProxyType</strong></code></mark>物件。</p>
+					<pre id="56a7b2fd-3634-4fce-9a29-282a0d800bd7"
+						class="code code-wrap"><code>from selenium.webdriver.common.proxy import ProxyType, ProxyTypeFactory</code></pre>
+					<p id="1b5ce77e-0ffb-4e9b-8e1b-41e185ca7de0" class="">
+					</p>
+					<p id="b10110ed-28a3-4f1a-996f-ba95c62e0798" class=""><strong>ProxyTypeFactory的常見操作：</strong></p>
+					<ul id="0b7811eb-8a72-4adb-9e25-e3972f3bdf46" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ProxyTypeFactory.make(ff_value, string)</code>：根據給定的<mark
+								class="highlight-teal"><code>ff_value</code></mark>和<mark
+								class="highlight-teal"><code>string</code></mark>創建<mark
+								class="highlight-teal"><code>ProxyType</code></mark>物件。</li>
+					</ul>
+					<p id="76060576-fdbe-4e59-aff5-16d3ba208d0e" class="">
+					</p>
+				</div>
+			</details>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Exceptions</strong>
+				</summary>
+				<div class="indented">
+					<p id="7b193378-e8b8-433a-a89c-6a2e426d0ca7" class="">Selenium提供了許多Web Driver發生異常的種類，可以用來針對Web
+						Driver的操作進行異常捕捉。</p>
+					<pre id="3376cf9b-168d-4876-ba95-2cbc06b744bb"
+						class="code code-wrap"><code>from selenium.common.exceptions import &lt;例外名稱&gt;</code></pre>
+					<p id="29c26093-2887-454b-bbd4-81812791c08a" class="">
+					</p>
+					<p id="3c53c7d2-b859-4251-9364-de277cf7461d" class=""><strong>Selenium提供的異常種類列表：</strong></p>
+					<ul id="7a2c5ed3-dd89-496e-8c42-a224a706ab9d" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>ElementClickInterceptedException</code>：當要點擊的元素被其他元素遮擋而無法完成點擊操作時，會拋出此異常。</li>
+					</ul>
+					<ul id="fc98ef46-cc64-4f8a-9de4-0040ed8f6433" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>ElementNotInteractableException</code>：當一個元素存在於DOM中，但由於繪製順序的原因，與該元素互動時會觸發其他元素，導致無法與目標元素互動時，會拋出此異常。
+						</li>
+					</ul>
+					<ul id="f7caaf19-c126-4a67-b733-5c63f57e3555" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>ElementNotSelectableException</code>：當試圖選擇一個不可選擇的元素時，會拋出此異常。</li>
+					</ul>
+					<ul id="f79d301e-567f-455a-8ce6-0ec9f7294248" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>ElementNotVisibleException</code>：當一個元素存在於DOM中，但由於不可見，無法與該元素進行互動時，會拋出此異常，例如點擊或讀取不可見元素的文本時。
+						</li>
+					</ul>
+					<ul id="dfb33e2d-cdd3-4074-8fbb-7993b7b14823" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ImeActivationFailedException</code>：當啟動輸入法引擎（Input Method
+							Engine）失敗時，會拋出此異常。</li>
+					</ul>
+					<ul id="914f5c10-9f87-48ef-986e-61da9462b4a9" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ImeNotAvailableException</code>：當輸入法引擎（Input Method
+							Engine）不可使用時，會拋出此異常。</li>
+					</ul>
+					<ul id="1e1bc278-a4ef-4946-90e9-7cad74652c7e" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>InsecureCertificateException</code>：當導航引發用戶端遇到憑證警告時，通常是由於過期或無效的TLS憑證導致的，會拋出此異常。</li>
+					</ul>
+					<ul id="7e43c413-7e77-4466-a1ce-3079b83d9767" class="bulleted-list">
+						<li style="list-style-type:disc"><code>InvalidArgumentException</code>：當傳遞給命令的參數無效或格式錯誤時，會拋出此異常。
+						</li>
+					</ul>
+					<ul id="b6b327a9-dcde-4531-922e-5e72af95f41c" class="bulleted-list">
+						<li style="list-style-type:disc"><code>InvalidCookieDomainException</code>：當嘗試添加一個與當前 URL 不同域的
+							cookie 時，會拋出此異常。</li>
+					</ul>
+					<ul id="2908a993-ef93-4e56-be43-99d4254ac2ee" class="bulleted-list">
+						<li style="list-style-type:disc"><code>InvalidCoordinatesException</code>：當提供給互動操作的坐標無效時，會拋出此異常。
+						</li>
+					</ul>
+					<ul id="6c352a1e-058a-4748-ba1d-192f53207458" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>InvalidElementStateException</code>：當一個元素處於無效狀態時，導致無法完成命令時，會拋出此異常。</li>
+					</ul>
+					<ul id="aaa744bc-ad2f-4d14-8330-eb785e3a2bdd" class="bulleted-list">
+						<li style="list-style-type:disc"><code>InvalidSelectorException</code>：當用於查找元素的選擇器未返回Web
+							Element時，會拋出此異常，通常發生在選擇器為XPath表達式且該表達式無效或不選擇 Web Element 時。</li>
+					</ul>
+					<ul id="a8dffde4-7c35-4d71-80da-fc6f42992a58" class="bulleted-list">
+						<li style="list-style-type:disc"><code>InvalidSessionIdException</code>：當給定的Session
+							ID不在活動Session列表中時，表示該Session不存在或不活動時，會拋出此異常。</li>
+					</ul>
+					<ul id="0536d7c3-fbc5-4339-b79f-4e55ea6063a0" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>InvalidSwitchToTargetException</code>：當要切換的Frame或Window不存在時，會拋出此異常。</li>
+					</ul>
+					<ul id="3f58cd6c-da9b-4adc-83a6-00b3b9cad23c" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>JavascriptException</code>：當執行用戶提供的JavaScript過程中發生錯誤時，會拋出此異常。</li>
+					</ul>
+					<ul id="cd4ba0bc-f4e0-45a9-9d3f-90d23c276135" class="bulleted-list">
+						<li style="list-style-type:disc"><code>MoveTargetOutOfBoundsException</code>：當Actions
+							Chains的<mark class="highlight-teal"><code>move()</code></mark>方法的目標無效，即超出了文檔範圍時，會拋出此異常。</li>
+					</ul>
+					<ul id="88a71686-967d-419b-a0c0-652b4e56283b" class="bulleted-list">
+						<li style="list-style-type:disc"><code>NoAlertPresentException</code>：當切換到沒有提示的Alert時，會拋出此異常。
+						</li>
+					</ul>
+					<ul id="60c6d6dd-304e-45de-b93d-d286a9165a23" class="bulleted-list">
+						<li style="list-style-type:disc"><code>NoSuchAttributeException</code>：當找不到元素的屬性時，會拋出此異常。</li>
+					</ul>
+					<ul id="5c289db0-b317-41ad-abc1-fb597694d94a" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>NoSuchCookieException</code>：當在當前瀏覽上下文的活動文檔的相關Cookie中找不到與給定的Path名稱匹配的Cookie時，會拋出此異常。
+						</li>
+					</ul>
+					<ul id="42f31723-f2f8-4aaa-badc-b68cbbd3b89f" class="bulleted-list">
+						<li style="list-style-type:disc"><code>NoSuchElementException</code>：當找不到元素時，會拋出此異常。</li>
+					</ul>
+					<ul id="178dd6f1-a63d-4986-ab3c-f82f8bc8cb19" class="bulleted-list">
+						<li style="list-style-type:disc"><code>NoSuchFrameException</code>：當要切換的Frame不存在時，會拋出此異常。</li>
+					</ul>
+					<ul id="a8005001-0400-43c5-9d6a-537b7cbb18ec" class="bulleted-list">
+						<li style="list-style-type:disc"><code>NoSuchShadowRootException</code>：當嘗試訪問元素的Shadow
+							Root但該元素沒有附加Shadow Root時，會拋出此異常。</li>
+					</ul>
+					<ul id="27e63c5b-dbad-43fb-87d9-e486b9375b50" class="bulleted-list">
+						<li style="list-style-type:disc"><code>NoSuchWindowException</code>：當要切換的視窗不存在時，會拋出此異常。</li>
+					</ul>
+					<ul id="981697db-71d2-4eab-8f1a-98725e2612d6" class="bulleted-list">
+						<li style="list-style-type:disc"><code>ScreenshotException</code>：當無法進行螢幕截圖時，會拋出此異常。</li>
+					</ul>
+					<ul id="8e98713a-9aa6-4bd1-806e-f72e15c324a0" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>SeleniumManagerException</code>：當與Selenium管理器互動出現問題時，會拋出此異常。</li>
+					</ul>
+					<ul id="06c816a2-411c-4f84-8e32-0d8d371fe9a3" class="bulleted-list">
+						<li style="list-style-type:disc"><code>SessionNotCreatedException</code>：當無法創建新的Session時，會拋出此異常。
+						</li>
+					</ul>
+					<ul id="bd5e96df-5dd4-4989-89b6-d3e45070f5a9" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>StaleElementReferenceException</code>：當對一個已經Stale的元素的引用時，會拋出此異常，Stale指的是該元素不再出現在頁面的DOM中。
+						</li>
+					</ul>
+					<ul id="5aaabf2a-fae7-417a-8682-89952c0da538" class="bulleted-list">
+						<li style="list-style-type:disc"><code>TimeoutException</code>：當命令在足夠的時間內未完成時，會拋出此異常。</li>
+					</ul>
+					<ul id="23d93cdb-b20f-4b87-bd40-614ddbe89312" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>UnableToSetCookieException</code>：當驅動程序無法設置Cookie時，會拋出此異常。</li>
+					</ul>
+					<ul id="ca8ab547-7b65-44aa-b15e-783106da2ab3" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>UnexpectedAlertPresentException</code>：當出現意外的提示框時，會拋出此異常，通常是由於意外的模態導致網頁驅動程序無法執行命令時。
+						</li>
+					</ul>
+					<ul id="7e63d080-2d39-43e4-a54e-9025b9e6fb2e" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>UnexpectedTagNameException</code>：當一個支持類未獲取到預期的Web元素時，會拋出此異常。</li>
+					</ul>
+					<ul id="e49a86a0-9ab8-4aab-898a-89778d2f87c0" class="bulleted-list">
+						<li style="list-style-type:disc">
+							<code>UnknownMethodException</code>：當請求的命令與已知的URL匹配，但未匹配到該URL的任何方法時，會拋出此異常。</li>
+					</ul>
+					<ul id="e7294b61-c611-4f2f-8330-b66b1b074485" class="bulleted-list">
+						<li style="list-style-type:disc"><code>WebDriverException</code>：當Web
+							Driver發生時，會拋出此異常，這個異常是所有Exception的父類別。</li>
+					</ul>
+				</div>
+			</details>
+		</div>
+	</article>
+	<!-- ======= Footer ======= -->
+	<footer class="footer">
+	<div class="container">
+		<div class="copyright">
+		&copy; Copyright <strong><span>Cheng-Wei Lin</span></strong>
+		</div>
+	</div>
+	</footer><!-- End Footer -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="../../assets/vendor/aos/aos.js"></script>
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	
+	<!-- Template Main JS File -->
+	<script src="../../assets/js/main.js"></script>
+	<script src="../../assets/js/mode-switcher.js"></script>
+	<script src="../../assets/js/codeBlock.js"></script>
+</body>
+
+</html>

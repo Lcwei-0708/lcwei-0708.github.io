@@ -1,0 +1,422 @@
+body {
+	margin: 0 auto;
+	max-width: 80vw;
+	/* 設置最大寬度為視窗的 80% */
+	font-family: "PingFang TC", Consolas;
+	font-size: 20px;
+}
+
+@media (max-width: 991px) {
+	body {
+		margin: 0 auto;
+		max-width: 100vw;
+		/* 設置最大寬度為視窗的 80% */
+	}
+
+	.col-md-8 {
+		min-width: 100%;
+		padding: 0% !important;
+	}
+
+	.col-md-2 {
+		display: none;
+	}
+
+	#article {
+		min-width: 100%;
+		margin-top: 10%;
+	}
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+.row {
+	display: flex;	
+	width: 100%;
+	margin: auto;
+}
+
+.col-md-8 {	
+	width: 75%;
+	padding: 0 0 0 2%;
+	display: block; /* 清除可能的預設間距 */
+	margin: 0 0 0 auto; /* 調整上下間距，左右置中 */	
+	align-items: end;
+}
+
+.col-md-2 {	
+	width: 10%;
+	margin: 0 auto 0 0;
+	text-align: left;	
+	padding: 0;
+	height: 100%;
+}
+
+/* 設定目錄的樣式 */
+#toc {
+	margin: 120px auto 0 auto;
+	color: var(--font2-color);
+	background-color: var(--bg3-color);
+	border-radius: 1rem;
+	position: fixed; /* 讓目錄固定 */
+	overflow: auto; /* 如果內容過多，顯示滾動條 */
+	text-align: left;
+	padding: 1%;
+	box-shadow: var(--shadow3-color);
+	border: 1.5px solid var(--font3-color);
+}
+
+#toc h2{
+	margin: 20px 0 20px 10px;
+}
+
+#toc ul {
+	list-style: none;
+	padding: 0 5px;
+	line-height: 1.5;
+	width: 100%;
+}
+
+#toc li {
+	margin-bottom: 5px;
+	padding:5px 10px;
+	display: flex;
+	align-items: center;
+}
+
+#toc li:hover {	
+	cursor: pointer;
+	background-color: var(--code-bg);
+	border-radius: 0.3rem;
+}
+
+#toc li:hover a{	
+	color: var(--font2-color);
+}
+
+#article {
+	width: 95%;
+	margin: 120px auto 0 auto;
+	border-radius: 1rem;
+	box-shadow: var(--shadow-color);
+	overflow: hidden;
+	border: 1.5px solid var(--font3-color);
+	background-color: var(--bg3-color);
+}
+
+#article .page-cover-image {	
+	width: 100%;
+	padding: 0 !important;
+	box-shadow: var(--shadow-color);
+	margin-bottom: 5%;
+}
+
+/*--------------------------------------------------------------
+# Properties
+--------------------------------------------------------------*/
+
+#article .properties {
+	padding: 0 5%;
+}
+
+#article .properties table{
+	width: 100%;
+	margin-top: 20px;
+	border-bottom: 1px solid var(--hover-bg-color);
+}
+
+#article .properties table th{
+	width: 20%;
+	padding: 5px 10px 25px 10px;
+	color: var(--font2-color);
+	font-size: 16px;
+	font-weight: 500;
+}
+
+#article .properties table td{
+	padding: 5px 10px 25px 10px;
+	color: var(--font-color);
+	font-size: 16px;
+}
+
+#article .properties table i{
+	margin-right: 5px;
+	color: var(--font2-color);
+	font-size: 16px;
+}
+
+#article .properties table span.category{
+	background-color: var(--highlight-bg-4);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-4);
+	padding: 7px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+#article .properties table span.tag{
+	background-color: var(--bg2-color);
+	border-radius: 0.5rem;
+	color: var(--font2-color);
+	padding: 7px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.page-body{
+	padding: 0 5%;
+}
+  
+img {
+	width: 100%;
+	display: block; /* 清除可能的預設間距 */
+	margin: auto; /* 調整上下間距，左右置中 */
+	border-radius: 1rem;
+	border: 1px solid var(--opacity-bg-1);
+	margin-bottom: 8%;
+}
+
+img.annotation {
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 40px;
+	margin: 3% 0 1% 0;
+	text-align: start;
+	text-transform: none;
+	font-family: "PingFang TC", Consolas;
+	font-weight: bolder;
+}
+
+h2 {
+	font-size: 32px;
+	margin-top: 10%;
+	text-align: start;
+	text-transform: none;
+	font-family: "PingFang TC", Consolas;
+}
+
+details h3 {
+	margin: 0 7px;
+	display: inline;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+details summary {
+    font-size: 26px;
+	margin: 15px 0;
+}
+
+details .indented {
+	margin-left: 32px;
+}
+
+details .indented .card {
+	margin-bottom: 8%;
+}
+
+.card.annotation{
+	margin-bottom: 0 !important;
+}
+
+p.annotation{
+	font-style: italic;
+	color: var(--annotation-color);
+	margin-bottom: 8%;
+	padding: 5px 10px;
+}
+
+
+#article ul li span {
+	background-color: var(--highlight-bg-2);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-2);
+	padding: 6px;
+	margin: 0 7px;
+}
+
+#article ul{
+	line-height: 2.5;
+}
+
+/*--------------------------------------------------------------
+# ZoomImage
+--------------------------------------------------------------*/
+
+.zoomed-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(8px);
+	background-color: var(--opacity-bg-2);
+	z-index: 9999;
+}
+
+.zoomed-image img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto; /* 設置為自動，保持原始寬高比例 */
+	height: auto; /* 設置為自動，保持原始寬高比例 */
+	object-fit: contain;	
+	margin: auto;
+} 
+
+/*--------------------------------------------------------------
+# CodeBlock
+--------------------------------------------------------------*/
+
+.code-wrap {
+	padding: 0;
+	margin: 0;
+}
+
+.card {
+	margin: 20px 0;
+	width: 100%;
+	border-radius: 1rem;
+	box-shadow: var(--shadow3-color);
+	overflow: hidden;
+	border: 1px solid var(--font3-color);
+	background-color: var(--code-bg);
+}
+
+.top {
+	min-height: 55px;
+	max-height: 55px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--code-bg);
+	border: none;
+	border-bottom: 1px solid var(--font3-color);
+	padding: 0 10px 0 15px;
+	margin: 0;
+}
+
+.top span {
+	color: var(--font2-color);
+	font-size: 20px;
+	font-weight: 600;
+	font-family: "PingFang TC", Consolas;
+	margin-left: 10px;
+}
+
+.bottom {
+	background-color: var(--code-bg2);
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.dots {
+	display: flex;
+	align-items: center;
+}
+
+.dot {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	align-content: center;
+}
+
+.dot-1 {
+	background-color: #FC625D;
+}
+
+.dot-2 {
+	background-color: #FDBC40;
+}
+
+.dot-3 {
+	background-color: #35CD4B;
+}
+
+button:active {
+	border: none;
+}
+
+button.copy {
+	width: auto;
+	font-size: 20px;
+	background-color: none;
+	border: none;
+	display: flex;
+	align-items: center; /* 垂直置中 */
+}
+
+.copy iconify-icon {
+	display: flex;
+	align-items: center; /* 垂直置中 */
+	font-size: 24px;
+	color: var(--font2-color);
+}
+
+.copy iconify-icon:hover {
+	color: var(--hover-font-color);
+	cursor: pointer;
+	background-color: none;
+}
+
+.copy span{
+	font-weight: 500;
+}
+
+.dot,
+.top p {
+	margin: 5px;
+}
+
+/*--------------------------------------------------------------
+# Highlight
+--------------------------------------------------------------*/
+
+.hljs {
+	background-color: var(--code-bg2);
+	margin: 0px 0px;
+	padding: 2px 5px;
+	font-size: 18px;
+	overflow: auto;
+	tab-size: 4;
+}
+
+.hljs::-webkit-scrollbar-track {
+	box-shadow: none;
+}
+
+.hljs::-webkit-scrollbar {
+	width: 5px;
+	/* 設定滾動條寬度 */
+}
+
+/* for block of numbers */
+.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ 
+    text-align: end;
+	min-width: 40px;
+    color: var(--code-line);
+    vertical-align: center;
+	padding-right: 20px !important;
+    /* your custom style here */
+}
+
+.hljs::-webkit-scrollbar-thumb {
+	background-color: var(--opacity-bg-1);
+	/* 設定滾動條拇指顏色 */
+	border-radius: 0.5rem;
+	/* 設定滾動條拇指圓角 */
+}

@@ -6,6 +6,10 @@ const modeIcon = document.querySelector('.mobile-mode');
 const savedMode = localStorage.getItem('selectedMode');
 const dropdown = document.querySelector('.dropdown');
 
+// 取得兩種 highlight 樣式表的 link 元素
+const lightStyle = document.getElementById('highlight-style-light');
+const darkStyle = document.getElementById('highlight-style-dark');
+
 if (savedMode) {
     // 套用儲存的模式到頁面
     setMode(savedMode);    
@@ -63,8 +67,6 @@ dropdown.addEventListener('click', () => {
 });
 
 function setMode(mode) {
-    // 在這裡根據選擇的模式設定相應的模式
-
     // 更新 currentMode 變數
     currentMode = mode;
 
@@ -83,6 +85,11 @@ function setMode(mode) {
         dropdown.classList.toggle('active'); 
         modeIcon.classList.remove('bi-circle-half');
         modeIcon.classList.add('bi-sun');
+
+        if(lightStyle != null && darkStyle != null){
+            lightStyle.disabled = false;
+            darkStyle.disabled = true;
+        }
     
     } else if (currentMode === 'dark') {
         // 更新 icon
@@ -92,6 +99,11 @@ function setMode(mode) {
         dropdown.classList.toggle('active');       
         modeIcon.classList.remove('bi-sun');
         modeIcon.classList.add('bi-moon'); 
+        
+        if(lightStyle != null && darkStyle != null){
+            lightStyle.disabled = true;
+            darkStyle.disabled = false;
+        }
     
     } else if (currentMode === 'auto') {
         // 更新 icon
@@ -101,6 +113,19 @@ function setMode(mode) {
         dropdown.classList.toggle('active');      
         modeIcon.classList.remove('bi-moon');
         modeIcon.classList.add('bi-circle-half');
+
+        if(lightStyle != null && darkStyle != null){
+            // 判斷是否是暗色模式
+            const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            // 根據模式設定樣式表的可見性
+            if (isDarkMode) {
+                lightStyle.disabled = true; // 關閉日間模式樣式表
+                darkStyle.disabled = false; // 啟用夜間模式樣式表
+            } else {
+                lightStyle.disabled = false; // 啟用日間模式樣式表
+                darkStyle.disabled = true; // 關閉夜間模式樣式表
+            }
+        }
     }
     
     // 設定為依系統模式
@@ -130,6 +155,11 @@ modeIcon.addEventListener('click', () => {
     dropdown.querySelector('i.bi').classList.remove('bi-bi-circle-half', 'bi-sun');
     dropdown.querySelector('i.bi').classList.add('bi-moon');
     currentMode = 'dark';
+
+    if(lightStyle != null && darkStyle != null){
+        lightStyle.disabled = true;
+        darkStyle.disabled = false;
+    }
   } else if (currentMode === 'dark') {
     // 切換為 auto 模式
     document.body.classList.remove('dark-mode');
@@ -140,6 +170,19 @@ modeIcon.addEventListener('click', () => {
     dropdown.querySelector('i.bi').classList.remove('bi-sun', 'bi-moon');
     dropdown.querySelector('i.bi').classList.add('bi-circle-half');  
     currentMode = 'auto';
+
+    if(lightStyle != null && darkStyle != null){
+        // 判斷是否是暗色模式
+        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // 根據模式設定樣式表的可見性
+        if (isDarkMode) {
+            lightStyle.disabled = true; // 關閉日間模式樣式表
+            darkStyle.disabled = false; // 啟用夜間模式樣式表
+        } else {
+            lightStyle.disabled = false; // 啟用日間模式樣式表
+            darkStyle.disabled = true; // 關閉夜間模式樣式表
+        }
+    }
   } else if (currentMode === 'auto') {
     // 切換回日間模式
     document.body.classList.remove('auto-mode');
@@ -150,6 +193,11 @@ modeIcon.addEventListener('click', () => {
     dropdown.querySelector('i.bi').classList.remove('bi-moon', 'bi-circle-half');
     dropdown.querySelector('i.bi').classList.add('bi-sun');
     currentMode = 'light';
+
+    if(lightStyle != null && darkStyle != null){
+        lightStyle.disabled = false;
+        darkStyle.disabled = true;
+    }
   }
   // 儲存選擇的模式到 LocalStorage
   localStorage.setItem('selectedMode', currentMode);
