@@ -148,7 +148,7 @@ $(document).ready(function() {
     ]
   };
   
-  // Function to generate subitem HTML
+  // 生成網格模式版面
   function generateSubitemHTML(subitems) {
     var subitemHTML = '';
     subitems.forEach(function(subitem) {
@@ -163,7 +163,7 @@ $(document).ready(function() {
     return subitemHTML;
   }
 
-  // Function to generate subitem HTML for table view
+  // 生成表格模式版面
   function generateTableSubitemHTML(subitems) {
     var subitemHTML = '';
     subitems.forEach(function(subitem) {
@@ -178,7 +178,7 @@ $(document).ready(function() {
     return subitemHTML;
   }
 
-  // Function to generate group HTML
+  // 生成main-folder群組
   function generateGroupHTML(folder) {
     var subitemTableHTML = generateTableSubitemHTML(folder.subitems);
     return `
@@ -216,7 +216,7 @@ $(document).ready(function() {
     `;
   }
 
-  // Insert data into the .wrapper element
+  // 將資料新增到.wrapper之中
   Data.folders.forEach(function(folder) {
     var groupHTML = generateGroupHTML(folder);
     $('.wrapper').append(groupHTML);
@@ -226,32 +226,54 @@ $(document).ready(function() {
 // 文章排序
 /*============================================================================*/
   var currentView = localStorage.getItem('currentView') || 'grid-view';
-  
-  // 主要資料夾點擊事件
-  $('.main-folder').on('click', function() {
-    // 更改 <h2> 標籤的内容
-    var folderName = $(this).find('.title').text();
-    $('h2').css('text-transform', 'none').text(folderName);
+
+  // 用於解析 URL 參數的函數
+  function getURLParameter(name) {
+    var value = (new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)').exec(window.location.href) || [null, ''])[2];
+    return value ? decodeURIComponent(value) : null;
+  }
+
+  // 檢查 URL 中是否有 category 參數
+  var categoryParam = getURLParameter('category');
+  if (categoryParam) {
+    showSubitemsForCategory(categoryParam);
+  }
+
+  // 顯示對應類別的子項目
+  function showSubitemsForCategory(category) {
+    // 隱藏所有 group 和子項目
+    $('.group').hide();
+    $('.main-folder').show();
+    $('.subitem').hide();
 
     $('.wrapper').css('grid-template-columns', '1fr');
-
-    // 隱藏其他 group
-    $(this).closest('.group').siblings('.group').hide();
-
-    // 隱藏被點擊的主要資料夾本身
-    $(this).hide();
-
-    // 顯示這個 group 的子項目
-    $(this).closest('.group').find('.subitem').show();
-
-    // 根据当前视图模式显示相应的容器
-    showView(currentView);
-
     $('.btn').show();
-  });
 
-  // 返回按鈕點擊事件
-  $('.back').on('click', function() {
+    // 尋找對應類別的主要資料夾
+    var matchingFolder = $('.group').filter(function() {
+      var folderName = $(this).find('.title').text().toLowerCase();
+      return folderName === category;
+    });
+
+    if (matchingFolder.length > 0) {
+      // 顯示對應類別的主要資料夾和子項目
+      matchingFolder.show();
+      matchingFolder.find('.main-folder').hide();
+      matchingFolder.find('.subitem').show();
+      showView(currentView);
+      $('h2').css('text-transform', 'none').text(matchingFolder.find('.title').text());
+    } else {
+      // 如果找不到該類別的子項目，顯示自訂警示訊息
+      var message = '查無此項目：' + category;
+      showCustomAlert(message);
+    }
+
+    // 修改網址
+    var newUrl = 'notes.html?category=' + category;
+    window.history.pushState({}, '', newUrl);
+  }
+
+  function hideSubitemsForCategory() {
     $('.wrapper').css('grid-template-columns', '');
     // 顯示所有 group 和子項目
     $('.group, .main-folder').show();
@@ -260,9 +282,23 @@ $(document).ready(function() {
     $('.btn').hide();
     $('h2').css('text-transform', 'uppercase').text('NOTES');
     hideView(currentView);
+
+    // 將網址改回原本的狀態
+    window.history.pushState({}, '', 'notes.html');
+  }
+  
+  // 主要資料夾點擊事件
+  $('.main-folder').on('click', function() {
+    var folderName = $(this).find('.title').text();
+    showSubitemsForCategory(folderName.toLowerCase());
   });
 
-  // 切换显示方式
+  // 返回按鈕點擊事件
+  $('.back').on('click', function() {
+    hideSubitemsForCategory();
+  });
+
+  // 切換顯示方式
   $('.view').on('click', function() {
     $('.subitem-container.grid-view, .subitem-container.table-view').toggle();
 
@@ -273,23 +309,64 @@ $(document).ready(function() {
       currentView = 'table-view';
       $('.subitem-container').css('grid-template-columns', '1fr');
     }
-    localStorage.setItem('currentView', currentView); // 将当前视图模式保存到本地存储中
+    localStorage.setItem('currentView', currentView); // 將目前的顯示模式儲存到本地
     showView(currentView);
   });
 
-  // 更新视图
+  // 點擊事件觸發自訂對話框顯示
+  $('#show-custom-alert').on('click', function() {
+    var category = 'Python'; // 假設您要顯示的類別名稱
+    showCustomAlert('查無此項目：' + category);
+  });
+
+  // 自訂對話框關閉按鈕
+  $('#custom-alert-close').on('click', function() {
+    hideCustomAlert();
+  });
+
+  // 顯示子項目
   function showView(view) {    
     if (view === 'table-view') {
       $('.subitem-container.grid-view').hide();
       $('.subitem-container.table-view').show();
+      $('.view i').removeClass('bi-list-ul').addClass('bi-grid-3x3-gap-fill');
     } else {
       $('.subitem-container.table-view').hide();
       $('.subitem-container.grid-view').css('display', 'grid');
+      $('.view i').removeClass('bi-grid-3x3-gap-fill').addClass('bi-list-ul');
     }
   }
 
   function hideView(view) { 
     $('.subitem-container.grid-view').hide();
     $('.subitem-container.table-view').hide();
+  }
+
+  // 顯示自訂對話框
+  function showCustomAlert(message) {
+    $('#custom-alert-message').text(message);
+    $('.custom-alert-overlay').show();
+  }
+
+  // 隱藏自訂對話框
+  function hideCustomAlert() {
+    $('.custom-alert-overlay').fadeOut();
+    hideSubitemsForCategory();
+  }
+
+  const tb_header = document.querySelector('.tbl-header');
+  const tb_content = document.querySelector('.tbl-content');
+
+  if (tb_content.offsetHeight < tb_content.scrollHeight) {
+    // 有垂直scroll bar
+    tb_content.style.marginLeft = '10px';
+    tb_header.style.marginLeft = '10px';
+    tb_header.style.marginRight = '10px';    
+  } 
+  else {
+    // 沒有垂直scroll bar
+    tb_content.style.marginLeft = '0px';
+    tb_header.style.marginLeft = '0px';
+    tb_header.style.marginRight = '0px';
   }
 });

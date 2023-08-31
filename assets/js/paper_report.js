@@ -192,14 +192,12 @@ window.onload = function paper_table() {
   const tb_content = document.querySelector('.tbl-content');
   
   if (tb_content.offsetHeight < tb_content.scrollHeight) {
-    console.log('存在scroll bar');
     // 有垂直scroll bar
     tb_content.style.marginLeft = '10px';
     tb_header.style.marginLeft = '10px';
     tb_header.style.marginRight = '10px';    
   } 
   else {
-    console.log('不存在scroll bar');
     // 沒有垂直scroll bar
     tb_content.style.marginLeft = '0px';
     tb_header.style.marginLeft = '0px';

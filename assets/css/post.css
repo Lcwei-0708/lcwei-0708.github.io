@@ -86,7 +86,7 @@ body {
 	box-shadow: var(--shadow3-color);
 	border: 1.5px solid var(--font3-color);
 	width: 20%;
-	height: 75.5%;
+	height: 75.7%;
 }
   
 #toc-list {
@@ -157,13 +157,6 @@ body {
 	overflow: hidden;
 	border: 1.5px solid var(--font3-color);
 	background-color: var(--bg3-color);
-}
-
-#article .page-cover-image {	
-	width: 100%;
-	padding: 0 !important;
-	box-shadow: var(--shadow-color);
-	margin-bottom: 5%;
 }
 
 /*--------------------------------------------------------------
@@ -241,8 +234,16 @@ img {
 	display: block; /* 清除可能的預設間距 */
 	margin: auto; /* 調整上下間距，左右置中 */
 	border-radius: 1rem;
-	border: 1px solid var(--opacity-bg-1);
+	border: 1px solid var(--font2-color);
 	margin-bottom: 8%;
+}
+
+img.page-cover-image {	
+	width: 100%;
+	padding: 0 !important;
+	box-shadow: var(--shadow-color);
+	margin-bottom: 5%;
+	border: 1px solid var(--opacity-bg-1);
 }
 
 img.annotation {
@@ -488,51 +489,55 @@ button.copy {
 /*--------------------------------------------------------------
 # Table
 --------------------------------------------------------------*/
-table.post-table-margin {	
+.post-table-margin {	
 	margin: 20px 0 80px;
 	width: 100%;
-	border-radius: 1rem;
-	box-shadow: var(--shadow3-color);
 	overflow: hidden;
-	border: 1px solid var(--font3-color);
-	background-color: var(--code-bg);
+	border-radius: 1rem;
+	border: 2px solid var(--code-line);
+	background-color: var(--font3-color);
 }
 
-table.post-table {	
+.post-table {	
 	margin: 20px 0;
 	width: 100%;
-	border-radius: 1rem;
-	box-shadow: var(--shadow3-color);
 	overflow: hidden;
-	border: 1px solid var(--font3-color);
-	background-color: var(--code-bg);
+	border-radius: 1rem;
+	border: 2px solid var(--code-line);
+	background-color: var(--font3-color);
 }
 
 .table-th {
-	background-color: var(--code-bg);
-	border: 1px solid var(--font3-color);
+	border-spacing: 0;
 	padding: 10px 15px;
 	font-size: 20px;
+	border: 2px solid var(--font3-color);
+	background-color: var(--code-bg);
 }
 
 .table-th.center {
-	background-color: var(--code-bg);
-	border: 1px solid var(--font3-color);
+	border-spacing: 0;
 	padding: 10px 15px;
 	font-size: 20px;
 	text-align: center;
+	border: 2px solid var(--font3-color);
+	background-color: var(--code-bg);
 }
 
 .table-td {
-	background-color: var(--code-bg2);
-	border: 1px solid var(--font3-color);
+	border-collapse: collapse;
+	border-spacing: 0;
+	background-color: var(--bg3-color);
+	border: 2px solid var(--font3-color);
 	margin: 0;
 	padding: 10px 15px;
 }
 
 .table-td.center {
+	border-collapse: collapse;
+	border-spacing: 0;
 	background-color: var(--bg3-color);
-	border: 1px solid var(--font3-color);
+	border: 2px solid var(--font3-color);
 	margin: 0;
 	padding: 10px 15px;
 	text-align: center;
@@ -540,6 +545,16 @@ table.post-table {
 
 .table-tr:hover .table-td {
 	background-color: var(--bg-color) !important;
+}
+
+.table-td a {
+	display: flex;
+	align-items: center;
+}
+  
+.table-td a i {
+	font-size: 24px;
+	margin: auto;
 }
 
 /*--------------------------------------------------------------
