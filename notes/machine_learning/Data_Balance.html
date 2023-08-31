@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Balance</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="726a5566-900e-43d4-806b-e3efa66bc1ea" class="page mono"><header><img class="page-cover-image" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Data_Balance.png" style="object-position:center 74.49%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/document_gray.svg"/></div><h1 class="page-title">Data Balance</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/categories_gray.svg" style="width:14px;height:14px"/></span>Category</th><td><span class="selected-value select-value-color-purple">Machine Learning</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Tag</th><td></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px"/></span>參考文獻</th><td><a href="https://www.notion.so/Data-Balance-39275c7eb77240bc97d5b02f65183a5c?pvs=21"><img class="icon" src="https://www.notion.so/icons/link_gray.svg"/>Data Balance</a></td></tr></tbody></table></header><div class="page-body"><h2 id="a4a25568-9786-4015-acc5-4b992aa14b7a" class="">什麼是資料平衡？</h2><p id="31cdaf57-1ada-4ce5-924a-8c9be2734bf2" class="">資料平衡（Data Balance）是指在機器學習和資料分析中，處理類別不平衡的問題，類別不平衡是指在資料集（Dataset）中，不同類別之間的<mark class="highlight-yellow_background"><strong>樣本數量比例差距過大</strong></mark>或者在多類別資料中具有<strong><mark class="highlight-yellow_background">類別分布不平均</mark></strong>的情況，這種不平衡可能會對模型的性能和預測能力產生負面影響，導致模型對少數類別的預測能力下降。</p><figure id="e9b06476-4ace-4d86-ac80-874d75690710" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled.png"><img style="width:2527px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled.png"/></a></figure><p id="a75a0de0-3323-4aa8-9883-85b37f9f7aef" class="">
+</p><p id="00483547-4311-4cfa-8b25-8db92e60056a" class=""><strong>類別不平衡的常見案例：</strong></p><ul id="7f823273-0dec-47ee-9a53-622f43798751" class="bulleted-list"><li style="list-style-type:disc"><strong>醫療診斷：</strong>在某個疾病的診斷中，患病樣本（少數類別）的數量可能遠遠少於非患病樣本（多數類別）的數量。</li></ul><ul id="c534106a-a933-406c-82be-fe18a447c696" class="bulleted-list"><li style="list-style-type:disc"><strong>信用評級：</strong>在信用評級中，壞信用樣本（少數類別，表示可能不履行債務）的數量通常較少，而良好信用樣本（多數類別，表示可能履行債務）的數量較多。</li></ul><ul id="c536247d-2b75-472c-97f6-1096f5a70299" class="bulleted-list"><li style="list-style-type:disc"><strong>欺詐檢測：</strong>在金融詐欺檢測中，詐欺案例（少數類別）的數量通常非常稀少，而正常交易案例（多數類別）的數量非常大。</li></ul><ul id="65d6837f-8789-49e0-9d58-1f680215b5b0" class="bulleted-list"><li style="list-style-type:disc"><strong>瑕疵檢測：</strong>在製造業中，產品的瑕疵（少數類別）通常較少見，而正常產品（多數類別）的數量較多。</li></ul><ul id="1f21a00e-1db9-4e05-9238-bf6db5db210b" class="bulleted-list"><li style="list-style-type:disc"><strong>情感分析：</strong>在情感分析中，正面評論（多數類別）的數量可能遠大於負面評論（少數類別）的數量。</li></ul><p id="0119c43b-b5b0-43fc-a56f-db6857d4bf0c" class="">
+</p><h2 id="8e62a6f5-c93f-4296-884d-cf8466c54ba7" class="">資料平衡的方法</h2><p id="6a26a5b9-f93a-4354-8afb-148ae38857e8" class="">在處理類別不平衡的方法中，可以分成資料層面以及演算法層面：</p><ul id="69100797-7036-4f29-9cec-db548294d765" class="bulleted-list"><li style="list-style-type:disc"><strong>資料層面：</strong>資料層面方法是通過改變資料的分佈來處理類別不平衡，使得少數類別的樣本數量與多數類別的樣本數量相當。例如：過採樣、欠採樣以及混合採樣等技術來調整資料的結構，以使類別之間的數量更平衡，不過資料層面方法的限制在於改變資料分佈的能力有限，有時可能無法完全解決類別不平衡的問題。</li></ul><p id="5c79fc53-087e-448c-b4fd-e2157a142c6e" class="">
+</p><ul id="6f21d552-e29c-44ec-9480-383a80c3296c" class="bulleted-list"><li style="list-style-type:disc"><strong>演算法層面：</strong>演算法層面是通過調整機器學習算法的設置或訓練過程來提高少數類別的重要性。例如：成本敏感方法可以給予少數類別的錯誤分類更高的成本，使算法更加關注少數類別的識別，這樣的調整可以改善模型在少數類別的預測準確性，演算法層面方法的挑戰在於設定適當的成本權重需要依賴領域知識或經驗，且對於不同的問題可能需要進行反覆調整和優化。</li></ul><p id="db90755f-f140-4c10-8d98-b2e0610220a6" class="">
+</p><h2 id="a6de0164-9619-4e3a-ba84-9eb6b08414c9" class="">過採樣</h2><p id="205154b8-ff3e-44b0-829d-54404b6f3545" class="">過採樣（Over-Sampling）是通過<mark class="highlight-yellow_background"><strong>增加少數類別的樣本數量</strong></mark>，使其與多數類別的樣本數量相當。常見的過採樣方法包括隨機過採樣（Random Oversampling）和SMOTE（Synthetic Minority Over-sampling Technique）、ADASYN（Adaptive Synthetic Sampling）…等。</p><figure id="c5a06bb4-0c7d-4de6-9d00-06ff770fd2bb" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%201.png"><img style="width:2395px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%201.png"/></a></figure><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">隨機過採樣</summary><div class="indented"><p id="f7c6e591-2772-4e2f-9371-66eaea1c659d" class="">隨機過採樣（Random Over-sampling）是一種簡單直接的過採樣方法，它通過複製少數類別的樣本來增加其數量，使得少數類別與多數類別的樣本數量相當。</p><figure id="23ec9a9f-6b3d-4d05-9f59-6c20b07c3db9" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%202.png"><img style="width:2416px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%202.png"/></a></figure><p id="bcfd9499-b30b-4c81-a6b9-fe2caa673ad4" class=""><strong>優點：</strong></p><ul id="8f6e925b-d5d3-4429-8da2-a673515a4cef" class="bulleted-list"><li style="list-style-type:disc">簡單易實現，不需要額外的計算。</li></ul><ul id="6b3600c5-631f-4043-ab90-c1a892710a11" class="bulleted-list"><li style="list-style-type:disc">可以有效增加少數類別的樣本數量。</li></ul><p id="d5a5c62a-9c49-4c59-a380-1b70afc4d8d9" class=""><strong>缺點：</strong></p><ul id="edb21d7b-25e8-4655-bdb9-6628eb995238" class="bulleted-list"><li style="list-style-type:disc">容易產生過擬合問題，因為重複樣本可能導致模型過於關注少數類別。</li></ul><ul id="758691c9-3235-4234-ba79-6887728aaba2" class="bulleted-list"><li style="list-style-type:disc">丟失了一些原始的少數類別樣本信息。</li></ul><p id="dc4f90eb-49f7-4033-925e-a5a78924785d" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SMOTE</summary><div class="indented"><p id="91e04ba5-e83b-4460-94f4-10fa3833ba7d" class="">SMOTE（Synthetic Minority Over-sampling Technique）是一種基於從少數類別樣本中隨機找到K個相鄰的同類別樣本，並且在兩個樣本之間隨機生成新的樣本的過採樣方法。</p><figure id="7f99f631-8d5c-441f-b14e-2f8405cc47ab" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%203.png"><img style="width:2449px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%203.png"/></a></figure><p id="49855ab9-f408-4d96-a367-a2d8a28b346c" class=""><strong>優點：</strong></p><ul id="52b1957f-c099-498f-a892-fefd186687d3" class="bulleted-list"><li style="list-style-type:disc">能夠生成新的合成樣本，擴展少數類別的分佈，改善模型的泛化能力。</li></ul><ul id="8cb57e57-84b9-4a4e-b436-933dda33ceca" class="bulleted-list"><li style="list-style-type:disc">考慮了少數類別樣本之間的差異，使生成的合成樣本更具多樣性。</li></ul><p id="f6804582-8e25-4f4a-b140-008dbb8e91c5" class=""><strong>缺點：</strong></p><ul id="efd68bac-f0bd-4e6d-a853-bb4e9484aeb4" class="bulleted-list"><li style="list-style-type:disc">生成的合成樣本可能與原始樣本存在一定的重疊，導致模型對噪音敏感。</li></ul><ul id="b04bb4da-fe3a-4cf3-9f58-205692c2bc72" class="bulleted-list"><li style="list-style-type:disc">在處理邊界樣本時可能產生一些錯誤的合成樣本。</li></ul><p id="8dd36f1e-e814-4c7d-9a1a-e696cbb2c46f" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Borderline SMOTE</summary><div class="indented"><p id="b9ad926a-2bfb-42e1-be43-067a6fe1f8a1" class="">Borderline SMOTE是在SMOTE的基礎上進一步改進的方法，它會將少數類別的樣本分成三種，分別是Noise、Safe、Danger，Borderline SMOTE會專注在Danger的樣本之間生成新的樣本。</p><ul id="a4d49c7f-c45c-450b-bd41-352dcaa01814" class="bulleted-list"><li style="list-style-type:disc"><strong>Noise：</strong>樣本週圍只有多數類別樣本</li></ul><ul id="a63ab071-bcff-496c-aae6-875937c4462a" class="bulleted-list"><li style="list-style-type:disc"><strong>Safe：</strong>樣本週圍有一半以上都是少數類別樣本</li></ul><ul id="fa61998f-6c34-4d9b-b6ec-6e5a5d66f09d" class="bulleted-list"><li style="list-style-type:disc"><strong>Danger：</strong>樣本週圍一半以上都是多數類別樣本<figure id="c96b8d99-550f-4939-bb58-6231efcbc893" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%204.png"><img style="width:2548px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%204.png"/></a></figure></li></ul><p id="df6eefae-8070-4d1c-97da-d25876fa9739" class="">Borderline SMOTE分為兩種版本：</p><ul id="a064a5ae-0c54-40ae-9707-e13bb744efaa" class="bulleted-list"><li style="list-style-type:disc"><strong>Borderline SMOTE-1：</strong>對每個Danger樣本隨機選擇其K近鄰中的<mark class="highlight-yellow_background"><strong>相同類別樣本</strong></mark>，然後使用SMOTE算法生成合成樣本。</li></ul><ul id="41193b01-279b-4970-8754-5f8ebd4b24b9" class="bulleted-list"><li style="list-style-type:disc"><strong>Borderline SMOTE-2：</strong>對每個Danger樣本隨機選擇其K近鄰中的<mark class="highlight-yellow_background"><strong>任何一個樣本</strong></mark>，無論其是否屬於相同類別，然後使用SMOTE算法生成合成樣本。</li></ul><p id="380a0110-9c60-44d9-bbef-f3acc290f934" class="">
+</p><p id="68c30ec2-1109-4413-9492-0208df89717b" class=""><strong>優點：</strong></p><ul id="4ce3ff17-2e00-41b4-a6e4-d1a81875a01d" class="bulleted-list"><li style="list-style-type:disc">專注於處理邊界樣本，能夠更有效地生成合成樣本。</li></ul><ul id="d318152f-ba77-4e0b-b68d-54adb4bc9b95" class="bulleted-list"><li style="list-style-type:disc">改善了模型對邊界樣本的分類效果</li></ul><p id="d630ef03-4b90-4a37-bb48-862954035ed9" class=""><strong>缺點：</strong></p><ul id="e3bb5718-b46a-4c56-89ed-e5eebb5bcbd8" class="bulleted-list"><li style="list-style-type:disc">可能會生成一些錯誤的合成樣本，特別是在處理噪音樣本時。</li></ul><p id="7ff50ee4-0f2a-4b9b-a605-75d0765120ae" class=""> </p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SVM SMOTE</summary><div class="indented"><p id="d2e04b6d-9809-4b35-8eba-9c900b3981b4" class="">SVM SMOTE是一種基於支持向量機（Support Vector Machine）與SMOTE的過採樣方法，它先使用SVM分類器來辨識出邊界附近的樣本，然後再使用SMOTE的方式，在支持向量（Support Vector）之間隨機生成新的樣本。</p><figure id="b08c6872-ec2f-45b6-b0e7-808f67537781" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%205.png"><img style="width:2482px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%205.png"/></a></figure><p id="7b1b91f7-6d4f-43e8-a60b-7ad97a8897c5" class=""><strong>優點:</strong></p><ul id="9d731c07-6030-4c1b-964f-365e72cb9aea" class="bulleted-list"><li style="list-style-type:disc">可以更好地保留少數類別的特徵和分佈。</li></ul><ul id="7ed44b86-2d95-4fe8-bf08-c073e2fd4ddb" class="bulleted-list"><li style="list-style-type:disc">可以提高模型的泛化能力，尤其是在處理非線性可分問題時。</li></ul><p id="55cb9895-0f28-4f07-bc82-fa72f15edd6a" class=""><strong>缺點：</strong></p><ul id="f887d204-405e-44ef-a2d2-48b0d2f788fa" class="bulleted-list"><li style="list-style-type:disc">需要額外的計算成本，尤其是在較大的資料集上。</li></ul><ul id="087946d2-eccf-4976-aa5c-49cd5e6c994f" class="bulleted-list"><li style="list-style-type:disc">可能受到SVM分類器本身的限制。</li></ul><p id="33c57299-512e-43bc-9814-aa0b2b28c97f" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">ADASYN</summary><div class="indented"><p id="da683a58-343b-4015-aeff-513f88506edf" class="">ADASYN（Adaptive Synthetic Sampling）是一種自適應過採樣方法，它會根據每個少數類別樣本附近的多數類別樣本數量去計算權重，再根據權重的大小去生成新的樣本，權重越大的樣本通常會有更高的機率生成新的樣本。</p><figure id="a7a5efaf-0473-4f8c-996f-87993dcb63fa" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%206.png"><img style="width:2481px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%206.png"/></a></figure><p id="ad6a6168-c5ce-4a60-8a3f-de69c3bda209" class=""><strong>優點：</strong></p><ul id="4f593a56-6335-4608-977d-e688606e74c1" class="bulleted-list"><li style="list-style-type:disc">自適應調整生成合成樣本的數量，更關注那些周圍多數類別密度較低的區域。</li></ul><ul id="2c45b9f5-2f6c-4ebe-93ff-047a1eab32af" class="bulleted-list"><li style="list-style-type:disc">可以更好地處理不平衡問題，提高模型的性能。</li></ul><p id="3a88d109-bc53-4968-9e46-2169ff575687" class=""><strong>缺點：</strong></p><ul id="4fa4a263-99a6-430f-863d-64f0f5441461" class="bulleted-list"><li style="list-style-type:disc">需要較長的計算時間，尤其是在資料集具有高維度的情況下。</li></ul><ul id="b2535fcb-ede5-4395-9bff-2444c6a69bbd" class="bulleted-list"><li style="list-style-type:disc">生成的合成樣本可能與原始樣本存在一定的重疊。</li></ul></div></details><p id="61fd0b11-9e72-434c-9c98-d729335c483a" class="">
+</p><h2 id="91a81293-987b-44b4-9b06-49bfefb4a6c2" class="">欠採樣</h2><p id="686b57cc-70ea-41ba-9c33-21e65dfb4a5c" class="">欠採樣（Under-Sampling）是通過<mark class="highlight-yellow_background"><strong>減少多數類別的樣本數量</strong></mark>，使其與少數類別的樣本數量相當。常見的欠採樣方法包括隨機欠採樣（Random Undersampling）、Cluster Centroids和Near Miss…等。</p><figure id="2c174320-6259-4098-8c22-384f0f7cbc42" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%207.png"><img style="width:2381px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%207.png"/></a></figure><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">隨機欠採樣</summary><div class="indented"><p id="cbea83df-9e67-496c-8683-0b02188d8f8e" class="">隨機欠採樣（Random Under-sampling）是從多數類別中隨機地刪除一些樣本，以使多數類別的樣本數與少數類別的樣本數相近。</p><figure id="777a412f-51db-4f72-8c24-a0d2e3dbb732" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%208.png"><img style="width:2465px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%208.png"/></a></figure><p id="54fdcb56-56e0-4ae9-a241-8ef2db0596b8" class=""><strong>優點：</strong></p><ul id="1bdb39df-b8dd-4031-b537-d17146f1fb69" class="bulleted-list"><li style="list-style-type:disc">簡單易實現，計算效率高。</li></ul><ul id="aa307c39-48a1-4b72-8b85-4d99d06878db" class="bulleted-list"><li style="list-style-type:disc">可以減少計算和記憶體需求。</li></ul><p id="67779a32-4355-4520-bbf9-64410c236692" class=""><strong>缺點：</strong></p><ul id="487af89d-3ff9-4da7-a699-889fffe9e55c" class="bulleted-list"><li style="list-style-type:disc">可能丟失一些重要的少數類別訊息。</li></ul><ul id="ee50df1a-5b9d-487e-9775-f87b755736fb" class="bulleted-list"><li style="list-style-type:disc">沒有利用少數類別樣本的全部訊息。</li></ul><p id="62f555ae-8ecb-4556-a648-cfda9c923566" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Cluster Centroids</summary><div class="indented"><p id="dc8d3a62-dc2e-49df-b9b2-dcb84339779c" class="">Cluster Centroids是一種基於聚類的欠採樣方法，它使用聚類的方式將多數類別的樣本聚為幾個群集，然後選將群集之外的多數類別樣本捨棄掉，只保留群集中心的樣本。</p><figure id="8eccc1ec-cbb2-44ab-b9cd-e4fe2db63e6e" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%209.png"><img style="width:2529px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%209.png"/></a></figure><p id="e6e7d7f0-a7ae-4f3b-83ff-117b20022bcf" class=""><strong>優點：</strong></p><ul id="c351e556-f321-4e54-804e-417048599026" class="bulleted-list"><li style="list-style-type:disc">保留了多數類別樣本的分佈特徵。</li></ul><ul id="ce7e3728-d5fe-4482-9812-93077bc7bfa6" class="bulleted-list"><li style="list-style-type:disc">可以有效地減少多數類別樣本的數量。</li></ul><p id="07924ac9-ef7b-4bbe-9707-7a629e767600" class=""><strong>缺點：</strong></p><ul id="67516160-6f03-4516-9f05-e7c719bddc54" class="bulleted-list"><li style="list-style-type:disc">可能丟失少數類別的重要樣本。</li></ul><ul id="70560c08-27d4-4e48-a39f-678e7f820f63" class="bulleted-list"><li style="list-style-type:disc">計算量大，對於記憶體需求大。</li></ul><p id="397b6508-6e1f-41c1-a410-1f149d734035" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Near Miss</summary><div class="indented"><p id="fc7aab28-04d3-4cd8-abc2-3be14635500d" class="">Near Miss會基於樣本之間的距離，選擇保留多數類別樣本與少數類別樣本之間最近的樣本，並且捨棄掉剩下的多數類別樣本。</p><figure id="4640d296-61a0-42f8-9148-e58324a7000c" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2010.png"><img style="width:2532px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2010.png"/></a></figure><p id="6e41675d-d31a-431f-8a06-a9beec05e19d" class=""><strong>優點：</strong></p><ul id="355b60d9-6a7f-421c-b093-cfac94ffad0f" class="bulleted-list"><li style="list-style-type:disc">保留了與多數類別樣本最相似的少數類別樣本。</li></ul><ul id="609a2202-0110-4d0c-9924-e944e8f7fdbb" class="bulleted-list"><li style="list-style-type:disc">可以減少計算和內存需求。</li></ul><p id="214dfe8a-b48d-4e4e-9f1d-b814c10d97b1" class=""><strong>缺點：</strong></p><ul id="e4ef6cdc-f3ad-490c-a93b-63b61831332c" class="bulleted-list"><li style="list-style-type:disc">可能丟失一些重要的少數類別樣本。</li></ul><ul id="7aac1c20-8671-4baa-bc7b-6e3df4d46efc" class="bulleted-list"><li style="list-style-type:disc">對於分佈較為複雜的數據集，可能效果不佳。</li></ul><p id="5e139137-5bac-42f5-be74-d368e5be59df" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">ENN</summary><div class="indented"><p id="43bd483a-5778-41f4-b4e6-a93b5d00ec50" class="">ENN（Edited Nearest Neighbors）是一種欠採樣方法，它選擇捨棄與少數類別樣本相近的多數類別樣本，以減少多數類別樣本的數量。</p><figure id="d8f08578-ffa3-4b59-a79e-dee4a43577f9" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2011.png"><img style="width:2531px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2011.png"/></a></figure><p id="6d4e984a-deda-4d66-b4d1-5fe74db9a367" class=""><strong>優點：</strong></p><ul id="56bc5bb4-c8c9-4c76-a99b-6de2a0c84af4" class="bulleted-list"><li style="list-style-type:disc">可以減少多數類別樣本的數量。</li></ul><ul id="e5f99168-eec7-4bda-8e8d-ad9f990aea4f" class="bulleted-list"><li style="list-style-type:disc">保留了多數類別樣本之間的多樣性，有助於提高分類器的性能。</li></ul><p id="c67c4357-ee64-4a68-a9c1-19e0bfd46c77" class=""><strong>缺點：</strong></p><ul id="fca4f0a9-1db8-4f06-8f2d-c9319188e764" class="bulleted-list"><li style="list-style-type:disc">可能丟失一些重要的多數類別樣本。</li></ul><ul id="42288304-d3fb-4a45-a935-04892f95a493" class="bulleted-list"><li style="list-style-type:disc">如果資料集中存在較多的噪音樣本，可能會影響ENN的效果。</li></ul><ul id="a6f1eddb-bbea-4ad9-9559-5d951416ec52" class="bulleted-list"><li style="list-style-type:disc">只關注樣本之間的類別關係，忽略了樣本在特徵空間中的分佈情況。</li></ul><p id="2037b007-23f2-4159-80fe-1745d09e9b29" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Tomek Link</summary><div class="indented"><p id="2ae8f339-dbb0-4df7-9f0f-8489c36acb76" class="">Tomek Link是一種欠採樣方法，它通過計算樣本之間的距離來把不同類別的樣本連結起來，之後再將連結中的多數類別樣本捨棄掉，這樣可以減少多數類別樣本的數量，同時增強樣本的區分度。</p><figure id="ec09f546-d1cf-485b-bffb-ffa1e5884cf3" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2012.png"><img style="width:2535px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2012.png"/></a></figure><p id="4b46d0ad-8007-4863-93e2-0a5975c95d8b" class=""><strong>優點：</strong></p><ul id="467cd5ea-aa60-4fc9-86d4-196e29b79ad9" class="bulleted-list"><li style="list-style-type:disc">簡單易實現，計算效率高。</li></ul><ul id="f8815ffc-a2e0-4abe-add1-21f1834ad844" class="bulleted-list"><li style="list-style-type:disc">可以減少多數類別樣本的數量。</li></ul><ul id="3add5169-055b-49bc-95e8-754e86193020" class="bulleted-list"><li style="list-style-type:disc">保留了少數類別樣本的特徵和分佈。</li></ul><p id="c986e535-f51c-4aff-a0e5-0036325d8acf" class=""><strong>缺點：</strong></p><ul id="25c37e28-59aa-49b0-a660-79c647533d7f" class="bulleted-list"><li style="list-style-type:disc">可能丟失一些重要的少數類別樣本。</li></ul><ul id="57d75ecd-bdc2-4249-82ac-1248a706e0ae" class="bulleted-list"><li style="list-style-type:disc">如果數據集中存在較多的噪音樣本，可能會影響Tomek Link的效果。</li></ul><ul id="68b530e2-8dfa-457e-bc56-6818fa6918e3" class="bulleted-list"><li style="list-style-type:disc">只關注樣本之間的類別關係，忽略了樣本在特徵空間中的分佈情況。</li></ul></div></details><p id="14a2d2a2-312d-4fa4-af56-d12ce1021808" class="">
+</p><h2 id="3dc5a610-d63b-4542-b78a-f2ed3dbcbda7" class="">混合採樣</h2><p id="73413b40-b3fd-4bfd-83eb-2e7fc055f2dc" class="">混合採樣（Combination Sampling）是一種結合過採樣和欠採樣的方法，它可以<strong><mark class="highlight-yellow_background">同時增加少數類別的樣本數量和減少多數類別的樣本數量</mark></strong>。常見的方法包括SMOTE ENN（SMOTE + Edited Nearest Neighbors）和SMOTE Tomek（SMOTE + Tomek Links）…等。</p><figure id="a6ea5ff8-2578-45ce-86da-3d357ae28f08" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2013.png"><img style="width:2422px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2013.png"/></a></figure><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SMOTE ENN</summary><div class="indented"><p id="99584f86-7786-4346-ba45-91816a3303f2" class="">SMOTE ENN結合了過採樣的SMOTE和欠採樣的ENN兩種方法，先使用SMOTE方法合成新的少數類別樣本，再用ENN方法刪除多數類別樣本中的一些樣本。</p><figure id="bd9c09dc-8ea1-4115-a87c-4be8b2d599fd" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2014.png"><img style="width:2495px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2014.png"/></a></figure><p id="75e3adc6-f249-4453-b0dc-4f190f96923e" class=""><strong>優點：</strong></p><ul id="40f6cd40-84ee-4719-ae38-2cfc9a446752" class="bulleted-list"><li style="list-style-type:disc">保留了少數類別樣本的特徵和分佈。</li></ul><ul id="57877a4d-3d0a-4255-a503-9c38c44ad448" class="bulleted-list"><li style="list-style-type:disc">有效平衡不同類別的樣本的數量。</li></ul><p id="57ba4c98-c0b7-4c8e-a5dc-4a38a2e60c3e" class=""><strong>缺點：</strong></p><ul id="57cdcc1d-f6b1-4052-9fd0-828a26176c64" class="bulleted-list"><li style="list-style-type:disc">可能丟失一些重要的多數類別樣本和少數類別樣本。。</li></ul><ul id="c07a5258-7ee4-49cd-b67f-a1f7c0517edb" class="bulleted-list"><li style="list-style-type:disc">對於較大的資料集，計算效率可能較低。</li></ul><p id="9a9fb596-7429-433f-8b16-858b7e390389" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SMOTE Tomek</summary><div class="indented"><p id="9d8e1006-2097-4968-94e1-3e52992cf382" class="">SMOTE Tomek結合了過採樣的SMOTE和欠採樣的Tomek Link兩種方法，先使用SMOTE生成新的少數類別樣本，再用Tomek連結刪除多數類別樣本，以增強樣本的區分度。</p><figure id="34f831b2-f0de-4009-81a0-ec9042df223b" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2015.png"><img style="width:2529px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2015.png"/></a></figure><p id="cbe25cff-146e-414e-8ff4-94e011a5a7bd" class=""><strong>優點：</strong></p><ul id="d7b4c7c8-f7e7-47b8-8395-f6bd58eae2d4" class="bulleted-list"><li style="list-style-type:disc">保留了少數類別樣本的特徵和分佈。</li></ul><ul id="6c107980-72f2-4c7d-9696-8555c6a546d1" class="bulleted-list"><li style="list-style-type:disc">有效平衡不同類別的樣本的數量。</li></ul><p id="c4be6c16-26c9-4503-9dad-9d8e170474f0" class=""><strong>缺點：</strong></p><ul id="7e226663-39c9-43ef-8b93-4655ebd6d334" class="bulleted-list"><li style="list-style-type:disc">可能丟失一些重要的少數類別樣本。</li></ul><ul id="3c5e2e95-4d1c-4899-a7d4-d09acadd8a08" class="bulleted-list"><li style="list-style-type:disc">對於較大的數據集，計算效率可能較低。</li></ul></div></details><p id="3d15e3dc-7d46-40e5-88e6-b13f97e95cfb" class="">
+</p><h2 id="282d4a70-17dd-4d4b-aba2-c0ee77bd4f6b" class="">權重調整</h2><p id="f690c4ab-73b5-4cd2-bff6-b8d9d9ef4da5" class="">權重調整（Weighting）就是調整資料在訓練模型是的影響力，透過將<strong><mark class="highlight-yellow_background">少數類別的樣本權重提高，多數類別的樣本權重降低</mark></strong>，讓不同類別對於模型訓練的影響力達到平衡，這些權重可以應用於損失函數或樣本權重，以調整模型在不同類別上的學習重要性。</p><figure id="34f03a79-429a-4f11-b9c0-70b544d6cf8f" class="image"><a href="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2016.png"><img style="width:2510px" src="Data%20Balance%20726a5566900e43d4806be3efa66bc1ea/Untitled%2016.png"/></a></figure><p id="65cab1d0-654a-4b30-9b3b-2ef56df58b80" class="">
+</p><h2 id="30d342f6-50aa-413b-b6ba-b4f6bcfa0d32" class="">成本敏感</h2><p id="feadc1a6-37bc-44e2-9655-01f05a205667" class="">成本敏感（Cost-Sensitive）是一種調整學習演算法的方法，通過給少數類別樣本分類錯誤的成本賦予較高的權重，使得分類器更關注少數類別的正確分類，這意味著在訓練過程中，分類器更傾向於降低對少數類別樣本的分類錯誤，以達到平衡類別的效果。</p></div></article></body></html>

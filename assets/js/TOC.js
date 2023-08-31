@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetElement = document.querySelector(`#${anchorId}`);
       if (targetElement) {
         const headerHeight = document.querySelector('header').offsetHeight; // Get header height
-        const offset = -headerHeight - 20; // Set offset
+        const offset = -headerHeight - 30; // Set offset
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY + offset;
         window.scrollTo({
           top: targetPosition,

@@ -6,11 +6,33 @@ body {
 	font-size: 20px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
 	body {
 		margin: 0 auto;
 		max-width: 100vw;
 		/* 設置最大寬度為視窗的 80% */
+	}
+
+	.col-md-8 {
+		width: 60%;
+		padding: 0 20px 0 20px !important;
+	}
+
+	.col-md-2 {
+		margin: 0 15% 0 0 !important;
+	}
+
+	#article {
+		min-width: 100%;
+		margin-top: 100px;
+	}
+}
+
+@media (max-width: 991px) {
+	body {
+		margin: 0 auto;
+		max-width: 100vw;
+		font-size: 22px;
 	}
 
 	.col-md-8 {
@@ -24,7 +46,7 @@ body {
 
 	#article {
 		min-width: 100%;
-		margin-top: 10%;
+		margin-top: 100px;
 	}
 }
 
@@ -38,19 +60,18 @@ body {
 }
 
 .col-md-8 {	
-	width: 75%;
-	padding: 0 0 0 2%;
+	width: 70%;
+	padding: 0 0 0 0;
 	display: block; /* 清除可能的預設間距 */
 	margin: 0 0 0 auto; /* 調整上下間距，左右置中 */	
 	align-items: end;
 }
 
 .col-md-2 {	
-	width: 10%;
+	width: 15%;
 	margin: 0 auto 0 0;
 	text-align: left;	
 	padding: 0;
-	height: 100%;
 }
 
 /* 設定目錄的樣式 */
@@ -60,21 +81,54 @@ body {
 	background-color: var(--bg3-color);
 	border-radius: 1rem;
 	position: fixed; /* 讓目錄固定 */
-	overflow: auto; /* 如果內容過多，顯示滾動條 */
 	text-align: left;
-	padding: 1%;
+	padding: 1.5% 1.5% 2% 1.5%;
 	box-shadow: var(--shadow3-color);
 	border: 1.5px solid var(--font3-color);
+	width: 20%;
+	height: 75.5%;
+}
+  
+#toc-list {
+	padding: 0;
+	margin: 0;
+	height: 90%;
+	overflow: auto ;
+}
+
+/* 自定义滚动条样式 */
+#toc-list::-webkit-scrollbar {
+	width: 5px;
+  }
+  
+#toc-list::-webkit-scrollbar-track {
+	background-color: var(--bg2-color);
+	box-shadow: none;
+	border-radius: 8px;
+	visibility: hidden;
+}
+
+#toc-list::-webkit-scrollbar-thumb {
+	background-color: var(--code-line);
+	border-radius: 8px;
+	visibility: hidden;
+}
+
+#toc:hover #toc-list::-webkit-scrollbar-track,
+#toc:hover #toc-list::-webkit-scrollbar-thumb
+ {
+	visibility: visible;
 }
 
 #toc h2{
-	margin: 20px 0 20px 10px;
+	margin: 20px 0 15px 10px;
+	font-size: 36px;
 }
 
 #toc ul {
 	list-style: none;
 	padding: 0 5px;
-	line-height: 1.5;
+	line-height: 1.4;
 	width: 100%;
 }
 
@@ -164,6 +218,20 @@ body {
 	font-size: 16px;
 }
 
+#article .properties table span.references {
+	background-color: var(--bg2-color);
+	border-radius: 0.5rem;
+	color: var(--font2-color);
+	padding: 7px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+#article .properties table span.references:hover a,
+#article .properties table span.references:hover i {
+	color: var(--hover-font-color);
+}
+
 .page-body{
 	padding: 0 5%;
 }
@@ -215,7 +283,7 @@ details .indented {
 }
 
 details .indented .card {
-	margin-bottom: 8%;
+	margin-bottom: 80px;
 }
 
 .card.annotation{
@@ -225,21 +293,12 @@ details .indented .card {
 p.annotation{
 	font-style: italic;
 	color: var(--annotation-color);
-	margin-bottom: 8%;
+	margin-bottom: 80px;
 	padding: 5px 10px;
 }
 
-
-#article ul li span {
-	background-color: var(--highlight-bg-2);
-	border-radius: 0.5rem;
-	color: var(--highlight-font-2);
-	padding: 6px;
-	margin: 0 7px;
-}
-
-#article ul{
-	line-height: 2.5;
+p.margin{
+	margin-bottom: 3%;
 }
 
 /*--------------------------------------------------------------
@@ -393,8 +452,12 @@ button.copy {
 }
 
 .hljs::-webkit-scrollbar {
-	width: 5px;
+	height: 8px;
 	/* 設定滾動條寬度 */
+}
+
+.card:hover .hljs::-webkit-scrollbar-thumb {
+	visibility: visible;
 }
 
 /* for block of numbers */
@@ -418,5 +481,133 @@ button.copy {
 	background-color: var(--opacity-bg-1);
 	/* 設定滾動條拇指顏色 */
 	border-radius: 0.5rem;
-	/* 設定滾動條拇指圓角 */
+	/* 設定滾動條拇指圓角 */	
+	visibility: hidden;
+}
+
+/*--------------------------------------------------------------
+# Table
+--------------------------------------------------------------*/
+table.post-table-margin {	
+	margin: 20px 0 80px;
+	width: 100%;
+	border-radius: 1rem;
+	box-shadow: var(--shadow3-color);
+	overflow: hidden;
+	border: 1px solid var(--font3-color);
+	background-color: var(--code-bg);
+}
+
+table.post-table {	
+	margin: 20px 0;
+	width: 100%;
+	border-radius: 1rem;
+	box-shadow: var(--shadow3-color);
+	overflow: hidden;
+	border: 1px solid var(--font3-color);
+	background-color: var(--code-bg);
+}
+
+.table-th {
+	background-color: var(--code-bg);
+	border: 1px solid var(--font3-color);
+	padding: 10px 15px;
+	font-size: 20px;
+}
+
+.table-th.center {
+	background-color: var(--code-bg);
+	border: 1px solid var(--font3-color);
+	padding: 10px 15px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.table-td {
+	background-color: var(--code-bg2);
+	border: 1px solid var(--font3-color);
+	margin: 0;
+	padding: 10px 15px;
+}
+
+.table-td.center {
+	background-color: var(--bg3-color);
+	border: 1px solid var(--font3-color);
+	margin: 0;
+	padding: 10px 15px;
+	text-align: center;
+}
+
+.table-tr:hover .table-td {
+	background-color: var(--bg-color) !important;
+}
+
+/*--------------------------------------------------------------
+# Span Highlight
+--------------------------------------------------------------*/
+
+#article .highlight-red {
+	background-color: var(--highlight-bg-1);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-1);
+	padding: 7px;
+	margin: 0 7px;
+	font-size: 18px;
+}
+
+#article .highlight-orange {
+	background-color: var(--highlight-bg-2);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-2);
+	padding: 7px;
+	margin: 0 7px;
+	font-size: 18px;
+}
+
+#article .highlight-green {
+	background-color: var(--highlight-bg-3);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-3);
+	padding: 7px;
+	margin: 0 7px;
+	font-size: 18px;
+}
+
+#article .highlight-blue {
+	background-color: var(--highlight-bg-4);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-4);
+	padding: 7px;
+	padding: 7px;
+	margin: 0 7px;
+	font-size: 18px;
+}
+
+#article .highlight-gray {
+	background-color: var(--highlight-bg-5);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-5);
+	padding: 7px;
+	margin: 0 7px;
+	font-size: 18px;
+}
+
+/*--------------------------------------------------------------
+# Article List
+--------------------------------------------------------------*/
+
+.post_ul {
+	padding: 0 0 0 0;
+	margin: 0 0 80px 0;
+}
+
+.little_title{
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0 0 25px 0;
+}
+
+.post_ul li {
+	padding: 0 0 0 0px;
+	margin: 0px 0 20px 35px;
 }

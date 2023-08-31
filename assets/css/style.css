@@ -40,18 +40,21 @@
   --shadow3-color: 0px 0px 8px rgba(31, 31, 31, 0.316);    /* 陰影顏色-3 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
-  --code-bg: #e5e5e5;   /* CodeBlock背景顏色-1 */
+  --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
   --code-bg2: #fcfcfc;   /* CodeBlock背景顏色-2 */
   --highlight-font-1: #bf2222;   /* Highlight文字顏色-1 */
-  --highlight-font-2: #dc6a00;   /* Highlight文字顏色-2 */
-  --highlight-font-3: #44ad2a;   /* Highlight文字顏色-3 */
+  --highlight-font-2: #e16500;   /* Highlight文字顏色-2 */
+  --highlight-font-3: #2c8a15;   /* Highlight文字顏色-3 */
   --highlight-font-4: #234eb2;   /* Highlight文字顏色-4 */
+  --highlight-font-5: #1a1a1a;   /* Highlight文字顏色-5 */
   --highlight-bg-1: #fce6e6e8;   /* Highlight文字顏色-1 */
-  --highlight-bg-2: #fff4dbe8;   /* Highlight文字顏色-2 */
-  --highlight-bg-3: #e8ffe3e8;   /* Highlight文字顏色-3 */
+  --highlight-bg-2: #ffefcbe8;   /* Highlight文字顏色-2 */
+  --highlight-bg-3: #e3ffdfe8;   /* Highlight文字顏色-3 */
   --highlight-bg-4: #dee8fee8;   /* Highlight文字顏色-4 */
+  --highlight-bg-5: #e3e3e3e8;   /* Highlight文字顏色-5 */
   --opacity-bg-1: #8a8a8a9e;   /* 透明背景顏色-1 */
   --opacity-bg-2: #414141b9;   /* 透明背景顏色-2 */
+  --opacity-bg-3: #f5f5f5c5;   /* 透明背景顏色-3 */
   --annotation-color: #d12121;   /* 註解文字顏色-1 */
 }
 
@@ -81,18 +84,21 @@ p {
   --shadow3-color: 0px 0px 8px rgba(31, 31, 31, 0.316);    /* 陰影顏色-3 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
-  --code-bg: #e5e5e5;   /* CodeBlock背景顏色-1 */
+  --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
   --code-bg2: #fcfcfc;   /* CodeBlock背景顏色-2 */
   --highlight-font-1: #bf2222;   /* Highlight文字顏色-1 */
-  --highlight-font-2: #dc6a00;   /* Highlight文字顏色-2 */
-  --highlight-font-3: #44ad2a;   /* Highlight文字顏色-3 */
+  --highlight-font-2: #e16500;   /* Highlight文字顏色-2 */
+  --highlight-font-3: #2c8a15;   /* Highlight文字顏色-3 */
   --highlight-font-4: #234eb2;   /* Highlight文字顏色-4 */
+  --highlight-font-5: #1a1a1a;   /* Highlight文字顏色-5 */
   --highlight-bg-1: #fce6e6e8;   /* Highlight文字顏色-1 */
-  --highlight-bg-2: #fff4dbe8;   /* Highlight文字顏色-2 */
-  --highlight-bg-3: #e8ffe3e8;   /* Highlight文字顏色-3 */
+  --highlight-bg-2: #ffefcbe8;   /* Highlight文字顏色-2 */
+  --highlight-bg-3: #e3ffdfe8;   /* Highlight文字顏色-3 */
   --highlight-bg-4: #dee8fee8;   /* Highlight文字顏色-4 */
+  --highlight-bg-5: #e3e3e3e8;   /* Highlight文字顏色-5 */
   --opacity-bg-1: #8a8a8a9e;   /* 透明背景顏色-1 */
   --opacity-bg-2: #414141b9;   /* 透明背景顏色-2 */
+  --opacity-bg-3: #f5f5f5c5;   /* 透明背景顏色-3 */
   --annotation-color: #d12121;   /* 註解文字顏色-1 */
 }
 
@@ -116,15 +122,18 @@ p {
   --code-bg: #27292D;   /* CodeBlock背景顏色-1 */
   --code-bg2: #21252B;   /* CodeBlock背景顏色-2 */
   --highlight-font-1: #bf2222;   /* Highlight文字顏色-1 */
-  --highlight-font-2: #c86100;   /* Highlight文字顏色-2 */
-  --highlight-font-3: #44ad2a;   /* Highlight文字顏色-3 */
+  --highlight-font-2: #a55000;   /* Highlight文字顏色-2 */
+  --highlight-font-3: #298811;   /* Highlight文字顏色-3 */
   --highlight-font-4: #234eb2;   /* Highlight文字顏色-4 */
+  --highlight-font-5: #252525;   /* Highlight文字顏色-5 */
   --highlight-bg-1: #fce6e6e8;   /* Highlight文字顏色-1 */
-  --highlight-bg-2: #e6dcc7e8;   /* Highlight文字顏色-2 */
+  --highlight-bg-2: #fff3d9e8;   /* Highlight文字顏色-2 */
   --highlight-bg-3: #e8ffe3e8;   /* Highlight文字顏色-3 */
   --highlight-bg-4: #dee8fee8;   /* Highlight文字顏色-4 */
+  --highlight-bg-5: #dededee8;   /* Highlight文字顏色-5 */    
   --opacity-bg-1: rgba(80, 80, 80, 0.663);   /* 透明背景顏色-1 */
   --opacity-bg-2: #1e1e1eb9;   /* 透明背景顏色-2 */
+  --opacity-bg-3: #1e1e1eb4;   /* 透明背景顏色-3 */
   --annotation-color: #e05858;   /* 註解文字顏色-1 */
 }
 
@@ -147,18 +156,21 @@ p {
     --shadow3-color: 0px 0px 8px rgba(31, 31, 31, 0.316);    /* 陰影顏色-3 */
     --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */ 
     --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
-    --code-bg: #e5e5e5;   /* CodeBlock背景顏色-1 */
+    --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
     --code-bg2: #fcfcfc;   /* CodeBlock背景顏色-2 */
     --highlight-font-1: #bf2222;   /* Highlight文字顏色-1 */
-    --highlight-font-2: #dc6a00;   /* Highlight文字顏色-2 */
-    --highlight-font-3: #44ad2a;   /* Highlight文字顏色-3 */
+    --highlight-font-2: #e16500;   /* Highlight文字顏色-2 */
+    --highlight-font-3: #2c8a15;   /* Highlight文字顏色-3 */
     --highlight-font-4: #234eb2;   /* Highlight文字顏色-4 */
+    --highlight-font-5: #1a1a1a;   /* Highlight文字顏色-5 */
     --highlight-bg-1: #fce6e6e8;   /* Highlight文字顏色-1 */
-    --highlight-bg-2: #fff4dbe8;   /* Highlight文字顏色-2 */
-    --highlight-bg-3: #e8ffe3e8;   /* Highlight文字顏色-3 */
+    --highlight-bg-2: #ffefcbe8;   /* Highlight文字顏色-2 */
+    --highlight-bg-3: #e3ffdfe8;   /* Highlight文字顏色-3 */
     --highlight-bg-4: #dee8fee8;   /* Highlight文字顏色-4 */
+    --highlight-bg-5: #e3e3e3e8;   /* Highlight文字顏色-5 */
     --opacity-bg-1: #8a8a8a9e;   /* 透明背景顏色-1 */
     --opacity-bg-2: #414141b9;   /* 透明背景顏色-2 */
+    --opacity-bg-3: #f5f5f5c5;   /* 透明背景顏色-3 */
     --annotation-color: #d12121;   /* 註解文字顏色-1 */
   }
 }
@@ -185,15 +197,18 @@ p {
     --code-bg: #27292D;   /* CodeBlock背景顏色-1 */
     --code-bg2: #21252B;   /* CodeBlock背景顏色-2 */
     --highlight-font-1: #bf2222;   /* Highlight文字顏色-1 */
-    --highlight-font-2: #c86100;   /* Highlight文字顏色-2 */
-    --highlight-font-3: #44ad2a;   /* Highlight文字顏色-3 */
+    --highlight-font-2: #a55000;   /* Highlight文字顏色-2 */
+    --highlight-font-3: #298811;   /* Highlight文字顏色-3 */
     --highlight-font-4: #234eb2;   /* Highlight文字顏色-4 */
+    --highlight-font-5: #252525;   /* Highlight文字顏色-5 */
     --highlight-bg-1: #fce6e6e8;   /* Highlight文字顏色-1 */
-    --highlight-bg-2: #e6dcc7e8;   /* Highlight文字顏色-2 */
+    --highlight-bg-2: #fff3d9e8;   /* Highlight文字顏色-2 */
     --highlight-bg-3: #e8ffe3e8;   /* Highlight文字顏色-3 */
     --highlight-bg-4: #dee8fee8;   /* Highlight文字顏色-4 */
+    --highlight-bg-5: #dededee8;   /* Highlight文字顏色-5 */    
     --opacity-bg-1: rgba(80, 80, 80, 0.663);   /* 透明背景顏色-1 */
     --opacity-bg-2: #1e1e1eb9;   /* 透明背景顏色-2 */
+    --opacity-bg-3: #1e1e1eb4;   /* 透明背景顏色-3 */
     --annotation-color: #e05858;   /* 註解文字顏色-1 */
   }
 }

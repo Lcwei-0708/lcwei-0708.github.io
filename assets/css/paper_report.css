@@ -237,7 +237,7 @@ section {
   display: none;
   padding: 20px;
   border-radius: .8rem;
-  background: var(--bar-color);
+  background: var(--opacity-bg-3);
   box-shadow: var(--shadow2-color);
   backdrop-filter: blur(7px);
   color: var(--font2-color);

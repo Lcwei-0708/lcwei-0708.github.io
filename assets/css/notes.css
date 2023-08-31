@@ -1,59 +1,384 @@
 /*--------------------------------------------------------------
-# Services
+# Notes
 --------------------------------------------------------------*/
 .notes {
   font-family: "PingFang TC", Consolas;
+  margin: 0;
+  padding: 0;
 }
 
-.notes .section-title {
-  margin-bottom: 5%;
+.folder-bar {
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 2fr 1fr 1.5fr;
+  grid-template-areas:". item-1 item-2 item-3 .";
+  background-color: var(--bg-color);
+  margin-bottom: 3%;
 }
 
-.notes .icon-box {
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
+.section-title {
+  text-align: center;
+}
+
+.item-1 {
+  display: flex;
+  justify-content: flex-start;
+  grid-area: item-1;
+}
+
+.item-2 {
+  grid-area: item-2;
+}
+
+.item-3 {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: item-3;
+}
+
+h2 {  
+  text-align: center;
+}
+
+.btn {
+  margin-top: 15vh;
+  display: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  padding: 3px;
+}
+
+.btn i {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
   border-radius: 10px;
-  margin: 0 10px 40px 10px;
-  background: var(--bg-color);
-  box-shadow: var(--shadow2-color);
+  color: var(--font-color);
+  margin: auto;
+}
+
+.btn:hover {
+  background-color: var(--hover-bg-color);
+}
+
+
+/*--------------------------------------------------------------
+# Wrapper Grid
+--------------------------------------------------------------*/
+.subitem-container.grid-view{
+  display: none;
+  height:580px;
+  overflow-x:auto;
+  padding: 20px;
+  margin-top: 2%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.subitem-container {
+  display: none;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.main-folder {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 auto 0 auto;
+  background: var(--bg3-color);
+  box-shadow: var(--shadow3-color);
   transition: all 0.3s ease-in-out;
+  position: relative;
 }
 
-.notes .icon-box:hover {
-  transform: translateY(-5px);
+.main-folder:hover {
+  cursor: pointer;
+  scale: 1.05;
+  box-shadow: var(--shadow-color);
 }
 
-.notes .icon {
-  position: absolute;
-  left: -20px;
-  top: calc(50% - 30px);
+.main-folder .icon iconify-icon {
+  display: flex;
+  align-items: center;
+  font-size: 80px;
+  transition: 0.3s;
+  margin-left: 10px;
+  position: absolute; /* 使用绝对定位 */
+  left: -30px; /* 将图标向左移动一半宽度 */
+  top: -30px; /* 将图标向上移动一半高度 */
 }
 
-.notes .icon i {
-  font-size: 64px;
-  line-height: 1;
-  transition: 0.5s;
+.main-folder:hover .icon iconify-icon {
+  animation: rotate-back-and-forth 0.5s linear infinite;
 }
 
-.notes .title {
-  margin-left: 40px;
+.main-folder .title {
+  margin: auto;
+  width: 100%;
+  text-align: center;
   font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.notes .title a {
+  font-size: 22px;
   color: var(--font-color);
 }
 
-.notes .icon-box:hover .title a {
-  color: var(--sp-color);
+.subitem {
+  display: grid;
+  width: 100%;
 }
 
-.notes .description {
-  font-size: 14px;
-  margin-left: 40px;
-  line-height: 24px;
-  margin-bottom: 0;
+.subitem img {
+  width: 100%;
+  object-fit: cover;  
+  border-radius: 0.8rem;
+  border: 2px solid var(--opacity-bg-2);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.subitem:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05); /* 增加亮度 */
+  box-shadow: var(--shadow3-color);
+}
+
+/*--------------------------------------------------------------
+# Wrapper Table
+--------------------------------------------------------------*/
+.table-view {
+  display: none;
+}
+
+
+.responsive-table{
+  width:100%;
+  table-layout: fixed;
+}
+
+.tbl-content{
+  height:491px;
+  overflow-x:auto;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--font-color);
+  text-transform: uppercase;
+  border-bottom: solid 3px var(--hover-font-color);
+  font-family: "PingFang TC", Consolas;
+  word-wrap: break-word;
+}
+
+td{
+  word-wrap: break-word;
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--font2-color);
+  height: 70px;
+  border-bottom: solid 1px var(--hover-bg-color);
+  font-family: "PingFang TC", Consolas;
+}
+
+tr a {
+  display: block;
+  text-decoration: none;
+  color: var(--font2-color);
+  font-weight: 500;
+}
+
+tbody tr:hover{
+  background-color: var(--hover-bg-color);
+  color: var(--hover-font-color);
+}
+
+.col_1{
+  width: 20%;
+  padding-left: 3%;
+}
+
+.col_2{
+  width: 70%;
+}
+
+.col_3{
+  width: 10%;  
+  padding: auto 3%;
+  text-align: center;
+}
+
+.col_3 i {
+  font-size: 26px;
+}
+
+section {
+  padding-top: 5%;
+  margin: 0 15% 0 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.table-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 1700px) {
+  .table-wrapper {
+    width: 100%;
+  }
+
+  th{
+    font-size: 22px;
+  }
+  
+  td{
+    font-size: 20px;
+  }
+
+  .subitem-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {  
+  .subitem-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main-folder .icon iconify-icon{
+    font-size: 65px;
+    margin-left: 15px;
+  }  
+}
+
+@media (max-width: 1000px) {
+  .main-folder .title {
+    font-size: 20px;
+  }
+
+  .main-folder .icon iconify-icon{
+    font-size: 60px;
+    margin-left: 15px;
+  }  
+  
+  .subitem-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .folder-bar {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:"item-1 item-2 item-3";
+  }
+
+  .subitem-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .subitem {    
+    margin-bottom: 10px;
+  }
+
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .main-folder {    
+    width: 90%;
+    margin: 0 15px 30px 15px;
+  }
+
+  .main-folder .icon iconify-icon{
+    font-size: 60px;
+    margin-left: 15px;
+  }
+
+  .col_2{
+    width: 60%;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .table-wrapper {
+    width: 100%;
+  }
+
+  #footer {
+    font-size: 12px;
+  }
+
+  th{
+    font-size: 20px;
+  }
+  
+  td{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    grid-template-columns: 0.8fr;
+    align-items: center;
+  }
+
+  .folder-bar {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:"item-1 item-2 item-3";
+  }
+
+  .subitem-container {
+    grid-template-columns: 1fr;
+  }
+
+  .subitem {    
+    margin-bottom: 25px;
+  }
+  
+  .subitem img:hover {  
+    scale: 1;
+  }
+
+  .main-folder {
+    margin-bottom: 40px;
+  }
+
+  .main-folder .icon iconify-icon{
+    font-size: 50px !important;
+    margin-left: 10px;
+  }
+}
+
+@keyframes rotate-back-and-forth {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+

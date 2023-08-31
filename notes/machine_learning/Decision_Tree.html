@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Decision Tree</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0742157a-9864-4648-b01f-690167605b20" class="page mono"><header><img class="page-cover-image" src="Decision%20Tree%200742157a98644648b01f690167605b20/Decision_Tree.png" style="object-position:center 74.24%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/document_gray.svg"/></div><h1 class="page-title">Decision Tree</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/categories_gray.svg" style="width:14px;height:14px"/></span>Category</th><td><span class="selected-value select-value-color-purple">Machine Learning</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Tag</th><td><span class="selected-value select-value-color-pink">演算法</span><span class="selected-value select-value-color-brown">監督式學習</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px"/></span>參考文獻</th><td><a href="https://www.notion.so/Decision-Tree-c9ae698c98874733abe3d4c22fbad2be?pvs=21"><img class="icon" src="https://www.notion.so/icons/link_gray.svg"/>Decision Tree</a></td></tr></tbody></table></header><div class="page-body"><h2 id="d3de2698-5919-4e7c-bc90-55751b5153fa" class="">什麼是決策樹？</h2><p id="2157b88a-b7ba-4a40-93d3-2ee8d70fa813" class="">決策樹（Decision Tree）是一種監督式學習的演算法，主要用於處理分類和迴歸分析的任務，決策樹會以樹狀結構將所有特徵做分析，主要思想是基於資料特徵來進行決策，將問題不斷地分解成更小的問題，直到決策出最終的答案。</p><figure id="9236ab76-82e9-41d2-8256-699188155def" class="image"><a href="Decision%20Tree%200742157a98644648b01f690167605b20/Untitled.png"><img style="width:432px" src="Decision%20Tree%200742157a98644648b01f690167605b20/Untitled.png"/></a></figure><p id="728001f6-b19d-49e5-8227-f89a076f6d67" class="">
+</p><p id="a3df1658-5734-4bb2-89f7-2c7659537bf1" class=""><strong>決策樹是由以下三種節點所組成的：</strong></p><ul id="204be677-020c-41c3-97d0-82bbf4a10041" class="bulleted-list"><li style="list-style-type:disc"><strong>根節點（Root Node）：</strong>決策樹的開始，代表整個資料集。</li></ul><ul id="ba372e1c-3740-4fa0-8557-85d03f1d4c33" class="bulleted-list"><li style="list-style-type:disc"><strong>內部節點（Internal Node）：</strong>在決策樹中，根節點以外的所有節點都是內部節點，每個內部節點都有一個特徵或屬性，並且根據該特徵或屬性將資料集分解成更小的子集。</li></ul><ul id="7359b1dd-4f98-44ba-be4c-b0cc7edc4c0a" class="bulleted-list"><li style="list-style-type:disc"><strong>葉子節點（Leaf Node）：</strong>在決策樹中，葉子節點是最後的結果節點，每個葉子節點都對應一個分類或迴歸的結果。</li></ul><p id="2364a13e-49fe-4bc5-ad3b-3445d8479742" class="">
+</p><p id="7d8bb810-b68e-48b8-a161-a7c2e41498b0" class="">決策樹在預測的過程都是可以根據產生的樹來分析的，例如今天有一個案例要判斷是否可以貸款，<mark class="highlight-yellow_background"><strong>決策樹就會根據特徵的重要程度將最重要的特徵當作根節點</strong></mark>，像是有沒有房產，有就可以貸款，沒有就再往下一個特徵做篩選，值到每個分支都得到最終結果。</p><figure id="6a23a154-5653-452a-a99c-4c7df3388fc8" class="image"><a href="Decision%20Tree%200742157a98644648b01f690167605b20/Untitled%201.png"><img style="width:432px" src="Decision%20Tree%200742157a98644648b01f690167605b20/Untitled%201.png"/></a></figure><p id="729c02dc-b5e1-4e6f-8b61-fbd24480341e" class="">
+</p><h2 id="ab821093-4407-4d2d-9e16-94e7a837383e" class=""><strong><strong>決策樹的混亂評估指標</strong></strong></h2><p id="7318f671-80d2-4202-b007-0c2d7bcd2a66" class="">我們需要客觀的標準來決定決策樹的每個分支，因此我們需要有一個評斷的指標來協助我們決策，這些指標用於選擇最佳的特徵來進行決策樹的分裂。</p><p id="765dc99d-d6a8-46fe-80fb-a6fecf0b2466" class="">
+</p><p id="42618130-cc18-48b4-9034-16f02f32202a" class=""><strong>常見的決策亂度評估指標：</strong></p><ul id="03a8cd54-1d20-4390-9e21-c17bf6ea47e9" class="bulleted-list"><li style="list-style-type:disc">資訊獲利（Information Gain）</li></ul><ul id="daae47b2-3683-4341-b248-3a596b820b3e" class="bulleted-list"><li style="list-style-type:disc">吉尼獲利（Gain Ratio）</li></ul><ul id="a3352465-453b-45a4-87c0-31ffc2e8d52c" class="bulleted-list"><li style="list-style-type:disc">吉尼係數（Gini Index）</li></ul><p id="38e8c19f-a8ad-4761-9af9-56c564d2fe4b" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">資訊獲利</summary><div class="indented"><p id="f51dd1d6-3a34-4390-b3f1-0cabcd558329" class="">資訊獲利（Information Gain）是衡量在分裂特徵時，新分支能帶來多少額外資訊的指標，它通過計算父節點和子節點的熵（Entropy）差異來衡量資訊獲利，當資訊獲利越高，表示這個特徵能夠更好地分離不同類別的資料。</p><figure class="block-color-teal callout" style="white-space:pre-wrap;display:flex" id="f1f2aa95-4975-4b53-be70-9b21ab1fd812"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">熵（Entropy）是用於衡量一個系統或事件的不確定性或混亂程度的指標，通常熵的值越高，資料集的類別分布越分散或混亂，反之當熵的值越低，表示資料集的類別分布越集中或純淨。</div></figure><p id="f6cbcc8b-31c4-4bb0-926c-d60c17463b6e" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">吉尼獲利</summary><div class="indented"><p id="2f2a29ad-f0e3-4124-8b67-4a304c66069c" class="">吉尼獲利（Gain Ratio）是在資訊獲利的基礎上進行改進的指標，它考慮到了特徵的分支數目和資料分布的不平衡情況，它對於具有較多分支的特徵進行了懲罰，以避免過度分裂，吉尼獲利是使用分裂前後的吉尼係數（Gini Index）的差異來計算的。</p><p id="aa7ef0cf-8eb7-4722-8c7a-c9cc651dd11f" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">吉尼係數</summary><div class="indented"><p id="00fe93f5-b483-4878-aa12-ea2a16643649" class="">吉尼係數（Gini Index）又稱吉尼不純度（Gini Impurity），是衡量了從一個資料集中隨機選取兩個樣本，其類別標籤不一致的機率，在決策樹中，吉尼係數用於計算特徵的分裂點，選擇能夠最大程度地減少吉尼係數的特徵來進行分裂，<mark class="highlight-yellow_background"><strong>吉尼係數越小的特徵表示分類能力更強，分布越集中或純淨</strong></mark>。</p></div></details><p id="7dcc62fb-5131-4ee7-bc95-707cbab48595" class="">
+</p><h2 id="297683f6-79e2-426c-b35d-dc38fc723964" class=""><strong>決策樹的優缺點</strong></h2><p id="cdcf7284-1242-4c83-9527-f39269783ab2" class=""><strong>優點：</strong></p><ul id="95271905-e219-4a4b-9c3e-c67269fd01cf" class="bulleted-list"><li style="list-style-type:disc"><strong>可解釋性：</strong>決策樹的結果易於理解和解釋，可以提供明確的規則和決策過程。</li></ul><ul id="3e842ea2-023a-4443-b9a6-c33ae822ee0c" class="bulleted-list"><li style="list-style-type:disc"><strong>特徵選擇：</strong>決策樹能夠自動選擇最佳特徵進行分裂，節省了特徵工程的時間和精力。</li></ul><ul id="562b438e-c36a-4750-a9e8-9aa6bd476cad" class="bulleted-list"><li style="list-style-type:disc"><strong>能處理非線性數據：</strong>決策樹對於非線性關係的資料具有很好的建模能力，不需要對數據進行線性化處理。</li></ul><ul id="4adaaafe-f106-4713-8450-a0e4bfde951d" class="bulleted-list"><li style="list-style-type:disc"><strong>能處理數值和類別特徵：</strong>決策樹能夠處理數值和類別型特徵，不需要進行特徵轉換。</li></ul><ul id="ca254829-4f68-4e59-ac60-28ba4d2a57f2" class="bulleted-list"><li style="list-style-type:disc"><strong>適用於大型資料集：</strong>決策樹算法的計算效率較高，能夠處理大型資料集。</li></ul><p id="71beb647-1ead-490b-8507-2d5ac78bbc1a" class="">
+</p><p id="46718300-5a55-44de-8a26-302dd0b76ee0" class=""><strong>缺點：</strong></p><ul id="0b14652d-bd10-4ce8-8a16-2f53da5a0ef3" class="bulleted-list"><li style="list-style-type:disc"><strong>過度擬合：</strong>決策樹容易為了配合訓練集造成過度擬合，特別是當樹的深度過深或特徵過多時。</li></ul><ul id="73cb5db8-0d30-4b3b-aa19-bd153d21f34a" class="bulleted-list"><li style="list-style-type:disc"><strong>不穩定性：</strong>對於資料的輕微變化非常敏感，小幅度的資料變動可能導致完全不同的樹結構。</li></ul><ul id="fe17114f-2b19-4d35-891a-7a34347ab741" class="bulleted-list"><li style="list-style-type:disc"><strong>忽略特徵相互關係：</strong>決策樹在每個節點上僅考慮單個特徵，無法有效地處理特徵之間的相互關係。</li></ul><ul id="ccde53e2-e021-4751-ba24-4c1cebdccf2c" class="bulleted-list"><li style="list-style-type:disc"><strong>高度依賴訓練數據：</strong>決策樹的構建結果受到訓練集的影響，對於資料中的噪聲和不完整性比較敏感。</li></ul><ul id="560d2b20-ea9f-4963-9cc0-6da9260eedb1" class="bulleted-list"><li style="list-style-type:disc"><strong>面對連續型數據的困難：</strong>決策樹在處理連續型資料時，需要對其進行離散化或採用其他處理方法。</li></ul></div></article></body></html>
