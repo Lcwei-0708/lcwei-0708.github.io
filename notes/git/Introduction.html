@@ -1,695 +1,346 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Introduction</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="3f16b2ad-0995-4014-b69f-f4a53cb84029" class="page mono"><header><img class="page-cover-image" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Git_Intro.png" style="object-position:center 76%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/document_gray.svg"/></div><h1 class="page-title">Introduction</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/categories_gray.svg" style="width:14px;height:14px"/></span>Category</th><td><span class="selected-value select-value-color-orange">Git</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Tag</th><td></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px"/></span>參考文獻</th><td><a href="https://www.notion.so/Introduction-8cdb45f0cef34f9abd733882cf6d7ccb?pvs=21"><img class="icon" src="https://www.notion.so/icons/link_gray.svg"/>Introduction</a></td></tr></tbody></table></header><div class="page-body"><h2 id="6c4afefe-2e89-48e4-abea-c26372d0660b" class="">什麼是Git？</h2><p id="7fcfcaee-0d02-4f9e-9703-e94f0db56c80" class="">Git是一種<strong><mark class="highlight-yellow_background">分散式</mark></strong>的<mark class="highlight-yellow_background"><strong>版本控制系統</strong></mark>，用於追蹤和管理軟體開發項目的原始碼。它允許多人協同工作，輕鬆地在不同的版本之間進行切換、合併和回溯。</p><p id="bdad497d-cd6d-4332-94b0-549e9ffbdba6" class="">
-</p><h2 id="b3ee76c1-933c-45f1-a93d-de73773ddb2b" class="">版本控制</h2><p id="3ee6321e-11be-4cc1-95e3-0ef17bc82f3b" class="">版本控制其實就是去紀錄一個檔案所修改的部分，以後想要去追蹤每個版本修改了什麼，或是當新版本有問題時，都可以快速的調閱紀錄以及回到某一個版本。</p><figure id="03048371-635e-4a59-955c-5bb37e5b3301" class="image"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled.png"><img style="width:672px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled.png"/></a></figure><p id="a858dd30-d180-4af5-8808-50b516ceb699" class="">
-</p><h2 id="900b2ba4-75fa-4ea8-b867-b8920c270940" class="">系統的種類</h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">中央式系統</summary><div class="indented"><p id="e801acef-a149-45f1-98b7-46ba8b95b4cd" class="">以一台伺服器為中心，所有的更新與操作都需要透過這個伺服器，也就是這個伺服器擁有絕對的控制權以及決策權，萬一這台伺服器故障了，或是沒有網路連線的環境，版本控制功能就沒辦法使用。</p><figure id="d28c98d7-c901-4127-8ece-5e0b53bf0d3f" class="image" style="text-align:center"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%201.png"><img style="width:528px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%201.png"/></a></figure><p id="5ea906d0-c7b8-41d7-a49e-86a583552e89" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">分散式系統</summary><div class="indented"><p id="e70eb2a3-bb3b-4f1a-bbd3-4b0ac03a6a75" class="">每台電腦都可以是一個節點，而每個節點都具有一定的控制權和決策權，可以獨立地進行操作和決策，即使伺服器故障或是沒有網路的環境下，還是可以用自己的電腦進行版本控制，之後等伺服器恢復正常運作或是在有網路的環境後再進行同步就好。</p><figure id="c4df44c5-d0cf-4bdc-9f42-5a10937c77cf" class="image" style="text-align:center"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%202.png"><img style="width:480px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%202.png"/></a></figure></div></details><p id="eca56736-25f9-4133-9943-273f4477a8d5" class="">
-</p><h2 id="cce97b64-2f02-4ae4-be12-8285b74cdbac" class="">Git與GitHub的關係</h2><p id="14df53a0-7242-4e76-9569-321cbfd3861b" class="">Git和GitHub是兩個相關但不同的概念，開發者可以使用Git在本地進行版本控制，然後將其推送到GitHub上的遠端儲存庫，從而實現代碼的共享、協同工作和社區參與。</p><ul id="656e126f-438a-450a-b95d-9dd7b2144b8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Git：</strong>一套免費、開源分散式的版本控制系統，用於管理和追蹤代碼的變更。</li></ul><ul id="3f07217f-3f9c-4880-900b-be5242ab6c07" class="bulleted-list"><li style="list-style-type:disc"><strong>GitHub：</strong>一個基於Git的原始碼代管服務平台，提供了一個中央化的雲端儲存庫和協作工具。</li></ul><figure id="4ac0a115-1c9e-4d77-8780-9cba701f11b1" class="image"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%203.png"><img style="width:384px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%203.png"/></a></figure><h2 id="13030eea-eccd-439a-807b-e2a3692f1bfd" class="">Git的工作流程</h2><figure id="46e83cd1-8966-4311-96aa-8fd45a1efb1e" class="image" style="text-align:center"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%204.png"><img style="width:576px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%204.png"/></a></figure><p id="b45b9ff2-59e8-4108-b8e9-c214a7753c0c" class="">
-</p><ul id="3d65eeb5-7082-4190-81ae-630ef02b68bc" class="bulleted-list"><li style="list-style-type:disc"><strong>檔案（File）：</strong>
-檔案就是在本地電腦上創建或修改的專案文件，這些檔案可以是程式碼、設定文件、圖片…等。</li></ul><ul id="a2334d53-fef4-4370-bbee-d93f0c35ad5e" class="bulleted-list"><li style="list-style-type:disc"><strong>索引（Index）：</strong>
-索引也稱為暫存區（Staging Area），它是一個中介區域，用於存儲準備提交的更改，當修改或創建檔案後，需要將這些更改添加（add）到索引中，這樣Git才能夠追蹤這些更改。</li></ul><ul id="0abfca4c-8e21-4773-b2c0-df4202390808" class="bulleted-list"><li style="list-style-type:disc"><strong>本地數據庫（Local Repository）：</strong>
-本地數據庫是存儲項目的歷史記錄和版本的地方，它可以創建新的也可以複製（clone）既有的遠端數據庫，並且會存放在專案的資料夾中，本地數據庫包含所有提交（commit）的歷史記錄、分支（branch）…等資訊，並且可以在本地數據庫中進行分支操作、合併（merge）…等操作。</li></ul><ul id="2a992897-336c-4ce6-ace4-7589c670213f" class="bulleted-list"><li style="list-style-type:disc"><strong>遠端數據庫（Remote Repository）：</strong>
-遠端數據庫是位於遠端伺服器上的Git數據庫，它可以是在GitHub、GitLab或其他Git托管服務器上建立的數據庫，遠端數據庫用於多個開發人員之間的協作和代碼共享，可以將本地數據庫的檔案推送（push）到遠端數據庫，也可以從遠端數據庫拉取（pull）最新版本的專案到電腦中。</li></ul><p id="fc478d20-e4b7-4809-bc1d-10af4750ac9b" class="">
-</p><h2 id="84fb70ff-8ed4-47cb-8c92-4b8d1ea9b547" class="">什麼是分支？</h2><p id="55826eb4-ea87-4e3b-8dbb-64aafe135649" class="">分支（Branch）是指在數據庫中獨立開發和管理代碼的獨立指向，讓開發人員在同一個數據庫中同時進行不同的工作，並且可以將這些工作的進度和更改獨立保存。</p><figure id="f149794f-8f93-49e4-ae27-5df34de95542" class="image"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%205.png"><img style="width:672px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%205.png"/></a></figure><p id="b33723b4-85f5-40a5-a144-9e899c4709e8" class="">使用分支有助於有效管理代碼庫，避免不同功能、修復或實驗性的更改相互衝突，開發人員可以根據需要創建和切換分支，使工作更有組織性和可追蹤性，分支也提供了一種實驗和測試新功能的方式，而不會影響主分支的穩定性。</p><p id="8fdc8da5-7a92-4734-bc16-de34d5b1b8c4" class="">
-</p><p id="561c4074-a4bf-4f84-853f-a296bc153294" class=""><strong>分支的主要特點包括：</strong></p><ul id="3c94cacc-8ffc-482a-905f-9d002f56d8e2" class="bulleted-list"><li style="list-style-type:disc"><strong>獨立性（Independence）：</strong>每個分支都是獨立的，擁有自己的提交歷史、文件狀態和更改。</li></ul><ul id="c9aad37a-770e-4e2e-8095-db0d8b93e55c" class="bulleted-list"><li style="list-style-type:disc"><strong>合併（Merge）：</strong>分支可以合併到其他分支，將不同的工作結果合併到一個統一的版本中。</li></ul><ul id="0f105ec0-fcf4-4c96-9eea-fb69119e777b" class="bulleted-list"><li style="list-style-type:disc"><strong>創建和切換（Create and Switch）：</strong>開發人員可以創建新的分支，並在不同的分支之間切換。</li></ul><ul id="4837af9f-c014-4025-b94c-bc549ed9d805" class="bulleted-list"><li style="list-style-type:disc"><strong>同步（Synchronize）：</strong>分支可以用於隔離開發和測試，並在完成後將其與主分支同步。</li></ul><ul id="40d99f5c-b196-4522-a0ff-cc78bf4430dc" class="bulleted-list"><li style="list-style-type:disc"><strong>版本控制（Version Control）：</strong>分支提供了在不同的開發階段和功能之間進行版本控制的能力。</li></ul><ul id="f46a8906-29eb-441c-945b-9be1ca044492" class="bulleted-list"><li style="list-style-type:disc"><strong>合作（Collaboration）：</strong>多個開發人員可以在不同的分支上獨立工作，然後將它們的更改合併到共享的分支中。</li></ul><p id="9ce40240-efff-4d9d-893f-1d8bf29cbb21" class="">
-</p><h2 id="41af78c0-d930-4a33-90ef-ea43feac565a" class="">分支合併</h2><p id="92f8f5b3-50a8-4706-a9a9-0290450c1bb5" class="">在Git中，要合併分支有兩種方法，分別是Merge與Rebase，它們有不同的工作流程和影響，但是都可以達到合併分支的效果。</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Merge</summary><div class="indented"><p id="48e7eb03-dc83-4b56-bb9b-7c4c707d9682" class=""><strong>特色：</strong></p><ul id="fff1bb6a-4246-4be1-8297-b409eee8bd8e" class="bulleted-list"><li style="list-style-type:disc">創建一個新的合併提交，將兩個或多個分支的更改合併到一個共同的祖先上。</li></ul><ul id="93b5bd6a-4028-49bb-beb5-875217393f0e" class="bulleted-list"><li style="list-style-type:disc">保留原始分支的提交歷史，合併提交記錄了哪些分支進行了合併。</li></ul><ul id="ba9b189c-b533-4008-b77d-941135be6a6d" class="bulleted-list"><li style="list-style-type:disc">不改變原始分支的提交歷史，保留分支獨立性。</li></ul><p id="490bfb62-a649-4b53-a2c4-0d6af52f96d9" class="">
-</p><p id="203fc6db-4e08-45a7-b3c3-cf8b67500d4c" class=""><strong>使用場景：</strong></p><ul id="4c130b89-e19b-400f-b673-126d00e9553f" class="bulleted-list"><li style="list-style-type:disc">在公共儲存庫或共享分支上進行合作開發。</li></ul><ul id="9347718e-562b-4881-8811-b2353c08f3ee" class="bulleted-list"><li style="list-style-type:disc">需要保留分支歷史，以便追蹤和查看每個分支的修改。</li></ul><p id="418171e2-f298-4060-a153-effffd73cedc" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Rebase</summary><div class="indented"><p id="6dde789f-1138-4c83-8409-31068c999aa0" class=""><strong>特色：</strong></p><ul id="5def1a41-4c1e-4e04-938f-54b6c87c7372" class="bulleted-list"><li style="list-style-type:disc">將一個分支的提交應用到另一個分支上，重新應用提交以修改提交歷史。</li></ul><ul id="33f043df-bde6-4f06-bf0a-6c78d69ff642" class="bulleted-list"><li style="list-style-type:disc">創建新的提交，形成線性提交歷史，看起來像一個連續的提交序列。</li></ul><ul id="11f8fe87-e875-4dc4-adf1-d9b74182fe05" class="bulleted-list"><li style="list-style-type:disc">使得合併後的分支更加整潔，減少合併提交的數量。</li></ul><p id="8f784f9d-cb9e-4b21-9f48-659163b2e862" class="">
-</p><p id="078ad9ba-b9c6-4e0e-a62d-f545569337c0" class=""><strong>使用場景：</strong></p><ul id="cd946697-b979-4bb7-ad34-6831aa47ebde" class="bulleted-list"><li style="list-style-type:disc">在自己的私有分支上進行個人開發，整理提交歷史以保持清晰和一致。</li></ul><ul id="50c6efaf-2116-492b-8e00-946b385fa03d" class="bulleted-list"><li style="list-style-type:disc">將特性分支合併到主分支上，以獲得線性提交歷史和更好的可讀性。</li></ul><p id="d27a1c14-3839-49a7-9d86-8b8d995cbb96" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Merge與Rebase比較</strong></summary><div class="indented"><table id="4db051ad-4b2f-4888-9c50-984f59dc6d2f" class="simple-table"><thead class="simple-table-header"><tr id="21f92562-c5a6-44c9-a432-5546096acda7"><th id="{=p&lt;" class="simple-table-header-color simple-table-header" style="width:133.6599884033203px"></th><th id="q`O{" class="simple-table-header-color simple-table-header" style="width:262.6499938964844px"><strong>Merge（合併）</strong></th><th id="&gt;s}s" class="simple-table-header-color simple-table-header" style="width:263.6499938964844px"><strong>Rebase（變基）</strong></th></tr></thead><tbody><tr id="6f29e39f-c61c-4af7-b926-28ca7d6968e5"><th id="{=p&lt;" class="simple-table-header-color simple-table-header" style="width:133.6599884033203px">特色</th><td id="q`O{" class="" style="width:262.6499938964844px">創建新的合併提交，保留原始分支的提交歷史，合併提交記錄了哪些分支進行了合併。</td><td id="&gt;s}s" class="" style="width:263.6499938964844px">將一個分支的提交應用到另一個分支上，重新應用提交以修改提交歷史。創建新的提交，形成線性提交歷史。</td></tr><tr id="62296876-ce4d-468e-a9ca-60fe71a22e23"><th id="{=p&lt;" class="simple-table-header-color simple-table-header" style="width:133.6599884033203px">使用場景</th><td id="q`O{" class="" style="width:262.6499938964844px">公共數據庫或共享分支上的合作開發</td><td id="&gt;s}s" class="" style="width:263.6499938964844px">個人開發分支或將特性分支合併到主分支上</td></tr><tr id="11fa53b1-b489-4ff2-bd8b-6ce03a07e618"><th id="{=p&lt;" class="simple-table-header-color simple-table-header" style="width:133.6599884033203px">分支歷史保留</th><td id="q`O{" class="" style="width:262.6499938964844px">保留原始分支的提交歷史</td><td id="&gt;s}s" class="" style="width:263.6499938964844px">改寫提交歷史，創建線性提交序列</td></tr><tr id="282170a6-e764-4ff9-9e27-3ff83168b5b6"><th id="{=p&lt;" class="simple-table-header-color simple-table-header" style="width:133.6599884033203px">合併提交數量</th><td id="q`O{" class="" style="width:262.6499938964844px">合併操作會產生一個合併提交</td><td id="&gt;s}s" class="" style="width:263.6499938964844px">減少合併提交的數量，形成更整潔的提交歷史</td></tr><tr id="90d7f29c-de9e-4909-a963-7176051e4a9f"><th id="{=p&lt;" class="simple-table-header-color simple-table-header" style="width:133.6599884033203px">可讀性</th><td id="q`O{" class="" style="width:262.6499938964844px">較難追蹤每個分支的修改</td><td id="&gt;s}s" class="" style="width:263.6499938964844px">更容易理解和追蹤每個提交的修改</td></tr></tbody></table></div></details><p id="db198eb4-3c33-4b49-861a-251b7b2e8d74" class="">
-</p><h2 id="039b1b8e-f766-4c50-8247-2b05b6c04681" class="">合併衝突</h2><p id="f0c484ac-d468-4fd5-bcf2-556ed7794c87" class="">合併衝突（Merge Conflict）是在合併過程中發生的一種情況，當兩個分支的同一個檔案的同一個位置有不同的修改時，Git無法自動決定應該保留哪個版本的更改，因此產生衝突，當Git檢測到合併衝突時會在衝突檔案中標記衝突的位置。</p><figure id="fc204396-5120-4197-9598-624aab7c571d" class="image"><a href="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%206.png"><img style="width:576px" src="Introduction%203f16b2ad09954014b69ff4a53cb84029/Untitled%206.png"/></a></figure><p id="52a8e594-bdd3-4437-b027-c89d3d94dc7f" class="">
-</p><p id="928a78ec-f5bb-415d-a529-5437dc6b6fab" class=""><strong>解決合併衝突的步驟：</strong></p><ol type="1" id="53f5761f-a88c-47f8-9eba-a977f65f5f56" class="numbered-list" start="1"><li><strong>檢查衝突：</strong>在執行合併操作後，Git 會標記衝突的檔案。你可以使用<code><strong>git status</strong></code>指令來檢查哪些檔案出現了衝突。</li></ol><ol type="1" id="f8e5061e-3640-4a7b-acd3-e4f741984ba8" class="numbered-list" start="2"><li><strong>解決衝突：</strong>仔細檢查衝突的內容，根據專案需求選擇保留哪個版本的更改或進行修改，在衝突檔案中手動編輯，將兩個版本的內容合併成一個正確的結果。</li></ol><ol type="1" id="e43a3ddf-28ba-44ff-9c8f-86d680d358dd" class="numbered-list" start="3"><li><strong>刪除衝突標記：</strong>在衝突解決完畢後，刪除衝突標記和不需要的內容，僅保留所需的正確內容。</li></ol><ol type="1" id="916cce66-a3b3-47e6-a33f-fc1bb6f86c73" class="numbered-list" start="4"><li><strong>儲存檔案：</strong>保存衝突解決後的檔案。</li></ol><ol type="1" id="da5cc65e-c139-48af-a13e-e4d261a11d5a" class="numbered-list" start="5"><li><strong>標記衝突已解決：</strong>使用<code><strong>git add</strong></code>命令將已解決的衝突標記為已解決，表示這些部分已經確定合併結果。</li></ol><ol type="1" id="5f599e34-d59f-4e93-a253-10f02dc1df68" class="numbered-list" start="6"><li><strong>完成合併提交：</strong>使用<code><strong>git commit</strong></code>命令提交合併結果，Git會自動創建一個合併提交，其中包含解決衝突的更改。</li></ol><p id="8a7babbd-1419-44fc-b046-6c791a1b17f9" class="">
-</p></div></article></body></html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Introduction</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="../../assets/img/favicon.png" rel="icon">
+	<link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link id="highlight-style-light" href="../../assets/vendor/highlight/styles/github.min.css" rel="stylesheet" />
+	<link id="highlight-style-dark" href="../../assets/vendor/highlight/styles/github-dark.min.css" rel="stylesheet" />
+
+	<!-- Template Main CSS File -->
+	<link href="../../assets/css/style.css" rel="stylesheet">
+	<link href="../../assets/css/post.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center justify-content-between">
+			<h1 class="logo"><a href="../../index.html">Cheng-Wei's Blog</a></h1>
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto" href="../../index.html"><i class="bi bi-house"></i> Home</a></li>
+					<li><a class="nav-link scrollto" href="../../about.html"><i class="bi bi-person"></i> About</a></li>
+					<li><a class="nav-link scrollto" href="../../portfolio.html"><i class="bi bi-collection"></i>
+							Portfolio</a></li>
+					<li><a class="nav-link scrollto" href="../../notes.html"><i class="bi bi-journal-text"></i>
+							Notes</a></li>
+					<li><a class="nav-link scrollto" href="../../paper_report.html"><i
+								class="bi bi-file-earmark-text"></i> Paper</a></li>
+					<li class="dropdown">
+						<button>
+							<span><i class="bi bi-sun mode-icon"></i></span>
+							<i class="bi bi-chevron-down"></i>
+						</button>
+						<ul>
+							<li><button class="mode-switch" data-mode="light"><i
+										class="bi bi-sun mode-icon"></i>Light</button></li>
+							<li><button class="mode-switch" data-mode="dark"><i
+										class="bi bi-moon mode-icon"></i>Dark</button></li>
+							<li><button class="mode-switch" data-mode="auto"><i
+										class="bi bi-circle-half"></i>Auto</button></li>
+						</ul>
+					</li>
+				</ul>
+				<i class="bi bi-sun mode-icon mobile-mode" data-mode="light"></i>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+		</div>
+	</header><!-- End Header -->
+
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<!-- 這裡是文章內容，佔 80% 寬度 -->
+			<article id="article" class="article">
+				<header>
+					<img class="page-cover-image" src="./Introduction/Introduction.png" />
+					<div class="properties">
+						<h1 class="page-title">Introduction</h1>
+						<table>
+							<tbody>
+								<tr>
+									<th>
+										<i class="bi bi-folder-fill"></i>Category
+									</th>
+									<td>
+										<span class="orange">Git</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-file-earmark-text-fill"></i>References
+									</th>
+									<td>
+										<span class="gray"><a href="./Introduction/references.html">References<i class='bx bx-link-external'></i></a></span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-pencil-fill"></i>Created
+									</th>
+									<td>
+										August 12, 2023
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</header>
+				<div class="page-body">
+					<h2>什麼是Git？</h2>
+					<p>
+						Git是一種<span class="highlight-orange">分散式</span>的<span class="highlight-orange">版本控制系統</span>，用於追蹤和管理軟體開發項目的原始碼，它允許多人協同工作，輕鬆地在不同的版本之間進行切換、合併和回溯。
+					</p>
+					<h2>版本控制</h2>
+					<p>
+						版本控制其實就是去紀錄一個檔案所修改的部分，以後想要去追蹤每個版本修改了什麼，或是當新版本有問題時，都可以快速的調閱紀錄以及回到某一個版本。
+					</p>
+					<div class="image-container">
+						<img src="./Introduction/版本控制.png" class="image-zoom" alt="查無此圖片" />
+					</div>
+					<h2>系統的種類</h2>
+					<details open="">
+						<summary>
+							<h3>中央式系統</h3>
+						</summary>
+						<div class="indented">
+							<p>
+								以一台伺服器為中心，所有的更新與操作都需要透過這個伺服器，也就是這個伺服器擁有絕對的控制權以及決策權，萬一這台伺服器故障了，或是沒有網路連線的環境，版本控制功能就沒辦法使用。
+							</p>
+							<div class="image-container">
+								<img src="./Introduction/中央式系統.png" class="image-zoom" alt="查無此圖片" />
+							</div>							
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>分散式系統</h3>
+						</summary>
+						<div class="indented">
+							<p>
+								每台電腦都可以是一個節點，而每個節點都具有一定的控制權和決策權，可以獨立地進行操作和決策，即使伺服器故障或是沒有網路的環境下，還是可以用自己的電腦進行版本控制，之後等伺服器恢復正常運作或是在有網路的環境後再進行同步就好。
+							</p>
+							<div class="image-container">
+								<img src="./Introduction/分散式系統.png" class="image-zoom" alt="查無此圖片" />
+							</div>							
+						</div>
+					</details>
+					<h2>Git與GitHub的關係</h2>					
+					<p>
+						Git和GitHub是兩個相關但不同的概念，開發者可以使用Git在本地進行版本控制，然後將其推送到GitHub上的遠端儲存庫，從而實現代碼的共享、協同工作和社區參與。
+					</p>
+					<div class="image-container">
+						<img src="./Introduction/git不等於github.png" class="medium annotation image-zoom" alt="查無此圖片"/>
+					</div>	
+					<ul class="post_list">				
+						<li><span class="highlight-gray">Git</span>：一套免費、開源分散式的版本控制系統，用於管理和追蹤代碼的變更。</li>
+						<li><span class="highlight-gray">GitHub</span>：一個基於Git的原始碼代管服務平台，提供了一個中央化的雲端儲存庫和協作工具。</li>
+					</ul>
+					<h2>Git的工作流程</h2>
+					<div class="image-container">
+						<img src="./Introduction/git工作流程.png" class="annotation image-zoom" alt="查無此圖片"/>
+					</div>
+					<ul class="post_list">
+						<li><span class="highlight-gray">檔案（File）</span>：檔案就是在本地電腦上創建或修改的專案文件，這些檔案可以是程式碼、設定文件、圖片…等。</li>
+						<li><span class="highlight-gray">索引（Index）</span>：索引也稱為暫存區（Staging Area），它是一個中介區域，用於存儲準備提交的更改，當修改或創建檔案後，需要將這些更改添加（add）到索引中，這樣Git才能夠追蹤這些更改。</li>
+						<li><span class="highlight-gray">本地數據庫（Local Repository）</span>：本地數據庫是存儲項目的歷史記錄和版本的地方，它可以創建新的也可以複製（clone）既有的遠端數據庫，並且會存放在專案的資料夾中，本地數據庫包含所有提交（commit）的歷史記錄、分支（branch）…等資訊，並且可以在本地數據庫中進行分支操作、合併（merge）…等操作。</li>
+						<li><span class="highlight-gray">遠端數據庫（Remote Repository）</span>：遠端數據庫是位於遠端伺服器上的Git數據庫，它可以是在GitHub、GitLab或其他Git托管服務器上建立的數據庫，遠端數據庫用於多個開發人員之間的協作和代碼共享，可以將本地數據庫的檔案推送（push）到遠端數據庫，也可以從遠端數據庫拉取（pull）最新版本的專案到電腦中。</li>
+					</ul>
+					<h2>什麼是分支？</h2>
+					<p>
+						分支（Branch）是指在數據庫中獨立開發和管理代碼的獨立指向，讓開發人員在同一個數據庫中同時進行不同的工作，並且可以將這些工作的進度和更改獨立保存。
+					</p>
+					<div class="image-container">
+						<img src="./Introduction/git分支.png" class="annotation image-zoom" alt="查無此圖片"/>
+					</div>
+					<p class="margin">
+						使用分支有助於有效管理代碼庫，避免不同功能、修復或實驗性的更改相互衝突，開發人員可以根據需要創建和切換分支，使工作更有組織性和可追蹤性，分支也提供了一種實驗和測試新功能的方式，而不會影響主分支的穩定性。
+					</p>
+					<ul class="post_list">
+						<div class="little_title">
+							分支的主要特點包括：
+						</div>						
+						<li><span class="highlight-gray">獨立性（Independence）</span>：每個分支都是獨立的，擁有自己的提交歷史、文件狀態和更改。</li>
+						<li><span class="highlight-gray">合併（Merge）</span>：分支可以合併到其他分支，將不同的工作結果合併到一個統一的版本中。</li>
+						<li><span class="highlight-gray">創建和切換（Create and Switch）</span>：開發人員可以創建新的分支，並在不同的分支之間切換。</li>
+						<li><span class="highlight-gray">同步（Synchronize）</span>：分支可以用於隔離開發和測試，並在完成後將其與主分支同步。</li>
+						<li><span class="highlight-gray">版本控制（Version Control）</span>：分支提供了在不同的開發階段和功能之間進行版本控制的能力。</li>
+						<li><span class="highlight-gray">合作（Collaboration）</span>：多個開發人員可以在不同的分支上獨立工作，然後將它們的更改合併到共享的分支中。</li>
+					</ul>
+					<h2>分支合併</h2>
+					<p>
+						在Git中，要合併分支有兩種方法，分別是Merge與Rebase，它們有不同的工作流程和影響，但是都可以達到合併分支的效果。
+					</p>
+					<details open="">
+						<summary>
+							<h3>Merge</h3>
+						</summary>
+						<div class="indented">
+							<ul class="post_list">
+								<div class="little_title">
+									特色：
+								</div>
+								<li>創建一個新的合併提交，將兩個或多個分支的更改合併到一個共同的祖先上。</li>
+								<li>保留原始分支的提交歷史，合併提交記錄了哪些分支進行了合併。</li>
+								<li>不改變原始分支的提交歷史，保留分支獨立性。</li>
+							</ul>	
+							<ul class="post_list">
+								<div class="little_title">
+									使用場景：
+								</div>
+								<li>在公共儲存庫或共享分支上進行合作開發。</li>
+								<li>需要保留分支歷史，以便追蹤和查看每個分支的修改。</li>
+							</ul>						
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>Rebase</h3>
+						</summary>
+						<div class="indented">
+							<ul class="post_list">
+								<div class="little_title">
+									特色：
+								</div>
+								<li>將一個分支的提交應用到另一個分支上，重新應用提交以修改提交歷史。</li>
+								<li>創建新的提交，形成線性提交歷史，看起來像一個連續的提交序列。</li>
+								<li>使得合併後的分支更加整潔，減少合併提交的數量。</li>
+							</ul>	
+							<ul class="post_list">
+								<div class="little_title">
+									使用場景：
+								</div>
+								<li>在自己的私有分支上進行個人開發，整理提交歷史以保持清晰和一致。</li>
+								<li>將特性分支合併到主分支上，以獲得線性提交歷史和更好的可讀性。</li>
+							</ul>						
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>Merge與Rebase比較</h3>
+						</summary>
+						<div class="indented">
+							<table class="post-table">
+								<thead class="table-header">
+									<tr class="table-tr">
+										<th class="table-th center" style="width: 15%;"></th>
+										<th class="table-th center" style="width: 40%;">Merge（合併）</th>
+										<th class="table-th center" style="width: 40%;">Rebase（變基）</th>
+									</tr>
+								</thead>
+								<tbody class="table-body">
+									<tr class="table-tr">
+										<th class="table-th">特色</th>
+										<td class="table-td">創建新的合併提交，保留原始分支的提交歷史，合併提交記錄了哪些分支進行了合併。</td>
+										<td class="table-td">將一個分支的提交應用到另一個分支上，重新應用提交以修改提交歷史。創建新的提交，形成線性提交歷史。</td>
+									</tr>
+									<tr class="table-tr">
+										<th class="table-th">使用場景</th>
+										<td class="table-td">公共數據庫或共享分支上的合作開發</td>
+										<td class="table-td">個人開發分支或將特性分支合併到主分支上</td>
+									</tr>
+									<tr class="table-tr">
+										<th class="table-th">分支歷史保留</th>
+										<td class="table-td">保留原始分支的提交歷史</td>
+										<td class="table-td">改寫提交歷史，創建線性提交序列</td>
+									</tr>
+									<tr class="table-tr">
+										<th class="table-th">合併提交數量</th>
+										<td class="table-td">合併操作會產生一個合併提交</td>
+										<td class="table-td">減少合併提交的數量，形成更整潔的提交歷史</td>
+									</tr>
+									<tr class="table-tr">
+										<th class="table-th">可讀性</th>
+										<td class="table-td">較難追蹤每個分支的修改</td>
+										<td class="table-td">更容易理解和追蹤每個提交的修改</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</details>					
+					<h2>合併衝突</h2>
+					<p>
+						合併衝突（Merge Conflict）是在合併過程中發生的一種情況，當兩個分支的同一個檔案的同一個位置有不同的修改時，Git無法自動決定應該保留哪個版本的更改，因此產生衝突，當Git檢測到合併衝突時會在衝突檔案中標記衝突的位置。
+					</p>
+					<div class="image-container">
+						<img src="./Introduction/合併衝突.png" class="image-zoom" alt="查無此圖片"/>
+					</div>
+					<ol class="post_list">
+						<div class="little_title">
+							解決合併衝突的步驟：
+						</div>
+						<li><span class="highlight-gray">檢查衝突</span>：在執行合併操作後，Git 會標記衝突的檔案，你可以使用git status指令來檢查哪些檔案出現了衝突。</li>
+						<li><span class="highlight-gray">解決衝突</span>：仔細檢查衝突的內容，根據專案需求選擇保留哪個版本的更改或進行修改，在衝突檔案中手動編輯，將兩個版本的內容合併成一個正確的結果。</li>
+						<li><span class="highlight-gray">刪除衝突標記</span>：在衝突解決完畢後，刪除衝突標記和不需要的內容，僅保留所需的正確內容。</li>
+						<li><span class="highlight-gray">儲存檔案</span>：保存衝突解決後的檔案。</li>
+						<li><span class="highlight-gray">標記衝突已解決</span>：使用<span class="highlight-orange">git add</span>命令將已解決的衝突標記為已解決，表示這些部分已經確定合併結果。</li>
+						<li><span class="highlight-gray">完成合併提交</span>：使用<span class="highlight-orange">git commit</span>命令提交合併結果，Git會自動創建一個合併提交，其中包含解決衝突的更改。</li>
+					</ol>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-2">
+			<!-- 這裡是 TOC，佔 20% 寬度 -->
+			<div id="toc" class="toc">
+				<h2>目錄</h2>
+				<ul id="toc-list">
+				</ul>				
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ======= Footer ======= -->
+	<footer class="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong><span>Cheng-Wei Lin</span></strong>
+			</div>
+		</div>
+	</footer><!-- End Footer -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="../../assets/vendor/aos/aos.js"></script>
+	<script src="../../assets/vendor/highlight/highlight.min.js"></script>
+	<script src="../../assets/vendor/highlight/highlightjs-line-numbers.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="../../assets/js/main.js"></script>
+	<script src="../../assets/js/mode-switcher.js"></script>
+	<script src="../../assets/js/codeBlock.js"></script>
+	<script src="../../assets/js/TOC.js"></script>
+	<script src="../../assets/js/image_zoom.js"></script>
+</body>
+
+</html>

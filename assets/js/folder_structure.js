@@ -329,11 +329,11 @@ $(document).ready(function() {
     if (view === 'table-view') {
       $('.subitem-container.grid-view').hide();
       $('.subitem-container.table-view').show();
-      $('.view i').removeClass('bi-list-ul').addClass('bi-grid-3x3-gap-fill');
+      $('.view i').removeClass('bi-list-ul').addClass('bi-grid-3x2-gap-fill');
     } else {
       $('.subitem-container.table-view').hide();
       $('.subitem-container.grid-view').css('display', 'grid');
-      $('.view i').removeClass('bi-grid-3x3-gap-fill').addClass('bi-list-ul');
+      $('.view i').removeClass('bi-grid-3x2-gap-fill').addClass('bi-list-ul');
     }
   }
 

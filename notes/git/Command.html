@@ -1,721 +1,1031 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Command</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="e1bc16a2-5c79-40a2-94fd-c9919aa2e758" class="page mono"><header><img class="page-cover-image" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Command.png" style="object-position:center 74.64999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/document_gray.svg"/></div><h1 class="page-title">Command</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/categories_gray.svg" style="width:14px;height:14px"/></span>Category</th><td><span class="selected-value select-value-color-orange">Git</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Tag</th><td></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px"/></span>參考文獻</th><td><a href="https://www.notion.so/Command-d46633d83da54ed4ab6fb1268d7660fb?pvs=21"><img class="icon" src="https://www.notion.so/icons/link_gray.svg"/>Command</a></td></tr></tbody></table></header><div class="page-body"><h2 id="ce586ea2-181b-47d1-b10e-713ab2216d74" class="">移動到專案目錄下</h2><p id="c2b89543-5fbb-4cb9-ad58-00bf962817fe" class="">大部分的操作指令都需在專案目錄下輸入。</p><pre id="cd78dc05-a5e2-4a14-b548-43c1f92a5b06" class="code code-wrap"><code>cd D:/project</code></pre><p id="f539ecab-c3b4-4261-977d-67701bdde835" class="">
-</p><figure id="3c548fc0-ff63-406c-abb6-2c30218977aa" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled.png"><img style="width:1040px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled.png"/></a><figcaption><mark class="highlight-red"><strong>目錄已經切換到專案底下</strong></mark></figcaption></figure><p id="148c6499-ad7c-4a22-a629-0cdce8513522" class="">
-</p><h2 id="db8a3681-b36f-4c60-9eb9-8851bd842c15" class="">建立本地的數據庫</h2><pre id="c557131b-0c2a-4563-bda9-524df1440937" class="code code-wrap"><code>git init</code></pre><p id="2538936a-0aa5-4abc-bd8f-b135cfd30ae9" class="">
-</p><figure id="5da6854a-1989-4ac4-8136-3ca66fdb1ca6" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%201.png"><img style="width:2026px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%201.png"/></a><figcaption><mark class="highlight-red"><strong>專案的資料夾內多出了</strong></mark><code><mark class="highlight-red"><strong>.git</strong></mark></code><mark class="highlight-red"><strong>的資料夾（預設是隱藏的）</strong></mark></figcaption></figure><p id="49b7d41b-e79a-4521-9b1d-0eff343ca117" class="">
-</p><h2 id="47e8f36a-995c-4afa-8ea1-fd2d7b9a903c" class="">設定遠端數據庫</h2><figure id="95464a10-3596-487a-912e-ad8634c325b5" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%202.png"><img style="width:2534px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%202.png"/></a><figcaption><mark class="highlight-red"><strong>複製專案的SSH URL</strong></mark></figcaption></figure><p id="295fe901-f09e-4a4b-9e9e-4b1b03f818c0" class="">
-</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>連接遠端數據庫</strong></summary><div class="indented"><ul id="150e6093-5e44-45eb-aa19-708fc9033615" class="bulleted-list"><li style="list-style-type:disc"><strong>複製既有的遠端數據庫</strong><pre id="a109038d-44a0-40a9-a46a-c7b31ba81c82" class="code code-wrap"><code>git clone git@github.com:Lcwei-0708/project.git</code></pre></li></ul><p id="82f4cfe8-1445-49c2-ab87-4032ce5157eb" class="">
-</p><ul id="3d18787e-cd92-4265-a4ad-bd9a5ddb9ccb" class="bulleted-list"><li style="list-style-type:disc"><strong>新增一個遠端數據庫</strong><pre id="48977ec9-e89b-4a8a-870c-2876d108a237" class="code code-wrap"><code>git remote add origin git@github.com:Lcwei-0708/project.git</code></pre></li></ul><p id="c193303d-f43e-44b4-9593-34e9baf6d7cb" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">其他遠端設定指令</summary><div class="indented"><pre id="8fc099d4-b32e-438f-a0a1-e1526ee2a4e4" class="code code-wrap"><code>git remote</code></pre><p id="1575ac63-da5e-4363-866f-6cc8d0762090" class="">
-</p><pre id="2b1b09f4-5cf0-425a-a4e4-0b33f6936c8e" class="code code-wrap"><code>git remote -v</code></pre><p id="8e2fdb57-8f7b-4af1-af99-2538de6dcf12" class="">
-</p><pre id="85d4bbd8-677a-40ea-90e3-e530d4b0fc05" class="code code-wrap"><code>git remote show &lt;遠端數據庫名稱&gt;</code></pre><p id="3324bd3f-3828-40d6-8585-1d9bb200b152" class="">
-</p><pre id="f44bf839-48ae-459d-9c74-4106e2e50971" class="code code-wrap"><code>git remote update</code></pre><p id="f19bcf6d-34c3-46ed-a8e4-563e95443877" class="">
-</p><pre id="fcc4fc1a-6674-48db-9735-15657e034846" class="code code-wrap"><code>git remote set-url &lt;遠端數據庫名稱&gt; &lt;新的遠端數據庫URL&gt;</code></pre><p id="c80d2b51-cd40-463e-b5dd-96c1e9cb7f17" class="">
-</p><pre id="84d9bb57-fdc9-4333-a11e-4bc488a9472e" class="code code-wrap"><code>git remote rename &lt;舊的遠端數據庫名稱&gt; &lt;新的遠端數據庫名稱&gt;</code></pre><p id="a88ca2bb-6041-4245-a819-aba51e3680ea" class="">
-</p><pre id="4d5a1d29-9e2e-4ccf-bd41-ad291a26fe7f" class="code code-wrap"><code>git remote remove &lt;遠端數據庫名稱&gt;</code></pre></div></details><p id="1f23326a-e10e-4271-a159-4097244d8d22" class="">
-</p><h2 id="d922ec92-f23e-4cbe-96af-177c682a35ef" class="">分支管理的相關指令</h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">查看分支</summary><div class="indented"><pre id="a0c8b467-3b6b-429a-93fc-010ee03de847" class="code code-wrap"><code>git branch</code></pre><p id="cff520f1-43c4-468a-8aec-d8ec2101355c" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">建立分支</summary><div class="indented"><pre id="5b73008c-79f8-4669-95cf-a60adad99ea9" class="code code-wrap"><code>git branch branch1</code></pre><p id="8aecfae8-8035-4432-927e-02590d4bb896" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">刪除分支</summary><div class="indented"><pre id="336497a3-f4f4-44f6-a1ce-371845f0fd86" class="code code-wrap"><code>git branch -d branch1</code></pre><p id="69824119-214e-4248-8aa2-693fa64b5ec2" class="">
-</p><figure class="block-color-teal callout" style="white-space:pre-wrap;display:flex" id="564cd169-31df-4c5f-8f53-0791555b283e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-red">若要刪除的分支本身有</mark><code><mark class="highlight-red">commit</mark></code><mark class="highlight-red">，且未被合併（merge），則無法使用</mark><code><mark class="highlight-red">-d</mark></code><mark class="highlight-red">來進行刪除，必須使用</mark><code><mark class="highlight-red">-D</mark></code><mark class="highlight-red">才能刪除。</mark></div></figure><p id="187b3c7e-3f89-4c54-b7de-3e024d343e3f" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>回復被刪除的分支</strong></summary><div class="indented"><figure id="ad789c5f-f1f5-4d49-b97a-c00d1671dc1c" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%203.png"><img style="width:1180px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%203.png"/></a><figcaption><mark class="highlight-red"><strong>刪除分支時Git會給予一個ID，如果要回復被刪除的分支的話，只要重新建立分支，並且在分支名稱後面加上被刪除時的ID，這樣這個分支之前的紀錄就都會復原了。</strong></mark></figcaption></figure><p id="ed42d69d-2536-44ac-acce-5db775b72de7" class="">
-</p><pre id="30ee6db3-c43b-48e0-b89a-face501d1e33" class="code code-wrap"><code>git checkout -b branch2 a7066f5</code></pre><p id="755f7d4d-d7de-43d2-ba38-235e7e7340a1" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">更改分支名稱</summary><div class="indented"><pre id="e59164bb-8e1d-4868-b8dd-24dfdb96376b" class="code code-wrap"><code>git branch -m branch1 branch2</code></pre><p id="71a62204-cfaf-4fe4-a99d-9bb81810195c" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">切換分支</summary><div class="indented"><pre id="0f042e1f-28d7-4e9e-91f9-723167e7e031" class="code code-wrap"><code>git checkout branch2</code></pre><p id="09792678-2f49-42be-9cb8-6597c6cd5b5d" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">切換到上一個分支</summary><div class="indented"><pre id="73821199-efe4-4622-bf97-e596f608d656" class="code code-wrap"><code>git checkout -</code></pre><p id="521fb1d2-bd3e-42c5-857a-c3b2490eb07b" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">建立並且切換到新的分支</summary><div class="indented"><pre id="18773012-ca30-4418-bbaf-6ddd7c981d9c" class="code code-wrap"><code>git checkout -b branch2</code></pre><p id="363ae72c-d807-4a4f-81b3-1f1a3f143d44" class="">
-</p></div></details><h2 id="56c3b02c-1d21-466b-bedc-a09b051df99e" class="">使用Merge合併分支</h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">將其他分支合併到目前分支</summary><div class="indented"><pre id="3e319305-0d0c-4d74-9ca1-895c019e901d" class="code code-wrap"><code>git merge branch2</code></pre><p id="debead2c-5ed0-47c8-a3b8-496458d82613" class="">
-</p><figure class="block-color-teal callout" style="white-space:pre-wrap;display:flex" id="1567387d-5bbc-468e-ba1c-ea2b9111d13e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">執行此指令會將指定的分支（branch-name）合併到當前所在的分支，所以必須先切換到要合併的分支上。</div></figure><p id="169abdb3-4ec1-4416-9af5-529655296cad" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">強制Git創建一個新的合併提交</summary><div class="indented"><pre id="3426913b-7646-4df9-8863-c70f7457bd11" class="code code-wrap"><code>git merge --no-ff branch2</code></pre><p id="0260b556-55e5-413e-b813-fb0f8e6bf9e0" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">繼續執行合併動作</summary><div class="indented"><pre id="03433beb-56a7-4cd0-84b2-7d0696424182" class="code code-wrap"><code>git merge --continue</code></pre><p id="bdbfc04b-80c3-4047-b9b1-9bdba416199d" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">恢復到合併前的狀態</summary><div class="indented"><pre id="fb661ee4-2b76-4a75-a5c7-f98a6aa49a35" class="code code-wrap"><code>git merge --abort</code></pre></div></details><p id="23c0f394-9ff9-4a2a-9938-f1accd5b7a54" class="">
-</p><h2 id="0d1e5f06-780e-4fb3-8164-47b900572799" class="">使用Rebase合併分支</h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">將目前分支提交到其他分支</summary><div class="indented"><pre id="6a4786cd-be28-4747-b62d-4a730df3b612" class="code code-wrap"><code>git rebase branch2</code></pre><p id="f44c437e-5269-488b-b930-ffb8997a5ce8" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">編輯、刪除、合併提交訊息</summary><div class="indented"><pre id="43ec8cf5-aaff-4888-8977-30cf0e461703" class="code code-wrap"><code>git rebase -i branch2</code></pre><p id="c7b59a9a-b7ce-477e-8686-03db58e34a59" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">繼續執行合併動作</summary><div class="indented"><pre id="82a794c8-1988-4a03-a260-c673a271793e" class="code code-wrap"><code>git rebase --continue</code></pre><p id="2f91a41f-cf95-4a2d-9ef7-10f42fad01f1" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">恢復到合併前的狀態</summary><div class="indented"><pre id="336165b4-cda3-446c-9e86-77ff1841a450" class="code code-wrap"><code>git rebase --abort</code></pre></div></details><p id="87eb0874-64c0-4d8a-a3ee-9e4550cb58c4" class="">
-</p><h2 id="62152b2d-ebf0-4b1e-8e76-6b2611d86fe6" class="">管理專案版本的常用指令</h2><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">將文件加入索引中</summary><div class="indented"><figure id="61c6f721-81e1-4b1e-83cc-56e3a0fc15c7" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%204.png"><img style="width:2026px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%204.png"/></a><figcaption><mark class="highlight-red"><strong>新增了一個檔案</strong></mark><code><mark class="highlight-red"><strong>A.txt</strong></mark></code><mark class="highlight-red"><strong>，內容為</strong></mark><code><mark class="highlight-red"><strong>aaa</strong></mark></code></figcaption></figure><p id="4aaedf40-f2a0-4429-a8b3-bd16c1db8804" class="">
-</p><pre id="96691850-1ddc-4acf-a67c-d13f74a1681e" class="code code-wrap"><code>git add .</code></pre><p id="160668eb-fe36-4141-9510-c2ce1494ca60" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">查看索引的狀態</summary><div class="indented"><pre id="14d9bb92-fa1c-473f-8831-b270956962eb" class="code code-wrap"><code>git status</code></pre><p id="f16dd070-361f-4ab4-8e6f-a8922ce62782" class="">
-</p><figure id="e3164c7a-61e9-4dab-9f0c-2dd1fd84177d" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%205.png"><img style="width:1167px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%205.png"/></a><figcaption><mark class="highlight-red"><strong>可以看到多了一個新檔案</strong></mark><mark class="highlight-red"><strong><code>A.txt</code></strong></mark></figcaption></figure><p id="ffe9693e-492e-4dc7-8043-73360c051d9b" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">將索引內的檔案提交到本地數據庫</summary><div class="indented"><pre id="6b151151-e8a9-44d2-b2b0-bb6896254ced" class="code code-wrap"><code>git commit -m &quot;2023/06/26&quot;</code></pre><p id="e18b5880-6306-4af6-a6fe-b2fe043fbb92" class="">
-</p><figure id="67b3b606-db41-4269-ab02-252b79571cd1" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%206.png"><img style="width:1167px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%206.png"/></a><figcaption><mark class="highlight-red"><strong>將索引中的檔案提交到本地的數據庫中</strong></mark></figcaption></figure><p id="19b8f82f-9c46-4646-89a2-301b94937933" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">查看提交的歷史訊息</summary><div class="indented"><pre id="bbc3ad38-4881-4199-aa2e-7e1ed83e2896" class="code code-wrap"><code>git log</code></pre><p id="fbbd8f50-a367-4e2f-8904-d3a234a9acaa" class="">
-</p><figure id="2d818195-372e-4ada-9956-d123a39983d8" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%207.png"><img style="width:1168px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%207.png"/></a><figcaption><mark class="highlight-red"><strong>查看剛剛commit的歷史訊息</strong></mark></figcaption></figure><p id="69c6e382-aed4-481e-ae7a-559d55350ab7" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">將檔案推送到遠端數據庫</summary><div class="indented"><pre id="eda38fca-266d-4afe-ac36-7e8f1eec164f" class="code code-wrap"><code>git push origin master</code></pre><p id="17265516-3dfb-451c-9953-18e21e92693b" class="">
-</p><figure id="8cace305-61a6-425a-b616-aacdec4a17f7" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%208.png"><img style="width:1042px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%208.png"/></a><figcaption><mark class="highlight-red"><strong>已成功將本地數據庫的檔案推送到遠端數據庫</strong></mark></figcaption></figure><p id="e9eb93d9-40d7-41f7-80fc-8f4400a517e4" class="">
-</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">從遠端數據庫拉取檔案</summary><div class="indented"><pre id="a7645c07-8bb3-4176-888d-5aa2f014f520" class="code code-wrap"><code>git pull origin master</code></pre><p id="11296074-603b-4b3b-a292-6fe43d2a0990" class="">
-</p><figure id="acbbaa22-e162-4283-b5c1-908a9b2c509e" class="image"><a href="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%209.png"><img style="width:1042px" src="Command%20e1bc16a25c7940a294fdc9919aa2e758/Untitled%209.png"/></a><figcaption><mark class="highlight-red"><strong>已成功將遠端數據庫的檔案拉取到本地數據庫</strong></mark></figcaption></figure></div></details><p id="11f90621-d8ca-4d5c-bba0-54dff8fa84a7" class="">
-</p></div></article></body></html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Command</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="../../assets/img/favicon.png" rel="icon">
+	<link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link id="highlight-style-light" href="../../assets/vendor/highlight/styles/github.min.css" rel="stylesheet" />
+	<link id="highlight-style-dark" href="../../assets/vendor/highlight/styles/github-dark.min.css" rel="stylesheet" />
+
+	<!-- Template Main CSS File -->
+	<link href="../../assets/css/style.css" rel="stylesheet">
+	<link href="../../assets/css/post.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center justify-content-between">
+			<h1 class="logo"><a href="../../index.html">Cheng-Wei's Blog</a></h1>
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto" href="../../index.html"><i class="bi bi-house"></i> Home</a></li>
+					<li><a class="nav-link scrollto" href="../../about.html"><i class="bi bi-person"></i> About</a></li>
+					<li><a class="nav-link scrollto" href="../../portfolio.html"><i class="bi bi-collection"></i>
+							Portfolio</a></li>
+					<li><a class="nav-link scrollto" href="../../notes.html"><i class="bi bi-journal-text"></i>
+							Notes</a></li>
+					<li><a class="nav-link scrollto" href="../../paper_report.html"><i
+								class="bi bi-file-earmark-text"></i> Paper</a></li>
+					<li class="dropdown">
+						<button>
+							<span><i class="bi bi-sun mode-icon"></i></span>
+							<i class="bi bi-chevron-down"></i>
+						</button>
+						<ul>
+							<li><button class="mode-switch" data-mode="light"><i
+										class="bi bi-sun mode-icon"></i>Light</button></li>
+							<li><button class="mode-switch" data-mode="dark"><i
+										class="bi bi-moon mode-icon"></i>Dark</button></li>
+							<li><button class="mode-switch" data-mode="auto"><i
+										class="bi bi-circle-half"></i>Auto</button></li>
+						</ul>
+					</li>
+				</ul>
+				<i class="bi bi-sun mode-icon mobile-mode" data-mode="light"></i>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+		</div>
+	</header><!-- End Header -->
+
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<!-- 這裡是文章內容，佔 80% 寬度 -->
+			<article id="article" class="article">
+				<header>
+					<img class="page-cover-image" src="./Command/Command.png" />
+					<div class="properties">
+						<h1 class="page-title">Command</h1>
+						<table>
+							<tbody>
+								<tr>
+									<th>
+										<i class="bi bi-folder-fill"></i>Category
+									</th>
+									<td>
+										<span class="orange">Git</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-file-earmark-text-fill"></i>References
+									</th>
+									<td>
+										<span class="gray"><a href="./Command/references.html">References<i class='bx bx-link-external'></i></a></span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-pencil-fill"></i>Created
+									</th>
+									<td>
+										August 4, 2023
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</header>
+				<div class="page-body">
+					<h2>移動到專案目錄下</h2>
+					<p>
+						大部分的操作指令都需在專案目錄下輸入，所以要先移動到專案的目錄下。
+					</p>
+					<div class="card annotation">
+						<div class="top">
+							<div class="dots">
+								<div class="dot dot-1"></div>
+								<div class="dot dot-2"></div>
+								<div class="dot dot-3"></div>
+								<span>Shell</span>
+							</div>
+							<button class="btn copy"><iconify-icon
+									icon="akar-icons:copy"></iconify-icon></button>
+						</div>
+						<div class="bottom">
+							<pre
+								class="code code-wrap"><code class="language-shell">cd D:/project</code></pre>
+						</div>
+					</div>
+					<p class="annotation">
+						cd &lt;專案路徑&gt;
+					</p>
+					<div class="image-container">
+						<img src="./Command/切換到專案資料夾.png" class="annotation image-zoom" alt="查無此圖片" />
+					</div>
+					<p class="annotation">
+						目錄已經切換到專案底下
+					</p>
+					<h2>建立本地的數據庫</h2>
+					<div class="card">
+						<div class="top">
+							<div class="dots">
+								<div class="dot dot-1"></div>
+								<div class="dot dot-2"></div>
+								<div class="dot dot-3"></div>
+								<span>Shell</span>
+							</div>
+							<button class="btn copy"><iconify-icon
+									icon="akar-icons:copy"></iconify-icon></button>
+						</div>
+						<div class="bottom">
+							<pre
+								class="code code-wrap"><code class="language-shell">git init</code></pre>
+						</div>
+					</div>
+					<div class="image-container">
+						<img src="./Command/初始化git.png" class="annotation image-zoom" alt="查無此圖片" />
+					</div>
+					<p class="annotation">
+						專案的資料夾內多出了<span class="highlight-red">.git</span>的資料夾（預設是隱藏的）
+					</p>
+					<h2>設定遠端數據庫</h2>
+					<div class="image-container">
+						<img src="./Command/複製專案的SSH URL.png" class="annotation image-zoom" alt="查無此圖片" />
+					</div>
+					<p class="annotation">
+						複製專案的SSH URL
+					</p>
+					<details open="">
+						<summary>
+							<h3>連接遠端數據庫</h3>
+						</summary>
+						<div class="indented">
+							<ul class="post_list">
+								<li>
+									<span class="little_title">複製既有的遠端數據庫</span>
+									<div class="card annotation">
+										<div class="top">
+											<div class="dots">
+												<div class="dot dot-1"></div>
+												<div class="dot dot-2"></div>
+												<div class="dot dot-3"></div>
+												<span>Shell</span>
+											</div>
+											<button class="btn copy"><iconify-icon
+													icon="akar-icons:copy"></iconify-icon></button>
+										</div>
+										<div class="bottom">
+											<pre
+												class="code code-wrap"><code class="language-shell">git clone git@github.com:Lcwei-0708/project.git</code></pre>
+										</div>
+									</div>
+									<p class="annotation">
+										git clone &lt;遠端數據庫URL&gt;
+									</p>
+								</li>
+								<li>
+									<span class="little_title">新增一個遠端數據庫</span>
+									<div class="card annotation">
+										<div class="top">
+											<div class="dots">
+												<div class="dot dot-1"></div>
+												<div class="dot dot-2"></div>
+												<div class="dot dot-3"></div>
+												<span>Shell</span>
+											</div>
+											<button class="btn copy"><iconify-icon
+													icon="akar-icons:copy"></iconify-icon></button>
+										</div>
+										<div class="bottom">
+											<pre
+												class="code code-wrap"><code class="language-shell">git remote add origin git@github.com:Lcwei-0708/project.git</code></pre>
+										</div>
+									</div>
+									<p class="annotation">
+										git remote add &lt;遠端數據庫名稱&gt; &lt;遠端數據庫URL&gt;
+									</p>
+								</li>
+							</ul>							
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>其他遠端設定指令</h3>
+						</summary>
+						<div class="indented">
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								查看已設定的遠端數據庫
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote -v</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								查看已設定的遠端數據庫URL
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote show <遠端數據庫名稱></code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								查看指定遠端數據庫的詳細資訊
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote update</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								獲取遠端數據庫最新的分支與提交
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote set-url <遠端數據庫名稱> <新的遠端數據庫URL></code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								更改遠端數據庫URL
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote rename <舊的遠端數據庫名稱> <新的遠端數據庫名稱></code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								重新命名遠端數據庫
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git remote remove <遠端數據庫名稱></code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								刪除遠端數據庫
+							</p>					
+						</div>
+					</details>
+					<h2>分支管理的相關指令</h2>		
+					<details open="">
+						<summary>
+							<h3>查看分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="card">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git branch</code></pre>
+								</div>
+							</div>																
+						</div>
+					</details>	
+					<details open="">
+						<summary>
+							<h3>建立分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git branch branch1</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git branch &lt;分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>刪除分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="notice">
+								<p>
+									<i class="bi bi-lightbulb-fill"></i>若要刪除的分支本身有commit，且未被合併（merge），則無法使用<span class="highlight-blue">-d</span>來進行刪除，必須使用<span class="highlight-blue">-D</span>才能刪除。
+								</p>
+							</div>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git branch -d branch1</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git branch -d &lt;分支名稱&gt;
+							</p>																				
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>回復被刪除的分支</h3>
+						</summary>
+						<div class="indented">
+							<p>
+								刪除分支時Git會給予一個ID，如果要回復被刪除的分支的話，只要重新建立分支，並且在分支名稱後面加上被刪除時的ID，這樣這個分支之前的紀錄就都會復原了。
+							</p>
+							<div class="image-container">
+								<img src="./Command/被刪除的分支ID.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								查詢被刪除的分支ID
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git checkout -b branch2 a7066f5</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git branch -b &lt;分支名稱&gt; &lt;被刪除時的ID&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>更改分支名稱</h3>
+						</summary>
+						<div class="indented">
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git branch -m branch1 branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git branch -m &lt;舊的分支名稱&gt; &lt;新的分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>切換分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git checkout branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git checkout &lt;分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>切換到上一個分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git checkout -</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git checkout &lt;分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>建立並且切換到新的分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git checkout -b branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git checkout -b &lt;分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<h2>使用Merge合併分支</h2>
+					<details open="">
+						<summary>
+							<h3>將其他分支合併到目前分支</h3>
+						</summary>
+						<div class="indented">
+							<div class="notice">
+								<p>
+									<i class="bi bi-lightbulb-fill"></i>執行此指令會將指定的分支（branch-name）合併到當前所在的分支，所以必須先切換到要合併的分支上。
+								</p>
+							</div>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git merge branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git merge &lt;要被合併的分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>強制Git創建一個新的合併提交</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git merge --no-ff branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git merge --no-ff &lt;分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>繼續執行合併動作</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git merge --continue</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								在解決合併衝突後，使用此指令繼續執行合併操作
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>恢復到合併前的狀態</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git merge --abort</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								如果在合併過程中遇到問題或錯誤，可以使用此指令放棄合併操作
+							</p>															
+						</div>
+					</details>
+					<h2>使用Rebase合併分支</h2>
+					<details open="">
+						<summary>
+							<h3>將目前分支提交到其他分支</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git rebase branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git rebase &lt;要提交到的分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>編輯、刪除、合併提交訊息</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git rebase -i branch2</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git rebase -i &lt;分支名稱&gt;
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>繼續執行合併動作</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git rebase --continue</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								在解決衝突後，將剩餘的提交應用到目標分支上
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>恢復到合併前的狀態</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git rebase --abort</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								如果在合併過程中遇到問題或出現錯誤，可以使用此指令放棄重新應用
+							</p>															
+						</div>
+					</details>
+					<h2>管理專案版本的常用指令</h2>
+					<details open="">
+						<summary>
+							<h3>將文件加入索引中</h3>
+						</summary>
+						<div class="indented">
+							<div class="image-container">
+								<img src="./Command/新增檔案.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								新增了一個檔案<span class="highlight-red">A.txt</span>，內容為<span class="highlight-red">aaa</span>
+							</p>
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git add .</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git add &lt;文件名稱&gt;（<span class="highlight-red">.</span>代表目錄下的所有檔案）
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>查看索引的狀態</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git status</code></pre>
+								</div>
+							</div>
+							<div class="image-container">
+								<img src="./Command/查看狀態.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								可以看到多了一個新檔案<span class="highlight-red">A.txt</span>
+							</p>														
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>將索引內的檔案提交到本地數據庫</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git commit -m "2023/08/04"</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git commit -m &lt;提交訊息&gt;
+							</p>
+							<div class="image-container">
+								<img src="./Command/commit.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								將索引中的檔案提交到本地的數據庫中
+							</p>
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>查看提交的歷史訊息</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git log</code></pre>
+								</div>
+							</div>
+							<div class="image-container">
+								<img src="./Command/查看commit紀錄.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								查看剛剛commit的歷史訊息
+							</p>															
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>將檔案推送到遠端數據庫</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git push origin master</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git push &lt;遠端名稱&gt; &lt;分支名稱&gt;
+							</p>
+							<div class="image-container">
+								<img src="./Command/push.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								已成功將本地數據庫的檔案推送到遠端數據庫
+							</p>														
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>從遠端數據庫拉取檔案</h3>
+						</summary>
+						<div class="indented">							
+							<div class="card annotation">
+								<div class="top">
+									<div class="dots">
+										<div class="dot dot-1"></div>
+										<div class="dot dot-2"></div>
+										<div class="dot dot-3"></div>
+										<span>Shell</span>
+									</div>
+									<button class="btn copy"><iconify-icon
+											icon="akar-icons:copy"></iconify-icon></button>
+								</div>
+								<div class="bottom">
+									<pre
+										class="code code-wrap"><code class="language-shell">git pull origin master</code></pre>
+								</div>
+							</div>
+							<p class="annotation">
+								git pull &lt;遠端名稱&gt; &lt;分支名稱&gt;
+							</p>
+							<div class="image-container">
+								<img src="./Command/pull.png" class="annotation image-zoom" alt="查無此圖片" />
+							</div>
+							<p class="annotation">
+								已成功將遠端數據庫的檔案拉取到本地數據庫
+							</p>														
+						</div>
+					</details>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-2">
+			<!-- 這裡是 TOC，佔 20% 寬度 -->
+			<div id="toc" class="toc">
+				<h2>目錄</h2>
+				<ul id="toc-list">
+				</ul>				
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ======= Footer ======= -->
+	<footer class="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong><span>Cheng-Wei Lin</span></strong>
+			</div>
+		</div>
+	</footer><!-- End Footer -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="../../assets/vendor/aos/aos.js"></script>
+	<script src="../../assets/vendor/highlight/highlight.min.js"></script>
+	<script src="../../assets/vendor/highlight/highlightjs-line-numbers.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="../../assets/js/main.js"></script>
+	<script src="../../assets/js/mode-switcher.js"></script>
+	<script src="../../assets/js/codeBlock.js"></script>
+	<script src="../../assets/js/TOC.js"></script>
+	<script src="../../assets/js/image_zoom.js"></script>
+</body>
+
+</html>

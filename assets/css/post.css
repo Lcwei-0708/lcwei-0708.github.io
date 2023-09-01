@@ -1,7 +1,6 @@
 body {
 	margin: 0 auto;
 	max-width: 80vw;
-	/* 設置最大寬度為視窗的 80% */
 	font-family: "PingFang TC", Consolas;
 	font-size: 20px;
 }
@@ -163,17 +162,17 @@ body {
 # Properties
 --------------------------------------------------------------*/
 
-#article .properties {
+.properties {
 	padding: 0 5%;
 }
 
-#article .properties table{
+.properties table{
 	width: 100%;
 	margin-top: 20px;
 	border-bottom: 1px solid var(--hover-bg-color);
 }
 
-#article .properties table th{
+.properties table th{
 	width: 20%;
 	padding: 5px 10px 25px 10px;
 	color: var(--font2-color);
@@ -181,19 +180,46 @@ body {
 	font-weight: 500;
 }
 
-#article .properties table td{
+.properties table td{
 	padding: 5px 10px 25px 10px;
 	color: var(--font-color);
 	font-size: 16px;
 }
 
-#article .properties table i{
+.properties table span i{
 	margin-right: 5px;
-	color: var(--font2-color);
+	color: var(--highlight-font-5);
 	font-size: 16px;
 }
 
-#article .properties table span.category{
+.properties table .red{
+	background-color: var(--highlight-bg-1);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-1);
+	padding: 7px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.properties table .orange {
+	background-color: var(--highlight-bg-2);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-2);
+	padding: 7px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.properties table .green {
+	background-color: var(--highlight-bg-3);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-3);
+	padding: 7px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.properties table .blue {
 	background-color: var(--highlight-bg-4);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-4);
@@ -202,26 +228,26 @@ body {
 	font-size: 16px;
 }
 
-#article .properties table span.tag{
-	background-color: var(--bg2-color);
+.properties table .gray a {
+	background-color: var(--highlight-bg-5);
 	border-radius: 0.5rem;
-	color: var(--font2-color);
+	color: var(--highlight-font-5);
 	padding: 7px;
 	margin-right: 10px;
 	font-size: 16px;
 }
 
-#article .properties table span.references {
-	background-color: var(--bg2-color);
+.properties table .purple {
+	background-color: var(--highlight-bg-6);
 	border-radius: 0.5rem;
-	color: var(--font2-color);
+	color: var(--highlight-font-6);
 	padding: 7px;
 	margin-right: 10px;
 	font-size: 16px;
 }
 
-#article .properties table span.references:hover a,
-#article .properties table span.references:hover i {
+.properties table span:hover a,
+.properties table span:hover i {
 	color: var(--hover-font-color);
 }
 
@@ -234,8 +260,9 @@ img {
 	display: block; /* 清除可能的預設間距 */
 	margin: auto; /* 調整上下間距，左右置中 */
 	border-radius: 1rem;
-	border: 1px solid var(--font2-color);
-	margin-bottom: 8%;
+	box-shadow: var(--shadow3-color);
+	border: 1px solid var(--bg2-color);
+	margin-bottom: 80px;
 }
 
 img.page-cover-image {	
@@ -247,7 +274,13 @@ img.page-cover-image {
 }
 
 img.annotation {
-	margin-bottom: 0;
+	margin: 20px 0 0px;
+}
+
+img.medium {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .page-title {
@@ -294,7 +327,7 @@ details .indented .card {
 p.annotation{
 	font-style: italic;
 	color: var(--annotation-color);
-	margin-bottom: 80px;
+	margin:5px 0 80px;
 	padding: 5px 10px;
 }
 
@@ -339,7 +372,7 @@ p.margin{
 }
 
 .card {
-	margin: 20px 0;
+	margin: 20px 0 80px;
 	width: 100%;
 	border-radius: 1rem;
 	box-shadow: var(--shadow3-color);
@@ -607,11 +640,20 @@ button.copy {
 	font-size: 18px;
 }
 
+#article .highlight-purple {
+	background-color: var(--highlight-bg-6);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-6);
+	padding: 7px;
+	margin: 0 7px;
+	font-size: 18px;
+}
+
 /*--------------------------------------------------------------
 # Article List
 --------------------------------------------------------------*/
 
-.post_ul {
+.post_list {
 	padding: 0 0 0 0;
 	margin: 0 0 80px 0;
 }
@@ -622,7 +664,29 @@ button.copy {
 	margin: 0 0 25px 0;
 }
 
-.post_ul li {
+.post_list li {
 	padding: 0 0 0 0px;
 	margin: 0px 0 20px 35px;
+}
+
+/*--------------------------------------------------------------
+# Notice
+--------------------------------------------------------------*/
+
+.notice {
+	padding: 20px;
+	border-radius: 1rem;
+	color: var(--highlight-font-1);
+	background-color: var(--highlight-bg-1);
+	margin: 20px auto;
+}
+
+.notice p {
+	margin: auto;
+}
+
+.notice i {
+	border-radius: 1rem;
+	color: var(--highlight-font-1);	
+	margin-right: 10px;
 }
