@@ -5,13 +5,20 @@
   font-family: "PingFang TC", Consolas;
 }
 
+.portfolio-container {
+  width: 80%;
+  margin: auto;
+}
+
 .portfolio .portfolio-item {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .portfolio #portfolio-flters {
   padding: 2px 15px;
-  margin: 0 auto 25px auto;
+  margin: 0 auto 20px auto;
   list-style: none;
   text-align: center;
   background: var(--bg-color);
@@ -51,10 +58,11 @@
 .portfolio .portfolio-wrap {
   transition: 0.3s;
   position: relative;
-  overflow: hidden;
+  overflow: hidden;  
   z-index: 1;
   border-radius: 0.5em;
   box-shadow: var(--shadow2-color);
+  margin: auto;
 }
 
 .portfolio .portfolio-wrap::before {
