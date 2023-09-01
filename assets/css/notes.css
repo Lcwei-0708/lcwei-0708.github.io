@@ -42,7 +42,7 @@ h2 {
 }
 
 .btn {
-  margin-top: 15vh;
+  margin-top: 14vh;
   display: none;
   border: none;
   height: 50px;
@@ -147,7 +147,7 @@ h2 {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.subitem:hover img {
+.subitem img:hover {
   transform: scale(1.05);
   filter: brightness(1.05); /* 增加亮度 */
   box-shadow: var(--shadow3-color);

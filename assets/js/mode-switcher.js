@@ -14,6 +14,9 @@ if (savedMode) {
     // 套用儲存的模式到頁面
     setMode(savedMode);    
 }
+else {
+    setMode(currentMode);
+}
 
 const modeSwitches = document.querySelectorAll('.mode-switch');
 
