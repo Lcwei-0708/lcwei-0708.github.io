@@ -602,6 +602,11 @@ button.copy {
 	background-color: var(--bg-color) !important;
 }
 
+.table-td .link a i {
+	margin: auto 0;
+	font-size: 20px;
+}
+
 .table-td a {
 	display: flex;
 	align-items: center;

@@ -109,182 +109,239 @@
 					</div>
 				</header>
 				<div class="page-body">
-					<h2>機器學習基本介紹</h2>					
+					<h2>基本介紹</h2>					
 					<details open="">
 						<summary>
-							<h3>什麼是人工智慧？</h3>
+							<h3>黑箱模型與白箱模型</h3>
 						</summary>
 						<div class="indented">
-							<p class="margin">
-								人工智慧（Artificial Intelligence, AI）是讓電腦在經過程式設計之後，能表現出類似人類的智慧，像是讓機器可以進行推論、學習以及採取行動，而這類行動原本需要人類智慧判斷或涉及超出人為分析能力上限的資料規模。
-							</p>						
+							<ul class="margin post_list">
+								<li><span class="highlight-gray">Black Box Model</span>：黑盒模型是只無法解釋模型內部的運作方式的模型（例如類神經網絡）。</li>
+								<li><span class="highlight-gray">White Box Model</span>：白盒模型又被稱為可解釋模型，顧名思義就是指可以理解預測過程的模型。</li>
+							</ul>						
 						</div>
 					</details>
 					<details open="">
 						<summary>
-							<h3>什麼是機器學習？</h3>
+							<h3>Interpretable & Explainable</h3>
 						</summary>
 						<div class="indented">
-							<p class="margin">
-								機器學習（Machine Learning, ML）是屬於人工智慧的衍生領域，目的是讓電腦通過學習來達到人工智慧的方法，電腦透過演算法從大量的資料中學習，並且找到其中運行的規則，而不是向過往那樣，設定一堆條件來達到目的。
-							</p>						
+							<ul class="margin post_list">
+								<li><span class="highlight-gray">Interpretable</span>：指模型<span class="mark">不是黑箱</span>，我們可以容易知道它的內容。</li>
+								<li><span class="highlight-gray">Explainable</span>：指模型<span class="mark">原本是黑箱</span>，我們想辦法賦予它解釋的能力。</li>
+							</ul>						
+						</div>
+					</details>
+					<h2>可解釋性</h2>
+					<details open="">
+						<summary>
+							<h3>可解釋性的兩種定義</h3>
+						</summary>
+						<div class="indented">
+							<ul class="margin post_list">
+								<li>
+									Interpretability is the degree to which a human can understand the cause of a decision.
+									<br>（可解釋性是指人類能夠理解決策原因的程度。）
+								</li>
+								<li>
+									Interpretability is the degree to which a human can consistently predict the model’s result.
+									<br>（可解釋性是指人類能夠一致地預測模型結果的程度。）
+								</li>
+							</ul>						
 						</div>
 					</details>
 					<details open="">
 						<summary>
-							<h3>什麼是深度學習？</h3>
+							<h3>可解釋的重要性</h3>
 						</summary>
 						<div class="indented">
 							<p class="margin">
-								深度學習（Deep Learning, DL）是機器學習領域中的一種技術，運用了人工神經網路（Artificial Neural Network, ANN）來得到更精準的預測模型，通常神經網路會是多層的神經網路，這種神經網路就是模仿人類大腦的結構，由許多的神經元（Neuron）組成，分成輸入層、隱藏層、輸出層，其中隱藏層可以是單層或是多層神經網路組合而成。
-							</p>						
+								通常人對於機器預測出來的結果都抱著懷疑的態度的，所以知道機器為什麼會得出這個結果的原因就很重要，知道原因就可以去分析這個預測過程的邏輯有沒有問題，例如：今天在醫療診斷上，機器為什麼診斷出這個病症的原因就非常重要，因為人命關天如果誤診的話後果很嚴重，所以我們需要對模型的可解釋性來提高社會的接受度。
+							</p>
+							<ul class="margin post_list">
+								<div class="little_title">
+									如果可以確保機器學習模型是可解釋的，我們就可以更容易的確認以下幾點：
+								</div>
+								<li><span class="highlight-gray">公平（Fairness）</span>：確保預測沒有偏見，不會隱含或明確歧視代表性不足的群體。</li>
+								<li><span class="highlight-gray">隱私（Privacy）</span>：確保數據中的敏感信息受到保護。</li>
+								<li><span class="highlight-gray">可靠性或穩健性（Reliability or Robustness）</span>：確保輸入中的小變化不會導致預測發生大的變化。</li>
+								<li><span class="highlight-gray">因果關係（Causality）</span>：檢查是否只提取因果關係。</li>
+								<li><span class="highlight-gray">信任（Trust）</span>：與黑匣子相比，人類更容易信任解釋其決策的系統。</li>
+							</ul>					
 						</div>
-					</details>
-					<div class="image-container">
-						<img src="./Introduction/AI、ML、DL關係圖.png" class="medium annotation image-zoom" alt="查無此圖片"/>
-					</div>
-					<p class="medium annotation">
-						人工智慧、機器學習、深度學習關係圖
-					</p>
-					<h2>機器學習的種類</h2>					
+					</details>				
 					<details open="">
 						<summary>
-							<h3>監督式學習</h3>
+							<h3>可解釋性方法分類</h3>
 						</summary>
 						<div class="indented">
-							<p class="margin">
-								監督式學習（Supervised Learning）是指使用已標註好的資料作為模型訓練的基礎，也就是需要提供帶有正確答案的訓練資料，讓模型能夠透過正確答案與預測結果的誤差做修正，從而達到學習效果。
-							</p>						
+							<ul class="margin post_list">
+								<div class="little_title">
+									機器學習可解釋性的方法可以根據以下標準進行分類：
+								</div>
+								<li>
+									<div class="little_title">固有的還是事後的？</div>
+									<ul class="post_list">
+										<li><span class="highlight-gray">固有的（Intrinsic）</span>：固有的解釋性指的是由於其簡單結構而被認為是可解釋的機器學習模型，例如決策樹或稀疏線性模型。</li>
+										<li><span class="highlight-gray">事後的（Post Hoc）</span>：事後的解釋性指的是在模型訓練之後應用解釋方法。例如，排列特徵重要性是一種事後的解釋方法，事後的方法也可以應用於固有的可解釋的模型。例如，可以計算決策樹的排列特徵重要性。</li>
+									</ul>
+								</li>
+								<li>
+									<div class="little_title">模型特定還是模型無關？</div>
+									<ul class="post_list">
+										<li><span class="highlight-gray">模型特定（Model-specific）</span>：局限於特定的模型類別。例如，線性模型中的迴歸權重的解釋是模型特定的解釋，因為按定義，內在可解釋模型的解釋始終是模型特定的，只適用於例如神經網絡解釋的工具是模型特定的。</li>
+										<li><span class="highlight-gray">模型無關（Model-agnostic）</span>：可以用於任何機器學習模型，並在模型訓練之後應用。這些不可知方法通常通過分析特徵輸入和輸出對來工作。按照定義，這些方法不能訪問模型內部，例如權重或結構訊息。</li>
+									</ul>
+								</li>
+								<li>
+									<div class="little_title">局部還是全域？</div>
+									<ul class="post_list">
+										<li><span class="highlight-gray">局部（Local）</span>：根據某一個輸入樣本進行回答。例如：給模型一張圖片，模型判斷是一只貓，問模型為什麼覺得這張圖片是一只貓。</li>
+										<li><span class="highlight-gray">全域（Global）</span>：根據模型參數本身分析原因。例如：並未給模型任何特定圖片，對具有一堆參數的模型而言，什麼樣的東西叫作一只貓。</li>
+									</ul>
+								</li>
+							</ul>						
 						</div>
 					</details>
 					<details open="">
 						<summary>
-							<h3>非監督式學習</h3>
+							<h3>可解釋性範圍</h3>
 						</summary>
 						<div class="indented">
-							<p class="margin">
-								非監督式學習（Unsupervised Learning）不需要事先將資料進行標註，其主要的目的是從未標註的資料中找出關聯性或是潛在的規則去將資料歸類。	
-							</p>						
+							<ul class="margin post_list">
+								<li><span class="highlight-gray">演算法透明度（Algorithm Transparency）</span>：是指理解演算法如何從資料中學習模型以及它可以學習什麼樣的關係。例如，如果使用卷積神經網絡對圖像進行分類，可以解釋該演算法在最底層學習邊緣檢測器和濾鏡。</li>
+								<li><span class="highlight-gray">全域模型的可解釋性</span>：全域模型的可解釋性是了解模型如何根據特徵和每個學習到的組件（例如權重、其他參數和結構）做出決策，哪些特徵是重要的，它們之間發生了什麼樣的互動，全域模型可解釋性有助於理解基於特徵的目標結果的分佈情況。實際上，全域模型可解釋性非常難以實現。任何超過少數幾個參數或權重的模型都不太可能符合平均人類的短期記憶。</li>
+								<li><span class="highlight-gray">模組化的全域可解釋性</span>：要去記住模型的所有權種並且去估計每個特徵的重要性與對模型預測的影響是幾乎不可能做到的事，所以通過將機器學習模型分解成多個模組，並且對每個模組進行解釋，從而實現對整個模型的全域解釋。</li>
+								<li><span class="highlight-gray">單體預測的局部可解釋性</span>：單個預測的局部可解釋性是指對於<span class="mark">單個樣本的預測結果</span>，通過解釋模型對於這個預測的貢獻，從而理解模型對這個預測的決策過程和原因。例如我們正在使用一個機器學習模型來預測某個人是否會買一輛新車，如果模型預測該人會買車，我們可能希望知道是什麼因素導致了這個預測結果，而單體預測的局部可解釋性方法可以幫助我們解釋這個預測結果。</li>
+								<li><span class="highlight-gray">群體預測的局部可解釋性</span>：群體預測的局部可解釋性是指對於<span class="mark">一組樣本的預測結果</span>，能夠解釋這些預測結果是如何由模型產生的。例如我們正在使用一個機器學習模型來預測一個產品的銷售量，並且我們有一個包含多個產品的數據集。如果我們想知道模型是如何產生這些預測結果的，群體預測的局部可解釋性方法可以幫助我們解釋這些預測結果。</li>
+							</ul>						
 						</div>
 					</details>
 					<details open="">
 						<summary>
-							<h3>增強學習</h3>
+							<h3>可解釋性的評估</h3>
 						</summary>
 						<div class="indented">
-							<p class="margin">
-								增強學習（Reinforcement Learning）不需要先知道正確的答案，而是通過在環境中不斷的進行進行試錯、評估，答錯或答對會影響得到的反饋分數，再以獲得最大分數為目標，根據反饋分數來進行調整。
-							</p>						
+							<ul class="margin post_list">
+								<li><span class="highlight-gray">應用層面評估（真實任務）</span>：是將機器學習模型應用於實際問題中，從應用的角度對模型進行評估。例如，將模型應用於文本分類或圖像分類等任務，並對其在真實場景中的表現進行評估。</li>
+								<li><span class="highlight-gray">人類層面評估（簡單任務）</span>：是通過與人類表現進行比較，來評估機器學習模型的性能。例如，在圖像識別中，可以邀請人類參與識別，然後比較機器學習模型的識別結果與人類表現的差異。</li>
+								<li><span class="highlight-gray">功能層面評估（代理任務）</span>：功能層面評估通常會對模型的訓練過程進行分析，從而確定模型是否具有可解釋性和可重現性。例如，在深度學習中，可以對模型的損失函數和梯度進行分析，以確定模型是否具有良好的訓練效果和收斂性。</li>
+							</ul>						
 						</div>
 					</details>
 					<details open="">
 						<summary>
-							<h3>機器學習種類比較表</h3>
-						</summary>
-						<div class="indented">
-							<table class="post-table">
-								<thead class="table-header">
-									<tr class="table-tr">
-										<th class="table-th"></th>
-										<th class="table-th center">監督式學習</th>
-										<th class="table-th center">非監督式學習</th>
-										<th class="table-th center">強化學習</th>
-									</tr>
-								</thead>
-								<tbody class="table-body">
-									<tr class="table-tr">
-										<th class="table-th">訓練資料</th>
-										<td class="table-td">有標籤的資料</td>
-										<td class="table-td">無標籤的資料</td>
-										<td class="table-td">無標籤的資料</td>
-									</tr>
-									<tr class="table-tr">
-										<th class="table-th">目標</th>
-										<td class="table-td">預測標籤或值</td>
-										<td class="table-td">尋找資料中的模式或結構</td>
-										<td class="table-td">學習如何透過行動獲得最大回報</td>
-									</tr>
-									<tr class="table-tr">
-										<th class="table-th">模型反饋</th>
-										<td class="table-td">直接反饋</td>
-										<td class="table-td">無反饋</td>
-										<td class="table-td">透過環境反饋</td>
-									</tr>
-									<tr class="table-tr">
-										<th class="table-th">模型優化</th>
-										<td class="table-td">透過最小化損失函數</td>
-										<td class="table-td">透過最大化相似性或簡化資料</td>
-										<td class="table-td">透過最大化回報</td>
-									</tr>
-									<tr class="table-tr">
-										<th class="table-th">範例應用</th>
-										<td class="table-td">分類、迴歸、序列預測</td>
-										<td class="table-td">聚類、降維、異常偵測</td>
-										<td class="table-td">遊戲、機器人控制、自然語言對話</td>
-									</tr>
-									<tr class="table-tr">
-										<th class="table-th">優點</th>
-										<td class="table-td">預測能力強，易於評估和優化</td>
-										<td class="table-td">能夠發現新的資料結構</td>
-										<td class="table-td">能夠處理動態、不確定和環境交互</td>
-									</tr>
-									<tr class="table-tr">
-										<th class="table-th">缺點</th>
-										<td class="table-td">需要大量標籤資料</td>
-										<td class="table-td">結果較難評估</td>
-										<td class="table-td">學習過程較長，容易受到環境干擾</td>
-									</tr>
-								</tbody>
-							</table>						
-						</div>
-					</details>					
-					<h2>任務的種類</h2>
-					<details open="">
-						<summary>
-							<h3>分類</h3>
+							<h3>解釋的性質</h3>
 						</summary>
 						<div class="indented">
 							<p>
-								分類（Classification）是將設定好的選項，通過模型預測來的到答案，所以分類是<span class="mark">從設定好的選項裡選擇一個當作輸出</span>。
+								一個解釋通常以人能理解的方式關聯一個實例的特徵值和模型預測結果。
 							</p>
-							<div class="image-container">
-								<img src="./Introduction/分類.png" class="medium image-zoom" alt="查無此圖片"/>
-							</div>
-							<ul class="post_list">
-								<div class="little_title">
-									常見的應用：
-								</div>
-								<li>垃圾郵件分類</li>
-								<li>圖像分類</li>
-								<li>情感分析</li>
-								<li>疾病診斷</li>
-								<li>客戶分類</li>
-							</ul>					
+							<ul class="margin post_list">
+								<li>
+									<div class="little_title">解釋方法的性質</div>
+									<ul class="post_list">
+										<li><span class="highlight-gray">表達能力（Expressive Power）</span>：表達能力是該方法能夠生成的解釋的<span class="mark">語言</span>或<span class="mark">結構</span>，一種解釋方法可以生成 IF-THEN 規則、決策樹、加權和、自然語言或其他東西。</li>
+										<li><span class="highlight-gray">半透明度（Translucency）</span>：半透明度是指解釋方法在有多依賴於該機器學習的模型。例如：依賴於本質上可解釋模型（如線性迴歸模型）的解釋方法是高透明度，反之僅依靠操縱輸入和觀察預測的方法具有低透明度，高透明度的優點是該方法可以依賴更多訊息來生成解釋，低透明度的好處是解釋方法更好的可移植性。</li>
+										<li><span class="highlight-gray">可移植性（Portability）</span>：可移植性是指此解釋方法可以輕鬆地從一個環境移植到另一個環境。</li>
+										<li><span class="highlight-gray">算法複雜度（Algorithmic Complexity）</span>：描述了生成解釋的方法的計算複雜度，當計算時間成為生成解釋的瓶頸時，需要考慮此屬性。</li>
+									</ul>
+								</li>
+								<li>
+									<div class="little_title">個別解釋的性質</div>
+									<ul class="post_list">
+										<li><span class="highlight-gray">準確性（Accuracy）</span>：個別解釋的準確性是指解釋對未見數據的預測有多準確，這是一個特別重要的屬性，因為如果解釋的準確度低於機器學習模型，那它就失去解釋的價值，但是如果機器學習模型的準確性也很低，並且目標是解釋黑盒模型的作用，那麼低準確性也可以，在這種情況下，只有保真度很重要。</li>
+										<li><span class="highlight-gray">保真度（Fidelity）</span>：保真度是指解釋近似於黑盒模型的預測的程度，保真度是解釋最重要的屬性之一，因為保真度低的解釋對於模型來說是沒有用的，準確性和保真度密切相關，如果黑盒模型準確率高，解釋保真度高，那麼解釋也準確率高。</li>
+										<li><span class="highlight-gray">一致性（Consistency）</span>：一致性是指在相同任務上訓練的模型之間解釋的不同程度，高一致性對於真正依賴相似關係的模型是可取的。</li>
+										<li><span class="highlight-gray">穩定性（Stability）</span>：穩定性比較的是相同模型下相似實例之間的解釋相似程度，穩定性高表示特徵略微變化不會大幅改變解釋，穩定性差可能是解釋方法方差異很大導致的。</li>
+										<li><span class="highlight-gray">可理解性（Comprehensibility）</span>：可理解性就是指人類是否能夠理解此解釋，測量可理解性的想法包括測量解釋的大小（線性模型中具有非零權重的特徵的數量、決策規則的數量…等）或測試人們如何從解釋中預測機器學習模型的行為，還應考慮解釋中使用的特徵的可理解性，特徵的複雜轉換可能比原始特徵更難理解。</li>
+										<li><span class="highlight-gray">確定性（Certainty）</span>：確定性是指解釋是否反映了機器學習模型的確定性，許多機器學習模型只給出預測，而沒有說明模型對預測正確性的可信度。如果模型預測一名患者患癌症的概率為 4%，那麼它是否與具有不同特徵值的另一名患者患癌症的概率為 4% 一樣確定，包含模型確定性的解釋非常有用。</li>
+										<li><span class="highlight-gray">重要性程度（Degree of Importance）</span>：解釋如何很好地反映特徵或部分解釋的重要性。例如，如果生成決策規則作為對單個預測的解釋，是否清楚規則的哪個條件最重要。</li>
+										<li><span class="highlight-gray">新穎性（Novelty）</span>解釋是否反映了要解釋的數據實例是否來自遠離訓練數據分佈的“新”區域，在這種情況下，模型可能不准確，解釋也可能毫無用處，新穎性的概念與確定性的概念相關，新穎性越高，模型越有可能由於缺乏數據而具有低確定性。</li>
+										<li><span class="highlight-gray">代表性（Representativeness）</span>：一個解釋涵蓋了多少個實例，解釋可以涵蓋整個模型（例如線性迴歸模型中權重的解釋）或僅代表單個預測（例如Shapley值）。</li>
+									</ul>
+								</li>
+							</ul>						
 						</div>
 					</details>
 					<details open="">
 						<summary>
-							<h3>迴歸</h3>
+							<h3>人性化的解釋</h3>
 						</summary>
 						<div class="indented">
-							<p>
-								迴歸（Regression）與分類不同，迴歸的目標是學習一個函數，該函數可以根據特徵來進行準確的數值預測，<span class="mark">其輸出是一個數值</span>。
-							</p>
-							<div class="image-container">
-								<img src="./Introduction/回歸.png" class="medium image-zoom" alt="查無此圖片"/>
-							</div>
-							<ul class="post_list">
-								<div class="little_title">
-									常見的應用：
-								</div>
-								<li>房價預測</li>
-								<li>銷售量預測</li>
-								<li>股票價格預測</li>
-								<li>人口增長預測</li>
-								<li>電力需求預測</li>
-							</ul>					
+							<p class="margin">
+								解釋的主要目的就是能夠得到一個相信機器的理由，而只要這個理由是可以被使用者接受的，那這個解釋就是一個好的解釋。
+							</p>					
 						</div>
 					</details>
+					<h2>可解釋模型</h2>
+					<ul class="post_list">
+						<li><span class="highlight-gray">線性的（Linear）</span>：特徵和目標之間的關聯是線性建模。</li>
+						<li><span class="highlight-gray">單調性（Monotone）</span>：可確保特徵與目標結果之間的關係在特徵的整個範圍內始終沿同一方向發展：特徵值的增加總是導致目標值增加或總是減少結果，單調性對於模型的解釋很有用，因為它更容易理解關係。</li>
+						<li><span class="highlight-gray">相互作用（Interaction）</span>：一些模型可以自動包含特徵之間的相互作用以預測目標結果。您可以通過手動創建交互特徵將交互包含在任何類型的模型中，交互可以提高預測性能，但太多或太複雜的交互會損害可解釋性。</li>
+					</ul>
+					<table class="margin post-table">
+						<thead class="table-header">
+							<tr class="table-tr">
+								<th class="table-th">演算法</th>
+								<th class="table-th center">線性的</th>
+								<th class="table-th center">單調性</th>
+								<th class="table-th center">相互作用</th>
+								<th class="table-th center">任務</th>
+							</tr>
+						</thead>
+						<tbody class="table-body">
+							<tr class="table-tr">
+								<td class="table-td"><span class="link"><a href="./Linear_Regression.html" target="_blank">Linear Regression<i class='bx bx-link-external'></i></a></span></td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">迴歸</td>
+							</tr>
+							<tr class="table-tr">
+								<td class="table-td"><span class="link"><a href="./Logistic_Regression.html" target="_blank">Logistic Regression<i class='bx bx-link-external'></i></a></span></td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">分類</td>
+							</tr>
+							<tr class="table-tr">
+								<td class="table-td"><span class="link"><a href="./Decision_Tree.html" target="_blank">Decision Tree<i class='bx bx-link-external'></i></a></span></td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">部分</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">分類、迴歸</td>
+							</tr>
+							<tr class="table-tr">
+								<td class="table-td">RuleFit</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">分類、迴歸</td>
+							</tr>
+							<tr class="table-tr">
+								<td class="table-td"><span class="link"><a href="./Linear_Regression.html" target="_blank">Linear Regression<i class='bx bx-link-external'></i></a></span></td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">迴歸</td>
+							</tr>
+							<tr class="table-tr">
+								<td class="table-td"><span class="link"><a href="./Naive_Bayes.html" target="_blank">Naive Bayes<i class='bx bx-link-external'></i></a></span></td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">是</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">分類</td>
+							</tr>
+							<tr class="table-tr">
+								<td class="table-td"><span class="link"><a href="./KNN.html" target="_blank">KNN<i class='bx bx-link-external'></i></a></span></td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">否</td>
+								<td class="table-td center">分類</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</article>
 		</div>
