@@ -25,6 +25,10 @@ body {
 		min-width: 100%;
 		margin-top: 100px;
 	}
+
+	.math-container {		
+		font-size: 16px;
+	}
 }
 
 @media (max-width: 991px) {
@@ -46,6 +50,11 @@ body {
 	#article {
 		min-width: 100%;
 		margin-top: 100px;
+	}
+
+	.math-container {
+		width: 100% !important;
+		font-size: 14px;
 	}
 }
 
@@ -72,6 +81,10 @@ body {
 	text-align: left;	
 	padding: 0;
 }
+
+/*--------------------------------------------------------------
+# TOC
+--------------------------------------------------------------*/
 
 /* 設定目錄的樣式 */
 #toc {
@@ -148,6 +161,10 @@ body {
 	color: var(--font2-color);
 }
 
+/*--------------------------------------------------------------
+# Article
+--------------------------------------------------------------*/
+
 #article {
 	width: 95%;
 	margin: 120px auto 0 auto;
@@ -161,6 +178,14 @@ body {
 /*--------------------------------------------------------------
 # Properties
 --------------------------------------------------------------*/
+.page-title {
+	font-size: 40px;
+	margin: 3% 0 1% 0;
+	text-align: start;
+	text-transform: none;
+	font-family: "PingFang TC", Consolas;
+	font-weight: bolder;
+}
 
 .properties {
 	padding: 0 5%;
@@ -180,6 +205,10 @@ body {
 	font-weight: 500;
 }
 
+.properties table th i {
+	margin-right: 10px;
+}
+
 .properties table td{
 	padding: 5px 10px 25px 10px;
 	color: var(--font-color);
@@ -187,9 +216,10 @@ body {
 }
 
 .properties table span i{
-	margin-right: 5px;
+	margin-left: 3px;
 	color: var(--highlight-font-5);
 	font-size: 16px;
+	vertical-align: middle;
 }
 
 .properties table .red{
@@ -246,59 +276,46 @@ body {
 	font-size: 16px;
 }
 
-.properties table span:hover a,
-.properties table span:hover i {
-	color: var(--hover-font-color);
+.properties table a:hover,
+.properties table a:hover i {
+	color: var(--hover-font-color) ;
 }
 
 .page-body{
 	padding: 0 5%;
 }
+
+/*--------------------------------------------------------------
+# Imgage
+--------------------------------------------------------------*/
   
 img {
 	width: 100%;
 	display: block; /* 清除可能的預設間距 */
-	margin: auto; /* 調整上下間距，左右置中 */
+	margin: 20px auto; /* 調整上下間距，左右置中 */
 	border-radius: 1rem;
-	box-shadow: var(--shadow3-color);
-	border: 1px solid var(--bg2-color);
-	margin-bottom: 80px;
+	border: 1px solid var(--font3-color);
+	background-color: var(--bar-color);
+	box-shadow: var(--shadow4-color);
 }
 
 img.page-cover-image {	
 	width: 100%;
 	padding: 0 !important;
 	box-shadow: var(--shadow-color);
-	margin-bottom: 5%;
+	margin: 0 0 5%;
 	border: 1px solid var(--opacity-bg-1);
-}
-
-img.annotation {
-	margin: 20px 0 0px;
 }
 
 img.medium {
 	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
-.page-title {
-	font-size: 40px;
-	margin: 3% 0 1% 0;
-	text-align: start;
-	text-transform: none;
-	font-family: "PingFang TC", Consolas;
-	font-weight: bolder;
-}
-
-h2 {
-	font-size: 32px;
-	margin-top: 10%;
-	text-align: start;
-	text-transform: none;
-	font-family: "PingFang TC", Consolas;
-}
+/*--------------------------------------------------------------
+# Details
+--------------------------------------------------------------*/
 
 details h3 {
 	margin: 0 7px;
@@ -320,20 +337,25 @@ details .indented .card {
 	margin-bottom: 80px;
 }
 
+/*--------------------------------------------------------------
+# Annotation
+--------------------------------------------------------------*/
+
 .card.annotation{
-	margin-bottom: 0 !important;
+	margin-bottom: 5px !important;
 }
 
 p.annotation{
 	font-style: italic;
 	color: var(--annotation-color);
-	margin:5px 0 80px;
+	margin:0 0 80px;
 	padding: 5px 10px;
 }
 
-p.margin{
-	margin-bottom: 3%;
+img.annotation {
+	margin: 20px 0 5px;
 }
+
 
 /*--------------------------------------------------------------
 # ZoomImage
@@ -469,7 +491,7 @@ button.copy {
 }
 
 /*--------------------------------------------------------------
-# Highlight
+# Code Highlight
 --------------------------------------------------------------*/
 
 .hljs {
@@ -591,10 +613,10 @@ button.copy {
 }
 
 /*--------------------------------------------------------------
-# Span Highlight
+# Span Highlight、Mark
 --------------------------------------------------------------*/
 
-#article .highlight-red {
+.highlight-red {
 	background-color: var(--highlight-bg-1);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-1);
@@ -603,7 +625,7 @@ button.copy {
 	font-size: 18px;
 }
 
-#article .highlight-orange {
+.highlight-orange {
 	background-color: var(--highlight-bg-2);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-2);
@@ -612,7 +634,7 @@ button.copy {
 	font-size: 18px;
 }
 
-#article .highlight-green {
+.highlight-green {
 	background-color: var(--highlight-bg-3);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-3);
@@ -621,7 +643,7 @@ button.copy {
 	font-size: 18px;
 }
 
-#article .highlight-blue {
+.highlight-blue {
 	background-color: var(--highlight-bg-4);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-4);
@@ -631,7 +653,7 @@ button.copy {
 	font-size: 18px;
 }
 
-#article .highlight-gray {
+.highlight-gray {
 	background-color: var(--highlight-bg-5);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-5);
@@ -640,7 +662,7 @@ button.copy {
 	font-size: 18px;
 }
 
-#article .highlight-purple {
+.highlight-purple {
 	background-color: var(--highlight-bg-6);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-6);
@@ -649,24 +671,49 @@ button.copy {
 	font-size: 18px;
 }
 
+.mark {
+	background-color: var(--mark);
+	border-radius: 5px;
+	padding: 7px 3px;
+	font-display: block;
+}
+
 /*--------------------------------------------------------------
 # Article List
 --------------------------------------------------------------*/
 
 .post_list {
 	padding: 0 0 0 0;
-	margin: 0 0 80px 0;
+	margin: 20px 0;
 }
 
 .little_title{
 	font-size: 22px;
 	font-weight: 600;
-	margin: 0 0 25px 0;
+	margin: auto 0 20px 0;
 }
 
 .post_list li {
-	padding: 0 0 0 0px;
-	margin: 0px 0 20px 35px;
+	padding: 0 0 0 3px;
+	margin: 0px 0 15px 35px;
+	line-height: 2;
+}
+
+.post_list .highlight-gray {
+	background-color: var(--highlight-bg-5);
+	border-radius: 0.5rem;
+	color: var(--highlight-font-5);
+	padding: 7px;
+	margin: 0 5px 0 0 !important;
+	font-size: 18px;
+}
+
+.post_list img {
+	margin: 10px auto;
+}
+
+.post_list.close li {
+	line-height: 1.5;
 }
 
 /*--------------------------------------------------------------
@@ -681,12 +728,167 @@ button.copy {
 	margin: 20px auto;
 }
 
-.notice p {
+.notice ul {	
+	margin: 0;
+}
+
+.notice ul li {
+	border-radius: 1rem;
+	color: var(--highlight-font-1);	
+	display: flex;
+	align-items: flex-start;
+}
+.notice .icon {
+	flex: 0 0 auto;
+	margin-right: 10px;
+}
+  
+.notice .text {
+	flex: 1;
+}
+
+/*--------------------------------------------------------------
+# Math、mjx-math
+--------------------------------------------------------------*/
+
+.math-container {
+	margin: auto;
+	padding: 20px;
+	border-radius: 1rem;
+	color: var(--font2-color);
+	border: 1px solid var(--font3-color);
+	background-color: var(--bg-color);
+}
+
+.math-container:hover {	
+	box-shadow: var(--shadow4-color);
+}
+
+.math_inline {
+	padding: 5px;
+	font-size: 18px;
+}
+
+.math_block {
+	padding: 0;
+	display: flex;
+	font-size: 20px;
+	align-items: flex-start;
+}
+
+/*--------------------------------------------------------------
+# P、Format
+--------------------------------------------------------------*/
+
+h2 {
+	font-size: 32px;
+	margin-top: 10%;
+	text-align: start;
+	text-transform: none;
+	font-family: "PingFang TC", Consolas;
+}
+
+.margin{
+	margin-bottom: 80px !important;
+}
+
+p.medium,
+.medium.post_list {
+	width: 70%;
+	margin-left: 15% !important;
+}
+
+.medium.math-container,
+.medium.post-table {
+	width: 70%;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/*--------------------------------------------------------------
+# Alert
+--------------------------------------------------------------*/
+
+#custom-alert-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--opacity-bg-2);
+	backdrop-filter: blur(5px);
+	justify-content: center;
+	align-items: center;
+	z-index: 997;
+}
+
+.custom-alert-content {
+	background-color: var(--bg3-color);
+	border-radius: 1rem;
+	box-shadow: var(--shadow-color);
+	margin: auto;
+	padding: 40px;
+	text-align: center;
+	max-width: 100vw;
+}
+
+.custom-alert-latex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	border: 3px solid var(--code-bg);
+	border-radius: 0.5rem;
+	background-color: var(--code-bg);
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+#math-formula {
+	flex: 0.95;
+	background-color: var(--bg3-color);
+	padding: 3px 5px;
+	white-space: nowrap;
+}
+
+#custom-alert-copy {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	flex: 0.05;
+	width: 50px;
+	background: var(--code-bg);
+	border: none;
+	border-left: 3px solid var(--code-bg);
 	margin: auto;
 }
 
-.notice i {
-	border-radius: 1rem;
-	color: var(--highlight-font-1);	
-	margin-right: 10px;
+#custom-alert-copy iconify-icon {
+	color: var(--font2-color);
+	font-size: 22px;
+	margin: auto;
+}
+
+#custom-alert-copy:hover iconify-icon {
+	color: var(--hover-font-color);
+}
+
+#custom-alert-message {
+	margin: 20px 0 20px;
+}
+
+#custom-alert-close {
+	padding: 5px 20px;
+	background-color: var(--font2-color);
+	color: var(--bg3-color);
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	margin: 20px 5px 0;
+}
+
+#custom-alert-close:hover {
+	background-color: var(--hover-font-color);
+	color: var(--hover-bg-color);
 }

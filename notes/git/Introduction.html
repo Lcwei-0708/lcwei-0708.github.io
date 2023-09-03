@@ -101,7 +101,7 @@
 										<i class="bi bi-pencil-fill"></i>Created
 									</th>
 									<td>
-										August 12, 2023
+										June 14, 2023
 									</td>
 								</tr>
 							</tbody>
@@ -111,7 +111,7 @@
 				<div class="page-body">
 					<h2>什麼是Git？</h2>
 					<p>
-						Git是一種<span class="highlight-orange">分散式</span>的<span class="highlight-orange">版本控制系統</span>，用於追蹤和管理軟體開發項目的原始碼，它允許多人協同工作，輕鬆地在不同的版本之間進行切換、合併和回溯。
+						Git是一種<span class="mark">分散式</span>的<span class="mark">版本控制系統</span>，用於追蹤和管理軟體開發項目的原始碼，它允許多人協同工作，輕鬆地在不同的版本之間進行切換、合併和回溯。
 					</p>
 					<h2>版本控制</h2>
 					<p>
@@ -130,7 +130,7 @@
 								以一台伺服器為中心，所有的更新與操作都需要透過這個伺服器，也就是這個伺服器擁有絕對的控制權以及決策權，萬一這台伺服器故障了，或是沒有網路連線的環境，版本控制功能就沒辦法使用。
 							</p>
 							<div class="image-container">
-								<img src="./Introduction/中央式系統.png" class="image-zoom" alt="查無此圖片" />
+								<img src="./Introduction/中央式系統.png" class="margin image-zoom" alt="查無此圖片" />
 							</div>							
 						</div>
 					</details>
@@ -143,26 +143,26 @@
 								每台電腦都可以是一個節點，而每個節點都具有一定的控制權和決策權，可以獨立地進行操作和決策，即使伺服器故障或是沒有網路的環境下，還是可以用自己的電腦進行版本控制，之後等伺服器恢復正常運作或是在有網路的環境後再進行同步就好。
 							</p>
 							<div class="image-container">
-								<img src="./Introduction/分散式系統.png" class="image-zoom" alt="查無此圖片" />
+								<img src="./Introduction/分散式系統.png" class="margin image-zoom" alt="查無此圖片" />
 							</div>							
 						</div>
 					</details>
 					<h2>Git與GitHub的關係</h2>					
 					<p>
 						Git和GitHub是兩個相關但不同的概念，開發者可以使用Git在本地進行版本控制，然後將其推送到GitHub上的遠端儲存庫，從而實現代碼的共享、協同工作和社區參與。
-					</p>
+					</p>	
 					<div class="image-container">
-						<img src="./Introduction/git不等於github.png" class="medium annotation image-zoom" alt="查無此圖片"/>
-					</div>	
-					<ul class="post_list">				
+						<img src="./Introduction/git不等於github.png" class="medium image-zoom" alt="查無此圖片"/>
+					</div>
+					<ul class="margin post_list">				
 						<li><span class="highlight-gray">Git</span>：一套免費、開源分散式的版本控制系統，用於管理和追蹤代碼的變更。</li>
 						<li><span class="highlight-gray">GitHub</span>：一個基於Git的原始碼代管服務平台，提供了一個中央化的雲端儲存庫和協作工具。</li>
 					</ul>
 					<h2>Git的工作流程</h2>
 					<div class="image-container">
-						<img src="./Introduction/git工作流程.png" class="annotation image-zoom" alt="查無此圖片"/>
+						<img src="./Introduction/git工作流程.png" class="image-zoom" alt="查無此圖片"/>
 					</div>
-					<ul class="post_list">
+					<ul class="margin post_list">
 						<li><span class="highlight-gray">檔案（File）</span>：檔案就是在本地電腦上創建或修改的專案文件，這些檔案可以是程式碼、設定文件、圖片…等。</li>
 						<li><span class="highlight-gray">索引（Index）</span>：索引也稱為暫存區（Staging Area），它是一個中介區域，用於存儲準備提交的更改，當修改或創建檔案後，需要將這些更改添加（add）到索引中，這樣Git才能夠追蹤這些更改。</li>
 						<li><span class="highlight-gray">本地數據庫（Local Repository）</span>：本地數據庫是存儲項目的歷史記錄和版本的地方，它可以創建新的也可以複製（clone）既有的遠端數據庫，並且會存放在專案的資料夾中，本地數據庫包含所有提交（commit）的歷史記錄、分支（branch）…等資訊，並且可以在本地數據庫中進行分支操作、合併（merge）…等操作。</li>
@@ -173,12 +173,12 @@
 						分支（Branch）是指在數據庫中獨立開發和管理代碼的獨立指向，讓開發人員在同一個數據庫中同時進行不同的工作，並且可以將這些工作的進度和更改獨立保存。
 					</p>
 					<div class="image-container">
-						<img src="./Introduction/git分支.png" class="annotation image-zoom" alt="查無此圖片"/>
+						<img src="./Introduction/git分支.png" class="image-zoom" alt="查無此圖片"/>
 					</div>
 					<p class="margin">
 						使用分支有助於有效管理代碼庫，避免不同功能、修復或實驗性的更改相互衝突，開發人員可以根據需要創建和切換分支，使工作更有組織性和可追蹤性，分支也提供了一種實驗和測試新功能的方式，而不會影響主分支的穩定性。
 					</p>
-					<ul class="post_list">
+					<ul class="margin post_list">
 						<div class="little_title">
 							分支的主要特點包括：
 						</div>						
@@ -198,7 +198,7 @@
 							<h3>Merge</h3>
 						</summary>
 						<div class="indented">
-							<ul class="post_list">
+							<ul class="margin close post_list">
 								<div class="little_title">
 									特色：
 								</div>
@@ -206,7 +206,7 @@
 								<li>保留原始分支的提交歷史，合併提交記錄了哪些分支進行了合併。</li>
 								<li>不改變原始分支的提交歷史，保留分支獨立性。</li>
 							</ul>	
-							<ul class="post_list">
+							<ul class="margin close post_list">
 								<div class="little_title">
 									使用場景：
 								</div>
@@ -220,7 +220,7 @@
 							<h3>Rebase</h3>
 						</summary>
 						<div class="indented">
-							<ul class="post_list">
+							<ul class="margin close post_list">
 								<div class="little_title">
 									特色：
 								</div>
@@ -228,7 +228,7 @@
 								<li>創建新的提交，形成線性提交歷史，看起來像一個連續的提交序列。</li>
 								<li>使得合併後的分支更加整潔，減少合併提交的數量。</li>
 							</ul>	
-							<ul class="post_list">
+							<ul class="margin close post_list">
 								<div class="little_title">
 									使用場景：
 								</div>
@@ -287,7 +287,7 @@
 					<div class="image-container">
 						<img src="./Introduction/合併衝突.png" class="image-zoom" alt="查無此圖片"/>
 					</div>
-					<ol class="post_list">
+					<ol class="margin post_list">
 						<div class="little_title">
 							解決合併衝突的步驟：
 						</div>

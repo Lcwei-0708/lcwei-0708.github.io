@@ -1,691 +1,256 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Augmentation</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="d2310ce5-b07b-4ee7-b731-c2bc637572cb" class="page mono"><header><img class="page-cover-image" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Data_Augmentation.png" style="object-position:center 74.86999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/document_gray.svg"/></div><h1 class="page-title">Data Augmentation</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/categories_gray.svg" style="width:14px;height:14px"/></span>Category</th><td><span class="selected-value select-value-color-purple">Machine Learning</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Tag</th><td></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px"/></span>參考文獻</th><td><a href="https://www.notion.so/Data-Augmentation-90a353fe84db4a30a26904a6a9bf5ae7?pvs=21"><img class="icon" src="https://www.notion.so/icons/link_gray.svg"/>Data Augmentation</a></td></tr></tbody></table></header><div class="page-body"><h2 id="274d2ba9-0c31-4709-bc90-d7d5fee69c4f" class="">什麼是資料增強？</h2><p id="18f6463f-af93-4594-bb7e-65b6058fb57c" class="">資料增強（Data Augmentation）是一種在機器學習和深度學習中常用的技術，它會將現有的資料進行<mark class="highlight-yellow_background"><strong>微調</strong></mark>或<mark class="highlight-yellow_background"><strong>轉換</strong></mark>後，來生成新的資料樣本，目的是<mark class="highlight-yellow_background"><strong>提高模型的泛化能力</strong></mark>與<mark class="highlight-yellow_background"><strong>防止過擬合（Over-Fitting）</strong></mark>。</p><p id="18ec86c2-171f-4a16-91de-8b987e811910" class="">
-</p><h2 id="373e2958-1839-47c7-825c-89dafdc2f47d" class=""><strong>圖像資料增強</strong></h2><figure id="db30b4bb-6a20-4c46-987f-d22367392704" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled.png"><img style="width:624px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled.png"/></a></figure><ul id="560a48e3-6db6-4a55-ac28-5ce7496af2cc" class="bulleted-list"><li style="list-style-type:disc"><strong>幾何變換（Geometric Transformations）：</strong>隨機翻轉、裁剪、旋轉、拉伸和縮放圖像。</li></ul><ul id="11ad7faa-2078-4a02-8660-acf410444e48" class="bulleted-list"><li style="list-style-type:disc"><strong>色彩空間變換（Color Space Transformations）：</strong>隨機改變RGB色彩、對比度和亮度。</li></ul><ul id="ff11697e-6514-49e7-afd8-85388f0e4cbe" class="bulleted-list"><li style="list-style-type:disc"><strong>卷積過濾器（Kernel Filters）：</strong>隨機改變圖像的銳化或模糊效果。</li></ul><ul id="f3b50bea-f6ef-4921-a71d-bc5f71d4a556" class="bulleted-list"><li style="list-style-type:disc"><strong>隨機擦除（Random Erasing）：</strong>隨機刪除圖像的某個部分。</li></ul><ul id="38e6a828-106f-4c32-a160-78f6ab99585e" class="bulleted-list"><li style="list-style-type:disc"><strong>圖像混合（Mixing Images）：</strong>將多個圖像進行混合和合成。</li></ul><p id="8cb9fc39-bf7f-49db-aa28-3f3843237798" class="">
-</p><h2 id="182712d6-8951-4e9b-8273-658aee5caf55" class=""><strong>文本資料增強</strong></h2><ul id="9723d848-633e-4437-8646-61efb0aaf4f3" class="bulleted-list"><li style="list-style-type:disc"><strong>單詞替換（Word Replacement）：</strong>隨機將一句話的某個詞進行替換。<p id="4bc77f7f-d1a2-4c7a-ba64-d4e3235388d3" class=""><mark class="highlight-blue"><strong><code>原始例句</code></strong></mark>：我/覺得/這/部/電影/很/<strong><mark class="highlight-red">有趣</mark></strong>/。</p><p id="7df7826a-50b5-4013-9e70-5e9431058a6e" class=""><strong><mark class="highlight-teal"><code>增強後</code></mark></strong>：我/覺得/這/部/電影/很/<mark class="highlight-red"><strong>精彩</strong></mark>/。</p><p id="9e7bd0bd-94ea-435b-b383-d1f2a74a7ae4" class="">
-</p></li></ul><ul id="1321d255-3cae-4138-b7be-62bcd7e65028" class="bulleted-list"><li style="list-style-type:disc"><strong>單詞插入（Word Insertion）：</strong>在句子中的某個位置插入一個新的單詞或片語。<p id="326ece94-0495-4c22-b660-e579b5eb7eb2" class=""><mark class="highlight-blue"><strong><code>原始例句</code></strong></mark>：我/喜歡/這/部/電影/。</p><p id="2ad972ec-41d4-41d4-bb51-979338ad3432" class=""><strong><mark class="highlight-teal"><code>增強後</code></mark></strong>：我/<strong><mark class="highlight-red">真的</mark></strong>/<mark class="highlight-red"><strong>很</strong></mark>/喜歡/這/部/電影/。</p><p id="a83536c3-a542-4010-8b72-ad22afae1844" class="">
-</p></li></ul><ul id="ccf37f6e-a404-41cf-a474-903da8be38fa" class="bulleted-list"><li style="list-style-type:disc"><strong>單詞刪除（Word Deletion）：</strong>將一句話裡面的某個詞刪除。<p id="83dbc708-75e3-44f8-9a70-88289d71815d" class=""><mark class="highlight-blue"><strong><code>原始例句</code></strong></mark>：<mark class="highlight-red"><strong>我</strong></mark>/<strong><mark class="highlight-red">覺得</mark></strong>/這/部/電影/很/有趣/。</p><p id="f8686742-e2f7-4988-ae9f-907a22aef61a" class=""><strong><mark class="highlight-teal"><code>增強後</code></mark></strong>：這/部/電影/很/有趣/。</p><p id="8109aff0-b644-447e-a3f9-f70dfbe75c91" class="">
-</p></li></ul><ul id="34802ad4-e64d-4976-95da-faa969a6298a" class="bulleted-list"><li style="list-style-type:disc"><strong>同義詞替換（Synonym Replacement）：</strong>將句子中的某個詞替換為與這個詞意思相近的詞。<p id="22f41253-d62f-42cb-8299-2c348b55cef1" class=""><mark class="highlight-blue"><strong><code>原始例句</code></strong></mark>：我/很/<strong><mark class="highlight-red">喜歡</mark></strong>/看/電影/。</p><p id="4f65db34-727c-432a-89f1-a413dd0ef6a0" class=""><strong><mark class="highlight-teal"><code>增強後</code></mark></strong>：我/很/<mark class="highlight-red"><strong>愛</strong></mark>/看/電影/。</p><p id="d4dfff2f-5bc9-4472-80b2-5c6a3d8625e3" class="">
-</p></li></ul><ul id="30dc6d3c-431e-42c6-803e-8bcc69c3590d" class="bulleted-list"><li style="list-style-type:disc"><strong>句子重排（Sentence Rearrangement）：</strong>調整句子裡面的單詞順序或是結構。<p id="346396e6-14e9-457b-bfb5-1faf3696d429" class=""><mark class="highlight-blue"><strong><code>原始例句</code></strong></mark>：<mark class="highlight-red"><strong>我</strong></mark>/<strong><mark class="highlight-red">覺得</mark></strong>/這/部/電影/很/有趣/。</p><p id="0d26db60-1d36-4690-b337-96aa6feac8f4" class=""><mark class="highlight-teal"><strong><code>增強後</code></strong></mark>：這/部/電影/<mark class="highlight-red"><strong>我</strong></mark>/<mark class="highlight-red"><strong>覺得</strong></mark>/很/有趣/。</p><p id="0484e761-1a23-45ef-9d20-38b5068eeb21" class="">
-</p></li></ul><ul id="58243e6d-cdf9-4c3d-a3dd-bb57f335641e" class="bulleted-list"><li style="list-style-type:disc"><strong>反向翻譯（Back Translation）：</strong>將句子翻譯成不同語言後，再翻譯回來，利用翻譯的誤差生成新的句子。<p id="44f33e1d-39d1-48a5-8303-b5b34c8d5540" class=""><mark class="highlight-blue"><strong><code>原始例句</code></strong></mark>：我/<strong><mark class="highlight-red">覺得</mark></strong>/這/部/電影/很/有趣/。</p><p id="85464c21-2f95-4eab-9c66-3b28501f0ed7" class=""><strong><mark class="highlight-teal"><code>增強後</code></mark></strong>：我/<mark class="highlight-red"><strong>認為</strong></mark>/這/部/電影/很/有趣/。</p></li></ul><p id="e3b30cf9-4fba-4766-8640-5c9987c4d40f" class="">
-</p><h2 id="55c9ab8c-a4c6-49a5-b1c5-9961e1862856" class="">語音<strong>資料增強</strong></h2><figure id="cee5c41d-ecad-4585-b6ed-8e133928bb9d" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%201.png"><img style="width:576px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%201.png"/></a></figure><p id="2bbaeda6-4b39-4cba-9a94-8f61608a3c91" class="">
-</p><ul id="7d36fb7d-6384-45a7-9c01-d3e180eda312" class="bulleted-list"><li style="list-style-type:disc"><strong>噪聲注入（Noise Injection）：</strong>向音頻添加噪聲或隨機噪聲，以提高模型的性能。<figure id="f1f8c95a-2835-485d-ad3c-22af13185203" class="image" style="text-align:left"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%202.png"><img style="width:528px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%202.png"/></a></figure></li></ul><p id="82d3a112-85ce-4e5d-8271-73e73f0421ce" class="">
-</p><ul id="eeabdd42-e047-4ffd-9c81-29db042c9361" class="bulleted-list"><li style="list-style-type:disc"><strong>時間移位（Time Shifting）：</strong>通過向左或向右移動音頻的時間軸，將音頻的開始時間或結束時間改變一定的時間長度。<figure id="255aefb9-3e1e-4e27-afdb-0df670a3783d" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%203.png"><img style="width:528px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%203.png"/></a></figure></li></ul><p id="d51c48a3-6cef-448e-8800-5ec0d7e225e1" class="">
-</p><ul id="b62c998d-aef7-473b-b4e6-4526797d53fe" class="bulleted-list"><li style="list-style-type:disc"><strong>音調變換（Pitch Shifting）：</strong>通過調整音頻的音調高低來進行增強。<figure id="2bd127d0-5550-4de3-aa06-bbd890c38a4b" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%204.png"><img style="width:528px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%204.png"/></a></figure></li></ul><p id="fa2d57c0-2402-4fa2-8be2-761c6a3624c7" class="">
-</p><ul id="9621f8e9-a4e7-4583-9b3b-85941b33358d" class="bulleted-list"><li style="list-style-type:disc"><strong>重取樣（Resampling）：</strong>將音頻的採樣率進行改變，以增加或減少音頻的長度。<figure id="1a292c8c-dff4-4734-9b7d-5488ba19d3a1" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%205.png"><img style="width:528px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%205.png"/></a></figure></li></ul><p id="4cb6e620-2fae-4ba5-86a1-144e618a3ad2" class="">
-</p><ul id="90e84d59-43af-4ad7-87a4-e9bdae5b81d7" class="bulleted-list"><li style="list-style-type:disc"><strong>速度增強（Speed Augmentation）：</strong>通過加快或減慢音頻的播放速度來進行增強。<figure id="e4aea58d-f13b-48ac-b2e4-5c6a7270772e" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%206.png"><img style="width:528px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%206.png"/></a></figure></li></ul><p id="345738d1-debd-4d3e-b6c2-d6d335c03f0d" class="">
-</p><ul id="3add08a7-4b4f-4041-bba3-3c0da09716f2" class="bulleted-list"><li style="list-style-type:disc"><strong>混響增強（Reverberation Augmentation）：</strong>向音頻中添加回聲效果，使其聽起來像是在不同的環境中錄製的。<figure id="1eea4810-5b7b-4fdc-a91f-ef8bd960c2bf" class="image"><a href="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%207.png"><img style="width:528px" src="Data%20Augmentation%20d2310ce5b07b4ee7b731c2bc637572cb/Untitled%207.png"/></a></figure></li></ul><p id="fe4f38a5-5f65-4de7-89ea-2a00b37cb422" class="">
-</p><h2 id="03a4ccd1-a48d-4c19-b90f-6f9b2ee91f8d" class="">資料增強的局限性</h2><ul id="0b1a960d-225a-4fb9-a6ec-c9e31e27387b" class="bulleted-list"><li style="list-style-type:disc">原始資料集中的偏差在資料增強後仍然會存在。</li></ul><ul id="da0ad393-42fc-43b5-901a-d4b8f34f622d" class="bulleted-list"><li style="list-style-type:disc">資料增強的質量保證需耗費大量成本。</li></ul><ul id="a10faa44-2b90-45cb-8d66-b69fcc496431" class="bulleted-list"><li style="list-style-type:disc">需要進行研究和開發，才能構建具有高級應用的系統。例如：使用GAN生成高分辨率圖像。</li></ul></div></article></body></html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Data Augmentation</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="../../assets/img/favicon.png" rel="icon">
+	<link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link id="highlight-style-light" href="../../assets/vendor/highlight/styles/github.min.css" rel="stylesheet" />
+	<link id="highlight-style-dark" href="../../assets/vendor/highlight/styles/github-dark.min.css" rel="stylesheet" />
+
+	<!-- Template Main CSS File -->
+	<link href="../../assets/css/style.css" rel="stylesheet">
+	<link href="../../assets/css/post.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center justify-content-between">
+			<h1 class="logo"><a href="../../index.html">Cheng-Wei's Blog</a></h1>
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto" href="../../index.html"><i class="bi bi-house"></i> Home</a></li>
+					<li><a class="nav-link scrollto" href="../../about.html"><i class="bi bi-person"></i> About</a></li>
+					<li><a class="nav-link scrollto" href="../../portfolio.html"><i class="bi bi-collection"></i>
+							Portfolio</a></li>
+					<li><a class="nav-link scrollto" href="../../notes.html"><i class="bi bi-journal-text"></i>
+							Notes</a></li>
+					<li><a class="nav-link scrollto" href="../../paper_report.html"><i
+								class="bi bi-file-earmark-text"></i> Paper</a></li>
+					<li class="dropdown">
+						<button>
+							<span><i class="bi bi-sun mode-icon"></i></span>
+							<i class="bi bi-chevron-down"></i>
+						</button>
+						<ul>
+							<li><button class="mode-switch" data-mode="light"><i
+										class="bi bi-sun mode-icon"></i>Light</button></li>
+							<li><button class="mode-switch" data-mode="dark"><i
+										class="bi bi-moon mode-icon"></i>Dark</button></li>
+							<li><button class="mode-switch" data-mode="auto"><i
+										class="bi bi-circle-half"></i>Auto</button></li>
+						</ul>
+					</li>
+				</ul>
+				<i class="bi bi-sun mode-icon mobile-mode" data-mode="light"></i>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+		</div>
+	</header><!-- End Header -->
+
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<!-- 這裡是文章內容，佔 80% 寬度 -->
+			<article id="article" class="article">
+				<header>
+					<img class="page-cover-image" src="./Data_Augmentation/Data_Augmentation.png" />
+					<div class="properties">
+						<h1 class="page-title">Data Augmentation</h1>
+						<table>
+							<tbody>
+								<tr>
+									<th>
+										<i class="bi bi-folder-fill"></i>Category
+									</th>
+									<td>
+										<span class="purple">Machine Learning</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-file-earmark-text-fill"></i>References
+									</th>
+									<td>
+										<span class="gray"><a href="./Data_Augmentation/references.html">References<i class='bx bx-link-external'></i></a></span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-pencil-fill"></i>Created
+									</th>
+									<td>
+										July 11, 2023
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</header>
+				<div class="page-body">
+					<h2>什麼是資料增強？</h2>	
+					<p class="margin">
+						資料增強（Data Augmentation）是一種在機器學習和深度學習中常用的技術，它會將現有的資料進行<span class="mark">微調</span>或<span class="mark">轉換</span>後，來生成新的資料樣本，目的是<span class="mark">提高模型的泛化能力</span>與<span class="mark">防止過擬合（Over-Fitting）</span>。
+					</p>	
+					<h2>圖像資料增強</h2>
+					<div class="image-container">
+						<img src="./Data_Augmentation/圖像增強.png" class="image-zoom" alt="查無此圖片"/>
+					</div>
+					<ul class="margin post_list">
+						<li><span class="highlight-gray">幾何變換（Geometric Transformations）</span>：隨機翻轉、裁剪、旋轉、拉伸和縮放圖像。</li>
+						<li><span class="highlight-gray">色彩空間變換（Color Space Transformations）</span>：隨機改變RGB色彩、對比度和亮度。</li>
+						<li><span class="highlight-gray">卷積過濾器（Kernel Filters）</span>：隨機改變圖像的銳化或模糊效果。</li>
+						<li><span class="highlight-gray">隨機擦除（Random Erasing）</span>：隨機刪除圖像的某個部分。</li>
+						<li><span class="highlight-gray">圖像混合（Mixing Images）</span>：將多個圖像進行混合和合成。</li>
+					</ul>
+					<h2>文本資料增強</h2>
+					<ul class="margin post_list">
+						<li>
+							<span class="highlight-gray">單詞替換（Word Replacement）</span>：隨機將一句話的某個詞進行替換。
+							<br><span class="highlight-blue">原始例句</span>：我/覺得/這/部/電影/很/<strong style="color: var(--highlight-font-1);">有趣</strong>/。
+							<br><span class="highlight-green">增強後</span>：我/覺得/這/部/電影/很/<strong style="color: var(--highlight-font-1);">精彩</strong>/。
+						</li>
+						<li>
+							<span class="highlight-gray">單詞插入（Word Insertion）</span>：在句子中的某個位置插入一個新的單詞或片語。
+							<br><span class="highlight-blue">原始例句</span>：我/喜歡/這/部/電影/。
+							<br><span class="highlight-green">增強後</span>：我/<strong style="color: var(--highlight-font-1);">真的</strong>/<strong style="color: var(--highlight-font-1);">很</strong>/喜歡/這/部/電影/。
+						</li>
+						<li>
+							<span class="highlight-gray">單詞刪除（Word Deletion）</span>：將一句話裡面的某個詞刪除。
+							<br><span class="highlight-blue">原始例句</span>：<strong style="color: var(--highlight-font-1);">我</strong>/<strong style="color: var(--highlight-font-1);">覺得</strong>/這/部/電影/很/有趣/。
+							<br><span class="highlight-green">增強後</span>：這/部/電影/很/有趣/。
+						</li>
+						<li>
+							<span class="highlight-gray">同義詞替換（Synonym Replacement）</span>：將句子中的某個詞替換為與這個詞意思相近的詞。
+							<br><span class="highlight-blue">原始例句</span>：我/很/<strong style="color: var(--highlight-font-1);">喜歡</strong>/看/電影/。
+							<br><span class="highlight-green">增強後</span>：我/很/<strong style="color: var(--highlight-font-1);">愛</strong>/看/電影/。
+						</li>
+						<li>
+							<span class="highlight-gray">句子重排（Sentence Rearrangement）</span>：調整句子裡面的單詞順序或是結構。
+							<br><span class="highlight-blue">原始例句</span>：<strong style="color: var(--highlight-font-1);">我</strong>/<strong style="color: var(--highlight-font-1);">覺得</strong>/這/部/電影/很/有趣/。
+							<br><span class="highlight-green">增強後</span>：這/部/電影/<strong style="color: var(--highlight-font-1);">我</strong>/<strong style="color: var(--highlight-font-1);">覺得</strong>/很/有趣/。
+						</li>
+						<li>
+							<span class="highlight-gray">反向翻譯（Back Translation）</span>：將句子翻譯成不同語言後，再翻譯回來，利用翻譯的誤差生成新的句子。
+							<br><span class="highlight-blue">原始例句</span>：我/<strong style="color: var(--highlight-font-1);">覺得</strong>/這/部/電影/很/有趣/。
+							<br><span class="highlight-green">增強後</span>：我/<strong style="color: var(--highlight-font-1);">認為</strong>/這/部/電影/很/有趣/。
+						</li>
+					</ul>	
+					<h2>語音資料增強</h2>					
+					<ul class="margin post_list">
+						<li>
+							<span class="highlight-gray">原始語音</span>
+							<div class="image-container">
+								<img src="./Data_Augmentation/原始語音.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+						<li>
+							<span class="highlight-gray">噪聲注入（Noise Injection）</span>：向音頻添加噪聲或隨機噪聲，以提高模型的性能。
+							<div class="image-container">
+								<img src="./Data_Augmentation/噪聲注入.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+						<li>
+							<span class="highlight-gray">時間移位（Time Shifting）</span>：通過向左或向右移動音頻的時間軸，將音頻的開始時間或結束時間改變一定的時間長度。
+							<div class="image-container">
+								<img src="./Data_Augmentation/時間移位.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+						<li>
+							<span class="highlight-gray">音調變換（Pitch Shifting）</span>：通過調整音頻的音調高低來進行增強。
+							<div class="image-container">
+								<img src="./Data_Augmentation/音調變換.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+						<li>
+							<span class="highlight-gray">重取樣（Resampling）</span>：將音頻的採樣率進行改變，以增加或減少音頻的長度。
+							<div class="image-container">
+								<img src="./Data_Augmentation/重取樣.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+						<li>
+							<span class="highlight-gray">速度增強（Speed Augmentation）</span>：通過加快或減慢音頻的播放速度來進行增強。
+							<div class="image-container">
+								<img src="./Data_Augmentation/速度增強.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+						<li>
+							<span class="highlight-gray">混響增強（Reverberation Augmentation）</span>：向音頻中添加回聲效果，使其聽起來像是在不同的環境中錄製的。
+							<div class="image-container">
+								<img src="./Data_Augmentation/混響增強.png" class="medium image-zoom" alt="查無此圖片"/>
+							</div>
+						</li>
+					</ul>
+					<h2>資料增強的局限性</h2>
+					<ul class="margin post_list">
+						<li>原始資料集中的偏差在資料增強後仍然會存在。</li>
+						<li>資料增強的質量保證需耗費大量成本。</li>
+						<li>需要進行研究和開發，才能構建具有高級應用的系統，例如：使用GAN生成高分辨率圖像。</li>
+					</ul>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-2">
+			<!-- 這裡是 TOC，佔 20% 寬度 -->
+			<div id="toc" class="toc">
+				<h2>目錄</h2>
+				<ul id="toc-list">
+				</ul>				
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ======= Footer ======= -->
+	<footer class="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong><span>Cheng-Wei Lin</span></strong>
+			</div>
+		</div>
+	</footer><!-- End Footer -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="../../assets/vendor/aos/aos.js"></script>
+	<script src="../../assets/vendor/highlight/highlight.min.js"></script>
+	<script src="../../assets/vendor/highlight/highlightjs-line-numbers.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="../../assets/js/main.js"></script>
+	<script src="../../assets/js/mode-switcher.js"></script>
+	<script src="../../assets/js/codeBlock.js"></script>
+	<script src="../../assets/js/TOC.js"></script>
+	<script src="../../assets/js/image_zoom.js"></script>
+</body>
+
+</html>

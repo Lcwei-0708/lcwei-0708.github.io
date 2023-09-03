@@ -211,12 +211,11 @@ tbody tr:hover{
 }
 
 .col_2{
-  width: 70%;
+  width: 65%;
 }
 
 .col_3{
   width: 10%;  
-  padding: auto 3%;
   text-align: center;
 }
 

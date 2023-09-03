@@ -37,7 +37,8 @@
   --bar-color: #f8f8f893;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
   --shadow2-color: 5px 5px 15px #868686, 0px 0px 1px #cbcbcb;    /* 陰影顏色-2 */
-  --shadow3-color: 0px 0px 8px rgba(31, 31, 31, 0.316);    /* 陰影顏色-3 */
+  --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
+  --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
   --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
@@ -58,6 +59,7 @@
   --opacity-bg-2: #414141b9;   /* 透明背景顏色-2 */
   --opacity-bg-3: #f5f5f5c5;   /* 透明背景顏色-3 */
   --annotation-color: #d12121;   /* 註解文字顏色-1 */
+  --mark: #ffebaf;   /* Mark背景顏色 */
 }
 
 body {
@@ -83,7 +85,8 @@ p {
   --bar-color: #f8f8f893;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
   --shadow2-color: 5px 5px 15px #868686, 0px 0px 1px #cbcbcb;    /* 陰影顏色-2 */
-  --shadow3-color: 0px 0px 8px rgba(31, 31, 31, 0.316);    /* 陰影顏色-3 */
+  --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
+  --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
   --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
@@ -104,6 +107,7 @@ p {
   --opacity-bg-2: #414141b9;   /* 透明背景顏色-2 */
   --opacity-bg-3: #f5f5f5c5;   /* 透明背景顏色-3 */
   --annotation-color: #d12121;   /* 註解文字顏色-1 */
+  --mark: #ffebaf;   /* Mark背景顏色 */
 }
 
 .dark-mode {
@@ -119,8 +123,9 @@ p {
   --hover-font-color: #c2c2c2;    /* Hover文字顏色-1 */
   --bar-color: #2a2a2a93;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(134, 134, 134, 0.305);    /* 陰影顏色-1 */
-  --shadow2-color: 5px 5px 10px #6f6f6ff7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */
-  --shadow3-color: 0px 0px 8px rgba(72, 72, 72, 0.332);    /* 陰影顏色-3 */
+  --shadow2-color: 5px 5px 10px #424242f7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */
+  --shadow3-color: 0px 0px 8px rgba(65, 65, 65, 0.332);    /* 陰影顏色-3 */
+  --shadow4-color: 0px 0px 10px rgba(62, 62, 62, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */  
   --code-line: #858585;   /* CodeBlock背景顏色-1 */
   --code-bg: #27292D;   /* CodeBlock背景顏色-1 */
@@ -141,6 +146,7 @@ p {
   --opacity-bg-2: #1e1e1eb9;   /* 透明背景顏色-2 */
   --opacity-bg-3: #1e1e1eb4;   /* 透明背景顏色-3 */
   --annotation-color: #e05858;   /* 註解文字顏色-1 */
+  --mark: #af7722;   /* Mark背景顏色 */
 }
 
 /* 白天模式的樣式 */
@@ -159,7 +165,8 @@ p {
     --bar-color: #f8f8f893;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(27, 27, 27, 0.305);    /* 陰影顏色-1 */
     --shadow2-color: 5px 5px 15px #868686, 0px 0px 1px #cbcbcb;    /* 陰影顏色-2 */
-    --shadow3-color: 0px 0px 8px rgba(31, 31, 31, 0.316);    /* 陰影顏色-3 */
+    --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
+    --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
     --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */ 
     --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
     --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
@@ -180,6 +187,7 @@ p {
     --opacity-bg-2: #414141b9;   /* 透明背景顏色-2 */
     --opacity-bg-3: #f5f5f5c5;   /* 透明背景顏色-3 */
     --annotation-color: #d12121;   /* 註解文字顏色-1 */
+    --mark: #ffebaf;   /* Mark背景顏色 */
   }
 }
 
@@ -198,8 +206,9 @@ p {
     --hover-font-color: #c2c2c2;    /* Hover文字顏色-1 */
     --bar-color: #2a2a2a93;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(134, 134, 134, 0.305);    /* 陰影顏色-1 */
-    --shadow2-color: 5px 5px 10px #6f6f6ff7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */
-    --shadow3-color: 0px 0px 8px rgba(72, 72, 72, 0.332);    /* 陰影顏色-3 */
+    --shadow2-color: 5px 5px 10px #424242f7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */
+    --shadow3-color: 0px 0px 8px rgba(65, 65, 65, 0.332);    /* 陰影顏色-3 */
+    --shadow4-color: 0px 0px 10px rgba(62, 62, 62, 0.316);    /* 陰影顏色-4 */
     --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */   
     --code-line: #858585;   /* CodeBlock背景顏色-1 */
     --code-bg: #27292D;   /* CodeBlock背景顏色-1 */
@@ -220,6 +229,7 @@ p {
     --opacity-bg-2: #1e1e1eb9;   /* 透明背景顏色-2 */
     --opacity-bg-3: #1e1e1eb4;   /* 透明背景顏色-3 */
     --annotation-color: #e05858;   /* 註解文字顏色-1 */
+    --mark: #af7722;   /* Mark背景顏色 */
   }
 }
 

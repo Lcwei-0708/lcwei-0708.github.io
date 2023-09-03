@@ -7,91 +7,91 @@ $(document).ready(function() {
         "subitems": [
           {
             "name": "Introduction",
-            "date": "2023-07-16",
+            "date": "2023-07-03",
             "link": "./notes/machine_learning/Introduction.html",
             "references": "./notes/machine_learning/Introduction/references.html",
             "image": "./notes/machine_learning/Introduction/Introduction.png"
           },
           {
             "name": "Decision Tree",
-            "date": "2023-07-16",
+            "date": "2023-07-03",
             "link": "./notes/machine_learning/Decision_Tree.html",
             "references": "./notes/machine_learning/Decision_Tree/references.html",
             "image": "./notes/machine_learning/Decision_Tree/Decision_Tree.png"
           },
           {
             "name": "Random Forest",
-            "date": "2023-07-16",
+            "date": "2023-07-04",
             "link": "./notes/machine_learning/Random_Forest.html",
             "references": "./notes/machine_learning/Random_Forest/references.html",
             "image": "./notes/machine_learning/Random_Forest/Random_Forest.png"
           },
           {
             "name": "Naive Bayes",        
-            "date": "2023-08-12",
+            "date": "2023-07-04",
             "link": "./notes/machine_learning/Naive_Bayes.html",
             "references": "./notes/machine_learning/Naive_Bayes/references.html",
             "image": "./notes/machine_learning/Naive_Bayes/Naive_Bayes.png"
           },
           {
             "name": "KNN",         
-            "date": "2023-07-31",
+            "date": "2023-07-05",
             "link": "./notes/machine_learning/KNN.html",
             "references": "./notes/machine_learning/KNN/references.html",
             "image": "./notes/machine_learning/KNN/KNN.png"
           },
           {
             "name": "SVM",         
-            "date": "2023-07-27",
+            "date": "2023-07-06",
             "link": "./notes/machine_learning/SVM.html",
             "references": "./notes/machine_learning/SVM/references.html",
             "image": "./notes/machine_learning/SVM/SVM.png"
           },
           {
             "name": "Linear Regression",     
-            "date": "2023-08-12",
+            "date": "2023-07-07",
             "link": "./notes/machine_learning/Linear_Regression.html",
             "references": "./notes/machine_learning/Linear_Regression/references.html",
             "image": "./notes/machine_learning/Linear_Regression/Linear_Regression.png"
           },
           {
             "name": "Logistic Regression",        
-            "date": "2023-08-04",
+            "date": "2023-07-07",
             "link": "./notes/machine_learning/Logistic_Regression.html",
             "references": "./notes/machine_learning/Logistic_Regression/references.html",
             "image": "./notes/machine_learning/Logistic_Regression/Logistic_Regression.png"
           },
           {
             "name": "Ensemble Learning",          
-            "date": "2023-07-16",
+            "date": "2023-07-09",
             "link": "./notes/machine_learning/Ensemble_Learning.html",
             "references": "./notes/machine_learning/Ensemble_Learning/references.html",
             "image": "./notes/machine_learning/Ensemble_Learning/Ensemble_Learning.png"
           },
           {
             "name": "Data Balance",            
-            "date": "2023-08-02",
+            "date": "2023-07-10",
             "link": "./notes/machine_learning/Data_Balance.html",
             "references": "./notes/machine_learning/Data_Balance/references.html",
             "image": "./notes/machine_learning/Data_Balance/Data_Balance.png"
           },
           {
             "name": "Data Augmentation",            
-            "date": "2023-07-08",
+            "date": "2023-07-11",
             "link": "./notes/machine_learning/Data_Augmentation.html",
             "references": "./notes/machine_learning/Data_Augmentation/references.html",
             "image": "./notes/machine_learning/Data_Augmentation/Data_Augmentation.png"
           },
           {
             "name": "Evaluation Metric",            
-            "date": "2023-07-17",
+            "date": "2023-07-14",
             "link": "./notes/machine_learning/Evaluation_Metric.html",
             "references": "./notes/machine_learning/Evaluation_Metric/references.html",
             "image": "./notes/machine_learning/Evaluation_Metric/Evaluation_Metric.png"
           },
           {
             "name": "InterpretableML",            
-            "date": "2023-08-12",
+            "date": "2023-07-17",
             "link": "./notes/machine_learning/Interpretable_ML.html",
             "references": "./notes/machine_learning/Interpretable_ML/references.html",
             "image": "./notes/machine_learning/Interpretable_ML/Interpretable_ML.png"
@@ -104,14 +104,14 @@ $(document).ready(function() {
         "subitems": [
           {
             "name": "Anaconda Virtual Environment",            
-            "date": "2023-08-25",
+            "date": "2023-06-25",
             "link": "./notes/python/Anaconda_Virtual_Environment.html",
             "references": "./notes/python/Anaconda_Virtual_Environment/references.html",
             "image": "./notes/python/Anaconda_Virtual_Environment/Anaconda_Virtual_Environment.png"
           },
           {
             "name": "Selenium",            
-            "date": "2023-08-27",
+            "date": "2023-06-27",
             "link": "./notes/python/Selenium.html",
             "references": "./notes/python/Selenium/references.html",
             "image": "./notes/python/Selenium/Selenium.png"
@@ -124,21 +124,21 @@ $(document).ready(function() {
         "subitems": [
           {
             "name": "Introduction",            
-            "date": "2023-08-04",
+            "date": "2023-06-14",
             "link": "./notes/git/Introduction.html",
             "references": "./notes/git/Introduction/references.html",
             "image": "./notes/git/Introduction/Introduction.png"
           },
           {
             "name": "Installation",            
-            "date": "2023-08-04",
+            "date": "2023-06-15",
             "link": "./notes/git/Installation.html",
             "references": "./notes/git/Installation/references.html",
             "image": "./notes/git/Installation/Installation.png"
           },
           {
             "name": "Command",
-            "date": "2023-08-04",
+            "date": "2023-06-16",
             "link": "./notes/git/Command.html",
             "references": "./notes/git/Command/references.html",
             "image": "./notes/git/Command/Command.png"
