@@ -598,15 +598,6 @@ button.copy {
 /*--------------------------------------------------------------
 # Table
 --------------------------------------------------------------*/
-.post-table-margin {	
-	margin: 20px 0 80px;
-	width: 100%;
-	overflow: hidden;
-	border-radius: 1rem;
-	border: 2px solid var(--code-line);
-	background-color: var(--font3-color);
-}
-
 .post-table {	
 	margin: 20px 0;
 	width: 100%;
