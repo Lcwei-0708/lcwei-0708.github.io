@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var latex = mathContainer.getAttribute('data-latex');
       mathFormula.innerHTML = latex;
       customAlertOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
     });
   });
 
@@ -48,12 +49,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // 點擊關閉按鈕關閉警告框
   customAlertClose.addEventListener('click', function() {
     customAlertOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
   });
 
   // 點擊警告框外的區域關閉警告框
   customAlertOverlay.addEventListener('click', function(event) {
     if (event.target === customAlertOverlay) {
       customAlertOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
   });
 });

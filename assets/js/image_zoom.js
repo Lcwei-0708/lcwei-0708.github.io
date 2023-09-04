@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     zoomableImage.addEventListener('click', function() {
       const zoomedImageContainer = document.createElement('div');
       zoomedImageContainer.classList.add('zoomed-image');
+      document.body.style.overflow = 'hidden';
 
       const zoomedImg = document.createElement('img');
       zoomedImg.src = this.src;
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       zoomedImageContainer.addEventListener('click', function() {
         document.body.removeChild(this);
+        document.body.style.overflow = 'auto';
       });
     });
   });
