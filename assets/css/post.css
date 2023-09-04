@@ -38,7 +38,7 @@ body {
 
 	.col-md-8 {
 		min-width: 100%;
-		padding: 0% !important;
+		padding: 0% !important;	
 	}
 
 	.col-md-2 {
@@ -47,7 +47,16 @@ body {
 
 	#article {
 		min-width: 100%;
-		margin-top: 100px;
+		margin-top: 7vh !important;
+		border-radius: 0 !important;	
+	}
+
+	img.page-cover-image {	
+		border-radius: 0;
+	}
+
+	.properties table th {
+		width: 35% !important;
 	}
 
 	.math-container {
@@ -771,6 +780,14 @@ button.copy {
 .math_inline {
 	padding: 5px;
 	font-size: 18px;
+}
+
+.math_inline.center {
+	padding: 5px;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .math_block {
