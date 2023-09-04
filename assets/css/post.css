@@ -71,6 +71,10 @@ body {
 	.medium.post-table {
 		width: 100% !important;
 	}
+
+	p.medium.annotation {		
+		margin-left: 0 !important;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -349,11 +353,11 @@ details .indented .card {
 # Annotation
 --------------------------------------------------------------*/
 
-.card.annotation{
+.card.annotation {
 	margin-bottom: 5px !important;
 }
 
-p.annotation{
+p.annotation {
 	font-style: italic;
 	color: var(--annotation-color);
 	margin:0 0 80px;
