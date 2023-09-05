@@ -82,7 +82,7 @@ window.onload = function paper_table() {
       "PPT_link": "./data/paper/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning/Unbalanced Data Classification Algorithm Based on Hybrid Sampling and Ensemble Learning.pptx"
     },
     {
-      "date": "2023/08/29",
+      "date": "2023/09/05",
       "name": "A Combination Method of Resampling and Random Forest for Imbalanced Data Classification",
       "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
       "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
