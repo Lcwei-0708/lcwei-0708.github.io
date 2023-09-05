@@ -810,6 +810,15 @@ button.copy {
 	background-color: var(--bg-color);
 }
 
+.math-container .katex-display::-webkit-scrollbar {
+	height: 0;
+}
+
+.math-container .katex-display {	
+	overflow-x: auto;
+	padding: 20px;
+}
+
 .math-container:hover {	
 	box-shadow: var(--shadow4-color);
 }
@@ -916,9 +925,8 @@ p.medium,
 	overflow-x: auto;
 }
 
-#math-formula::-webkit-scrollbar-thumb,
-#math-formula::-webkit-scrollbar-track {
-	visibility: hidden;
+#math-formula::-webkit-scrollbar {
+	height: 0px;
 }
 
 #custom-alert-copy {
