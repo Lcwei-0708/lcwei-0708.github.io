@@ -900,7 +900,7 @@ p.medium,
 .custom-alert-latex {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	width: auto;
 	border: 3px solid var(--code-bg);
 	border-radius: 0.5rem;
@@ -910,7 +910,6 @@ p.medium,
 }
 
 #math-formula {
-	flex: 0.95;
 	background-color: var(--bg3-color);
 	padding: 3px 5px;
 	white-space: nowrap;
@@ -926,7 +925,6 @@ p.medium,
 	display: flex;
 	align-items: center;
 	height: 100%;
-	flex: 0.05;
 	width: 50px;
 	background: var(--code-bg);
 	border: none;

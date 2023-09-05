@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
       {left: '\\[', right: '\\]', display: true}
     ],
     // • rendering keys, e.g.:
-    throwOnError : false
+    throwOnError: false
   });
 
   // 獲取所有的 math-container 元素
@@ -29,8 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // 複製按鈕複製公式
+  // 點擊複製按鈕複製公式
   customAlertCopy.addEventListener('click', function() {
+    // 禁用複製按鈕
+    customAlertCopy.disabled = true;
+
     var range = document.createRange();
     range.selectNode(mathFormula);
     window.getSelection().removeAllRanges();
@@ -43,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
     customAlertCopy.innerHTML = '<iconify-icon icon="tabler:check"></iconify-icon>';
     setTimeout(function() {
       customAlertCopy.innerHTML = originalIcon;
+      // 啟用複製按鈕
+      customAlertCopy.disabled = false;
     }, 1000);
   });
 
