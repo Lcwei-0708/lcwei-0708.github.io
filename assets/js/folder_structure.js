@@ -144,6 +144,61 @@ $(document).ready(function() {
             "image": "./notes/git/Command/Command.png"
           }
         ]
+      },
+      {
+        "name": "Data Structure",
+        "icon": '<iconify-icon icon="carbon:data-structured" style="color: #59885c;"></iconify-icon>',
+        "subitems": [
+          {
+            "name": "Array",            
+            "date": "2023-09-10",
+            "link": "./notes/data_structure/Array.html",
+            "references": "./notes/data_structure/Array/references.html",
+            "image": "./notes/data_structure/Array/Array.png"
+          },
+          {
+            "name": "Linked List",            
+            "date": "2023-09-11",
+            "link": "./notes/data_structure/Linked_List.html",
+            "references": "./notes/data_structure/Linked_List/references.html",
+            "image": "./notes/data_structure/Linked_List/Linked_List.png"
+          },
+          {
+            "name": "Stack",            
+            "date": "2023-09-12",
+            "link": "./notes/data_structure/Stack.html",
+            "references": "./notes/data_structure/Stack/references.html",
+            "image": "./notes/data_structure/Stack/Stack.png"
+          },
+          {
+            "name": "Queue",            
+            "date": "2023-09-13",
+            "link": "./notes/data_structure/Queue.html",
+            "references": "./notes/data_structure/Queue/references.html",
+            "image": "./notes/data_structure/Queue/Queue.png"
+          },
+          {
+            "name": "Set",            
+            "date": "2023-09-14",
+            "link": "./notes/data_structure/Set.html",
+            "references": "./notes/data_structure/Set/references.html",
+            "image": "./notes/data_structure/Set/Set.png"
+          },
+          {
+            "name": "Map",            
+            "date": "2023-09-15",
+            "link": "./notes/data_structure/Map.html",
+            "references": "./notes/data_structure/Map/references.html",
+            "image": "./notes/data_structure/Map/Map.png"
+          },
+          {
+            "name": "Tree",            
+            "date": "2023-09-16",
+            "link": "./notes/data_structure/Tree.html",
+            "references": "./notes/data_structure/Tree/references.html",
+            "image": "./notes/data_structure/Tree/Tree.png"
+          }
+        ]
       }
     ]
   };

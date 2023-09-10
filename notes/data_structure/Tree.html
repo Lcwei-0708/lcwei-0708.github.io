@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Tree</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="../../assets/img/favicon.png" rel="icon">
+	<link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link id="highlight-style-light" href="../../assets/vendor/highlight/styles/github.min.css" rel="stylesheet" />
+	<link id="highlight-style-dark" href="../../assets/vendor/highlight/styles/github-dark.min.css" rel="stylesheet" />
+
+	<!-- Template Main CSS File -->
+	<link href="../../assets/css/style.css" rel="stylesheet">
+	<link href="../../assets/css/post.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center justify-content-between">
+			<h1 class="logo"><a href="../../index.html">Cheng-Wei's Blog</a></h1>
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto" href="../../index.html"><i class="bi bi-house"></i> Home</a></li>
+					<li><a class="nav-link scrollto" href="../../about.html"><i class="bi bi-person"></i> About</a></li>
+					<li><a class="nav-link scrollto" href="../../portfolio.html"><i class="bi bi-collection"></i>
+							Portfolio</a></li>
+					<li><a class="nav-link scrollto" href="../../notes.html"><i class="bi bi-journal-text"></i>
+							Notes</a></li>
+					<li><a class="nav-link scrollto" href="../../paper_report.html"><i
+								class="bi bi-file-earmark-text"></i> Paper</a></li>
+					<li class="dropdown">
+						<button>
+							<span><i class="bi bi-sun mode-icon"></i></span>
+							<i class="bi bi-chevron-down"></i>
+						</button>
+						<ul>
+							<li><button class="mode-switch" data-mode="light"><i
+										class="bi bi-sun mode-icon"></i>Light</button></li>
+							<li><button class="mode-switch" data-mode="dark"><i
+										class="bi bi-moon mode-icon"></i>Dark</button></li>
+							<li><button class="mode-switch" data-mode="auto"><i
+										class="bi bi-circle-half"></i>Auto</button></li>
+						</ul>
+					</li>
+				</ul>
+				<i class="bi bi-sun mode-icon mobile-mode" data-mode="light"></i>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+		</div>
+	</header><!-- End Header -->
+
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<!-- 這裡是文章內容，佔 80% 寬度 -->
+			<article id="article" class="article">
+				<header>
+					<img class="page-cover-image" src="./Tree/Tree.png" />
+					<div class="properties">
+						<h1 class="page-title">Tree</h1>
+						<table>
+							<tbody>
+								<tr>
+									<th>
+										<i class="bi bi-folder-fill"></i>Category
+									</th>
+									<td>
+										<span class="green">Data Structure</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-file-earmark-text-fill"></i>References
+									</th>
+									<td>
+										<span class="gray"><a href="./Tree/references.html">References<i class='bx bx-link-external'></i></a></span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-pencil-fill"></i>Created
+									</th>
+									<td>
+										September 16, 2023
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</header>
+				<div class="page-body">
+					<h2>什麼是決策樹？</h2>
+					<p>
+						決策樹（Decision Tree）是一種監督式學習的演算法，主要用於處理分類和迴歸分析的任務，決策樹會以樹狀結構將所有特徵做分析，主要思想是基於資料特徵來進行決策，將問題不斷地分解成更小的問題，直到決策出最終的答案。
+					</p>	
+					<div class="image-container">
+						<img src="./Decision_Tree/Tree.png" class="medium image-zoom" alt="查無此圖片"/>
+					</div>
+					<ul class="post_list">
+						<div class="little_title">
+							決策樹是由以下三種節點所組成的：
+						</div>
+						<li><span class="highlight-gray">根節點（Root Node）</span>：決策樹的開始，代表整個資料集。</li>
+						<li><span class="highlight-gray">內部節點（Internal Node）</span>：在決策樹中，根節點以外的所有節點都是內部節點，每個內部節點都有一個特徵或屬性，並且根據該特徵或屬性將資料集分解成更小的子集。</li>
+						<li><span class="highlight-gray">葉子節點（Leaf Node）</span>：在決策樹中，葉子節點是最後的結果節點，每個葉子節點都對應一個分類或迴歸的結果。</li>
+					</ul>
+					<p>
+						決策樹在預測的過程都是可以根據產生的樹來分析的，例如今天有一個案例要判斷是否可以貸款，決策樹就會根據特徵的重要程度將最重要的特徵當作根節點，像是有沒有房產，有就可以貸款，沒有就再往下一個特徵做篩選，值到每個分支都得到最終結果。
+					</p>
+					<div class="image-container">
+						<img src="./Decision_Tree/Tree Sample.png" class="medium annotation image-zoom" alt="查無此圖片"/>
+					</div>
+					<h2>決策樹的混亂評估指標</h2>
+					<p>
+						我們需要客觀的標準來決定決策樹的每個分支，因此我們需要有一個評斷的指標來協助我們決策，這些指標用於選擇最佳的特徵來進行決策樹的分裂。
+					</p>
+					<details open="">
+						<summary>
+							<h3>資訊獲利</h3>
+						</summary>
+						<div class="indented">
+							<p>
+								資訊獲利（Information Gain）是衡量在分裂特徵時，新分支能帶來多少額外資訊的指標，它通過計算父節點和子節點的熵（Entropy）差異來衡量資訊獲利，當資訊獲利越高，表示這個特徵能夠更好地分離不同類別的資料。
+							</p>
+							<div class="notice margin">
+								<ul class="list-unstyled">
+									<li>
+									  <span class="icon"><i class="bi bi-lightbulb-fill"></i></span>
+									  <span class="text">
+										熵（Entropy）是用於衡量一個系統或事件的不確定性或混亂程度的指標，通常熵的值越高，資料集的類別分布越分散或混亂，反之當熵的值越低，表示資料集的類別分布越集中或純淨。
+									  </span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>吉尼獲利</h3>
+						</summary>
+						<div class="indented">
+							<p class="margin">
+								吉尼獲利（Gain Ratio）是在資訊獲利的基礎上進行改進的指標，它考慮到了特徵的分支數目和資料分布的不平衡情況，它對於具有較多分支的特徵進行了懲罰，以避免過度分裂，吉尼獲利是使用分裂前後的吉尼係數（Gini Index）的差異來計算的。
+							</p>						
+						</div>
+					</details>
+					<details open="">
+						<summary>
+							<h3>吉尼係數</h3>
+						</summary>
+						<div class="indented">
+							<p class="margin">
+								吉尼係數（Gini Index）又稱吉尼不純度（Gini Impurity），是衡量了從一個資料集中隨機選取兩個樣本，其類別標籤不一致的機率，在決策樹中，吉尼係數用於計算特徵的分裂點，選擇能夠最大程度地減少吉尼係數的特徵來進行分裂，<span class="mark">吉尼係數越小的特徵表示分類能力更強，分布越集中或純淨</span>。
+							</p>						
+						</div>
+					</details>
+					<h2>決策樹的優缺點</h2>					
+					<ul class="margin post_list">
+						<div class="little_title">
+							優點：
+						</div>
+						<li><span class="highlight-gray">可解釋性</span>：決策樹的結果易於理解和解釋，可以提供明確的規則和決策過程。</li>
+						<li><span class="highlight-gray">特徵選擇</span>：決策樹能夠自動選擇最佳特徵進行分裂，節省了特徵工程的時間和精力。</li>
+						<li><span class="highlight-gray">能處理非線性數據</span>：決策樹對於非線性關係的資料具有很好的建模能力，不需要對數據進行線性化處理。</li>
+						<li><span class="highlight-gray">能處理數值和類別特徵</span>：決策樹能夠處理數值和類別型特徵，不需要進行特徵轉換。</li>
+						<li><span class="highlight-gray">適用於大型資料集</span>：決策樹算法的計算效率較高，能夠處理大型資料集。</li>
+					</ul>
+					<ul class="margin post_list">
+						<div class="little_title">
+							缺點：
+						</div>
+						<li><span class="highlight-gray">過度擬合</span>：決策樹容易為了配合訓練集造成過度擬合，特別是當樹的深度過深或特徵過多時。</li>
+						<li><span class="highlight-gray">不穩定性</span>：對於資料的輕微變化非常敏感，小幅度的資料變動可能導致完全不同的樹結構。</li>
+						<li><span class="highlight-gray">忽略特徵相互關係</span>：決策樹在每個節點上僅考慮單個特徵，無法有效地處理特徵之間的相互關係。</li>
+						<li><span class="highlight-gray">高度依賴訓練數據</span>：決策樹的構建結果受到訓練集的影響，對於資料中的噪聲和不完整性比較敏感。</li>
+						<li><span class="highlight-gray">面對連續型數據的困難</span>：決策樹在處理連續型資料時，需要對其進行離散化或採用其他處理方法。</li>
+					</ul>
+				</div>
+			</article>
+		</div>
+		<div class="col-md-2">
+			<!-- 這裡是 TOC，佔 20% 寬度 -->
+			<div id="toc" class="toc">
+				<h2>目錄</h2>
+				<ul id="toc-list">
+				</ul>				
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ======= Footer ======= -->
+	<footer class="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong><span>Cheng-Wei Lin</span></strong>
+			</div>
+		</div>
+	</footer><!-- End Footer -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="../../assets/vendor/aos/aos.js"></script>
+	<script src="../../assets/vendor/highlight/highlight.min.js"></script>
+	<script src="../../assets/vendor/highlight/highlightjs-line-numbers.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="../../assets/js/main.js"></script>
+	<script src="../../assets/js/mode-switcher.js"></script>
+	<script src="../../assets/js/codeBlock.js"></script>
+	<script src="../../assets/js/TOC.js"></script>
+	<script src="../../assets/js/image_zoom.js"></script>
+</body>
+
+</html>

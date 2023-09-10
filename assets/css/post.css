@@ -138,6 +138,10 @@ body {
 	align-items: end;
 }
 
+.col-md-8.center {
+	margin: 0 auto 0 auto;
+}
+
 .col-md-2 {	
 	width: 15%;
 	margin: 0 auto 0 0;
@@ -440,7 +444,7 @@ img.annotation {
 } 
 
 /*--------------------------------------------------------------
-# CodeBlock
+# CodeBlock、plot-container
 --------------------------------------------------------------*/
 
 .code-wrap {
@@ -486,6 +490,10 @@ img.annotation {
 	margin: 0;
 }
 
+.bottom.plot-container {
+	background-color: #FFFFFF;
+}
+
 .dots {
 	display: flex;
 	align-items: center;
@@ -522,7 +530,8 @@ button.copy {
 	align-items: center; /* 垂直置中 */
 }
 
-.copy iconify-icon {
+.copy iconify-icon,
+.link i {
 	display: flex;
 	align-items: center; /* 垂直置中 */
 	font-size: 24px;
@@ -598,12 +607,13 @@ button.copy {
 /*--------------------------------------------------------------
 # Table
 --------------------------------------------------------------*/
+
 .post-table {	
 	margin: 20px 0;
 	width: 100%;
 	overflow: hidden;
 	border-radius: 1rem;
-	border: 2px solid var(--code-line);
+	border: 2px solid var(--font3-color);
 	background-color: var(--font3-color);
 }
 
@@ -660,7 +670,7 @@ button.copy {
 .table-td a i {
 	font-size: 24px;
 	margin: auto;
-}
+} 
 
 /*--------------------------------------------------------------
 # Span Highlight、Mark
@@ -967,4 +977,99 @@ p.medium,
 #custom-alert-close:hover {
 	background-color: var(--hover-font-color);
 	color: var(--hover-bg-color);
+}
+
+/*--------------------------------------------------------------
+# Freeze Table
+--------------------------------------------------------------*/
+
+/*凍結表頭/行頭*/
+/*sticky會跟著上一層的overfloat跑！！因此要定義一個外框*/
+.table-sticky-wrapper {
+	width: 100%;
+	height: 60vh;/*外框的高度*/
+	overflow:auto;
+}
+
+.table-sticky-wrapper:hover.table-sticky-wrapper::-webkit-scrollbar {	
+	display: block;
+}
+
+.table-sticky-wrapper::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+	background-color: var(--bg3-color);
+	display: none;
+} 
+
+.table-sticky-wrapper::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); 
+} 
+
+table.table-sticky {
+	table-layout: fixed;
+	table-layout: auto;
+	min-width: 100%;
+	width: auto;
+	overflow: unset!important;	
+	margin-bottom: 0px !important;
+}
+  
+.table-sticky tr {
+	overflow: hidden !important;
+	border-radius: 10px;	
+	border-bottom: 2px solid var(--font3-color);
+	vertical-align: middle;
+}
+  
+.table-sticky th {
+	position:sticky;
+	word-break: keep-all;
+	background-color: var(--code-bg);
+	color: var(--font-color);
+	vertical-align: middle;
+}
+  
+.table-sticky td {
+	border-right: 2px solid var(--font3-color);
+	background-color: var(--bg3-color);
+	color: var(--font-color);
+}
+
+.table-sticky th.center,
+.table-sticky td.center {
+	text-align: center;
+}
+  
+.table-sticky thead tr th:first-of-type {
+	left: 0px;/*sticky要用 上下左右定位*/
+	z-index:3;
+	border-right: 0;
+	box-shadow: -2px -2px 0 inset var(--font3-color);
+}
+  
+.table-sticky thead tr th{
+	top:0;/*sticky要用 上下左右定位*/
+	vertical-align: middle;
+	border-bottom: 0;
+	border-right: 2px solid var(--font3-color);
+	box-shadow: 0 -2px 0 inset var(--font3-color);
+	z-index: 2;
+}
+  
+/*sticky要用 上下左右定位*/
+.table-sticky tbody th {
+	left: 0;/*定位用*/
+	z-index: 2;/*遮蓋表格內容的圖層層級設定*/
+	box-shadow: -2px 0 0 inset var(--font3-color);
+}
+
+.table-sticky thead tr, 
+.table-sticky tbody tr:last-child {
+    border-bottom: 0px solid var(--font3-color);
+}
+
+.table-sticky tbody th {
+	text-align: center;
+	vertical-align: middle;
 }

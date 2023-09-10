@@ -120,7 +120,7 @@ p {
   --sp-color: #d24747;    /* 特殊顏色-1 */
   --sp2-color: #bb7a7a;    /* 特殊顏色-2 */
   --hover-bg-color: #5f5f5f;    /* Hover背景顏色-1 */
-  --hover-font-color: #c2c2c2;    /* Hover文字顏色-1 */
+  --hover-font-color: #949494;    /* Hover文字顏色-1 */
   --bar-color: #2a2a2a93;    /* top-bar背景顏色 */
   --shadow-color: 0px 0px 15px rgba(134, 134, 134, 0.305);    /* 陰影顏色-1 */
   --shadow2-color: 5px 5px 10px #424242f7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */
@@ -203,7 +203,7 @@ p {
     --sp-color: #d24747;    /* 特殊顏色-1 */
     --sp2-color: #bb7a7a;    /* 特殊顏色-2 */
     --hover-bg-color: #5f5f5f;    /* Hover背景顏色-1 */
-    --hover-font-color: #c2c2c2;    /* Hover文字顏色-1 */
+    --hover-font-color: #949494;    /* Hover文字顏色-1 */
     --bar-color: #2a2a2a93;    /* top-bar背景顏色 */
     --shadow-color: 0px 0px 15px rgba(134, 134, 134, 0.305);    /* 陰影顏色-1 */
     --shadow2-color: 5px 5px 10px #424242f7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */

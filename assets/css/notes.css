@@ -89,6 +89,7 @@ h2 {
   display: none;
   grid-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .main-folder {
@@ -98,7 +99,7 @@ h2 {
   height: 100px;
   padding: 10px;
   border-radius: 10px;
-  margin: 0 auto 0 auto;
+  margin: 10px auto 60px auto;
   background: var(--bg3-color);
   box-shadow: var(--shadow3-color);
   transition: all 0.3s ease-in-out;
