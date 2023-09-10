@@ -150,6 +150,13 @@ $(document).ready(function() {
         "icon": '<iconify-icon icon="carbon:data-structured" style="color: #59885c;"></iconify-icon>',
         "subitems": [
           {
+            "name": "Complexity",            
+            "date": "2023-09-09",
+            "link": "./notes/data_structure/Complexity.html",
+            "references": "./notes/data_structure/Complexity/references.html",
+            "image": "./notes/data_structure/Complexity/Complexity.png"
+          },
+          {
             "name": "Array",            
             "date": "2023-09-10",
             "link": "./notes/data_structure/Array.html",
