@@ -553,6 +553,64 @@ button.copy {
 	margin: 5px;
 }
 
+.hidden {
+	display: none;
+}
+
+.languageSelected {
+	font-size: 20px;
+	font-weight: 600;
+	padding: 3px 10px;
+	cursor: pointer;
+	border-radius: 0.5rem;
+	color: var(--font2-color);
+}
+
+.languageSelected i {
+	font-size: 18px;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+.languageSelector .languageSelected:hover{
+	background-color: var(--hover-bg-color);
+}
+
+.languageOptions {
+	position: absolute;
+	top: 50px;
+	padding: 5px 0;
+	z-index: 99;
+	background: var(--code-bg2);
+	border-radius: 0.5rem;
+	border: 2px solid var(--font3-color);
+	list-style: none;	
+	min-width: 150px;
+	max-width: 300px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: var(--shadow3-color);
+}
+
+.options_list {
+	overflow-y: auto;
+	max-height: 80px;
+}
+
+.languageOptions li {	
+	padding: 5px 10px;
+	color: var(--font2-color);	
+}
+
+.languageOptions li.selected {	
+	font-weight: bold;
+}
+  
+.languageOptions li:hover {
+	background: var(--code-bg);
+}
+
 /*--------------------------------------------------------------
 # Code Highlight
 --------------------------------------------------------------*/
@@ -759,10 +817,10 @@ button.copy {
 	line-height: 2;
 }
 
-.post_list .highlight-gray {
-	background-color: var(--highlight-bg-5);
+.post_list .highlight-gray,
+.post_list .highlight-blue,
+.post_list .highlight-green {
 	border-radius: 0.5rem;
-	color: var(--highlight-font-5);
 	padding: 7px;
 	margin: 0 5px 0 0 !important;
 	font-size: 18px;

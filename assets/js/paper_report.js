@@ -124,13 +124,20 @@ window.onload = function paper_table() {
 
       // 在新視窗開啟對應的連結
       window.open(data[index].PDF_link, '_blank');
+
+      // 發送GA事件
+      gtag('event', 'Download', {
+        'event_category': 'File',
+        'event_label': 'PDF',
+        'value': 1
+      });
     });
   });
 
   // 獲取所有class為ppt的元素
   const pptElements = document.querySelectorAll('.ppt');
 
-  // 透過 forEach() 方法來為每個 'pdf' 元素綁定點擊事件
+  // 透過 forEach() 方法來為每個 'ppt' 元素綁定點擊事件
   pptElements.forEach((pptElement, index) => {    
     // 綁定點擊事件
     pptElement.addEventListener('click', (e) => {
@@ -138,6 +145,13 @@ window.onload = function paper_table() {
 
       // 在新視窗開啟對應的連結
       window.open(data[index].PPT_link, '_blank');
+
+      // 發送GA事件
+      gtag('event', 'Download', {
+        'event_category': 'File',
+        'event_label': 'PPT',
+        'value': 1
+      });
     });
   });
 
