@@ -566,9 +566,10 @@ h2{
   text-align: center;
   padding: 50px 0;
   margin: auto;
+  font-family: "Ping Fang TC", Consolas;
 }
 
-#footer h3 {
+.footer h3 {
   font-size: 36px;
   font-weight: 700;
   position: relative;
@@ -577,14 +578,18 @@ h2{
   margin: 0 0 15px 0;
 }
 
-#footer p {
+.footer p {
   font-size: 15;
   font-style: italic;
   padding: 0;
   margin: 0 0 40px 0;
 }
 
-#footer .copyright {
+.footer span {
+  font-weight: bolder;
+}
+
+.footer .copyright {
   margin: 0 0 5px 0;
 }
 

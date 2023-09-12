@@ -27,20 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
       // 取得代碼的所有行
       const lines = code_element.innerText.split('\n');
 
-      // 如果只有一行代碼，去掉首尾空格即可
-      if (lines.length === 1) {
-        const textToCopy = lines[0].trim();
+      // 多行代碼，去掉行號並且去掉每行的首字符空格
+      const cleanedLines = lines.filter((line, index) => index % 2 === 0).map(line => line.replace(/^\t/, ''));
+      const textToCopy = cleanedLines.join('\n');
 
-        // 複製代碼
-        copyToClipboard(textToCopy, copy_btn);
-      } else {
-        // 多行代碼，去掉行號並且去掉每行的首字符空格
-        const cleanedLines = lines.map(line => line.substring(1)).filter(line => line.trim().length > 0);
-        const textToCopy = cleanedLines.join('\n');
-
-        // 複製代碼
-        copyToClipboard(textToCopy, copy_btn);
-      }
+      // 複製代碼
+      copyToClipboard(textToCopy, copy_btn);
     });
   });
 

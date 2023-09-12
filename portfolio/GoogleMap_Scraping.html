@@ -100,7 +100,7 @@
 										<i class="bi bi-folder-fill"></i>Category
 									</th>
 									<td>
-										<span class="blue">Python</span>
+										<span class="blue">APP</span>
 									</td>
 								</tr>
 								<tr>
@@ -125,6 +125,14 @@
 									</th>
 									<td>
 										<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i class="bi bi-github"></i>Source Code
+									</th>
+									<td>
+										<span class="gray"><a href="https://github.com/Lcwei-0708/Google_Map_Scraping" target="_blank">Source Code<i class='bx bx-link-external'></i></a></span>
 									</td>
 								</tr>
 							</tbody>
@@ -391,60 +399,43 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 												<button class="btn copy"><iconify-icon icon="akar-icons:copy"></iconify-icon></button>
 											</div>
 											<div class="bottom">
-												<pre class="code code-wrap"><code class="language-python">def Get_Review(driver, counts):
-	# 抓取每一則顯示完整評論的Class_Name
-	full_reviews = WebDriverWait(driver,10).until(
-			EC.presence_of_all_elements_located((By.CLASS_NAME, &#x27;w8nwRe&#x27;))
-		)
-
-	# 點開每一則被摺疊的評論
-	for index, full_review in enumerate(full_reviews):
-			full_review.click()
-			Progress_Bar(&#x27;展開全文進度&#x27;, int(index+1), len(full_reviews))
-	print(&#x27;\n&#x27;, end=&#x27;\r&#x27;)
-
-	# 抓取每一則評論的整個Div區塊的Class_Name
-	review_div = WebDriverWait(driver,10).until(
-			EC.presence_of_all_elements_located((By.CLASS_NAME, &#x27;jftiEf&#x27;))
-		)
-	review_data = []
-
-	# 抓取每一則評論資料的Class_Name，並且讀取裡面的文字
-	for index, data in enumerate(review_div):
-		# 抓取每一則評論者的姓名
-		name = data.find_element(By.CLASS_NAME, &#x27;d4r55&#x27;).text
+												<pre class="code code-wrap"><code class="language-python">def Scrolling(driver, total_counts, counts):
+	print('正在爬取評論中...')
+	
+	# 抓取卷軸的Class_Name
+	scrollable_div = driver.find_elements(
+		By.CLASS_NAME, 'm6QErb DxyBCb kA9KIf dS8AEf ')
+	
+	prev_review_count = 0
+	
+	# 根據counts去滑動卷軸
+	for i in range(int(counts)):
+		scrolling = driver.execute_script(
+			'document.getElementsByClassName("dS8AEf")[0].scrollTop = document.getElementsByClassName("dS8AEf")[0].scrollHeight',
+			scrollable_div
+		)        
+		Random_Delay()
 		
-		# 抓取每一則評論內容的Class_Name
-		review = data.find_elements(By.CLASS_NAME, &#x27;MyEned&#x27;)
-		
-		# 判斷該評論是否為空值，是的話就用&#x27;None&#x27;取代
-		if len(review) &gt; 0:
-			review = review[0].find_element(By.CLASS_NAME, &#x27;wiI7pd&#x27;).text
-		else:            
-			review = &#x27;None&#x27;
-		
-		# 抓取每一則評論星數的Class_Name，並且取得aria-label的值
-		score = data.find_element(By.CLASS_NAME, &#x27;kvMYJc&#x27;).get_attribute(&quot;aria-label&quot;)
-		
-		# 將每一則評論資訊存入review_data
-		review_data.append([name , review, score[0]])
-		
-		# 判斷是否已達到指定的評論數量
-		if len(review_data) &gt;= int(counts):
-			Progress_Bar(&#x27;評論爬取進度&#x27;, len(review_data), int(counts))
-			break
-		Progress_Bar(&#x27;評論爬取進度&#x27;, len(review_data), int(counts))
-	print(f&quot;\n已爬取完{len(review_data)}則評論！&quot;)
-	return review_data</code></pre>
+		# 檢查評論數量是否有增加
+		current_review_count = len(driver.find_elements(By.CLASS_NAME, 'jftiEf'))
+		while current_review_count == prev_review_count:
+			# 判斷是否已讀取到最大評論數
+			if current_review_count >= int(total_counts):
+				break
+			else:
+				current_review_count = len(driver.find_elements(By.CLASS_NAME, 'jftiEf'))
+		prev_review_count = current_review_count
+		Progress_Bar('卷軸滾動進度', i+1, int(counts))
+	print('\n', end='\r')</code></pre>
 											</div>
 										</div>
 									</div>
 								</details>
 								<details open="">
-									<summary><h3>抓取評論</h3></summary>																	
+									<summary><h3>將資料匯出成CSV檔</h3></summary>																	
 										<div class="indented">
 											<p>
-												此Function會先將有折疊的評論全部點開，並且再根據輸入的值去讀去對應數量的評論，此Function會讀取每一則評論的評論者、評論內容、評論星數，並且存成一個list進行回傳。
+												此Function會將抓取到的所有評論都匯出成一個CSV檔。
 											</p>
 											<div class="card">
 												<div class="top">
@@ -457,51 +448,11 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 													<button class="btn copy"><iconify-icon icon="akar-icons:copy"></iconify-icon></button>
 												</div>
 												<div class="bottom">
-													<pre class="code code-wrap"><code class="language-python">def Get_Review(driver, counts):
-	# 抓取每一則顯示完整評論的Class_Name
-	full_reviews = WebDriverWait(driver,10).until(
-			EC.presence_of_all_elements_located((By.CLASS_NAME, 'w8nwRe'))
-		)
-
-	# 點開每一則被摺疊的評論
-	for index, full_review in enumerate(full_reviews):
-			full_review.click()
-			Progress_Bar('展開全文進度', int(index+1), len(full_reviews))
-	print('\n', end='\r')
-
-	# 抓取每一則評論的整個Div區塊的Class_Name
-	review_div = WebDriverWait(driver,10).until(
-			EC.presence_of_all_elements_located((By.CLASS_NAME, 'jftiEf'))
-		)
-	review_data = []
-
-	# 抓取每一則評論資料的Class_Name，並且讀取裡面的文字
-	for index, data in enumerate(review_div):
-		# 抓取每一則評論者的姓名
-		name = data.find_element(By.CLASS_NAME, 'd4r55').text
-		
-		# 抓取每一則評論內容的Class_Name
-		review = data.find_elements(By.CLASS_NAME, 'MyEned')
-		
-		# 判斷該評論是否為空值，是的話就用'None'取代
-		if len(review) > 0:
-			review = review[0].find_element(By.CLASS_NAME, 'wiI7pd').text
-		else:            
-			review = 'None'
-		
-		# 抓取每一則評論星數的Class_Name，並且取得aria-label的值
-		score = data.find_element(By.CLASS_NAME, 'kvMYJc').get_attribute("aria-label")
-		
-		# 將每一則評論資訊存入review_data
-		review_data.append([name , review, score[0]])
-		
-		# 判斷是否已達到指定的評論數量
-		if len(review_data) >= int(counts):
-			Progress_Bar('評論爬取進度', len(review_data), int(counts))
-			break
-		Progress_Bar('評論爬取進度', len(review_data), int(counts))
-	print(f"\n已爬取完{len(review_data)}則評論！")
-	return review_data</code></pre>
+													<pre class="code code-wrap"><code class="language-python">def Write_To_CSV(data):
+	cols = ["Name", "Review", 'Score']
+	df = pd.DataFrame(data, columns=cols)
+	df.to_csv(f"{store_info['Name']}.csv", index=False, encoding='utf-8-sig')
+	print('已成功將評論匯出成CSV檔！')</code></pre>
 												</div>
 											</div>
 										</div>
@@ -545,10 +496,10 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 	# 讀取網頁
 	driver.get(&#x27;https://www.google.com/maps&#x27;)
 	return driver</code></pre>
-													</div>
 												</div>
 											</div>
-										</details>
+										</div>
+									</details>
 					<h2>開始抓取評論</h2>
 					<div class="card">
 						<div class="top">
