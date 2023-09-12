@@ -553,10 +553,6 @@ button.copy {
 	margin: 5px;
 }
 
-.hidden {
-	display: none;
-}
-
 .languageSelected {
 	font-size: 20px;
 	font-weight: 600;
@@ -576,6 +572,10 @@ button.copy {
 	background-color: var(--hover-bg-color);
 }
 
+.hidden {
+	display: none;
+}
+
 .languageOptions {
 	position: absolute;
 	top: 50px;
@@ -584,13 +584,20 @@ button.copy {
 	background: var(--code-bg2);
 	border-radius: 0.5rem;
 	border: 2px solid var(--font3-color);
-	list-style: none;	
+	list-style: none;  
 	min-width: 150px;
 	max-width: 300px;
 	overflow: hidden;
 	cursor: pointer;
-	transition: 0.3s;
 	box-shadow: var(--shadow3-color);
+	transition: max-height 0.8s ease; /* 添加過渡效果 */
+	max-height: 0; /* 初始時隱藏 */
+	visibility: hidden;
+}
+
+.languageOptions.active {
+	max-height: 300px; /* 顯示時的高度 */	
+	visibility: visible;
 }
 
 .options_list {
@@ -604,11 +611,12 @@ button.copy {
 }
 
 .languageOptions li.selected {	
-	font-weight: bold;
+	font-weight: bolder;	
+	color: var(--sp-color);
 }
   
 .languageOptions li:hover {
-	background: var(--code-bg);
+	background: var(--bg2-color);
 }
 
 /*--------------------------------------------------------------
@@ -622,6 +630,7 @@ button.copy {
 	font-size: 18px;
 	overflow: auto;
 	tab-size: 4;
+	font-family: "PingFang TC", Consolas;
 }
 
 .hljs::-webkit-scrollbar-track {

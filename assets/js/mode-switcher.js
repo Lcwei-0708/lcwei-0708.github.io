@@ -29,15 +29,13 @@ modeSwitches.forEach((switchElement) => {
     });
 });
 
-document.addEventListener('click', (event) => {
-  
+document.addEventListener('click', (event) => {  
     // 檢查點擊事件的目標是否在 .dropdown 之外
     if (!dropdown.contains(event.target)) {
       // 關閉 .dropdown 的 ul 介面
       dropdown.classList.remove('active');
     }    
-
-  });
+});
 
 // 點擊顯示/隱藏下拉選單
 dropdown.addEventListener('click', () => {
@@ -56,14 +54,10 @@ dropdown.addEventListener('click', () => {
 
         if (dropdown.classList.contains('active')) {
             if (itemMode === currentMode) {
-                item.style.backgroundColor = fontColor;
-                item.style.color = bgColor;
-                itemIcon.style.color = bgColor;            
+                item.classList.add('selected');         
             } 
             else {
-                item.style.backgroundColor = bgColor;
-                item.style.color = fontColor;
-                itemIcon.style.color = fontColor;
+                item.classList.remove('selected'); 
             }
         } 
     });

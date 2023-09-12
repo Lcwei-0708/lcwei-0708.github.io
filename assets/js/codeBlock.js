@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const annotationBlocks = parentBlockContainer.querySelectorAll('p');
 
     // 切換選項的顯示與隱藏
-    languageOptions.classList.toggle('hidden');
+    languageOptions.classList.toggle('active');
 
     // 停止事件冒泡，以防止點擊語言選擇器時觸發文檔點擊事件
     e.stopPropagation();
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.add('selected');
 
       // 隱藏選項
-      languageOptions.classList.add('hidden');
+      languageOptions.classList.remove('active');
 
       // 獲取選擇的語言
       const selectedLanguage = this.getAttribute('language');
@@ -114,11 +114,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // 更新 languageSelected 的值
-      e.target.setAttribute('language', selectedLanguage);
-      e.target.innerHTML = ''; // 清空元素內容
-      e.target.innerHTML = selectedLanguage + '<i class="bi bi-chevron-down"></i>';
+      // 找到父元素 .languageSelector
+      var parentElement = this.parentElement.parentElement;
 
+      // 從 .languageSelector 中找到 .languageSelected
+      var languageSelected = parentElement.querySelector('.languageSelected');
+
+      languageSelected.setAttribute('language', selectedLanguage);
+      languageSelected.innerHTML = selectedLanguage + '<i class="bi bi-chevron-down"></i>';
     }
 
     // 為每個語言選項綁定點擊事件
@@ -129,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('click', (event) => {  
       if (!languageOptions.contains(event.target)) {
-        languageOptions.classList.add('hidden');
+        languageOptions.classList.remove('active');
       }    
     });
   }  

@@ -159,7 +159,7 @@
 											<div class="dot dot-3"></div>
 											<div class="languageSelector">
 												<div class="languageSelected" language="Python">Python<i class="bi bi-chevron-down"></i></div>
-												<ul class="languageOptions hidden">
+												<ul class="languageOptions">
 													<li class="options selected" language="Python">Python</li>
 													<li class="options" language="Java">Java</li>
 												</ul>
@@ -198,7 +198,7 @@ System.out.println(numbers[2]);</code></pre>
 											<div class="dot dot-3"></div>
 											<div class="languageSelector">
 												<div class="languageSelected" language="Python">Python<i class="bi bi-chevron-down"></i></div>
-												<ul class="languageOptions hidden">
+												<ul class="languageOptions">
 													<li class="options selected" language="Python">Python</li>
 													<li class="options" language="Java">Java</li>
 												</ul>
@@ -210,7 +210,7 @@ System.out.println(numbers[2]);</code></pre>
 									<div class="bottom">
 										<pre class="code code-wrap" language="Python"><code class="language-python">numbers = []
 
-# 新增元素到List
+# 新增元素到陣列
 numbers.append(1)
 numbers.append(2)
 numbers.append(3)</code></pre>
@@ -246,7 +246,7 @@ numbers[2] = 3;</code></pre>
 											<div class="dot dot-3"></div>
 											<div class="languageSelector">
 												<div class="languageSelected" language="Python">Python<i class="bi bi-chevron-down"></i></div>
-												<ul class="languageOptions hidden">
+												<ul class="languageOptions">
 													<li class="options selected" language="Python">Python</li>
 													<li class="options" language="Java">Java</li>
 												</ul>
@@ -312,7 +312,7 @@ System.out.println(Arrays.toString(numbers));</code></pre>
 											<div class="dot dot-3"></div>
 											<div class="languageSelector">
 												<div class="languageSelected" language="Python">Python<i class="bi bi-chevron-down"></i></div>
-												<ul class="languageOptions hidden">
+												<ul class="languageOptions">
 													<li class="options selected" language="Python">Python</li>
 													<li class="options" language="Java">Java</li>
 												</ul>
@@ -331,7 +331,22 @@ del numbers[delete_position]
 
 print(numbers)</code></pre>
 										<pre class="code code-wrap hidden" language="Java"><code class="language-java">int[] numbers = {1, 2, 3, 4, 5};
-System.out.println(numbers[2]);</code></pre>
+
+// 刪除第三個元素 (索引從0開始)
+int deletePosition = 2;
+
+// 創建一個新的陣列，長度比原陣列少1
+int[] newNumbers = new int[numbers.length - 1];
+
+// 複製前半部分
+System.arraycopy(numbers, 0, newNumbers, 0, deletePosition);
+
+// 複製後半部分
+System.arraycopy(numbers, deletePosition + 1, newNumbers, deletePosition, numbers.length - deletePosition - 1);
+
+numbers = newNumbers;
+
+System.out.println(Arrays.toString(numbers));</code></pre>
 									</div>
 								</div>
 								<p class="annotation se" language="Python">
@@ -395,7 +410,7 @@ System.out.println(numbers[2]);</code></pre>
 	<script src="../../assets/js/image_zoom.js"></script>
 
 	<!-- Busuanzi -->
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </body>
 
