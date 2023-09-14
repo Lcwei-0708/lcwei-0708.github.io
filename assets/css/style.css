@@ -40,6 +40,7 @@
   --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
   --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
+  --hero-bg-small: url(../img/hero_light-small.png);    /* 首頁圖片-Small */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
   --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
   --code-bg2: #fcfcfc;   /* CodeBlock背景顏色-2 */
@@ -88,6 +89,7 @@ p {
   --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
   --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
+  --hero-bg-small: url(../img/hero_light-small.png);    /* 首頁圖片-Small */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
   --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
   --code-bg2: #fcfcfc;   /* CodeBlock背景顏色-2 */
@@ -127,6 +129,7 @@ p {
   --shadow3-color: 0px 0px 8px rgba(65, 65, 65, 0.332);    /* 陰影顏色-3 */
   --shadow4-color: 0px 0px 10px rgba(62, 62, 62, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */  
+  --hero-bg-small: url(../img/hero_dark-small.png);    /* 首頁圖片-Small */
   --code-line: #858585;   /* CodeBlock背景顏色-1 */
   --code-bg: #27292D;   /* CodeBlock背景顏色-1 */
   --code-bg2: #21252B;   /* CodeBlock背景顏色-2 */
@@ -168,6 +171,7 @@ p {
     --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
     --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
     --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */ 
+    --hero-bg-small: url(../img/hero_light-small.png);    /* 首頁圖片-Small */
     --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
     --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */
     --code-bg2: #fcfcfc;   /* CodeBlock背景顏色-2 */
@@ -209,7 +213,8 @@ p {
     --shadow2-color: 5px 5px 10px #424242f7, -1px -1px 1px #2a2a2a;    /* 陰影顏色-2 */
     --shadow3-color: 0px 0px 8px rgba(65, 65, 65, 0.332);    /* 陰影顏色-3 */
     --shadow4-color: 0px 0px 10px rgba(62, 62, 62, 0.316);    /* 陰影顏色-4 */
-    --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */   
+    --hero-bg: url(../img/hero_dark.png);    /* 首頁圖片 */  
+    --hero-bg-small: url(../img/hero_dark-small.png);    /* 首頁圖片-Small */ 
     --code-line: #858585;   /* CodeBlock背景顏色-1 */
     --code-bg: #27292D;   /* CodeBlock背景顏色-1 */
     --code-bg2: #21252B;   /* CodeBlock背景顏色-2 */

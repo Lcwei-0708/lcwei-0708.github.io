@@ -1,12 +1,39 @@
 /*--------------------------------------------------------------
 # hero
 --------------------------------------------------------------*/
-body {  
-  height: 100vh; /* 設定高度為視窗高度 */
+
+.image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background-image: var(--hero-bg-small);
+  background-size: 70%; /* 調整圖片大小以填滿元素 */
+  background-position: calc(45vw) bottom; /* 往右上偏移 */
+	background-repeat: no-repeat;
+}
+
+.image-container.loaded::before {
+	animation: none;
+	content: none;
+}
+  
+.image-container img {  
+  display: block;
+  width: 100%;
+  height: 100%;
+	opacity: 1;
+	transition: opacity 2ms ease-in-out;
   background-image: var(--hero-bg);
   background-size: 70%; /* 調整圖片大小以填滿元素 */
-  background-repeat: no-repeat; /* 不重複背景圖片 */
   background-position: calc(45vw) bottom; /* 往右上偏移 */
+	background-repeat: no-repeat;
+}
+  
+.image-container.loaded img {
+	opacity: 1;
 }
 
 @media (min-width: 992px) {
@@ -39,6 +66,7 @@ body {
     background-image: none;
   }
 }
+
 #hero {
   width: 100%;
   height: 80vh;

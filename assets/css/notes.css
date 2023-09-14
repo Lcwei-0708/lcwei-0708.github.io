@@ -140,17 +140,39 @@ h2 {
   width: 100%;
 }
 
-.subitem img {
-  width: 100%;
-  object-fit: cover;  
+.image-container {
+  overflow: hidden;
   border-radius: 0.8rem;
   border: 2px solid var(--opacity-bg-2);
-  transition: transform 0.3s ease, filter 0.3s ease;
+	background-repeat: no-repeat;
+ 	background-size: cover;
+  transition: transform 0.3s ease;
 }
 
-.subitem img:hover {
+.image-container.loaded::before {
+	animation: none;
+	content: none;
+}
+  
+.image-container img {
+  width: 100%;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out, filter 0.3s ease;
+}
+  
+.image-container.loaded img {
+	opacity: 1;
+}
+
+.image-container:hover {
   transform: scale(1.05);
+}
+
+.image-container:hover img {  
   filter: brightness(1.05); /* 增加亮度 */
+}
+
+.image-container:hover {  
   box-shadow: var(--shadow3-color);
 }
 

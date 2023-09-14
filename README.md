@@ -1,2 +1,2 @@
-# Cheng-Wei's Blog
+# my_blog
 嗨！這是我的個人網站。

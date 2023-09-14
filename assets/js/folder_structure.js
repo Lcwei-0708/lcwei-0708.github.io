@@ -10,91 +10,104 @@ $(document).ready(function() {
             "date": "2023-07-03",
             "link": "./notes/machine_learning/Introduction.html",
             "references": "./notes/machine_learning/Introduction/references.html",
-            "image": "./notes/machine_learning/Introduction/Introduction.png"
+            "image": "./notes/machine_learning/Introduction/Introduction.png",
+            "small_image": "./notes/machine_learning/Introduction/Introduction-small.png"
           },
           {
             "name": "Decision Tree",
             "date": "2023-07-03",
             "link": "./notes/machine_learning/Decision_Tree.html",
             "references": "./notes/machine_learning/Decision_Tree/references.html",
-            "image": "./notes/machine_learning/Decision_Tree/Decision_Tree.png"
+            "image": "./notes/machine_learning/Decision_Tree/Decision_Tree.png",
+            "small_image": "./notes/machine_learning/Decision_Tree/Decision_Tree-small.png"
           },
           {
             "name": "Random Forest",
             "date": "2023-07-04",
             "link": "./notes/machine_learning/Random_Forest.html",
             "references": "./notes/machine_learning/Random_Forest/references.html",
-            "image": "./notes/machine_learning/Random_Forest/Random_Forest.png"
+            "image": "./notes/machine_learning/Random_Forest/Random_Forest.png",
+            "small_image": "./notes/machine_learning/Random_Forest/Random_Forest-small.png"
           },
           {
             "name": "Naive Bayes",        
             "date": "2023-07-04",
             "link": "./notes/machine_learning/Naive_Bayes.html",
             "references": "./notes/machine_learning/Naive_Bayes/references.html",
-            "image": "./notes/machine_learning/Naive_Bayes/Naive_Bayes.png"
+            "image": "./notes/machine_learning/Naive_Bayes/Naive_Bayes.png",
+            "small_image": "./notes/machine_learning/Naive_Bayes/Naive_Bayes-small.png"
           },
           {
             "name": "KNN",         
             "date": "2023-07-05",
             "link": "./notes/machine_learning/KNN.html",
             "references": "./notes/machine_learning/KNN/references.html",
-            "image": "./notes/machine_learning/KNN/KNN.png"
+            "image": "./notes/machine_learning/KNN/KNN.png",
+            "small_image": "./notes/machine_learning/KNN/KNN-small.png"
           },
           {
             "name": "SVM",         
             "date": "2023-07-06",
             "link": "./notes/machine_learning/SVM.html",
             "references": "./notes/machine_learning/SVM/references.html",
-            "image": "./notes/machine_learning/SVM/SVM.png"
+            "image": "./notes/machine_learning/SVM/SVM.png",
+            "small_image": "./notes/machine_learning/SVM/SVM-small.png"
           },
           {
             "name": "Linear Regression",     
             "date": "2023-07-07",
             "link": "./notes/machine_learning/Linear_Regression.html",
             "references": "./notes/machine_learning/Linear_Regression/references.html",
-            "image": "./notes/machine_learning/Linear_Regression/Linear_Regression.png"
+            "image": "./notes/machine_learning/Linear_Regression/Linear_Regression.png",
+            "small_image": "./notes/machine_learning/Linear_Regression/Linear_Regression-small.png"
           },
           {
             "name": "Logistic Regression",        
             "date": "2023-07-07",
             "link": "./notes/machine_learning/Logistic_Regression.html",
             "references": "./notes/machine_learning/Logistic_Regression/references.html",
-            "image": "./notes/machine_learning/Logistic_Regression/Logistic_Regression.png"
+            "image": "./notes/machine_learning/Logistic_Regression/Logistic_Regression.png",
+            "small_image": "./notes/machine_learning/Logistic_Regression/Logistic_Regression-small.png"
           },
           {
             "name": "Ensemble Learning",          
             "date": "2023-07-09",
             "link": "./notes/machine_learning/Ensemble_Learning.html",
             "references": "./notes/machine_learning/Ensemble_Learning/references.html",
-            "image": "./notes/machine_learning/Ensemble_Learning/Ensemble_Learning.png"
+            "image": "./notes/machine_learning/Ensemble_Learning/Ensemble_Learning.png",
+            "small_image": "./notes/machine_learning/Ensemble_Learning/Ensemble_Learning-small.png"
           },
           {
             "name": "Data Balance",            
             "date": "2023-07-10",
             "link": "./notes/machine_learning/Data_Balance.html",
             "references": "./notes/machine_learning/Data_Balance/references.html",
-            "image": "./notes/machine_learning/Data_Balance/Data_Balance.png"
+            "image": "./notes/machine_learning/Data_Balance/Data_Balance.png",
+            "small_image": "./notes/machine_learning/Data_Balance/Data_Balance-small.png"
           },
           {
             "name": "Data Augmentation",            
             "date": "2023-07-11",
             "link": "./notes/machine_learning/Data_Augmentation.html",
             "references": "./notes/machine_learning/Data_Augmentation/references.html",
-            "image": "./notes/machine_learning/Data_Augmentation/Data_Augmentation.png"
+            "image": "./notes/machine_learning/Data_Augmentation/Data_Augmentation.png",
+            "small_image": "./notes/machine_learning/Data_Augmentation/Data_Augmentation-small.png"
           },
           {
             "name": "Evaluation Metric",            
             "date": "2023-07-14",
             "link": "./notes/machine_learning/Evaluation_Metric.html",
             "references": "./notes/machine_learning/Evaluation_Metric/references.html",
-            "image": "./notes/machine_learning/Evaluation_Metric/Evaluation_Metric.png"
+            "image": "./notes/machine_learning/Evaluation_Metric/Evaluation_Metric.png",
+            "small_image": "./notes/machine_learning/Evaluation_Metric/Evaluation_Metric-small.png"
           },
           {
             "name": "InterpretableML",            
             "date": "2023-07-17",
             "link": "./notes/machine_learning/Interpretable_ML.html",
             "references": "./notes/machine_learning/Interpretable_ML/references.html",
-            "image": "./notes/machine_learning/Interpretable_ML/Interpretable_ML.png"
+            "image": "./notes/machine_learning/Interpretable_ML/Interpretable_ML.png",
+            "small_image": "./notes/machine_learning/Interpretable_ML/Interpretable_ML-small.png"
           }
         ]
       },
@@ -107,14 +120,16 @@ $(document).ready(function() {
             "date": "2023-06-25",
             "link": "./notes/python/Anaconda_Virtual_Environment.html",
             "references": "./notes/python/Anaconda_Virtual_Environment/references.html",
-            "image": "./notes/python/Anaconda_Virtual_Environment/Anaconda_Virtual_Environment.png"
+            "image": "./notes/python/Anaconda_Virtual_Environment/Anaconda_Virtual_Environment.png",
+            "small_image": "./notes/python/Anaconda_Virtual_Environment/Anaconda_Virtual_Environment-small.png"
           },
           {
             "name": "Selenium",            
             "date": "2023-06-27",
             "link": "./notes/python/Selenium.html",
             "references": "./notes/python/Selenium/references.html",
-            "image": "./notes/python/Selenium/Selenium.png"
+            "image": "./notes/python/Selenium/Selenium.png",
+            "small_image": "./notes/python/Selenium/Selenium-small.png"
           }
         ]
       },
@@ -127,21 +142,24 @@ $(document).ready(function() {
             "date": "2023-06-14",
             "link": "./notes/git/Introduction.html",
             "references": "./notes/git/Introduction/references.html",
-            "image": "./notes/git/Introduction/Introduction.png"
+            "image": "./notes/git/Introduction/Introduction.png",
+            "small_image": "./notes/git/Introduction/Introduction-small.png"
           },
           {
             "name": "Installation",            
             "date": "2023-06-15",
             "link": "./notes/git/Installation.html",
             "references": "./notes/git/Installation/references.html",
-            "image": "./notes/git/Installation/Installation.png"
+            "image": "./notes/git/Installation/Installation.png",
+            "small_image": "./notes/git/Installation/Installation-small.png"
           },
           {
             "name": "Command",
             "date": "2023-06-16",
             "link": "./notes/git/Command.html",
             "references": "./notes/git/Command/references.html",
-            "image": "./notes/git/Command/Command.png"
+            "image": "./notes/git/Command/Command.png",
+            "small_image": "./notes/git/Command/Command-small.png"
           }
         ]
       },
@@ -154,56 +172,65 @@ $(document).ready(function() {
             "date": "2023-09-09",
             "link": "./notes/data_structure/Complexity.html",
             "references": "./notes/data_structure/Complexity/references.html",
-            "image": "./notes/data_structure/Complexity/Complexity.png"
+            "image": "./notes/data_structure/Complexity/Complexity.png",
+            "small_image": "./notes/data_structure/Complexity/Complexity-small.png"
           },
           {
             "name": "Array",            
             "date": "2023-09-10",
             "link": "./notes/data_structure/Array.html",
             "references": "./notes/data_structure/Array/references.html",
-            "image": "./notes/data_structure/Array/Array.png"
+            "image": "./notes/data_structure/Array/Array.png",
+            "small_image": "./notes/data_structure/Array/Array-small.png"
           },
           {
             "name": "Linked List",            
             "date": "2023-09-11",
             "link": "./notes/data_structure/Linked_List.html",
             "references": "./notes/data_structure/Linked_List/references.html",
-            "image": "./notes/data_structure/Linked_List/Linked_List.png"
+            "image": "./notes/data_structure/Linked_List/Linked_List.png",
+            "small_image": "./notes/data_structure/Linked_List/Linked_List-small.png"
           },
           {
             "name": "Stack",            
             "date": "2023-09-12",
             "link": "./notes/data_structure/Stack.html",
             "references": "./notes/data_structure/Stack/references.html",
-            "image": "./notes/data_structure/Stack/Stack.png"
+            "image": "./notes/data_structure/Stack/Stack.png",
+            "small_image": "./notes/data_structure/Stack/Stack-small.png"
           },
           {
             "name": "Queue",            
             "date": "2023-09-13",
             "link": "./notes/data_structure/Queue.html",
             "references": "./notes/data_structure/Queue/references.html",
-            "image": "./notes/data_structure/Queue/Queue.png"
+            "image": "./notes/data_structure/Queue/Queue.png",
+            "small_image": "./notes/data_structure/Queue/Queue-small.png"
           },
           {
             "name": "Set",            
             "date": "2023-09-14",
             "link": "./notes/data_structure/Set.html",
             "references": "./notes/data_structure/Set/references.html",
-            "image": "./notes/data_structure/Set/Set.png"
+            "image": "./notes/data_structure/Set/Set.png",
+            "small_image": "./notes/data_structure/Set/Set-small.png"
           },
           {
             "name": "Map",            
             "date": "2023-09-15",
             "link": "./notes/data_structure/Map.html",
             "references": "./notes/data_structure/Map/references.html",
-            "image": "./notes/data_structure/Map/Map.png"
+            "image": "./notes/data_structure/Map/Map.png",
+            "small_image": "./notes/data_structure/Map/Map-small.png"
+
           },
           {
             "name": "Tree",            
             "date": "2023-09-16",
             "link": "./notes/data_structure/Tree.html",
             "references": "./notes/data_structure/Tree/references.html",
-            "image": "./notes/data_structure/Tree/Tree.png"
+            "image": "./notes/data_structure/Tree/Tree.png",            
+            "small_image": "./notes/data_structure/Tree/Tree-small.png"
           }
         ]
       }
@@ -217,7 +244,9 @@ $(document).ready(function() {
       subitemHTML += `
         <div class="subitem">
           <a href="${subitem.link}" target="_blank">
-            <img src="${subitem.image}" alt="${subitem.name}">
+            <div class="image-container" style="background-image: url('${subitem.small_image}')">
+              <img src="${subitem.image}" alt="${subitem.name}">
+            </div>
           </a>
         </div>
       `;
@@ -431,4 +460,20 @@ $(document).ready(function() {
     tb_header.style.marginLeft = '0px';
     tb_header.style.marginRight = '0px';
   }
+
+  const imgContainers = document.querySelectorAll(".image-container");
+
+  imgContainers.forEach(imgContainer => {
+    const img = imgContainer.querySelector("img");
+
+    function loaded() {
+      imgContainer.classList.add("loaded");
+    }
+
+    if (img.complete) {
+      loaded();
+    } else {
+      img.addEventListener("load", loaded);
+    }
+  });
 });

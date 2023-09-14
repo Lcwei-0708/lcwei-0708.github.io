@@ -373,6 +373,26 @@ img.page-cover-image {
 	border: 1px solid var(--opacity-bg-1);
 }
 
+.image-container {
+	background-repeat: no-repeat;
+ 	background-size: cover;
+	transition: background-image 0.3s ease-in-out;
+}
+
+.image-container.loaded::before {
+	animation: none;
+	content: none;
+}
+  
+.image-container img {
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+  
+.image-container.loaded img {
+	opacity: 1;
+}
+
 /*--------------------------------------------------------------
 # Details
 --------------------------------------------------------------*/
@@ -617,6 +637,57 @@ button.copy {
   
 .languageOptions li:hover {
 	background: var(--bg2-color);
+}
+
+.pageOptions {	
+	display: flex;
+	align-items: center;
+	list-style: none;
+	user-select: none;
+	color: var(--font-color);
+	margin: 0 20px;
+	padding: 20px 0 0 0;
+}
+
+.pageOptions li {
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	padding: 5px 20px;	
+	height: 2rem;
+	font-size: 18px;
+}
+
+.pageOptions li.selected {
+	background-color: var(--code-bg2);
+}
+
+.pageOptions li:hover:not(.selected) {
+	background-color: var(--hover-bg-color);
+}
+
+.pageOptions li.selected {
+    position: relative;
+	background-color: var(--code-bg2);
+    border-radius: 0.5rem 0.5rem 0 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        left: -25px;
+        bottom: 0;
+        background:radial-gradient(circle at 0 0, transparent 25px, var(--code-bg2) 21px);
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -25px;
+        bottom: 0;
+        background:radial-gradient(circle at 100% 0, transparent 25px, var(--code-bg2) 21px);
+    }
 }
 
 /*--------------------------------------------------------------
