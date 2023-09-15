@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function loaded() {
       imgContainer.classList.add("loaded");
-      setTimeout(function() {
-        imgContainer.style.backgroundImage = 'none';
-      }, 300);
     }
 
     if (img.complete) {

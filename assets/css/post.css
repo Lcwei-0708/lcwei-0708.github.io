@@ -374,9 +374,10 @@ img.page-cover-image {
 }
 
 .image-container {
+	border-radius: 1rem;
 	background-repeat: no-repeat;
  	background-size: cover;
-	transition: background-image 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 .image-container.loaded::before {
@@ -386,7 +387,7 @@ img.page-cover-image {
   
 .image-container img {
 	opacity: 0;
-	transition: opacity 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
   
 .image-container.loaded img {

@@ -40,6 +40,7 @@
   --shadow3-color: 0px 0px 5px rgba(40, 40, 40, 0.316);    /* 陰影顏色-3 */
   --shadow4-color: 0px 0px 3px rgba(68, 68, 68, 0.316);    /* 陰影顏色-4 */
   --hero-bg: url(../img/hero_light.png);    /* 首頁圖片 */
+  --hero-bg-load: url(./assets/img/hero_light.png);    /* 首頁圖片 */
   --hero-bg-small: url(../img/hero_light-small.png);    /* 首頁圖片-Small */
   --code-line: rgb(97, 97, 97);   /* CodeBlock背景顏色-1 */
   --code-bg: #ebebeb;   /* CodeBlock背景顏色-1 */

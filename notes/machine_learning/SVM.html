@@ -132,8 +132,8 @@
 					<p>
 						SVM的全名是支持向量機（Support Vector Machine），是一個監督式學習的演算法，透過統計的方式來找出一個超平面（Hyperplane），將資料中不同的類別分開，超平面旁邊會有兩條間隔超平面（虛線），目標讓這兩條間隔超平面與超平面的<span class="mark">間隔（Margin）最大化</span>，其中在間隔超平面裡面的就是可容許的誤差，而這些誤差就稱為支持向量（Support Vector）。
 					</p>
-					<div class="image-container">
-						<img src="./SVM/SVM Sample.png" class="medium image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./SVM/SVM Sample-small.png');">
+						<img src="./SVM/SVM Sample.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<p>
 						在使用SVM時，通常會有兩種情況，最理想的情況就是做到完美分類沒有任何誤差，也就是間隔中沒有任何樣本，這種情況就叫做Hard-Margin，但現實情況下，大部分的資料集都不太可能做到完美分類，所以我們會容許一些誤差值，讓間隔中存在一些樣本，這種情況就稱為Soft-Margin。
@@ -142,15 +142,15 @@
 						<li><span class="highlight-gray">Hard-Margin</span>：完全沒有誤差值，間隔中沒有任何樣本。</li>
 						<li><span class="highlight-gray">Soft-Margin</span>：容許一些誤差值，讓間隔中存在一些樣本。</li>
 					</ul>
-					<div class="image-container">
-						<img src="./SVM/Hard、Soft Margin.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./SVM/Hard、Soft Margin-small.png');">
+						<img src="./SVM/Hard、Soft Margin.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<h2>核函數</h2>
 					<p>
 						核函數（Kernel Function）是SVM中的一個重要概念，很多時候我們的資料沒辦法用一條線來分割出兩個類別，這時後就會使用核函數（Kernel Function）將低維度的資料映射到高維度的空間，讓我們能夠更好地分離不同類別的資料。
 					</p>
-					<div class="image-container">
-						<img src="./SVM/Kernel.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./SVM/Kernel-small.png');">
+						<img src="./SVM/Kernel.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<h2>Cost</h2>
 					<p class="margin">
@@ -217,6 +217,7 @@
 	<script src="../../assets/js/codeBlock.js"></script>
 	<script src="../../assets/js/TOC.js"></script>
 	<script src="../../assets/js/image_zoom.js"></script>
+	<script src="../../assets/js/blur_load.js"></script>
 	
 	<!-- Busuanzi -->
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

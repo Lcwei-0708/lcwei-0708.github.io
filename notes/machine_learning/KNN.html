@@ -135,8 +135,8 @@
 					<P>
 						KNN的全名是K Nearest Neighbor，是一個監督式學習的演算法，KNN是以投票的方式來進行分類的，首先計算樣本與每個鄰居的距離，再找出與自己最近的K個鄰居，並且依照投票的方式，看哪個類別的鄰居數量比較高就歸類為哪一個類別。
 					</P>
-					<div class="image-container">
-						<img src="./KNN/KNN Sample.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./KNN/KNN Sample-small.png');">
+						<img src="./KNN/KNN Sample.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<h2>計算距離的方法</h2>
 					<details open="">
@@ -147,8 +147,8 @@
 							<p>
 								歐基里德距離（Euclidean Distance）是計算兩個樣本之間的直線距離，是最常使用的距離計算方式。
 							</p>
-							<div class="image-container">
-								<img src="./KNN/Euclidean Distance.png" class="medium image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./KNN/Euclidean Distance-small.png');">
+								<img src="./KNN/Euclidean Distance.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<div class="margin medium math-container" data-latex="D = \sqrt { \sum_{i=1}^n { \left( X_{i} - Y_{i} \right) }^{2}}">
 								\[D = \sqrt { \sum_{i=1}^n { \left( X_{i} - Y_{i} \right) }^{2}} \]
@@ -163,8 +163,8 @@
 							<p>
 								曼哈頓距離（Manhattan Distance）是將所有特徵的個別距離加總在一起。
 							</p>
-							<div class="image-container">
-								<img src="./KNN/Manhattan Distance.png" class="medium image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./KNN/Manhattan Distance-small.png');">
+								<img src="./KNN/Manhattan Distance.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<div class="margin medium math-container" data-latex="D = \sum_{i=1}^n |X_{i} - Y_{i}|">
 								\[D=\sum_{i=1}^n|X_{i}-Y_{i}|\]
@@ -179,8 +179,8 @@
 							<p>
 								明氏距離（Minkowski Distance）是結合歐基里德距離與曼哈頓距離，當<span class="math_inline">p=1</span>時就是曼哈頓距離，而當<span class="math_inline">p=2</span>時則為歐基里德距離，<span class="math_inline">p</span>可以是任意常數。
 							</p>
-							<div class="image-container">
-								<img src="./KNN/Minkowski Distance.png" class="medium image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./KNN/Minkowski Distance-small.png');">
+								<img src="./KNN/Minkowski Distance.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<div class="margin medium math-container" data-latex="D = \left( \sum_{i=1}^n |X_{i} - Y_{i}|^p \right)^\frac{1}{p}">
 								\[D=\left(\sum_{i=1}^n|X_{i}-Y_{i}|^p\right)^\frac{1}{p}\]
@@ -195,8 +195,8 @@
 							<p>
 								餘弦相似性（Cosine Similarity）是根據兩個樣本之間的角度來計算距離，當兩個樣本之間的角度越小，代表樣本越相似距離越近。
 							</p>
-							<div class="image-container">
-								<img src="./KNN/Cosine Similarity.png" class="medium image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./KNN/Cosine Similarity-small.png');">
+								<img src="./KNN/Cosine Similarity.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<div class="margin medium math-container" data-latex="D = cos \theta = \frac{ X \bullet Y}{ \parallel X \parallel \times \parallel Y \parallel }">
 								\[D=cos\theta=\frac{X \bullet Y}{\parallel X \parallel \times  \parallel Y \parallel} \]
@@ -211,8 +211,8 @@
 							<p>
 								漢明距離（Hamming Distance）是計算兩個相同長度的序列在相同位置上，有多少個數值不同，以二進位序列來說就是相異位元的數量。
 							</p>
-							<div class="image-container">
-								<img src="./KNN/Hamming Distance.png" class="medium image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./KNN/Hamming Distance-small.png');">
+								<img src="./KNN/Hamming Distance.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>		
 						</div>
 					</details>
@@ -291,6 +291,7 @@
 	<script src="../../assets/js/TOC.js"></script>
 	<script src="../../assets/js/image_zoom.js"></script>
 	<script src="../../assets/js/math.js"></script>
+	<script src="../../assets/js/blur_load.js"></script>
 	
 	<!-- Busuanzi -->
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

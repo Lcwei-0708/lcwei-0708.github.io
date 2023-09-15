@@ -132,8 +132,8 @@
 					<p>
 						在使用Python進行開發時，很常會因為每個專案所需的Python版本或是套件版本不同，導致在同一個環境下造成衝突，又或是每個專案所使用到的套件不同，但是如果將所有專案的套件都放在同一個環境下，很容易造成管理不便或是匯出專案時過於肥大，因此Anaconda提供建置虛擬環境來進行開發的功能，可以依據每個專案的需求，來各自安裝需要的Python版本與套件。
 					</p>
-					<div class="image-container">
-						<img src="./Anaconda_Virtual_Environment/版本衝突.png" class="margin image-zoom" alt="查無此圖片" />
+					<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/版本衝突-small.png');">
+						<img src="./Anaconda_Virtual_Environment/版本衝突.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<h2>管理虛擬環境的相關操作</h2>
 					<details open="">
@@ -160,14 +160,14 @@
 							<p class="annotation">
 								conda create -n &lt;環境名稱&gt; python=&lt;Python版本&gt;
 							</p>
-							<div class="image-container">
-								<img src="./Anaconda_Virtual_Environment/同意安裝.png" class="annotation image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/同意安裝-small.png');">
+								<img src="./Anaconda_Virtual_Environment/同意安裝.png" class="annotation image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<p class="annotation">
 								輸入完指令後會詢問是否同意安裝以下這些新套件，回答：y
 							</p>
-							<div class="image-container">
-								<img src="./Anaconda_Virtual_Environment/安裝完成.png" class="annotation image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/安裝完成-small.png');">
+								<img src="./Anaconda_Virtual_Environment/安裝完成.png" class="annotation image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<p class="annotation">
 								到這邊就表示已經建置好新的虛擬環境了
@@ -195,8 +195,8 @@
 										class="code code-wrap"><code class="language-shell">conda env list</code></pre>
 								</div>
 							</div>
-							<div class="image-container">
-								<img src="./Anaconda_Virtual_Environment/虛擬環境列表.png" class="annotation image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/虛擬環境列表-small.png');">
+								<img src="./Anaconda_Virtual_Environment/虛擬環境列表.png" class="annotation image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<p class="annotation">
 								所有虛擬環境列表，星號代表目前所屬環境
@@ -227,8 +227,8 @@
 							<p class="annotation">
 								conda activate &lt;環境名稱&gt;
 							</p>
-							<div class="image-container">
-								<img src="./Anaconda_Virtual_Environment/切換虛擬環境.png" class="annotation image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/切換虛擬環境-small.png');">
+								<img src="./Anaconda_Virtual_Environment/切換虛擬環境.png" class="annotation image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<p class="annotation">
 								從原本的base環境切換到myenv環境
@@ -256,8 +256,8 @@
 										class="code code-wrap"><code class="language-shell">conda deactivate</code></pre>
 								</div>
 							</div>
-							<div class="image-container">
-								<img src="./Anaconda_Virtual_Environment/離開虛擬環境.png" class="annotation image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/離開虛擬環境-small.png');">
+								<img src="./Anaconda_Virtual_Environment/離開虛擬環境.png" class="annotation image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<p class="annotation">
 								從myenv環境回到base環境中
@@ -288,8 +288,8 @@
 							<p class="annotation">
 								conda env remove -n &lt;環境名稱&gt;
 							</p>
-							<div class="image-container">
-								<img src="./Anaconda_Virtual_Environment/刪除虛擬環境.png" class="annotation image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Anaconda_Virtual_Environment/刪除虛擬環境-small.png');">
+								<img src="./Anaconda_Virtual_Environment/刪除虛擬環境.png" class="annotation image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<p class="annotation">
 								虛擬環境已刪除
@@ -562,6 +562,7 @@
 	<script src="../../assets/js/codeBlock.js"></script>
 	<script src="../../assets/js/TOC.js"></script>
 	<script src="../../assets/js/image_zoom.js"></script>
+	<script src="../../assets/js/blur_load.js"></script>
 	
 	<!-- Busuanzi -->
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

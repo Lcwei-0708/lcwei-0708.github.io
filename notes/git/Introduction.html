@@ -136,8 +136,8 @@
 					<p>
 						版本控制其實就是去紀錄一個檔案所修改的部分，以後想要去追蹤每個版本修改了什麼，或是當新版本有問題時，都可以快速的調閱紀錄以及回到某一個版本。
 					</p>
-					<div class="image-container">
-						<img src="./Introduction/版本控制.png" class="image-zoom" alt="查無此圖片" />
+					<div class="image-container" style="background-image: url('./Introduction/版本控制-small.png');">
+						<img src="./Introduction/版本控制.png" class="image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<h2>系統的種類</h2>
 					<details open="">
@@ -148,8 +148,8 @@
 							<p>
 								以一台伺服器為中心，所有的更新與操作都需要透過這個伺服器，也就是這個伺服器擁有絕對的控制權以及決策權，萬一這台伺服器故障了，或是沒有網路連線的環境，版本控制功能就沒辦法使用。
 							</p>
-							<div class="image-container">
-								<img src="./Introduction/中央式系統.png" class="margin image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Introduction/中央式系統-small.png');">
+								<img src="./Introduction/中央式系統.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>							
 						</div>
 					</details>
@@ -161,8 +161,8 @@
 							<p>
 								每台電腦都可以是一個節點，而每個節點都具有一定的控制權和決策權，可以獨立地進行操作和決策，即使伺服器故障或是沒有網路的環境下，還是可以用自己的電腦進行版本控制，之後等伺服器恢復正常運作或是在有網路的環境後再進行同步就好。
 							</p>
-							<div class="image-container">
-								<img src="./Introduction/分散式系統.png" class="margin image-zoom" alt="查無此圖片" />
+							<div class="image-container" style="background-image: url('./Introduction/分散式系統-small.png');">
+								<img src="./Introduction/分散式系統.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>							
 						</div>
 					</details>
@@ -170,16 +170,16 @@
 					<p>
 						Git和GitHub是兩個相關但不同的概念，開發者可以使用Git在本地進行版本控制，然後將其推送到GitHub上的遠端儲存庫，從而實現代碼的共享、協同工作和社區參與。
 					</p>	
-					<div class="image-container">
-						<img src="./Introduction/git不等於github.png" class="medium image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Introduction/git不等於github-small.png');">
+						<img src="./Introduction/git不等於github.png" class="medium image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<ul class="margin post_list">				
 						<li><span class="highlight-gray">Git</span>：一套免費、開源分散式的版本控制系統，用於管理和追蹤代碼的變更。</li>
 						<li><span class="highlight-gray">GitHub</span>：一個基於Git的原始碼代管服務平台，提供了一個中央化的雲端儲存庫和協作工具。</li>
 					</ul>
 					<h2>Git的工作流程</h2>
-					<div class="image-container">
-						<img src="./Introduction/git工作流程.png" class="image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Introduction/git工作流程-small.png');">
+						<img src="./Introduction/git工作流程.png" class="image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<ul class="margin post_list">
 						<li><span class="highlight-gray">檔案（File）</span>：檔案就是在本地電腦上創建或修改的專案文件，這些檔案可以是程式碼、設定文件、圖片…等。</li>
@@ -191,8 +191,8 @@
 					<p>
 						分支（Branch）是指在數據庫中獨立開發和管理代碼的獨立指向，讓開發人員在同一個數據庫中同時進行不同的工作，並且可以將這些工作的進度和更改獨立保存。
 					</p>
-					<div class="image-container">
-						<img src="./Introduction/git分支.png" class="image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Introduction/git分支-small.png');">
+						<img src="./Introduction/git分支.png" class="image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<p class="margin">
 						使用分支有助於有效管理代碼庫，避免不同功能、修復或實驗性的更改相互衝突，開發人員可以根據需要創建和切換分支，使工作更有組織性和可追蹤性，分支也提供了一種實驗和測試新功能的方式，而不會影響主分支的穩定性。
@@ -303,8 +303,8 @@
 					<p>
 						合併衝突（Merge Conflict）是在合併過程中發生的一種情況，當兩個分支的同一個檔案的同一個位置有不同的修改時，Git無法自動決定應該保留哪個版本的更改，因此產生衝突，當Git檢測到合併衝突時會在衝突檔案中標記衝突的位置。
 					</p>
-					<div class="image-container">
-						<img src="./Introduction/合併衝突.png" class="image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Introduction/合併衝突-small.png');">
+						<img src="./Introduction/合併衝突.png" class="image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<ol class="margin post_list">
 						<div class="little_title">
@@ -360,6 +360,7 @@
 	<script src="../../assets/js/codeBlock.js"></script>
 	<script src="../../assets/js/TOC.js"></script>
 	<script src="../../assets/js/image_zoom.js"></script>
+	<script src="../../assets/js/blur_load.js"></script>
 	
 	<!-- Busuanzi -->
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

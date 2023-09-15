@@ -132,8 +132,8 @@
 					<p>
 						資料平衡（Data Balance）是指在機器學習和資料分析中，處理類別不平衡的問題，類別不平衡是指在資料集（Dataset）中，不同類別之間的<span class="mark">樣本數量比例差距過大</span>或者在多類別資料中<span class="mark">具有類別分布不平均</span>的情況，這種不平衡可能會對模型的性能和預測能力產生負面影響，導致模型對少數類別的預測能力下降。
 					</p>
-					<div class="image-container">
-						<img src="./Data_Balance/data imbalance.png" class="image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Data_Balance/data imbalance-small.png');">
+						<img src="./Data_Balance/data imbalance.png" class="image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>	
 					<ul class="margin post_list">
 						<div class="little_title">
@@ -157,8 +157,8 @@
 					<p>
 						過採樣（Over-Sampling）是通過<span class="mark">增加少數類別的樣本數量</span>，使其與多數類別的樣本數量相當，常見的過採樣方法包括隨機過採樣、SMOTE、ADASYN…等。
 					</p>
-					<div class="image-container">
-						<img src="./Data_Balance/Over-sampling.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Data_Balance/Over-sampling-small.png');">
+						<img src="./Data_Balance/Over-sampling.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<details open="">
 						<summary>
@@ -168,8 +168,8 @@
 							<p>
 								隨機過採樣（Random Over-sampling）是一種簡單直接的過採樣方法，它通過複製少數類別的樣本來增加其數量，使得少數類別與多數類別的樣本數量相當。
 							</p>
-							<div class="image-container">
-								<img src="./Data_Balance/Random Over-sampler.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/Random\ Over-sampler-small.png');">
+								<img src="./Data_Balance/Random Over-sampler.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="margin close post_list">
 								<div class="little_title">
@@ -195,8 +195,8 @@
 							<p>
 								SMOTE（Synthetic Minority Over-sampling Technique）是一種基於從少數類別樣本中隨機找到K個相鄰的同類別樣本，並且在兩個樣本之間隨機生成新的樣本的過採樣方法。
 							</p>
-							<div class="image-container">
-								<img src="./Data_Balance/SMOTE.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/SMOTE-small.png');">
+								<img src="./Data_Balance/SMOTE.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="margin close post_list">
 								<div class="little_title">
@@ -227,8 +227,8 @@
 								<li><span class="highlight-gray">Danger</span>：樣本週圍一半以上都是多數類別樣本</li>
 								<li><span class="highlight-gray">Safe</span>：樣本週圍有一半以上都是少數類別樣本</li>
 							</ul>
-							<div class="image-container">
-								<img src="./Data_Balance/Boderline SMOTE.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/Boderline SMOTE-small.png');">
+								<img src="./Data_Balance/Boderline SMOTE.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="margin post_list">
 								<div class="little_title">
@@ -260,8 +260,8 @@
 							<p>
 								SVM SMOTE是一種基於支持向量機（Support Vector Machine）與SMOTE的過採樣方法，它先使用SVM分類器來辨識出邊界附近的樣本，然後再使用SMOTE的方式，在支持向量（Support Vector）之間隨機生成新的樣本。
 							</p>
-							<div class="image-container">
-								<img src="./Data_Balance/SVM SMOTE.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/SVM\ SMOTE-small.png');">
+								<img src="./Data_Balance/SVM SMOTE.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="margin close post_list">
 								<div class="little_title">
@@ -287,8 +287,8 @@
 							<p>
 								ADASYN（Adaptive Synthetic Sampling）是一種自適應過採樣方法，它會根據每個少數類別樣本附近的多數類別樣本數量去計算權重，再根據權重的大小去生成新的樣本，權重越大的樣本通常會有更高的機率生成新的樣本。
 							</p>
-							<div class="image-container">
-								<img src="./Data_Balance/ADASYN.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/ADASYN-small.png');">
+								<img src="./Data_Balance/ADASYN.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="margin close post_list">
 								<div class="little_title">
@@ -310,8 +310,8 @@
 					<p>
 						欠採樣（Under-Sampling）是通過<span class="mark">減少多數類別的樣本數量</span>，使其與少數類別的樣本數量相當，常見的欠採樣方法包括隨機欠採樣、Cluster Centroids和Near Miss…等。
 					</p>
-					<div class="image-container">
-						<img src="./Data_Balance/Under-sampling.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Data_Balance/Under-sampling-small.png');">
+						<img src="./Data_Balance/Under-sampling.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<details open="">
 						<summary>
@@ -321,8 +321,8 @@
 							<p>
 								隨機欠採樣（Random Under-sampling）是從多數類別中隨機地刪除一些樣本，以使多數類別的樣本數與少數類別的樣本數相近。
 							</p>
-							<div class="image-container">
-								<img src="./Data_Balance/Random Under-sampler.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/Random\ Under-sampler-small.png');">
+								<img src="./Data_Balance/Random Under-sampler.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -347,8 +347,8 @@
 						<div class="indented">
 							<p>
 								Cluster Centroids是一種基於聚類的欠採樣方法，它使用聚類的方式將多數類別的樣本聚為幾個群集，然後選將群集之外的多數類別樣本捨棄掉，只保留群集中心的樣本。
-							<div class="image-container">
-								<img src="./Data_Balance/Cluster Centroids.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/Cluster\ Centroids-small.png');">
+								<img src="./Data_Balance/Cluster Centroids.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -373,8 +373,8 @@
 						<div class="indented">
 							<p>
 								Near Miss會基於樣本之間的距離，選擇保留多數類別樣本與少數類別樣本之間最近的樣本，並且捨棄掉剩下的多數類別樣本。
-							<div class="image-container">
-								<img src="./Data_Balance/Near Miss.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/Near\ Miss-small.png');">
+								<img src="./Data_Balance/Near Miss.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -399,8 +399,8 @@
 						<div class="indented">
 							<p>
 								ENN（Edited Nearest Neighbors）是一種欠採樣方法，它選擇捨棄與少數類別樣本相近的多數類別樣本，以減少多數類別樣本的數量。
-							<div class="image-container">
-								<img src="./Data_Balance/ENN.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/ENN-small.png');">
+								<img src="./Data_Balance/ENN.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -426,8 +426,8 @@
 						<div class="indented">
 							<p>
 								Tomek Links是一種欠採樣方法，它通過計算樣本之間的距離來把不同類別的樣本連結起來，之後再將連結中的多數類別樣本捨棄掉，這樣可以減少多數類別樣本的數量，同時增強樣本的區分度。
-							<div class="image-container">
-								<img src="./Data_Balance/Tomek Links.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/Tomek Links-small.png');">
+								<img src="./Data_Balance/Tomek Links.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -451,8 +451,8 @@
 					<p>
 						混合採樣（Combination Sampling）是一種結合過採樣和欠採樣的方法，它可以<span class="mark">同時增加少數類別的樣本數量和減少多數類別的樣本數量</span>，常見的方法包括SMOTE ENN和SMOTE Tomek…等。
 					</p>
-					<div class="image-container">
-						<img src="./Data_Balance/Combination-sampling.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Data_Balance/Combination-sampling-small.png');">
+						<img src="./Data_Balance/Combination-sampling.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<details open="">
 						<summary>
@@ -461,8 +461,8 @@
 						<div class="indented">
 							<p>
 								SMOTE ENN結合了過採樣的SMOTE和欠採樣的ENN兩種方法，先使用SMOTE方法合成新的少數類別樣本，再用ENN方法刪除多數類別樣本中的一些樣本。
-							<div class="image-container">
-								<img src="./Data_Balance/SMOTE ENN.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/SMOTE ENN-small.png');">
+								<img src="./Data_Balance/SMOTE ENN.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -487,8 +487,8 @@
 						<div class="indented">
 							<p>
 								SMOTE Tomek結合了過採樣的SMOTE和欠採樣的Tomek Link兩種方法，先使用SMOTE生成新的少數類別樣本，再用Tomek連結刪除多數類別樣本，以增強樣本的區分度。
-							<div class="image-container">
-								<img src="./Data_Balance/SMOTE Tomek.png" class="margin image-zoom" alt="查無此圖片"/>
+							<div class="image-container" style="background-image: url('./Data_Balance/SMOTE Tomek-small.png');">
+								<img src="./Data_Balance/SMOTE Tomek.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 							</div>
 							<ul class="close post_list">
 								<div class="little_title">
@@ -510,8 +510,8 @@
 					<p>
 						權重調整（Weighting）就是調整資料在訓練模型是的影響力，透過將<span class="mark">少數類別的樣本權重提高，多數類別的樣本權重降低</span>，讓不同類別對於模型訓練的影響力達到平衡，這些權重可以應用於損失函數或樣本權重，以調整模型在不同類別上的學習重要性。
 					</p>
-					<div class="image-container">
-						<img src="./Data_Balance/Weighting.png" class="margin image-zoom" alt="查無此圖片"/>
+					<div class="image-container" style="background-image: url('./Data_Balance/Weighting-small.png');">
+						<img src="./Data_Balance/Weighting.png" class="margin image-zoom" alt="查無此圖片" loading="lazy"/>
 					</div>
 					<h2>成本敏感</h2>
 					<p class="margin">
@@ -560,6 +560,7 @@
 	<script src="../../assets/js/codeBlock.js"></script>
 	<script src="../../assets/js/TOC.js"></script>
 	<script src="../../assets/js/image_zoom.js"></script>
+	<script src="../../assets/js/blur_load.js"></script>
 	
 	<!-- Busuanzi -->
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
