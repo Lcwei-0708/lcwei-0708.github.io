@@ -357,12 +357,7 @@ body {
   
 img {
 	width: 100%;
-	display: block; /* 清除可能的預設間距 */
-	margin: 20px auto; /* 調整上下間距，左右置中 */
 	border-radius: 1rem;
-	border: 1px solid var(--font3-color);
-	background-color: var(--bar-color);
-	box-shadow: var(--shadow4-color);
 }
 
 img.page-cover-image {	
@@ -374,10 +369,17 @@ img.page-cover-image {
 }
 
 .image-container {
+	width: 100%;
+	display: block; /* 清除可能的預設間距 */
+	margin: 20px auto; /* 調整上下間距，左右置中 */
 	border-radius: 1rem;
+	border: 1px solid var(--font3-color);
+	background-color: var(--bar-color);
+	box-shadow: var(--shadow4-color);
 	background-repeat: no-repeat;
  	background-size: cover;
 	transition: all 0.3s ease-in-out;
+	overflow: hidden;
 }
 
 .image-container.loaded::before {
@@ -432,7 +434,7 @@ p.annotation {
 	padding: 5px 10px;
 }
 
-img.annotation {
+.image-container.annotation {
 	margin: 20px 0 5px;
 }
 
@@ -1008,7 +1010,7 @@ h2 {
 	margin-bottom: 80px !important;
 }
 
-img.medium {
+.image-container.medium {
 	width: 70%;
 	margin-left: auto !important;
 	margin-right: auto !important;
