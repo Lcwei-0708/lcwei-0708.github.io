@@ -606,10 +606,10 @@ button.copy {
 	user-select: none;
 	color: var(--font-color);
 	margin: 0 20px;
-	padding: 20px 0 0 0;
+	padding: 5px 0 0 0;
 }
 
-.pageOptions li {
+/* .pageOptions li {
 	border-top-left-radius: 0.5rem;
 	border-top-right-radius: 0.5rem;
 	padding: 5px 20px;	
@@ -648,6 +648,60 @@ button.copy {
         bottom: 0;
         background:radial-gradient(circle at 100% 0, transparent 25px, var(--code-bg2) 21px);
     }
+} */
+
+.pageOptions li {
+	position: relative;
+	background-color: transparent;
+	padding: 10px 15px;
+	border-radius: 12px 12px 0 0;
+	z-index: 0;
+	cursor: pointer;
+	margin-bottom: 1px;
+}
+
+.pageOptions li::before,
+.pageOptions li::after {
+	position: absolute;
+	bottom: 0;
+	content: '';
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	box-shadow: 0 0 0 40px transparent;
+}
+
+.pageOptions li::before {
+	left: -20px;
+	clip-path: inset(50% -10px 0 50%);
+}
+
+.pageOptions li::after {
+	right: -20px;
+	clip-path: inset(50% 50% 0 -10px);	
+}
+  
+.pageOptions li:hover {
+	background-color: var(--hover-bg-color);
+}
+
+.pageOptions li:hover::before,
+.pageOptions li:hover::after {
+	box-shadow: 0 0 0 30px var(--hover-bg-color);
+}
+
+.pageOptions li.selected {
+	background-color: var(--code-bg2);	
+	border: 1px solid var(--font3-color);
+	border-bottom: none;
+	z-index: 1;	
+	margin-bottom: 0px;
+}
+
+.pageOptions li.selected::before,
+.pageOptions li.selected::after {
+	box-shadow: 0 0 0 30px var(--code-bg2);	
+	border: 1px solid var(--font3-color);
 }
 
 /*--------------------------------------------------------------

@@ -117,26 +117,24 @@
 								<div class="dots">
 									<div class="dot dot-1"></div>
 									<div class="dot dot-2"></div>
-									<div class="dot dot-3"></div>
-									<span>Python</span>									
+									<div class="dot dot-3"></div>							
 									<div class="pageSelector">
 										<ul class="pageOptions">
-											<li class="page selected">test.py</li>
-											<li class="page">test2.py</li>
+											<li class="page selected" page="test.py">test.py</li>
+											<li class="page" page="test2.py">test2.py</li>
 										</ul>
 									</div>																		
 								</div>
-								<button class="btn copy"><iconify-icon
-										icon="akar-icons:copy"></iconify-icon></button>
+								<button class="btn copy"><iconify-icon icon="akar-icons:copy"></iconify-icon></button>
 							</div>
 							<div class="bottom">
-								<pre class="code code-wrap" language="Python"><code class="language-python">numbers = []
+								<pre class="code code-wrap" page="test.py"><code class="language-python">numbers = []
 
 # 新增元素到陣列
 numbers.append(1)
 numbers.append(2)
 numbers.append(3)</code></pre>
-								<pre class="code code-wrap hidden" language="Java"><code class="language-java">// 創建一個長度為5的陣列
+								<pre class="code code-wrap hidden" page="test2.py"><code class="language-java">// 創建一個長度為5的陣列
 int[] numbers = new int[5];
 
 // 新增元素到陣列
@@ -145,10 +143,10 @@ numbers[1] = 2;
 numbers[2] = 3;</code></pre>
 							</div>
 						</div>
-						<p class="annotation se" language="Python">
+						<p class="annotation" page="test.py">
 							在Python中，陣列是一個動態資料結構，可以根據需要動態增加元素
 						</p>
-						<p class="annotation hidden" language="Java">
+						<p class="annotation hidden" page="test2.py">
 							使用索引來給予值，陣列是固定的大小，所以新增後的長度不可以超過當初宣告的長度
 						</p>														
 					</div>
