@@ -1,7 +1,7 @@
 body {
 	margin: 0 auto;
 	max-width: 80vw;
-	font-family: "PingFang TC", Consolas;
+	font-family: Consolas, "PingFang TC";
 	font-size: 20px;
 }
 
@@ -205,7 +205,7 @@ body {
 	margin: 3% 0 1% 0;
 	text-align: start;
 	text-transform: none;
-	font-family: "PingFang TC", Consolas;
+	font-family: Consolas, "PingFang TC";
 	font-weight: bolder;
 }
 
@@ -458,7 +458,7 @@ p.annotation {
 	color: var(--font2-color);
 	font-size: 20px;
 	font-weight: 600;
-	font-family: "PingFang TC", Consolas;
+	font-family: Consolas, "PingFang TC";
 	margin-left: 10px;
 }
 
@@ -609,47 +609,6 @@ button.copy {
 	padding: 5px 0 0 0;
 }
 
-/* .pageOptions li {
-	border-top-left-radius: 0.5rem;
-	border-top-right-radius: 0.5rem;
-	padding: 5px 20px;	
-	height: 2rem;
-	font-size: 18px;
-}
-
-.pageOptions li.selected {
-	background-color: var(--code-bg2);
-}
-
-.pageOptions li:hover:not(.selected) {
-	background-color: var(--hover-bg-color);
-}
-
-.pageOptions li.selected {
-    position: relative;
-	background-color: var(--code-bg2);
-    border-radius: 0.5rem 0.5rem 0 0;
-
-    &::before {
-        content: "";
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        left: -25px;
-        bottom: 0;
-        background:radial-gradient(circle at 0 0, transparent 25px, var(--code-bg2) 21px);
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        right: -25px;
-        bottom: 0;
-        background:radial-gradient(circle at 100% 0, transparent 25px, var(--code-bg2) 21px);
-    }
-} */
-
 .pageOptions li {
 	position: relative;
 	background-color: transparent;
@@ -715,7 +674,7 @@ button.copy {
 	font-size: 18px;
 	overflow: auto;
 	tab-size: 4;
-	font-family: "PingFang TC", Consolas;
+	font-family: Consolas, "PingFang TC";
 }
 
 .hljs::-webkit-scrollbar-track {
@@ -1014,7 +973,7 @@ h2 {
 	margin-top: 80px;
 	text-align: start;
 	text-transform: none;
-	font-family: "PingFang TC", Consolas;
+	font-family: Consolas, "PingFang TC";
 }
 
 .margin{
