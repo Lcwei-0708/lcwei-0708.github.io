@@ -10,7 +10,6 @@
   height: 100vh;
   z-index: -100;
 	transition: all 0.3s ease-in-out;
-  background-image: var(--hero-bg-small);
   background-size: 70%; /* 調整圖片大小以填滿元素 */
   background-position: calc(45vw) bottom; /* 往右上偏移 */
 	background-repeat: no-repeat;

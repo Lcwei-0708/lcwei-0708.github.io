@@ -242,6 +242,7 @@ section {
   backdrop-filter: blur(7px);
   color: var(--font2-color);
   font-family: "PingFang TC", Consolas;
+  font-size: 20px;
 }
 
 .card-body {

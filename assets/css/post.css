@@ -507,6 +507,7 @@ button.copy {
 	border: none;
 	display: flex;
 	align-items: center; /* 垂直置中 */
+	justify-content: center;
 }
 
 .copy iconify-icon,
@@ -517,7 +518,7 @@ button.copy {
 	color: var(--font2-color);
 }
 
-.copy iconify-icon:hover {
+.copy:hover iconify-icon {
 	color: var(--hover-font-color);
 	cursor: pointer;
 	background-color: none;
