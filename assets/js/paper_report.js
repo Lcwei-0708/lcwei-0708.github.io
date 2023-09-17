@@ -89,6 +89,15 @@ window.onload = function paper_table() {
       "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>LIU Zheng、QIU Han、ZHU Junhu</p><text class="update_date"><b>論文上傳日期：</b>15 August 2022</text>',
       "PDF_link": "./data/paper/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification.pdf",
       "PPT_link": "./data/paper/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification/A Combination Method of Resampling and Random Forest for Imbalanced Data Classification.pptx"
+    },
+    {
+      "date": "2023/09/19",
+      "name": "Two Novel SMOTE Methods for Solving Imbalanced Classification Problems",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>YUAN BAO、SIBO YANG</p><text class="update_date"><b>論文上傳日期：</b>13 January 2023</text>',
+      "PDF_link": "./data/paper/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems.pdf",
+      "PPT_link": "./data/paper/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems.pptx"
     }
   ];
 
