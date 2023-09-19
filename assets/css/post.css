@@ -448,8 +448,8 @@ p.annotation {
 }
 
 .top {
-	min-height: 55px;
-	max-height: 55px;
+	min-height: 50px;
+	max-height: 50px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -485,8 +485,8 @@ p.annotation {
 }
 
 .dot {
-	width: 15px;
-	height: 15px;
+	width: 17px;
+	height: 17px;
 	border-radius: 50%;
 	align-content: center;
 }
@@ -500,7 +500,7 @@ p.annotation {
 }
 
 .dot-3 {
-	background-color: #35CD4B;
+	background-color: #35CD4B;	
 }
 
 button:active {
@@ -514,6 +514,10 @@ button.copy {
 	display: flex;
 	align-items: center; /* 垂直置中 */
 	justify-content: center;
+}
+
+.top .copy span {	
+	font-size: 18px;
 }
 
 .copy iconify-icon,
@@ -866,7 +870,7 @@ button.copy {
 }
 
 .little_title {
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 600;
 	margin: auto 0 20px 0;
 }
