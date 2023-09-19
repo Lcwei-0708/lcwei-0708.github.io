@@ -4,7 +4,7 @@
 /* 定義 PingFang TC 字體 */
 @font-face {
   font-family: 'PingFang TC';
-  src: url('../fonts/pingfang-tc_regular.ttf') format('truetype');
+  src: url('../fonts/PingFangTC.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 p {
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
 }
 
 .light-mode {
@@ -345,7 +345,7 @@ h2{
 }
 
 .navbar ul {  
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
   margin: 0;
   padding: 0;
   display: flex;
@@ -380,7 +380,7 @@ h2{
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
   font-weight: 700;
   color: var(--font-color);
   white-space: nowrap;
@@ -579,7 +579,7 @@ h2{
   font-size: 36px;
   font-weight: 700;
   position: relative;
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
   padding: 0;
   margin: 0 0 15px 0;
 }

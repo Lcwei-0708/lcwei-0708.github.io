@@ -2,7 +2,7 @@
 # Notes
 --------------------------------------------------------------*/
 .notes {
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
   margin: 0;
   padding: 0;
 }
@@ -201,11 +201,11 @@ th{
   padding: 20px 15px;
   text-align: left;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--font-color);
   text-transform: uppercase;
   border-bottom: solid 3px var(--hover-font-color);
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
   word-wrap: break-word;
   margin-top: 10px;
 }
@@ -220,7 +220,7 @@ td{
   color: var(--font2-color);
   height: 70px;
   border-bottom: solid 1px var(--hover-bg-color);
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
 }
 
 tbody tr:hover{

@@ -2,7 +2,7 @@
 # About
 --------------------------------------------------------------*/
 .about, .resume {  
-  font-family: "PingFang TC", Consolas;
+  font-family: Consolas, "PingFang TC";
 }
 
 .about .section-title p {  

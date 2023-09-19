@@ -2,7 +2,11 @@ body {
 	margin: 0 auto;
 	max-width: 80vw;
 	font-family: Consolas, "PingFang TC";
-	font-size: 20px;
+	font-size: 18px;
+}
+
+body p {
+	line-height: 1.7;
 }
 
 @media (max-width: 1400px) {
@@ -127,8 +131,9 @@ body {
 #toc-list {
 	padding: 0;
 	margin: 0;
-	height: 90%;
+	height: 89%;
 	overflow: auto ;
+	line-height: 2;
 }
 
 /* 自定义滚动条样式 */
@@ -155,22 +160,23 @@ body {
 }
 
 #toc h2{
-	margin: 20px 0 15px 10px;
-	font-size: 36px;
+	margin: 25px 0 20px 10px;
+	font-size: 32px;
 }
 
 #toc ul {
 	list-style: none;
-	padding: 0 5px;
-	line-height: 1.4;
+	padding: 0px 5px;
+	line-height: 1;
 	width: 100%;
 }
 
 #toc li {
 	margin-bottom: 5px;
-	padding:5px 10px;
+	padding:10px 10px;
 	display: flex;
 	align-items: center;
+	vertical-align: middle;
 }
 
 #toc li:hover {	
@@ -201,7 +207,7 @@ body {
 # Properties
 --------------------------------------------------------------*/
 .page-title {
-	font-size: 40px;
+	font-size: 36px;
 	margin: 3% 0 1% 0;
 	text-align: start;
 	text-transform: none;
@@ -359,7 +365,7 @@ img.page-cover-image {
 details h3 {
 	margin: 0 7px;
 	display: inline;
-	font-size: 26px;
+	font-size: 24px;
 	font-weight: bold;
 }
 
@@ -368,7 +374,7 @@ details summary {
 }
 
 details .indented {
-	margin-left: 32px;
+	margin-left: 28px;
 }
 
 details .indented .card {
@@ -675,6 +681,7 @@ button.copy {
 	overflow: auto;
 	tab-size: 4;
 	font-family: Consolas, "PingFang TC";
+	line-height: 1.5;
 }
 
 .hljs::-webkit-scrollbar-track {
@@ -791,7 +798,7 @@ button.copy {
 	background-color: var(--highlight-bg-1);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-1);
-	padding: 7px;
+	padding: 5px 7px;
 	margin: 0 7px;
 	font-size: 18px;
 }
@@ -800,7 +807,7 @@ button.copy {
 	background-color: var(--highlight-bg-2);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-2);
-	padding: 7px;
+	padding: 5px 7px;
 	margin: 0 7px;
 	font-size: 18px;
 }
@@ -809,7 +816,7 @@ button.copy {
 	background-color: var(--highlight-bg-3);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-3);
-	padding: 7px;
+	padding: 5px 7px;
 	margin: 0 7px;
 	font-size: 18px;
 }
@@ -818,7 +825,7 @@ button.copy {
 	background-color: var(--highlight-bg-4);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-4);
-	padding: 7px;
+	padding: 5px 7px;
 	padding: 7px;
 	margin: 0 7px;
 	font-size: 18px;
@@ -828,7 +835,7 @@ button.copy {
 	background-color: var(--highlight-bg-5);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-5);
-	padding: 7px;
+	padding: 5px 7px;
 	margin: 0 7px;
 	font-size: 18px;
 }
@@ -837,7 +844,7 @@ button.copy {
 	background-color: var(--highlight-bg-6);
 	border-radius: 0.5rem;
 	color: var(--highlight-font-6);
-	padding: 7px;
+	padding: 5px 7px;
 	margin: 0 7px;
 	font-size: 18px;
 }
@@ -969,7 +976,7 @@ button.copy {
 --------------------------------------------------------------*/
 
 h2 {
-	font-size: 32px;
+	font-size: 28px;
 	margin-top: 80px;
 	text-align: start;
 	text-transform: none;
