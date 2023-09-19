@@ -461,11 +461,12 @@ p.annotation {
 }
 
 .top span {
+	display: block;
 	color: var(--font2-color);
 	font-size: 20px;
 	font-weight: 600;
 	font-family: Consolas, "PingFang TC";
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 .bottom {
@@ -500,7 +501,7 @@ p.annotation {
 }
 
 .dot-3 {
-	background-color: #35CD4B;	
+	background-color: #35CD4B;
 }
 
 button:active {
@@ -518,6 +519,11 @@ button.copy {
 
 .top .copy span {	
 	font-size: 18px;
+}
+
+.top div.languageSelector,
+.top div.pageSelector {	
+	margin-left: 10px;
 }
 
 .copy iconify-icon,
