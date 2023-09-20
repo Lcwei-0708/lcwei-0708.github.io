@@ -7,6 +7,7 @@ body {
 
 body p {
 	line-height: 1.7;
+	text-align: justify;
 }
 
 @media (max-width: 1400px) {
@@ -862,7 +863,7 @@ button.copy {
 .mark {
 	background-color: var(--mark);
 	border-radius: 5px;
-	padding: 7px 3px;
+	padding: 5px 3px;
 	font-display: block;
 }
 
