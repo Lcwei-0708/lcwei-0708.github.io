@@ -863,7 +863,7 @@ button.copy {
 .mark {
 	background-color: var(--mark);
 	border-radius: 5px;
-	padding: 5px 3px;
+	padding: 3px 0px;
 	font-display: block;
 }
 
