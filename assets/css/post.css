@@ -749,7 +749,7 @@ button.copy {
 .table-th {
 	border-spacing: 0;
 	padding: 10px 15px;
-	font-size: 20px;
+	font-size: 18px;
 	border: 2px solid var(--font3-color);
 	background-color: var(--code-bg);
 }
@@ -757,7 +757,7 @@ button.copy {
 .table-th.center {
 	border-spacing: 0;
 	padding: 10px 15px;
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 	border: 2px solid var(--font3-color);
 	background-color: var(--code-bg);
