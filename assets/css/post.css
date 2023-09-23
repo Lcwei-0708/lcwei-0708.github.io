@@ -649,11 +649,13 @@ button.copy {
 
 .pageOptions li::before {
 	left: -20px;
+	bottom: 1px;
 	clip-path: inset(50% -10px 0 50%);
 }
 
 .pageOptions li::after {
 	right: -20px;
+	bottom: 1px;
 	clip-path: inset(50% 50% 0 -10px);	
 }
   
