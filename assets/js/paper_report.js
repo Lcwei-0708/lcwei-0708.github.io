@@ -98,6 +98,15 @@ window.onload = function paper_table() {
       "detail": '<p class="source"><b>來源：</b>IEEE Access</p><p class="authors"><b>作者：</b>YUAN BAO、SIBO YANG</p><text class="update_date"><b>論文上傳日期：</b>13 January 2023</text>',
       "PDF_link": "./data/paper/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems.pdf",
       "PPT_link": "./data/paper/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems/Two Novel SMOTE Methods for Solving Imbalanced Classification Problems.pptx"
+    },
+    {
+      "date": "2023/10/03",
+      "name": "A New Hybrid Sampling Approach for Classification of Imbalanced Datasets",
+      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
+      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
+      "detail": '<p class="source"><b>來源：</b>IEEE</p><p class="authors"><b>作者：</b>Anantaporn Hanskunatai</p><text class="update_date"><b>論文上傳日期：</b>27-30 April 2018</text>',
+      "PDF_link": "./data/paper/A New Hybrid Sampling Approach for Classification of Imbalanced Datasets/A New Hybrid Sampling Approach for Classification of Imbalanced Datasets.pdf",
+      "PPT_link": "./data/paper/A New Hybrid Sampling Approach for Classification of Imbalanced Datasets/A New Hybrid Sampling Approach for Classification of Imbalanced Datasets.pptx"
     }
   ];
 
