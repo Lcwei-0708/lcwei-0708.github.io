@@ -6,7 +6,8 @@
   font-family: 'PingFang TC';
   src: url('../fonts/PingFangTC.woff2') format('woff2');
   font-weight: normal;
-  font-style: normal;
+  font-style: normal;  
+  font-display: swap;
 }
 
 @font-face {
