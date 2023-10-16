@@ -245,7 +245,7 @@ $(document).ready(function() {
         <div class="subitem">
           <a href="${subitem.link}" target="_blank">
             <div class="image-container" style="background-image: url('${subitem.small_image}')">
-              <img src="${subitem.image}" alt="${subitem.name}">
+              <img src="${subitem.image}" alt="${subitem.name}" loading="lazy">
             </div>
           </a>
         </div>
