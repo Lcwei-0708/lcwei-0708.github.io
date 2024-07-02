@@ -116,15 +116,6 @@ window.onload = function paper_table() {
       "detail": '<p class="source"><b>來源：</b>Information Sciences</p><p class="authors"><b>作者：</b>Pattaramon Vuttipittayamongkol、Eyad Elyan</p><text class="update_date"><b>論文上傳日期：</b>3 September 2019</text>',
       "PDF_link": "./data/paper/Neighbourhood-based Undersampling Approach for Handling Imbalanced and Overlapped Data/Neighbourhood-based Undersampling Approach for Handling Imbalanced and Overlapped Data.pdf",
       "PPT_link": "./data/paper/Neighbourhood-based Undersampling Approach for Handling Imbalanced and Overlapped Data/Neighbourhood-based Undersampling Approach for Handling Imbalanced and Overlapped Data.pptx"
-    },
-    {
-      "date": "2023/10/24",
-      "name": "進度報告",
-      "PDF": "<i class='bx bx-download bx-sm pdf'></i>",
-      "PPT": "<i class='bx bx-download bx-sm ppt'></i>",
-      "detail": '',
-      "PDF_link": "https://nantai-my.sharepoint.com/:f:/g/personal/mb190102_office_stust_edu_tw/ErW4j4yhsllAgt6zvF88n0sBtLTbdcHiOzBwjNACnsSgWA?e=rvgklp",
-      "PPT_link": "https://nantai-my.sharepoint.com/:f:/g/personal/mb190102_office_stust_edu_tw/ErW4j4yhsllAgt6zvF88n0sBtLTbdcHiOzBwjNACnsSgWA?e=rvgklp"
     }
   ];
 
